@@ -18,6 +18,8 @@ Static item-list generation does not imply exact realized values when the same R
 
 For serialized spawn-entry lists, preserve asset order and distinguish three phases: the curve/requested-attempt draw, per-attempt placement draws, and successful instantiation. Record skips that occur before the curve draw, zero targets, and compatibility checks that suppress later placement draws. A later entry can therefore depend on whether an earlier compatible spawner existed even when both entries use one seeded stream. If spawner presence in the generated interior is unavailable, enumerate named global compatibility scenarios for sensitivity; do not call them observations, monotone bounds, or actual placement counts.
 
+When a draw-count claim depends on a helper call, freeze the helper body through the actual RNG-consuming statement, not only its call sites or signature. The excerpt locator and hash must let a receiver reconstruct the complete call-to-draw alignment without access to the producer's external decompilation tree.
+
 Treat a reproduced `AnimationCurve` integer output as exact only after validating the target build's effective serialized keys, weighted tangents, infinity behavior, float32 input, and truncation at reachable boundaries against a suitable Unity oracle. Agreement between two custom evaluators strengthens a static model but does not by itself promote it to Unity-runtime exactness.
 
 `FindObjectsOfType` order is runtime state. Noneligible objects can change a global array index without consuming endpoint-specific RNG. A fixed offset is a scenario, not a bound, unless monotonicity is proved.
