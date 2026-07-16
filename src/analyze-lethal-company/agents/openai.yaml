@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lethal Company Analysis"
+  short_description: "Evidence-led seeded analysis for Lethal Company"
+  default_prompt: "Use $analyze-lethal-company to investigate a Lethal Company mechanic with reproducible evidence and explicit runtime boundaries."
