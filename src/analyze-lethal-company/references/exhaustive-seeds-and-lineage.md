@@ -12,6 +12,8 @@ Freeze the inclusive seed domain, every declared population/comparison stratum, 
 
 Use a second implementation that imports no production computational or canonical-encoding modules; share only frozen semantic/source inputs plus declarative contracts and schemas. Do not read production-derived intermediates, canonical records, contingencies, reducer outputs, or digests until the comparison phase. Regenerate complete-domain results, type-appropriate invariants, and canonical digests independently. Make it reject targeted mutations such as seed offsets, serialized entry order, branch timing, draw counts, float precision, truncation, curve behavior, applicability rules, record encoding, or reduction order. A sample or prefix can validate performance but cannot certify coverage.
 
+For weighted selection, freeze the entire edge path, not just the ordinary cumulative-probability loop: binary precision of the random target, division and accumulator precision, comparison inclusivity, treatment of nonpositive weights, and the decompiled fallback after cumulative rounding. If the game consumes another RNG draw when no cumulative bin reaches the target, the independent verifier must do the same. Include a fixture that actually reaches this fallback; otherwise a verifier can agree on common rows while shifting every later draw in the rare boundary row.
+
 ## Deterministic mappings and witnesses
 
 Freeze the mapping universe in the endpoint contract, including every declared dimension that belongs to the estimand (for example moon, build, level, endpoint, type, interior, profile, or counterfactual scenario). Do not silently narrow “all mappings” to a headline scenario; if the report shows a headline subset, link the complete-universe table explicitly.
