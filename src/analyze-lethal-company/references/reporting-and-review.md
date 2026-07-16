@@ -29,4 +29,6 @@ For resumable enumeration, embed a generation fingerprint in every part and atom
 
 Render all PDF pages with a pinned renderer. Inspect every page for clipping, overflow, unreadable labels, misleading axes, broken glyphs, blank pages, orphaned captions, and table-header/row splits. Record page and contact-sheet hashes in visual QA evidence.
 
+Treat non-Python report dependencies as semantic inputs too. Record and seal the exact font bytes used for PDF generation and the renderer executable hash plus version; a Python lock does not pin a system font or an arbitrary `PATH` binary. Bind rendered page/contact hashes to that renderer and the source PDF.
+
 Give blank reviewers raw artifacts and the task, not intended conclusions. Require actionable findings. After each correction, rerun affected computations and request another pass until no useful issue remains.
