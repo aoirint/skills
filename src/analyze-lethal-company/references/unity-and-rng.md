@@ -2,7 +2,9 @@
 
 ## Serialization
 
-Search scene YAML, prefabs, ScriptableObjects, addressable/bundle extracts, and build scene lists. Join a `MonoBehaviour` to its class through the script `.meta` GUID and join other assets by GUID/fileID rather than filename guesses. Before calling a serialized value effective, verify the component is enabled, its GameObject is active, the scene is in the build/load path, and no later code assignment replaces it. Record whether a value is a code default, serialized override, or runtime mutation.
+Search scene YAML, prefabs, prefab variants, nested prefabs, ScriptableObjects, addressable/bundle extracts, and build scene lists. Join a `MonoBehaviour` to its class through the script `.meta` GUID and join other assets by GUID/fileID rather than filename guesses. Traverse the complete prefab dependency graph in Unity precedence order and keep record-specific identities: property modifications use owner instance/asset + target correspondence + property path; added records use owner + owner-local added ID + attachment-target correspondence; removed records use owner + removed-source correspondence; stripped proxies use owning prefab instance + stripped local ID + source correspondence. Do not match nested objects by name alone. Confirm which GameObjects/components survive composition before resolving their properties. Apply serialized scene prefab-instance modifications next, then separately trace runtime instantiation changes and later code assignments. The resolved serialized value supersedes the code initializer even on a disabled or inactive object. Separately decide whether the object/value can affect the declared endpoint window by checking structural existence, enabled/component and GameObject-active state where applicable, plus scene/asset load-path reachability. Record whether a value is a code default, serialized override at each layer, serialized scene modification, or runtime mutation.
+
+Classify individual serialized source records as `direct_static`. Classify an effective serialized state composed across verified prefab/scene precedence as `exact_derived`; classify whether it affected the runtime endpoint separately under the evidence policy's runtime-promotion boundary.
 
 ## RNG streams
 
@@ -13,6 +15,10 @@ For Mono legacy `System.Random`, verify against a C# oracle or frozen vectors. I
 ## Runtime consumption hazards
 
 Static item-list generation does not imply exact realized values when the same RNG later drives spawn-point selection, NavMesh sampling, retry loops, or failures before value draws. Model such paths only after reproducing the generated interior and candidate objects, or label a fixed-consumption implementation counterfactual.
+
+For serialized spawn-entry lists, preserve asset order and distinguish three phases: the curve/requested-attempt draw, per-attempt placement draws, and successful instantiation. Record skips that occur before the curve draw, zero targets, and compatibility checks that suppress later placement draws. A later entry can therefore depend on whether an earlier compatible spawner existed even when both entries use one seeded stream. If spawner presence in the generated interior is unavailable, enumerate named global compatibility scenarios for sensitivity; do not call them observations, monotone bounds, or actual placement counts.
+
+Treat a reproduced `AnimationCurve` integer output as exact only after validating the target build's effective serialized keys, weighted tangents, infinity behavior, float32 input, and truncation at reachable boundaries against a suitable Unity oracle. Agreement between two custom evaluators strengthens a static model but does not by itself promote it to Unity-runtime exactness.
 
 `FindObjectsOfType` order is runtime state. Noneligible objects can change a global array index without consuming endpoint-specific RNG. A fixed offset is a scenario, not a bound, unless monotonicity is proved.
 

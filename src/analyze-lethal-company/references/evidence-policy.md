@@ -16,8 +16,8 @@ Do not let a higher-ranked source erase a conflict. Explain why the sources desc
 ## Claim classes
 
 - `direct_static`: explicit in target-build code or serialized data.
-- `exact_derived`: deterministic result whose complete finite population and implementation are verified.
-- `counterfactual_model`: deterministic under stated assumptions that differ from runtime.
+- `exact_derived`: deterministic result exact over the claim's complete declared domain, including a single declared case, with its implementation and inputs verified. Use it for an actual-runtime endpoint only after runtime correspondence, applicability, execution path, and every runtime-dependent input are established by claim-appropriate evidence.
+- `counterfactual_model`: deterministic under stated assumptions not established as runtime, including known-different assumptions and named sensitivity scenarios. Keep the corresponding actual endpoint `unknown_runtime` until runtime correspondence and every runtime-dependent input are established by claim-appropriate observation and/or exact derivation.
 - `sample_estimate`: estimate from a frozen sample; record design and uncertainty meaning.
 - `runtime_observed`: measured under a named profile/window.
 - `unknown_runtime`: required runtime state is absent.
