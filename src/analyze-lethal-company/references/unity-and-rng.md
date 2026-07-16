@@ -28,4 +28,8 @@ Trace who computes the value, who owns the authoritative state, when RPC synchro
 
 For before/after UI differences, verify whether the UI recomputes every existing object or only adds the new object. A full rescan means reordering can change old contributions, so the displayed delta is not automatically the new object's value. Define a stable-window protocol with the same client, synchronized values, count/object-set deltas, and exclusion of unrelated state changes. Model append positions only as named scenarios unless runtime captures prove enumeration stability.
 
+For a delayed event that creates multiple objects, freeze object identity across every ordinal system: value-generation draw, any branch-mask bit, endpoint raw draw, append order, and final global index. Do not assume that equal object types make within-event permutations irrelevant when clamp bounds or endpoint draws depend on index. Either state one exact correspondence such as one-based ordinal `e` mapping to append index `first+e-1`, or enumerate named permutation scenarios.
+
 When a value path mixes seeded `System.Random` with stateful `UnityEngine.Random`, keep the seeded portion exact and the Unity-state-dependent branch unknown. A frozen hash allocation can be useful for sensitivity analysis, but label it counterfactual and never present its per-seed branch as a recovered runtime outcome.
+
+For synthetic populations crossed with imposed profiles or append scenarios, freeze whether scenarios are fit separately or pooled, the complete training-cell key, how moons/levels/builds enter the pool, every unit weight (including whether serialized rarity is ignored), and the exact evaluation denominator. A complete seed range does not remove ambiguity in these estimands.
