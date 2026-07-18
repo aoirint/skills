@@ -90,17 +90,25 @@ or MCP dependency:
    the repository. If its age, provenance, or required hash cannot be verified,
    stop and report the blocker. Do not bypass the cooldown without a documented
    maintainer exception.
-3. Add the dependency to `apm.yml` with the full commit SHA, never a default
+3. Before committing a third-party skill, determine its license from an
+   authoritative upstream license file or policy. Add or update the
+   repository-root `THIRD_PARTY_NOTICES.md` with its source repository and
+   virtual path, full commit SHA, license identifier and canonical text or URL,
+   plus any supplied copyright or NOTICE text. Do not put this record in an
+   APM-managed target directory such as `.agents/skills/`. Treat a missing or
+   unclear license or required notice as a blocker unless a maintainer records
+   an explicit exception.
+4. Add the dependency to `apm.yml` with the full commit SHA, never a default
    branch, `latest`, or an unbounded range. Keep MCP entries under the same
    review gate and do not put tokens in tracked YAML.
-4. Run `apm lock` to resolve and download without deploying to agent targets.
+5. Run `apm lock` to resolve and download without deploying to agent targets.
    Review `apm.lock.yaml`: each dependency must resolve to the expected commit
    and carry its content hash. Commit the manifest and lockfile together.
-5. Run `apm install --frozen` only after that review. It must reproduce the
+6. Run `apm install --frozen` only after that review. It must reproduce the
    reviewed lockfile and must not resolve a new dependency. Never use
    `--force`, `--allow-insecure`, or an insecure HTTP source unless an explicit
    documented exception authorizes it.
-6. Run `apm audit --ci` after deployment. Fix lockfile, integrity, drift, or
+7. Run `apm audit --ci` after deployment. Fix lockfile, integrity, drift, or
    policy findings rather than suppressing them. Add `apm install --frozen` and
    `apm audit --ci` to the project's existing CI when the user requests CI
    enforcement.
@@ -135,5 +143,7 @@ first:
   content hashes.
 - Each adopted release, or the last change to a selected virtual subdirectory,
   met the seven-day cooldown or has a documented maintainer-approved exception.
+- Each committed third-party skill has a complete `THIRD_PARTY_NOTICES.md`
+  entry, including its license and required notices.
 - Deployment used `apm install --frozen`, and `apm audit --ci` passed.
 - Updates have a reviewable, cooldown-aware proposal before application.
