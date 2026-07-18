@@ -1,10 +1,12 @@
 ---
 name: security-check
 description: >-
-  Check repository work for practical security risks, including secrets,
-  permissions, unsafe defaults, ad hoc executable tools, dependencies,
-  downloaded artifacts, CI actions, containers, vendored files, and
-  supply-chain-sensitive changes.
+  Check security-sensitive repository changes for practical risks. Use when
+  adding, updating, or reviewing secrets, credentials, permissions, untrusted
+  input, dependencies, external executable or downloaded artifacts, CI or
+  deployment configuration (including third-party CI actions), containers,
+  vendored or generated files, and supply-chain controls; do not use for local
+  documentation-only edits with no such security-sensitive surface.
 ---
 
 # Security Check
@@ -99,6 +101,9 @@ description: >-
 
 ## Supply-Chain Baseline
 
+- For tool-specific fixed-install and execution patterns, consult
+  [external-code-execution.md](references/external-code-execution.md) when the
+  listed tool applies.
 - Treat new or updated third-party packages, package-runner invocations,
   downloaded CLI tools, GitHub Actions, containers, vendored artifacts,
   generated code from external tools, copied files, and dependency lockfile
@@ -120,6 +125,25 @@ description: >-
 - Verify release age and provenance from source-backed evidence such as package
   registry metadata, release pages, tags, changelogs, signed artifacts,
   lockfiles, upstream commit history, or maintained package-manager docs.
+- Apply this execution gate before selecting an installation or execution
+  command. It covers every mechanism that resolves, downloads, builds, loads,
+  or executes third-party code at run time, whether it is a package manager,
+  language runtime, plugin host, editor extension, archive installer, URL, or
+  a future tool not named here:
+  1. Use an existing project dependency only when its immutable resolution and
+     lockfile (including available integrity data) have already been reviewed.
+  2. Otherwise, stop execution and complete the adoption review first: record
+     canonical source and publisher, immutable version/commit or artifact
+     digest, release date and seven-day eligibility, resolved direct and
+     transitive dependencies, and runtime behavior.
+  3. Use only a command whose exact configuration demonstrably enforces the
+     required controls before it resolves or executes code. A differently
+     named runner, installer, mirror, cache, or flag is not an alternative
+     control.
+  4. Treat a maintainer exception as a documented decision about the specific
+     unmet gate only. It never waives provenance review, immutable pinning,
+     reviewer-visible reproducibility, or runtime-behavior review, and it
+     cannot be created by choosing another execution mechanism.
 - Treat package runners as remote-code-execution paths until the exact command
   form is verified:
   - Confirm the package-manager version supports the needed cooldown or trust
@@ -129,6 +153,15 @@ description: >-
   - Confirm the policy applies before downloading or executing the package.
   - Use source-backed and preferably test-backed evidence before documenting
     `npx`, `npm exec`, `pnpm dlx`, or similar commands as acceptable.
+- For Python scripts run with `uv`, enforce the seven-day package cutoff in
+  the command or script metadata before dependency resolution:
+  - Prefer a PEP 723 script containing `[tool.uv] exclude-newer = "P7D"` with
+    its adjacent `.py.lock`, and execute it as
+    `uv run --locked --script path/to/script.py`.
+  - If a one-off check needs an extra package and no locked script is
+    available, execute `uv run --exclude-newer=P7D --with <package> -- python
+    path/to/script.py`. Do not use bare `python`, `pip install`, or
+    `uv run --with <package>` without the cutoff.
 - Do not treat hash pinning alone as sufficient trust when the pinned artifact
   can fetch or execute additional remote content at runtime, such as online
   installers, bootstrappers, package runners, remote API clients, or tools with
@@ -162,6 +195,9 @@ description: >-
 - Stricter external requirements were followed when applicable.
 - Supply-chain-sensitive artifacts satisfied cooldown, pinning, provenance, and
   runtime-behavior checks, or blockers/residual risk were recorded.
+- Every third-party resolution, download, build, load, or execution path passed
+  the mechanism-neutral execution gate; tool names and delivery channels were
+  treated as examples, not exemptions.
 - Secrets, permissions, unsafe defaults, and untrusted input paths were checked
   when relevant.
 - Suspected vulnerabilities were kept out of public channels when sensitive
