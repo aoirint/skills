@@ -23,8 +23,9 @@
 
 ## License
 
-Repository-original content is [MIT licensed](LICENSE). Third-party skills
-retain the licenses and notices recorded in
+Unless otherwise specified, repository content is licensed under the
+[MIT License](LICENSE). Third-party skills may carry their own licenses; their
+licenses and notices are recorded in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## Install for Codex

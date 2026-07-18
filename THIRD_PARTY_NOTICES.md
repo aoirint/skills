@@ -1,8 +1,8 @@
 # Third-Party Notices
 
-Repository-original content is licensed under the MIT license in
-[LICENSE](LICENSE). Each entry below identifies third-party content whose
-upstream license and notices apply instead; this repository's MIT license does
+Unless otherwise specified, repository content is licensed under the
+[MIT License](LICENSE). Each entry below identifies third-party content whose
+upstream license and notices apply instead; this repository's MIT License does
 not relicense that content.
 
 This file records the license and attribution information for third-party
