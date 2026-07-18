@@ -1,27 +1,14 @@
 ---
 name: security-check
 description: >-
-  Check security-sensitive repository changes for practical risks. Use when
-  adding, updating, or reviewing secrets, credentials, permissions, untrusted
-  input, dependencies, external executable or downloaded artifacts, CI or
-  deployment configuration (including third-party CI actions), containers,
-  vendored or generated files, and supply-chain controls; do not use for local
-  documentation-only edits with no such security-sensitive surface.
+  Review repository changes for practical security and supply-chain risks. Use
+  when work touches secrets, permissions, untrusted input, dependencies,
+  executable or downloaded artifacts, CI or deployment configuration,
+  containers, or vendored/generated files; skip documentation-only changes with
+  no security-sensitive surface.
 ---
 
 # Security Check
-
-## When to Use
-
-- Use this skill when repository work touches security-sensitive behavior,
-  external executable artifacts, dependency provenance, CI permissions,
-  containers, secrets, credentials, network access, generated artifacts,
-  vendored files, unsafe defaults, or user-provided data.
-- Use this skill when another workflow asks for a security review, a
-  supply-chain baseline check, or a decision about whether a tool can be run or
-  adopted safely.
-- Use this skill with `code-quality-check` for implementation changes and with
-  `skill-quality-check` for Agent Skill changes that describe security behavior.
 
 ## Goals
 
@@ -41,7 +28,8 @@ description: >-
 
 ## Workflow
 
-1. Identify the security-sensitive surface:
+1. Identify the security-sensitive surface and pair with `code-quality-check` for implementation
+   changes or `skill-quality-check` for Agent Skill changes when applicable:
    - Secrets, credentials, tokens, private data, or logs.
    - Permission boundaries, CI permissions, publishing credentials, or
      filesystem/network access.
@@ -49,7 +37,7 @@ description: >-
      remote APIs.
    - Dependencies, package-runner invocations, downloaded CLI tools, CI
      actions, containers, vendored artifacts, generated code, or copied files.
-2. Check the strongest applicable rule first:
+2. Apply the strongest applicable rule first:
    - Follow Codex, Claude Code, GitHub Copilot, platform, organization,
      package-manager, and current general security requirements when they are
      stricter or safer than this repository guidance.
@@ -80,14 +68,14 @@ description: >-
      maintainer channel is unavailable.
    - In public repository work, use only a minimal non-sensitive note when a
      security issue exists, is blocked, or has been reported privately.
-5. For supply-chain-sensitive work, apply the supply-chain baseline below.
+5. Apply the supply-chain baseline below for supply-chain-sensitive work.
 6. If the safe path cannot be verified, do not normalize the risky action:
    - Report a blocker when release age, provenance, runtime behavior, or
      cooldown compliance cannot be verified.
    - Record residual risk when a partially controlled path remains.
    - Require a documented maintainer exception before proceeding with a weaker
      path.
-7. Before recommending an exact safer command, inspect repository scripts,
+7. Inspect repository scripts,
    lockfiles, and tool configuration so the recommendation is grounded in the
    project instead of inventing a new ad hoc path.
 8. Record what was checked:
