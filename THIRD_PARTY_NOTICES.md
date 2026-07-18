@@ -1,5 +1,10 @@
 # Third-Party Notices
 
+Repository-original content is licensed under the MIT license in
+[LICENSE](LICENSE). Each entry below identifies third-party content whose
+upstream license and notices apply instead; this repository's MIT license does
+not relicense that content.
+
 This file records the license and attribution information for third-party
 skills committed to this repository, including APM-deployed skills. It is kept
 outside APM-managed target directories so installation and pruning cannot

@@ -26,6 +26,12 @@
 License and attribution information for committed third-party skills is kept
 in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
+## License
+
+Repository-original content is [MIT licensed](LICENSE). Third-party skills
+retain the licenses and notices recorded in
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
 ## Install for Codex
 
 ```shell
