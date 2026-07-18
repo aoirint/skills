@@ -1,17 +1,14 @@
 ---
 name: manage-apm
-description: Set up and maintain Agent Package Manager (APM) and Agent Skills in a project. Use when creating or editing apm.yml or apm.lock.yaml, adding a skill or other agent dependency, safely installing APM, validating a pinned APM deployment, or proposing dependency updates.
+description: Set up, pin, deploy, audit, and update APM-managed agent dependencies safely. Use when creating or editing apm.yml or apm.lock.yaml, installing APM, adding an Agent Skill, plugin, or MCP dependency, validating a pinned deployment, or preparing a cooldown-aware update proposal.
 ---
 
 # Manage APM
 
-## Goals
-
-- Make agent context reproducible, reviewable, and safe to deploy.
-- Reuse an existing APM installation; do not update it incidentally.
-- Enforce a seven-day cooldown, full commit pins, and lockfile hashes for every
-  new or updated third-party agent dependency.
-- Keep changes proposed and reviewed before deployment.
+Keep agent context reproducible and reviewable. Reuse an existing APM
+installation; do not update it incidentally. Require a seven-day cooldown,
+full commit pins, lockfile hashes, and review for every changed third-party
+dependency.
 
 ## 1. Inspect before changing
 
