@@ -22,6 +22,8 @@ Do not let a higher-ranked source erase a conflict. Explain why the sources desc
 - `runtime_observed`: measured under a named profile/window.
 - `unknown_runtime`: required runtime state is absent.
 
+Track computational completion separately from claim class. `complete_exact` may describe exhaustive completion of a declared static or counterfactual model; it does not promote that model to an actual runtime fact. Store fields such as enumeration status, evidence class, runtime status, and applicability independently rather than overloading one status label.
+
 ## Evidence ledger fields
 
 Record claim ID, statement, build, class, source path, locator, source hash, derivation artifact, population key, endpoint status, and caveat. Use absolute paths only in source manifests; use workspace-relative frozen paths in portable reports.
@@ -33,3 +35,5 @@ Record claim ID, statement, build, class, source path, locator, source hash, der
 - Distinguish host state, client state, pre-sync state, and post-sync state.
 - Distinguish planned objects from successfully spawned and active objects.
 - Keep HUD, Terminal, server totals, quota values, and item `scrapValue` as separate endpoints unless code proves equality.
+- For a gameplay loop or save-state claim, freeze the complete call chain from the user action through wrappers to the state mutation. A callee excerpt without the caller/wrapper does not establish that the mutation occurs on the claimed path.
+- Treat repeated-play strategy assumptions as evidence-bearing claims: whether a reload produces a new seed, whether draws are independent, whether counters are per-level or global, and whether solo and multiplayer follow the same save branch.
