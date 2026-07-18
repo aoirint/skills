@@ -160,6 +160,6 @@ local_deployed_file_hashes:
   .agents/skills/security-check/agents/openai.yaml: sha256:87edf0cc1e8717194d0c536f2d5ac0cc1ac9ec04402311d34e953d2e2b23fa19
   .agents/skills/security-check/references/external-code-execution.md: sha256:87ca817baa02ef6b955e5878f0cd79c875abdb0be6e0177cfce158968e628bc3
   .agents/skills/skill-quality-check/README.md: sha256:d805fc4e64700cefb01e9101aa6861d320346d2937b937aba8bbebbff94e70a9
-  .agents/skills/skill-quality-check/SKILL.md: sha256:5d74dcf88ecb7f1f32f7a3c68542273d69d8e88ad6728bdd44a07f50c8fd83d8
+  .agents/skills/skill-quality-check/SKILL.md: sha256:8bc3efb03ffed9bc70e68ceb86bcd7ffc73a22f0a4fd2f772a24f33c9395461f
   .agents/skills/skill-quality-check/agents/openai.yaml: sha256:dde624797ed750b9132f45378710cb6ea182a35705551b45d4b862bb6ce85805
   .agents/skills/skill-quality-check/references/authoring-best-practices.md: sha256:ee99db4ccc2c963d428d82ddc36a45fede2d26dcf15bc6bbfd1a0347c28ffd63

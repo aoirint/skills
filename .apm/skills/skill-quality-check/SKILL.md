@@ -36,6 +36,9 @@ description: >-
      are in scope, guidance-only, or require explicit confirmation.
 3. Check frontmatter:
    - `name` uses lowercase letters, digits, and hyphens.
+   - When the skill has a clear target, put that target before the action or
+     workflow in `name` (for example, `lethal-company-analyze` or
+     `apm-usage`).
    - `description` states what the skill does and when to use it.
    - Trigger words are front-loaded enough to survive shortened skill lists.
 4. Check scope:
