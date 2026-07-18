@@ -1,6 +1,12 @@
 # aoirint Agent Skills
 
+These skills are packaged and installed with
+[APM](https://github.com/microsoft/apm) for use with
+[OpenAI Codex](https://openai.com/codex/).
+
 ## Install
+
+Install APM first, then run:
 
 ```shell
 apm install --global aoirint/skills

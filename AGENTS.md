@@ -31,6 +31,9 @@ When adding or substantially changing a skill:
 
 ## APM and Third-Party Content
 
+- This repository publishes APM-managed skills for OpenAI Codex. Keep the
+  `targets` entry in `apm.yml` scoped to `codex`; adding a target changes the
+  public deployment scope and requires explicit maintainer approval.
 - Preserve the existing `apm.yml`; do not run `apm init --yes` in this
   repository.
 - Treat `apm.yml`, `apm.lock.yaml`, and `.agents/` deployment output as one
