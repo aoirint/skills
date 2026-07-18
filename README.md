@@ -6,10 +6,23 @@ These skills are packaged and installed with
 
 ## Install
 
-Install APM first, then run:
+Install APM first.
+
+### All skills (global)
+
+To install the complete collection into your user scope, run:
 
 ```shell
 apm install --global aoirint/skills
+```
+
+### One skill (global)
+
+To install only one skill, specify its APM source path instead. For example,
+this installs `manage-apm`:
+
+```shell
+apm install --global aoirint/skills/.apm/skills/manage-apm
 ```
 
 ## Skills
