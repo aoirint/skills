@@ -21,11 +21,6 @@
 | [security-check](src/security-check/SKILL.md) | Review repository changes for practical security and supply-chain risks. |
 | [skill-quality-check](src/skill-quality-check/SKILL.md) | Review Agent Skills for clear triggers, focused scope, and validation readiness. |
 
-## Third-Party Notices
-
-License and attribution information for committed third-party skills is kept
-in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
-
 ## License
 
 Repository-original content is [MIT licensed](LICENSE). Third-party skills
