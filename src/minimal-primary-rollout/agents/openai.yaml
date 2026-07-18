@@ -1,0 +1,4 @@
+interface:
+  display_name: "Minimal Primary Rollout"
+  short_description: "Roll out shared changes with primary as canonical"
+  default_prompt: "Use $minimal-primary-rollout to propagate a primary change with minimal differences."
