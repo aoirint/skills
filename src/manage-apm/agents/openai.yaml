@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manage APM"
+  short_description: "Safely set up and maintain APM skills"
+  default_prompt: "Use $manage-apm to safely add and manage APM Agent Skills in this project."
