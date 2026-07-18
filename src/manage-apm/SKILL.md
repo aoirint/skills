@@ -131,9 +131,25 @@ first:
 4. After approval, run interactive `apm update` for only the approved package.
    Review the plan before accepting it, then review the `apm.yml`,
    `apm.lock.yaml`, and deployed-file diff. Run `apm audit --ci` and commit the
-   result.
+   result. Re-check the upstream license and notices; update the matching
+   `THIRD_PARTY_NOTICES.md` entry in the same commit when the source, virtual
+   path, commit, license, or attribution changes.
 5. In CI and ordinary repeat installs, keep using `apm install --frozen`.
    Update discovery and update application must remain separate actions.
+
+## 5. Reconcile third-party notices
+
+Before handoff, reconcile `THIRD_PARTY_NOTICES.md` with the reviewed lockfile:
+
+1. For every third-party skill whose files are committed from an APM target,
+   keep one current notice entry with the source, selected virtual path, locked
+   SHA, license, and required attribution.
+2. When removing a dependency, run `apm prune` and confirm its deployed files
+   are gone before removing its notice entry. Retain the notice when a copy or
+   derivative remains in the repository.
+3. Treat a changed license, copyright, or NOTICE file as an adoption-review
+   change, not a metadata-only update. Resolve it before deploying the new
+   version.
 
 ## Completion checklist
 
@@ -143,7 +159,8 @@ first:
   content hashes.
 - Each adopted release, or the last change to a selected virtual subdirectory,
   met the seven-day cooldown or has a documented maintainer-approved exception.
-- Each committed third-party skill has a complete `THIRD_PARTY_NOTICES.md`
-  entry, including its license and required notices.
+- Each committed APM-deployed third-party skill has one current
+  `THIRD_PARTY_NOTICES.md` entry, including its license and required notices;
+  removed skills have no stale entry unless a copy remains.
 - Deployment used `apm install --frozen`, and `apm audit --ci` passed.
 - Updates have a reviewable, cooldown-aware proposal before application.
