@@ -1,6 +1,6 @@
 ---
 name: minimal-primary-rollout
-description: Propagate a validated shared change from one primary repository to peer repositories while preserving the primary content and minimizing peer-specific differences. Use when horizontally rolling out an Agent Skill, repository rule, workflow, or documentation convention from a canonical primary repository.
+description: Roll out a validated canonical change from a designated primary repository to compatible peers with only necessary local differences. Use for shared Agent Skills, repository rules, workflows, or documentation conventions.
 ---
 
 # Minimal Primary Rollout

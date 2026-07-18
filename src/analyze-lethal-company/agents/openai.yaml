@@ -1,4 +1,4 @@
 interface:
   display_name: "Lethal Company Analysis"
-  short_description: "Reproducible mechanics and exhaustive seed analysis"
-  default_prompt: "Use $analyze-lethal-company to investigate a Lethal Company mechanic with reproducible evidence, efficient resumable exhaustive computation, safe additive reuse, and explicit runtime boundaries."
+  short_description: "Investigate mechanics with reproducible evidence"
+  default_prompt: "Use $analyze-lethal-company to investigate this Lethal Company mechanic with reproducible, explicitly bounded evidence."
