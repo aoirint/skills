@@ -1,5 +1,11 @@
 # aoirint Agent Skills
 
+## Install
+
+```shell
+apm install --global aoirint/skills
+```
+
 ## Skills
 
 | Skill | Purpose |
@@ -27,9 +33,3 @@ Unless otherwise specified, repository content is licensed under the
 [MIT License](LICENSE). Third-party skills may carry their own licenses; their
 licenses and notices are recorded in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
-
-## Install for Codex
-
-```shell
-ln -s ~/git/skills/src ~/.codex/skills/user
-```
