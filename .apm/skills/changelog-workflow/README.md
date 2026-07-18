@@ -7,5 +7,5 @@ Maintain canonical developer changelogs and release history.
 ## Install
 
 ```shell
-apm install --global aoirint/skills/.apm/skills/changelog-workflow
+apm install aoirint/skills/.apm/skills/changelog-workflow
 ```

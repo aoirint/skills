@@ -7,5 +7,5 @@ Maintain developer documentation for software mods and plugins.
 ## Install
 
 ```shell
-apm install --global aoirint/skills/.apm/skills/mod-documentation-quality-check
+apm install aoirint/skills/.apm/skills/mod-documentation-quality-check
 ```

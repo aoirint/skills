@@ -7,5 +7,5 @@ Create, update, and review user-facing release notes.
 ## Install
 
 ```shell
-apm install --global aoirint/skills/.apm/skills/release-note-workflow
+apm install aoirint/skills/.apm/skills/release-note-workflow
 ```

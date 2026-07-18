@@ -7,5 +7,5 @@ Create and maintain repository `.gitignore` rules.
 ## Install
 
 ```shell
-apm install --global aoirint/skills/.apm/skills/gitignore-workflow
+apm install aoirint/skills/.apm/skills/gitignore-workflow
 ```
