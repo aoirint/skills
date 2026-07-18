@@ -79,14 +79,17 @@ Do not use `apm self-update` to perform this refresh.
 Use this staged workflow for every remote skill, prompt, agent, plugin, hook,
 or MCP dependency:
 
-1. Identify the exact source repository, release/tag, and full 40-character
-   commit SHA. Review the source, its release history, declared capabilities,
-   transitive dependencies, and changes that could execute code or add MCP
-   access.
-2. Verify from an authoritative source that the chosen release or commit is at
-   least seven days old. If its age, provenance, or required hash cannot be
-   verified, stop and report the blocker. Do not bypass the cooldown without a
-   documented maintainer exception.
+1. Identify the exact source repository, optional virtual subdirectory,
+   release/tag, and full 40-character commit SHA. Review the source, its
+   release history, declared capabilities, transitive dependencies, and changes
+   that could execute code or add MCP access.
+2. Verify from an authoritative source that the adopted content is at least
+   seven days old. For a virtual subdirectory in a monorepo, identify the last
+   commit that changed that subdirectory at the selected ref and calculate the
+   cooldown from that commit, not from an unrelated later commit elsewhere in
+   the repository. If its age, provenance, or required hash cannot be verified,
+   stop and report the blocker. Do not bypass the cooldown without a documented
+   maintainer exception.
 3. Add the dependency to `apm.yml` with the full commit SHA, never a default
    branch, `latest`, or an unbounded range. Keep MCP entries under the same
    review gate and do not put tokens in tracked YAML.
@@ -130,7 +133,7 @@ first:
 - Every remote dependency is pinned to a reviewed full commit SHA.
 - `apm.lock.yaml` is committed and contains the expected resolved commits and
   content hashes.
-- Each adopted release met the seven-day cooldown or has a documented
-  maintainer-approved exception.
+- Each adopted release, or the last change to a selected virtual subdirectory,
+  met the seven-day cooldown or has a documented maintainer-approved exception.
 - Deployment used `apm install --frozen`, and `apm audit --ci` passed.
 - Updates have a reviewable, cooldown-aware proposal before application.
