@@ -62,6 +62,8 @@ Keep the independent expectation engine/entry point and the production comparato
 
 A phase-2 parser, formatting, or production-reader fix must not force phase 1 to rerun when the sealed phase-1 code closure, inputs, domain, encoding, estimands, and output bytes remain identical. Preserve the failed phase-2 attempt and issue a new comparator child. Rerun phase 1 whenever any of those identities changed or no valid pre-read seal exists.
 
+Construct each phase's isolated artifact root from a fixed allowlist and the authenticated manifest's exact ordered part paths. Start from an empty root, reject unexpected files, and never use a directory glob as the authority for the certified universe. Publish the construction command and resulting inventory so another receiver can reproduce the same phase boundary.
+
 ## Seal the handoff
 
-Publish immutable semantic, numeric, verification, analysis, report, and receiver-handoff stages. Document clean/full, extension-only, analysis-only, and report-only modes. Receiver verification must rehash direct and indirect bytes, ordered shard universes, sidecars, phase seals, compatibility certificates, and portable report dependencies.
+Publish immutable semantic, numeric, verification, analysis, report-artifact, and receiver-handoff stages. Document clean/full, extension-only, analysis-only, and report-only modes as executable command sequences with complete no-clobber archive lists. Receiver verification must rehash direct and indirect bytes, ordered shard universes, sidecars, phase seals, compatibility certificates, portable report dependencies, and recursively referenced prior handoffs from a relocated workspace root.
