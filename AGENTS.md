@@ -2,11 +2,16 @@
 
 ## Layout
 
-- `src/<skill-name>/SKILL.md` is the canonical instruction file for a skill.
-- `src/<skill-name>/agents/openai.yaml` supplies the Codex interface metadata.
-- Put detailed, optional material in `references/` and deterministic helpers in
-  `scripts/`.
-- Keep the repository-level [README.md](README.md) as the public skill index.
+- `.apm/skills/<skill-name>/SKILL.md` is the canonical source for a skill.
+- `.apm/skills/<skill-name>/agents/openai.yaml` supplies its Codex interface
+  metadata.
+- `.agents/skills/` is APM-managed deployment output. Do not edit it by hand;
+  regenerate it with APM from the canonical source and reviewed dependencies.
+- Keep detailed optional material in a skill's `references/` directory and
+  deterministic helpers in its `scripts/` directory.
+- Keep repository-level documents such as [README.md](README.md),
+  [LICENSE](LICENSE), and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) at
+  the root. The README is the public skill index.
 
 ## Maintaining Skills
 
@@ -18,25 +23,42 @@ When adding or substantially changing a skill:
    conditions. Keep `agents/openai.yaml` aligned with that description.
 3. Keep the default workflow in `SKILL.md`; move detailed variants and
    examples to files directly linked from `references/`.
-4. Add, update, or remove the corresponding row in the README skill table.
-   The table must link to the canonical `SKILL.md`.
-5. For a new or materially revised skill, run the applicable quality check and
-   scenario-based validation. Test changed scripts with a representative
-   invocation.
+4. Add, update, or remove the corresponding README table row. It must link to
+   the canonical `.apm/skills/<skill-name>/SKILL.md` file.
+5. Run the applicable skill and documentation quality checks. For a new or
+   materially revised skill, also run scenario-based validation and test any
+   changed scripts with a representative invocation.
+
+## APM and Third-Party Content
+
+- Preserve the existing `apm.yml`; do not run `apm init --yes` in this
+  repository.
+- Treat `apm.yml`, `apm.lock.yaml`, and `.agents/` deployment output as one
+  reviewable unit. After a source or dependency change, run `apm lock`, review
+  the lockfile, run `apm install --frozen`, then run `apm audit --ci`.
+- Remote dependencies require a full commit SHA, source review, and the
+  seven-day cooldown. For a monorepo subdirectory, calculate the cooldown from
+  the last commit affecting that subdirectory.
+- Unless otherwise specified, repository content is MIT licensed. Before
+  committing third-party APM-deployed content, record its source, pinned SHA,
+  license, and required notices in `THIRD_PARTY_NOTICES.md`. A third-party
+  license or notice overrides the default for that content.
+- Do not place license notices inside `.agents/skills/`.
 
 ## Documentation Checks
 
-Before handing off documentation changes:
+Before handoff:
 
-1. Confirm every `src/*/SKILL.md` has one README table row and no stale row
-   remains.
-2. Confirm each listed link resolves to the canonical skill file.
-3. Run `git diff --check` and review the rendered Markdown tables.
+1. Confirm every `.apm/skills/*/SKILL.md` has one README table row and no stale
+   row remains.
+2. Confirm each listed link resolves to its canonical skill file.
+3. Run `git diff --check` and review Markdown tables and APM-generated diffs.
 
 ## Git Practice
 
 - Treat uncommitted or untracked files outside the task as user work.
 - Use an isolated worktree for implementation work unless the user requests a
-  different workspace arrangement.
-- Keep commits focused. Do not rewrite published history unless explicitly
-  requested.
+  different workspace arrangement. Do not remove another worktree unless the
+  user explicitly asks.
+- Keep commits focused; do not combine unrelated changes or rewrite published
+  history unless explicitly requested.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manage APM"
+  short_description: "Safely manage pinned APM agent dependencies"
+  default_prompt: "Use $manage-apm to safely add or update this project's APM agent dependencies."
