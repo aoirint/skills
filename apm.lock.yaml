@@ -22,17 +22,14 @@ dependencies:
     .agents/skills/empirical-prompt-tuning/SKILL.md: sha256:252418e7ef022981d2dda2e3ec57fa1c786d30af68c50b7e062edf1d7361b0cb
   content_hash: sha256:20e7fba93c7267ba6e3a7b27787ca49191b762dffcfb804b01da9183b1b0c891
 local_deployed_files:
-- .agents/skills/analyze-lethal-company
-- .agents/skills/analyze-lethal-company/README.md
-- .agents/skills/analyze-lethal-company/SKILL.md
-- .agents/skills/analyze-lethal-company/agents/openai.yaml
-- .agents/skills/analyze-lethal-company/references/efficient-full-enumeration.md
-- .agents/skills/analyze-lethal-company/references/evidence-policy.md
-- .agents/skills/analyze-lethal-company/references/exhaustive-seeds-and-lineage.md
-- .agents/skills/analyze-lethal-company/references/reporting-and-review.md
-- .agents/skills/analyze-lethal-company/references/unity-and-rng.md
-- .agents/skills/analyze-lethal-company/scripts/inventory_build.py
-- .agents/skills/analyze-lethal-company/scripts/inventory_build.py.lock
+- .agents/skills/apm-usage
+- .agents/skills/apm-usage/README.md
+- .agents/skills/apm-usage/SKILL.md
+- .agents/skills/apm-usage/agents/openai.yaml
+- .agents/skills/apm-usage/references/apm-bootstrap.json
+- .agents/skills/apm-usage/references/apm-install.md
+- .agents/skills/apm-usage/scripts/propose_bootstrap_update.py
+- .agents/skills/apm-usage/scripts/propose_bootstrap_update.py.lock
 - .agents/skills/changelog-workflow
 - .agents/skills/changelog-workflow/README.md
 - .agents/skills/changelog-workflow/SKILL.md
@@ -65,22 +62,21 @@ local_deployed_files:
 - .agents/skills/issue-quality-check/README.md
 - .agents/skills/issue-quality-check/SKILL.md
 - .agents/skills/issue-quality-check/agents/openai.yaml
-- .agents/skills/maintain-mod-documentation
-- .agents/skills/maintain-mod-documentation/README.md
-- .agents/skills/maintain-mod-documentation/SKILL.md
-- .agents/skills/maintain-mod-documentation/agents/openai.yaml
-- .agents/skills/manage-apm
-- .agents/skills/manage-apm/README.md
-- .agents/skills/manage-apm/SKILL.md
-- .agents/skills/manage-apm/agents/openai.yaml
-- .agents/skills/manage-apm/references/apm-bootstrap.json
-- .agents/skills/manage-apm/references/apm-install.md
-- .agents/skills/manage-apm/scripts/propose_bootstrap_update.py
-- .agents/skills/manage-apm/scripts/propose_bootstrap_update.py.lock
-- .agents/skills/minimal-primary-rollout
-- .agents/skills/minimal-primary-rollout/README.md
-- .agents/skills/minimal-primary-rollout/SKILL.md
-- .agents/skills/minimal-primary-rollout/agents/openai.yaml
+- .agents/skills/lethal-company-analyze
+- .agents/skills/lethal-company-analyze/README.md
+- .agents/skills/lethal-company-analyze/SKILL.md
+- .agents/skills/lethal-company-analyze/agents/openai.yaml
+- .agents/skills/lethal-company-analyze/references/efficient-full-enumeration.md
+- .agents/skills/lethal-company-analyze/references/evidence-policy.md
+- .agents/skills/lethal-company-analyze/references/exhaustive-seeds-and-lineage.md
+- .agents/skills/lethal-company-analyze/references/reporting-and-review.md
+- .agents/skills/lethal-company-analyze/references/unity-and-rng.md
+- .agents/skills/lethal-company-analyze/scripts/inventory_build.py
+- .agents/skills/lethal-company-analyze/scripts/inventory_build.py.lock
+- .agents/skills/mod-documentation-quality-check
+- .agents/skills/mod-documentation-quality-check/README.md
+- .agents/skills/mod-documentation-quality-check/SKILL.md
+- .agents/skills/mod-documentation-quality-check/agents/openai.yaml
 - .agents/skills/pull-request-quality-check
 - .agents/skills/pull-request-quality-check/README.md
 - .agents/skills/pull-request-quality-check/SKILL.md
@@ -90,6 +86,10 @@ local_deployed_files:
 - .agents/skills/release-note-workflow/README.md
 - .agents/skills/release-note-workflow/SKILL.md
 - .agents/skills/release-note-workflow/agents/openai.yaml
+- .agents/skills/rollout-workflow
+- .agents/skills/rollout-workflow/README.md
+- .agents/skills/rollout-workflow/SKILL.md
+- .agents/skills/rollout-workflow/agents/openai.yaml
 - .agents/skills/security-check
 - .agents/skills/security-check/README.md
 - .agents/skills/security-check/SKILL.md
@@ -101,16 +101,13 @@ local_deployed_files:
 - .agents/skills/skill-quality-check/agents/openai.yaml
 - .agents/skills/skill-quality-check/references/authoring-best-practices.md
 local_deployed_file_hashes:
-  .agents/skills/analyze-lethal-company/README.md: sha256:cb3145913454243c409c7cbdf1f723ffb7c0472633ce8e5dc36bb2918e0e5467
-  .agents/skills/analyze-lethal-company/SKILL.md: sha256:f1b4ff2f1b51e4602a28a0ca2d41f943569b8820ae1717c650a9bc3ca81a2c3e
-  .agents/skills/analyze-lethal-company/agents/openai.yaml: sha256:cc9e2f28f3c31126639076dcd57d7418f68a786a5218485380b6da2c7cd61aa0
-  .agents/skills/analyze-lethal-company/references/efficient-full-enumeration.md: sha256:afdfc6f9704c7cb4d957eccb7e9301972d3e9afea5657363a6fdabc5a010071a
-  .agents/skills/analyze-lethal-company/references/evidence-policy.md: sha256:cca856ad89f907d429609fb0a6560c3050cc0a30fe8e400fc049f70296dc27f8
-  .agents/skills/analyze-lethal-company/references/exhaustive-seeds-and-lineage.md: sha256:9c377e08e66f842c7f565615f7ac57aee937a8425bc8f3b8d623ca3cb5dcae18
-  .agents/skills/analyze-lethal-company/references/reporting-and-review.md: sha256:8a3c186da5bf6e2adc8184159f6cafffea2bbbf0ddfe529ccec842ff6dfec4c8
-  .agents/skills/analyze-lethal-company/references/unity-and-rng.md: sha256:a351ef0d2d663580734d6dc7a72be3bfa2bae0ca29052d6c710fdf6ea3462eab
-  .agents/skills/analyze-lethal-company/scripts/inventory_build.py: sha256:8b93aa49165b8f0f406321336fbe08c7383677b13d0049af76fc64ec2313bddd
-  .agents/skills/analyze-lethal-company/scripts/inventory_build.py.lock: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
+  .agents/skills/apm-usage/README.md: sha256:d874d905bf353066e95c4376c0cc3ce843642ee59388025f455d45aeb31acff5
+  .agents/skills/apm-usage/SKILL.md: sha256:6e68e4ce80360e7dfc7b985878233e7e73d79d080227dd32a1beb9fef14fc200
+  .agents/skills/apm-usage/agents/openai.yaml: sha256:63e080cbffe50033ef8b46e24d4436ef40bc1206a79d055814262ae053c946a4
+  .agents/skills/apm-usage/references/apm-bootstrap.json: sha256:3f0be975b2c72da161bc9e65eb57b66f0b0554827d21b37017928e4e858a5c17
+  .agents/skills/apm-usage/references/apm-install.md: sha256:25132995b7a2ba2ce5092e543d5c8449d5c78a312f68a39a7338e112d018850d
+  .agents/skills/apm-usage/scripts/propose_bootstrap_update.py: sha256:e29c8a695d1a0d8f9c44b612a58c9462e55f754ef8b739ff7f01d4e1dc2d7530
+  .agents/skills/apm-usage/scripts/propose_bootstrap_update.py.lock: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
   .agents/skills/changelog-workflow/README.md: sha256:047655019242f6777413d831376bbe0864e5f549002837ea0c3ed88fcb25442b
   .agents/skills/changelog-workflow/SKILL.md: sha256:8fa4f9cddba329396cda8ea00f5e1ac3bb377f0f229c34f80a57b48f04b5f615
   .agents/skills/changelog-workflow/agents/openai.yaml: sha256:6264e6dbd0433ab63370e15033ecb94da8dd131c4edcb1d3f2b9abdeb4f680f1
@@ -135,19 +132,19 @@ local_deployed_file_hashes:
   .agents/skills/issue-quality-check/README.md: sha256:43cf1588d9e3f5a2c4f8b724c8fca8f70b0f95c17d0d152999c94abba4da65bb
   .agents/skills/issue-quality-check/SKILL.md: sha256:ff8f3c5e5c3e7455a99cf9f5e59c6087943b6936d1fe55c02c1abcc5a79a858a
   .agents/skills/issue-quality-check/agents/openai.yaml: sha256:e54aa6bbae7cf7d2cf57a95e5749cc1527238295e420ac00d96902ce114e9cdb
-  .agents/skills/maintain-mod-documentation/README.md: sha256:5219af1a63302f164cbbec3333fe09f2f6fdbb75d90c2288b17ee70cf41a2ca4
-  .agents/skills/maintain-mod-documentation/SKILL.md: sha256:ae342b4190970d8bd0dafcca594ab72b1e08703055a6c6dc7c096b340113c40f
-  .agents/skills/maintain-mod-documentation/agents/openai.yaml: sha256:bbf51f1317a6a574f4ef9eeb3efe4bd43c55f9e35755591769ccbaf7a45c7dac
-  .agents/skills/manage-apm/README.md: sha256:fe03ae344b172def21da04e2c80d2969b8ceab987e95eb721ccce514e1eda17e
-  .agents/skills/manage-apm/SKILL.md: sha256:8a749c7eb8a16d35c6e2d7ebefac6aa1a90018a91a06e0dcc5f8e0c53788b34d
-  .agents/skills/manage-apm/agents/openai.yaml: sha256:02e1231f9d16ff4185a55e03a664dcc86ac18d64fb8c1616c7fb6e64f2abcc8b
-  .agents/skills/manage-apm/references/apm-bootstrap.json: sha256:3f0be975b2c72da161bc9e65eb57b66f0b0554827d21b37017928e4e858a5c17
-  .agents/skills/manage-apm/references/apm-install.md: sha256:25132995b7a2ba2ce5092e543d5c8449d5c78a312f68a39a7338e112d018850d
-  .agents/skills/manage-apm/scripts/propose_bootstrap_update.py: sha256:fedff0c9e05241ee189b73dd9c31ed726349c1494a7e03e883757846dc45a5e3
-  .agents/skills/manage-apm/scripts/propose_bootstrap_update.py.lock: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
-  .agents/skills/minimal-primary-rollout/README.md: sha256:c9587cc3e2ebb41bbafc57a457476a7b23b3d9d4b48f7bf23f85f0ce95cf3d6d
-  .agents/skills/minimal-primary-rollout/SKILL.md: sha256:f4de12c0999cf442a16717c10dbd43bcef97222988c54897db2d0fa705f59b72
-  .agents/skills/minimal-primary-rollout/agents/openai.yaml: sha256:e885a9cb923af5c7d0ecbc564d2fb0ecf9bfbcd3a44b7998591ec6c548259164
+  .agents/skills/lethal-company-analyze/README.md: sha256:3e591b7efcb11ccdad3e00195e2387cbf628c2bd338276051073c19500180f78
+  .agents/skills/lethal-company-analyze/SKILL.md: sha256:b8337d3476070463c9487beb39dbab9b32e843e536dc3798ae19590570e971b5
+  .agents/skills/lethal-company-analyze/agents/openai.yaml: sha256:3c047dc9bf01f069621924ec6064bde17bcf37bd15bbbcefac82624fcbd3ca55
+  .agents/skills/lethal-company-analyze/references/efficient-full-enumeration.md: sha256:afdfc6f9704c7cb4d957eccb7e9301972d3e9afea5657363a6fdabc5a010071a
+  .agents/skills/lethal-company-analyze/references/evidence-policy.md: sha256:cca856ad89f907d429609fb0a6560c3050cc0a30fe8e400fc049f70296dc27f8
+  .agents/skills/lethal-company-analyze/references/exhaustive-seeds-and-lineage.md: sha256:9c377e08e66f842c7f565615f7ac57aee937a8425bc8f3b8d623ca3cb5dcae18
+  .agents/skills/lethal-company-analyze/references/reporting-and-review.md: sha256:8a3c186da5bf6e2adc8184159f6cafffea2bbbf0ddfe529ccec842ff6dfec4c8
+  .agents/skills/lethal-company-analyze/references/unity-and-rng.md: sha256:a351ef0d2d663580734d6dc7a72be3bfa2bae0ca29052d6c710fdf6ea3462eab
+  .agents/skills/lethal-company-analyze/scripts/inventory_build.py: sha256:8b93aa49165b8f0f406321336fbe08c7383677b13d0049af76fc64ec2313bddd
+  .agents/skills/lethal-company-analyze/scripts/inventory_build.py.lock: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
+  .agents/skills/mod-documentation-quality-check/README.md: sha256:06957cb2c1615f514c6886cf95522682e33e15ea2a08ddea76bd9aa0bc00e28b
+  .agents/skills/mod-documentation-quality-check/SKILL.md: sha256:e02d165a32dc1666299c2403fd539884f5eb93168d12655e56014e9b5d3587d8
+  .agents/skills/mod-documentation-quality-check/agents/openai.yaml: sha256:0d812f6a8f7f8fd36878d7448473d911f33feec422418b51500d71d274818fce
   .agents/skills/pull-request-quality-check/README.md: sha256:93611c510f9438099fbfc58e8de52082904d24da8237363eca23ce7579e1b041
   .agents/skills/pull-request-quality-check/SKILL.md: sha256:e717f318ddd2d48eece10565adce167784c6d5401860c961fdb8ef7ce885c644
   .agents/skills/pull-request-quality-check/agents/openai.yaml: sha256:1ddb931336ca5ce10b9accf92787e36168c1c71a4b999bd85f130144e778bfa4
@@ -155,6 +152,9 @@ local_deployed_file_hashes:
   .agents/skills/release-note-workflow/README.md: sha256:d8704638ffc9739ff71929e1a428d37f52e19b793a91a0c2f2078babb9ff4184
   .agents/skills/release-note-workflow/SKILL.md: sha256:66670061065cf187bd03c908193baf042dab2db52b06b5e81f9632222f7ddf3b
   .agents/skills/release-note-workflow/agents/openai.yaml: sha256:4413fdfcae90efd6d4de975f2e7c53625bdf1e214a32e1b54a65fff9f6258453
+  .agents/skills/rollout-workflow/README.md: sha256:c33274131d1559bccb5f0581b5eafa4111e720b33742f1d77ead229ec9831837
+  .agents/skills/rollout-workflow/SKILL.md: sha256:388562861550934c88ba19566fc6d1b9fbe9f528a44d62de4c7337bac327d225
+  .agents/skills/rollout-workflow/agents/openai.yaml: sha256:543a7befd986c51540ef35603fe63830f5032dc02b31f89e7f2179df3b3ca5dc
   .agents/skills/security-check/README.md: sha256:06f3d4209783895e1af14974c71e37150cbe40737012298038f0b4ba8b3ac446
   .agents/skills/security-check/SKILL.md: sha256:7562de775c028cdb048616910378df51e17ad7517d24849a9b735c53053c4933
   .agents/skills/security-check/agents/openai.yaml: sha256:87edf0cc1e8717194d0c536f2d5ac0cc1ac9ec04402311d34e953d2e2b23fa19

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Minimal Primary Rollout"
-  short_description: "Roll out canonical changes with minimal drift"
-  default_prompt: "Use $minimal-primary-rollout to propagate this validated primary change to compatible peer repositories."

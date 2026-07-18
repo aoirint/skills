@@ -18,7 +18,8 @@
 When adding or substantially changing a skill:
 
 1. Keep the directory name and the `name` in `SKILL.md` in lowercase
-   hyphen-case.
+   hyphen-case. When the target is identifiable, put it before the action or
+   workflow (for example, `lethal-company-analyze` and `apm-usage`).
 2. Make the frontmatter description state both the capability and its trigger
    conditions. Keep `agents/openai.yaml` aligned with that description.
 3. Keep the default workflow in `SKILL.md`; move detailed variants and

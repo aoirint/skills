@@ -1,4 +1,0 @@
-interface:
-  display_name: "Maintain Mod Documentation"
-  short_description: "Maintain clear, scalable mod developer docs"
-  default_prompt: "Use $maintain-mod-documentation to structure and update this mod's developer documentation."
