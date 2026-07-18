@@ -24,8 +24,10 @@ When adding or substantially changing a skill:
 3. Keep the default workflow in `SKILL.md`; move detailed variants and
    examples to files directly linked from `references/`.
 4. Add, update, or remove the corresponding README table row. It must link to
-   the canonical `.apm/skills/<skill-name>/SKILL.md` file.
-5. Run the applicable skill and documentation quality checks. For a new or
+   `.apm/skills/<skill-name>/README.md`.
+5. Keep each skill's user-facing `README.md` limited to `Overview` and
+   `Install`. Put agent instructions only in `SKILL.md` and its resources.
+6. Run the applicable skill and documentation quality checks. For a new or
    materially revised skill, also run scenario-based validation and test any
    changed scripts with a representative invocation.
 
@@ -54,7 +56,7 @@ Before handoff:
 
 1. Confirm every `.apm/skills/*/SKILL.md` has one README table row and no stale
    row remains.
-2. Confirm each listed link resolves to its canonical skill file.
+2. Confirm each listed link resolves to the corresponding skill README.
 3. Run `git diff --check` and review Markdown tables and APM-generated diffs.
 
 ## Git Practice
