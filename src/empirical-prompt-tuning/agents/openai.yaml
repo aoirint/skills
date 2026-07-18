@@ -1,6 +1,6 @@
 interface:
   display_name: "Empirical Prompt Tuning"
-  short_description: "Test and improve agent instructions."
-  default_prompt: "Use $empirical-prompt-tuning to evaluate this agent instruction with fresh-executor scenarios and measured iterations."
+  short_description: "Empirically tune agent instructions."
+  default_prompt: "Use $empirical-prompt-tuning to evaluate and improve this agent instruction empirically."
 policy:
   allow_implicit_invocation: false
