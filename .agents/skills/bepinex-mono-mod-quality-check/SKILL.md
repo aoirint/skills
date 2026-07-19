@@ -20,6 +20,7 @@ description: Review or create a BepInEx Mono mod for C# project and module struc
    - Read `AGENTS.md`, `README.md`, `CONTRIBUTING.md`, the project file, lockfile, package assets, and relevant CI or release scripts.
    - Identify the intended BepInEx major version, game/runtime baseline, package host, and release path from repository evidence. Do not infer them from this skill or a different mod.
    - Classify the request: implementation review, project setup, package/release review, or a plan when the repository is unavailable.
+   - For a new repository or a template-alignment review, read [repository-quality-template.md](references/repository-quality-template.md) and apply only the entries that match the chosen game, package host, and automation scope.
 2. Check C# project and module structure.
    - Start from the repository's existing layout. Do not introduce projects, layers, or folder taxonomy solely to resemble another mod.
    - Keep the loader entry point and composition root small. It may create the controller, adapters, state, and use cases, but it must not become the location for gameplay policy or framework callbacks.
@@ -45,7 +46,7 @@ description: Review or create a BepInEx Mono mod for C# project and module struc
    - When the project derives manifest or package versions in CI, verify that the project version, generated version, and loader-compatible version are deliberately handled for stable, prerelease, and edge builds.
 6. Check GitHub repository settings, CI, and release automation when the repository uses GitHub Actions or GitHub Releases.
    - Require the repository or organization Actions setting that enforces full-length commit-SHA pins. Independently verify every third-party `uses:` reference has a full commit SHA and an accurate version comment; inspect reusable workflows, container digests, and downloaded-tool checksums too.
-   - Require repository-level immutable releases where GitHub makes the setting available. Automation must attach every asset before publishing the release and must fail rather than replace an existing tag, release, or asset. If the setting is unavailable, record the residual risk and require an explicit fail-on-existing-release/tag/asset path instead of silently treating releases as immutable.
+   - When the repository publishes GitHub Releases, require repository-level immutable releases where GitHub makes the setting available. Automation must attach every asset before publishing the release and must fail rather than replace an existing tag, release, or asset. If the setting is unavailable, record the residual risk and require an explicit fail-on-existing-release/tag/asset path instead of silently treating releases as immutable.
    - Trace one release from its source commit through locked restore, build, archived artifact, and release asset. Publish only the artifact produced by that build; do not rebuild a separately checked-out revision in the release job. Create and verify an artifact digest across the build and release jobs.
    - Separate validation artifacts, prereleases, and stable publishing according to the repository's version rules. Gate external package-host publication on the intended stable release mode and require exactly one reviewed package artifact.
    - Default workflow permissions to read-only. Scope `contents: write` and publishing secrets to the release job that needs them, and never expose a publish credential to pull-request validation.
@@ -59,3 +60,5 @@ description: Review or create a BepInEx Mono mod for C# project and module struc
 ## Reference Baseline
 
 Read [repository-derived-baseline.md](references/repository-derived-baseline.md) when starting a new BepInEx Mono project or when the repository does not already document its structure and quality gates. It records the transferable practices observed in AutoTerminalScanClassic, CruiserJumpPractice, and SkipDropshipCompany; it is a baseline, not a replacement for the target repository's contract.
+
+Read [repository-quality-template.md](references/repository-quality-template.md) when creating or aligning a repository. It turns that baseline into a checklist for ignore rules, APM, NuGet, Markdown, CI, composite actions, and conditional Thunderstore publishing.

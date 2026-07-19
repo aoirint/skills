@@ -2,7 +2,7 @@
 
 ## Overview
 
-Review BepInEx Mono mods for C# project structure, module boundaries, GitHub CI and release automation, plugin identity, compatibility, packaging, release metadata, and verification quality.
+Review BepInEx Mono mod repositories for C# structure, dependencies, APM, GitHub CI, release automation, and conditional Thunderstore publishing quality.
 
 ## Install
 
