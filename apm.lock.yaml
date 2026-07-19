@@ -207,9 +207,9 @@ local_deployed_file_hashes:
   .agents/skills/prose-quality-check/SKILL.md: sha256:89f553473800fae3801ccfc9cd2a0a58bc647d17663bc39cd653bff4442367fd
   .agents/skills/prose-quality-check/agents/openai.yaml: sha256:b83e0a5d151e6e20df6f7d97f268955c6abfd105d53820f6baad0de8403fc062
   .agents/skills/pull-request-quality-check/README.md: sha256:5c15de701adc508b9dd828846317f47b0f5b925c5a8842b6c32b4d9e3946e11f
-  .agents/skills/pull-request-quality-check/SKILL.md: sha256:8ff9f48c29074bee10e32b2bb4dda66a7b3f7719212cafe7df19a38f08e6994c
+  .agents/skills/pull-request-quality-check/SKILL.md: sha256:78f8002a01787778fa88edf55e8f179db697436d8abbad3d27ed0178402f26cc
   .agents/skills/pull-request-quality-check/agents/openai.yaml: sha256:1ddb931336ca5ce10b9accf92787e36168c1c71a4b999bd85f130144e778bfa4
-  .agents/skills/pull-request-quality-check/references/fallback-pr-body.md: sha256:34a6301a37d682b3f0d9aaf1b4cd9e4e5522c283db66ddc79b8c01ae997904a7
+  .agents/skills/pull-request-quality-check/references/fallback-pr-body.md: sha256:b381d75f9d1f525ce72f594b1cd8a8de37539bf29c5750c139bbd7113f606dfc
   .agents/skills/release-note-workflow/README.md: sha256:2317bd380a014d3d7b469d95f2d2b8a36f6f4eccad947c265e3653e35a9f6394
   .agents/skills/release-note-workflow/SKILL.md: sha256:0d4ee4f6bf89a864c98a21298e6def368c65226af66a32cf86b0d274e7ce467a
   .agents/skills/release-note-workflow/agents/openai.yaml: sha256:4413fdfcae90efd6d4de975f2e7c53625bdf1e214a32e1b54a65fff9f6258453
