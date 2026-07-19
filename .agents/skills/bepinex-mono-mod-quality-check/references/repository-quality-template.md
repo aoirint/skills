@@ -4,6 +4,11 @@ Use this checklist to create or align a BepInEx Mono repository. Choose values
 from the target game's compatibility evidence and package-host contract; do not
 copy another repository's versions, team names, or categories.
 
+The sections below are this Skill's quality standard, not suggestions to defer
+to an existing repository. A repository may add stricter controls. Omit a
+listed control only when a concrete target-runtime, package-host, or deployment
+constraint makes it inapplicable, and record that constraint in the review.
+
 ## Contents
 
 - [Repository foundation](#repository-foundation)

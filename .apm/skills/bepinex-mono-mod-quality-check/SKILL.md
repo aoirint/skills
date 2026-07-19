@@ -14,11 +14,31 @@ description: Review or create a BepInEx Mono mod for C# project and module struc
 - Keep GitHub Actions and release automation pinned, least-privilege, and traceable to the built artifact.
 - Report findings as actionable evidence, not assumed conventions from another mod.
 
+## Required Template Baseline
+
+Use the quality baseline in this Skill for a repository that does not already
+have stricter, equivalent rules. Repository files establish target-specific
+facts such as game build, loader version, package host, and release namespace;
+they do not replace this Skill's quality bar.
+
+- Commit an SDK-style project, `nuget.config` with explicit sources and package
+  source mapping, one `packages.lock.json` per resolving project, a narrow
+  `.gitignore`, Markdown lint configuration, and contributor documentation.
+- For C# changes, require locked restore, format verification without restore,
+  and a no-restore build. For Markdown, workflow, shell, APM, package, or
+  release changes, apply the corresponding checks in
+  [repository-quality-template.md](references/repository-quality-template.md).
+- Treat a missing required file, unpinned external executable input, unreviewed
+  package source, absent lockfile, or unverified final archive as a finding;
+  do not downgrade it to a repository preference.
+- Allow a target repository to add stricter checks. Record a concrete
+  compatibility or host constraint before omitting a baseline item.
+
 ## Workflow
 
 1. Establish the repository contract before proposing changes.
-   - Read `AGENTS.md`, `README.md`, `CONTRIBUTING.md`, the project file, lockfile, package assets, and relevant CI or release scripts.
-   - Identify the intended BepInEx major version, game/runtime baseline, package host, and release path from repository evidence. Do not infer them from this skill or a different mod.
+   - Read `AGENTS.md`, `README.md`, `CONTRIBUTING.md`, the project file, lockfile, package assets, and relevant CI or release scripts to find target-specific facts and existing stricter rules. Do not use their absence as a reason to omit this Skill's baseline.
+   - Identify the intended BepInEx major version, game/runtime baseline, package host, release namespace, and release path from evidence. Do not infer these target-specific facts from this Skill or a different mod.
    - Classify the request: implementation review, project setup, package/release review, or a plan when the repository is unavailable.
    - For a new repository or a template-alignment review, read [repository-quality-template.md](references/repository-quality-template.md) and apply only the entries that match the chosen game, package host, and automation scope.
 2. Check C# project and module structure.
@@ -37,7 +57,8 @@ description: Review or create a BepInEx Mono mod for C# project and module struc
 4. Check build and dependency boundaries.
    - Match the target framework and language version to the repository's documented BepInEx and game runtime compatibility; do not upgrade either opportunistically.
    - Keep game and loader references compile-only when the release package relies on the player's installed runtime. Keep development analyzers and code generators private to the project.
-   - Use the committed lockfile and `dotnet restore --locked-mode` where the project provides one. Review dependency, lockfile, CI action, container, or downloaded-tool changes with `$security-check`.
+   - Require a committed lockfile for every resolving project and run `dotnet restore --locked-mode`. After restore, run `dotnet format --no-restore --verify-no-changes` and a no-restore build. A missing lockfile or unlocked restore is a reproducibility finding.
+   - Require `nuget.config` to clear unreviewed default sources and map direct and transitive package patterns to their intended source. Review every new feed, package, lockfile change, CI action, container, or downloaded tool for canonical source, publisher, immutable version or digest, content hash where available, license, transitive effects, and seven-day release age before adoption.
    - Do not commit game installations, mod-manager profiles, generated plugin metadata, `bin/`, `obj/`, or machine-local paths.
 5. Check package and release consistency.
    - Trace the release artifact from the built DLL to its archive. Confirm that the archive layout and every required file match the package host and repository documentation.
@@ -51,11 +72,12 @@ description: Review or create a BepInEx Mono mod for C# project and module struc
    - Separate validation artifacts, prereleases, and stable publishing according to the repository's version rules. Gate external package-host publication on the intended stable release mode and require exactly one reviewed package artifact.
    - Default workflow permissions to read-only. Scope `contents: write` and publishing secrets to the release job that needs them, and never expose a publish credential to pull-request validation.
 7. Run the narrowest relevant checks, then widen for the changed surface.
-   - For C# or project changes, run the documented locked restore, formatter/analyzer check, and build. Use `--no-restore` after a successful locked restore when the repository does so.
-   - For documentation or package text, run the repository Markdown check.
-   - For workflows, composite actions, or shell scripts, use `$github-actions-quality-check` and run the repository's action, shell, and pin checks.
-   - For release or compatibility changes, perform the repository's documented package inspection and runtime validation. State exactly what environment, game version, loader version, and mod set were tested; record missing runtime evidence as a blocker rather than guessing.
-8. Report the result in this order: scope and evidence consulted; findings grouped by structure/plugin/build/CI/package/runtime; checks passed or skipped; and remaining compatibility or release risks. Pair code-level findings with `$code-quality-check`, GitHub workflow findings with `$github-actions-quality-check`, gameplay-mechanics claims with `$lethal-company-analyze` when applicable, and user-facing release text with `$release-note-workflow`.
+   - For C# or project changes, run locked restore, format verification, and no-restore build. Use the solution or project path required by the repository layout.
+   - For documentation or package text, run Markdown lint over every committed Markdown file using the checked-in configuration.
+   - For workflows, composite actions, or shell scripts, run ShellCheck, `actionlint`, and `pinact run --check --min-age 7`; check full-SHA action pins, container digests, downloaded-tool checksums, permissions, concurrency, and secret scope.
+   - For APM changes, run `apm lock`, review locked refs and hashes, run `apm install --frozen`, then `apm audit --ci`.
+   - For release or compatibility changes, inspect the final archive and perform runtime validation. State exactly what environment, game version, loader version, and mod set were tested; record missing runtime evidence as a blocker rather than guessing.
+8. Report the result in this order: scope and evidence consulted; findings grouped by structure/plugin/build/CI/package/runtime; checks passed or skipped; and remaining compatibility or release risks. State every omitted baseline item and its concrete constraint; do not report a quality pass based only on an existing repository convention.
 
 ## Reference Baseline
 
