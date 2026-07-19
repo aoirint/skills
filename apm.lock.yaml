@@ -82,6 +82,7 @@ local_deployed_files:
 - .agents/skills/github-actions-quality-check/README.md
 - .agents/skills/github-actions-quality-check/SKILL.md
 - .agents/skills/github-actions-quality-check/agents/openai.yaml
+- .agents/skills/github-actions-quality-check/references/runner-selection.md
 - .agents/skills/gitignore-workflow
 - .agents/skills/gitignore-workflow/README.md
 - .agents/skills/gitignore-workflow/SKILL.md
@@ -160,7 +161,7 @@ local_deployed_file_hashes:
   .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.gitattributes: sha256:2b68c0cf28e58a65b9c842bb1f5733c32fe65e519c359c16b4081e8b21182e1e
   .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.gitignore.template: sha256:b139f97f286519249eb7f5b381827926a8fd18bedf29322e918195634bc5f2ee
   .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.markdownlint-cli2.yaml: sha256:1044e29915fe15e9083f808d1170c84cfc0b848123c0da435cabb9512d39c203
-  .agents/skills/bepinex-mono-mod-quality-check/assets/repository/CONTRIBUTING.md: sha256:14e8dc89dc60ca3dedc7eee95ec9e25820ab55b5e3f1fc9cd34f769862da2465
+  .agents/skills/bepinex-mono-mod-quality-check/assets/repository/CONTRIBUTING.md: sha256:5e12a7e96f8739d8d72f38d02efc8ceea131ac999101fb9c9cd0206cebd71ce3
   .agents/skills/bepinex-mono-mod-quality-check/assets/template-map.json: sha256:ebc85ebbd44d94f986568d5ae294c4adfa6843b59d440f1fa674fe137407891c
   .agents/skills/bepinex-mono-mod-quality-check/references/canonical-templates.md: sha256:0e57867851a41a4847dec472b5452ab05f1bc5823b148cd89d349c7f080dab22
   .agents/skills/bepinex-mono-mod-quality-check/references/implementation-runbook.md: sha256:18f3f25efb77ebee5333f2bc83eca9d618e6be81105f763e5fd0cce8d5232577
@@ -181,7 +182,7 @@ local_deployed_file_hashes:
   .agents/skills/flet-project-quality-check/SKILL.md: sha256:78aa28563314322934268841b6ae49c91fb938372b1f4b3f4ee3b7fa6055deee
   .agents/skills/flet-project-quality-check/agents/openai.yaml: sha256:87eb0740c7ee3001db763e18b2cb1e5e0cd58a94c7915b73fcbc23ccd97d371e
   .agents/skills/flet-project-quality-check/references/architecture-and-ui.md: sha256:8a2525039d7fb369fc1e651c4c8849d72de0506163c0939e57ee937a9f259e31
-  .agents/skills/flet-project-quality-check/references/ci-packaging-security.md: sha256:b8b3eab94f226da854aa9f1380fe6dfabb898b164bf7726f5439eda59a8220b6
+  .agents/skills/flet-project-quality-check/references/ci-packaging-security.md: sha256:8fb665009b6c769cba0defdb422208ff66972eef34a1a59e32d598fcce18e523
   .agents/skills/flet-project-quality-check/references/implementation-runbook.md: sha256:a13a9960735cd6dca03f6cd25b79edec3155f373b3cc27d578364595519e4d84
   .agents/skills/flet-project-quality-check/references/tooling-and-testing.md: sha256:f552960672d706db90f1c80b0ee3880b952b1c16952df966fe6ccd232371f1f1
   .agents/skills/flet-project-quality-check/scripts/check_project.py: sha256:3ff0116a0d10db99b077835701e268c6bb3d08f83ea6702891eedf214caddead
@@ -190,8 +191,9 @@ local_deployed_file_hashes:
   .agents/skills/git-worktree-workflow/SKILL.md: sha256:e6e453e43e2036309381cf11ded6499de03281e1b7bbb43b6aba05de59d6ba5b
   .agents/skills/git-worktree-workflow/agents/openai.yaml: sha256:3eb9da73e7a041e77d82f0d5c3a8c67e914575cff8651b71d077db30fe3da99a
   .agents/skills/github-actions-quality-check/README.md: sha256:a0767309bb84d170bc30070099a9f091b4c67cc00f790da88799685ab6bbaf5e
-  .agents/skills/github-actions-quality-check/SKILL.md: sha256:b512fa9daf59e1ae498ff00d345a36652fefff5cf8002d7e8a542fca60db1aa0
+  .agents/skills/github-actions-quality-check/SKILL.md: sha256:87cc1ad1c5ba74d715710f9b19840b286e84d55c490aeec50dba0c20981d1927
   .agents/skills/github-actions-quality-check/agents/openai.yaml: sha256:63b8022771cf5e036033c39fd700adf14b1ab23f7df78699474e472a7c28e73d
+  .agents/skills/github-actions-quality-check/references/runner-selection.md: sha256:b578c45b6114f3a26350720dc3babcf204009a9a6f381e0775345a30cc547b62
   .agents/skills/gitignore-workflow/README.md: sha256:0de188ebcdd40ea1aec701410e1c2182049b66bc4ec4d83a3bf55685b4267d47
   .agents/skills/gitignore-workflow/SKILL.md: sha256:727549890e7d5e54534098c36aa793dee3e491da307120a8c59ba6a42e8ce456
   .agents/skills/gitignore-workflow/agents/openai.yaml: sha256:f6a9b176003028588ff4c1d9ee4e23c625892d00b65086bf4b6b26a3f896030d
