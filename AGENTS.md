@@ -74,3 +74,14 @@ Before handoff:
   user explicitly asks.
 - Keep commits focused; do not combine unrelated changes or rewrite published
   history unless explicitly requested.
+- When an AI agent materially contributes to a commit, include its documented
+  `Co-authored-by:` trailer. For Codex, use
+  `Co-authored-by: Codex <noreply@openai.com>`.
+
+## Pull Request Merges
+
+- Merge pull requests with squash merge.
+- Set the squash commit title to `<pull request title> (#<number>)`, including
+  the pull request number as in GitHub's standard squash-merge title.
+- Preserve applicable attribution trailers in the squash commit message and
+  verify the stored commit message after merging.
