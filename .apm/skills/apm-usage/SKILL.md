@@ -13,8 +13,18 @@ dependency.
 ## 1. Inspect before changing
 
 1. Locate `apm`, `apm.yml`, `apm.lock.yaml`, `apm-policy.yml`, existing agent
-   directories, and repository guidance. Run `apm --version` if the binary is
-   already available.
+   directories, and repository guidance. Resolve and run an existing APM binary
+   before considering installation:
+   - First, use `apm` on `PATH` when it is available.
+   - On Windows, also check
+     `%LOCALAPPDATA%\Programs\apm\current\apm.exe`. Prefer this managed
+     current release over a sibling legacy `%LOCALAPPDATA%\Programs\apm\apm.exe`.
+     If the managed current release is absent or unusable, test the sibling
+     launcher and any project-local copy before deciding that APM is absent.
+   - If a usable binary is found outside `PATH`, invoke it by its absolute path
+     for this task. Do not modify the user or system `PATH` merely to run APM.
+   - Record the resolved executable and its `--version`. In later steps, `apm`
+     means that resolved executable.
 2. If `apm.yml` exists, preserve it. Do not run `apm init --yes`, because it
    overwrites an existing manifest.
 3. If no manifest exists, inspect the repository's agent targets and run
@@ -36,12 +46,15 @@ date, assets, and SHA-256 values.
 
 When a new APM installation is required:
 
-1. Confirm that no usable `apm` is already on `PATH`, then follow only the
-   matching OS section in the reference. Verify its hard-coded SHA-256 before
+1. Confirm that no usable installed APM exists. A missing `PATH` entry is not
+   sufficient evidence: on Windows, check the managed current-release path
+   and its fallback launcher from the inspection step before following the
+   matching OS section in the reference. Verify the hard-coded SHA-256 before
    extraction or execution. Never set `APM_SKIP_CHECKSUM=1`.
 2. Install to a user-writable, dedicated APM directory unless the project
    explicitly requires an administrator-managed location. Verify with
-   `apm --version` and record the exact version.
+   the installed executable's `--version` and record the exact version. Do not
+   add a persistent `PATH` entry unless the user explicitly requests it.
 3. For an enterprise mirror, use HTTPS, set `APM_NO_DIRECT_FALLBACK=1`, and
    verify that the mirror serves the identical reviewed artifact and checksum.
    Do not treat this as a substitute for review of the artifact.
