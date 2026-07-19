@@ -27,7 +27,8 @@ When adding or substantially changing a skill:
 4. Add, update, or remove the corresponding README table row. It must link to
    `.apm/skills/<skill-name>/README.md`.
 5. Keep each skill's user-facing `README.md` limited to `Overview` and
-   `Install`. Put agent instructions only in `SKILL.md` and its resources.
+   `Install`. Use a local `apm install aoirint/skills/.apm/skills/<skill-name>`
+   command there. Put agent instructions only in `SKILL.md` and its resources.
 6. Run the applicable skill and documentation quality checks. For a new or
    materially revised skill, also run scenario-based validation and test any
    changed scripts with a representative invocation.
@@ -37,6 +38,8 @@ When adding or substantially changing a skill:
 - This repository publishes APM-managed skills for OpenAI Codex. Keep the
   `targets` entry in `apm.yml` scoped to `codex`; adding a target changes the
   public deployment scope and requires explicit maintainer approval.
+- Keep the root README's collection command global. Individual skill READMEs
+  use local installation so the dependency is recorded in the consumer project.
 - Preserve the existing `apm.yml`; do not run `apm init --yes` in this
   repository.
 - Treat `apm.yml`, `apm.lock.yaml`, and `.agents/` deployment output as one
