@@ -36,11 +36,17 @@ they do not replace this Skill's quality bar.
 
 ## Workflow
 
+Follow [implementation-runbook.md](references/implementation-runbook.md) in
+order for every setup, alignment, implementation, or release-readiness task.
+It defines the required evidence ledger, file inventory, change order,
+conditional branches, verification matrix, and report format. Do not replace
+that procedure with an informal checklist.
+
 1. Establish the repository contract before proposing changes.
    - Read `AGENTS.md`, `README.md`, `CONTRIBUTING.md`, the project file, lockfile, package assets, and relevant CI or release scripts to find target-specific facts and existing stricter rules. Do not use their absence as a reason to omit this Skill's baseline.
-   - Identify the intended BepInEx major version, game/runtime baseline, package host, release namespace, and release path from evidence. Do not infer these target-specific facts from this Skill or a different mod.
-   - Classify the request: implementation review, project setup, package/release review, or a plan when the repository is unavailable.
-   - For a new repository or a template-alignment review, read [repository-quality-template.md](references/repository-quality-template.md) and apply only the entries that match the chosen game, package host, and automation scope.
+   - Create the evidence ledger from the runbook before selecting a target framework, loader references, plugin identity, package metadata, archive layout, or publish destination. Mark an unavailable fact `blocked`; never fill it from another BepInEx repository.
+   - Classify the request as `setup`, `alignment`, `implementation`, `release-readiness`, or `plan-only`. Execute only the runbook branches enabled by the evidence ledger and request type; record every disabled branch and its concrete reason.
+   - For a new repository or a template-alignment review, read [repository-quality-template.md](references/repository-quality-template.md) after the runbook inventory. It is the normative file-by-file standard, not a source of target-specific values.
 2. Check C# project and module structure.
    - Start from the repository's existing layout. Do not introduce projects, layers, or folder taxonomy solely to resemble another mod.
    - Keep the loader entry point and composition root small. It may create the controller, adapters, state, and use cases, but it must not become the location for gameplay policy or framework callbacks.
