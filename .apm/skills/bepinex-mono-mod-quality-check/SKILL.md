@@ -14,6 +14,26 @@ description: Review or create a BepInEx Mono mod for C# project and module struc
 - Keep GitHub Actions and release automation pinned, least-privilege, and traceable to the built artifact.
 - Report findings as actionable evidence, not assumed conventions from another mod.
 
+## Documentation responsibility
+
+Use `software-documentation-maintenance` to create and maintain the required
+`docs/domain/`, `docs/architecture/`, and `docs/operations/` map, its indexes,
+canonical ownership, migrations, and links. This Skill remains responsible for
+the BepInEx-specific content and correctness placed in that map:
+
+- `domain/` records the exact tested game, loader, Harmony, Unity, networking,
+  serialized-asset, and package-host facts needed by the integration.
+- `architecture/` records the mod's Core/Interop boundaries, callback and
+  authority policy, state lifetime, transactions, failure behavior, and
+  product-selected integration choices.
+- `operations/` records the verified restore, build, runtime validation,
+  packaging, release, and Thunderstore procedures selected by the repository.
+
+Apply `prose-quality-check` only after ownership and technical evidence are
+settled. Do not move a mod-selected policy into reusable domain knowledge, and
+do not treat a well-structured document as proof that its game or release claim
+is correct.
+
 ## Required Template Baseline
 
 Use the quality baseline in this Skill for a repository that does not already

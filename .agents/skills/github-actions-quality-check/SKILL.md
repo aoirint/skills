@@ -16,4 +16,4 @@ description: Quality-check GitHub Actions workflows and composite actions. Use w
 7. Run the repository's documented `actionlint`, ShellCheck, and `pinact` checks. Use `pinact run --check --min-age 7` for pin verification and `GITHUB_TOKEN` when available. Check standalone changed automation shell scripts with ShellCheck; if no targets exist, record that scope.
 8. Summarize actionlint, ShellCheck, pinact, other automated checks, AI-assisted inspections, and skipped checks separately. Record any reduced validation scope caused by unavailable optional integrations.
 
-Use `document-quality-check` for contributor-facing workflow guidance or PR notes. Keep workflows deterministic, least-privilege, and reviewable without adding unnecessary runtime dependencies.
+Use `prose-quality-check` for contributor-facing workflow guidance or PR notes. Keep workflows deterministic, least-privilege, and reviewable without adding unnecessary runtime dependencies.

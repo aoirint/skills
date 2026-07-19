@@ -53,7 +53,7 @@ description: >-
    - Keep required steps explicit, ordered, and written as imperatives.
    - Match specificity to risk: flexible guidance for judgment-heavy work, exact commands or scripts
      for fragile operations.
-   - Use `document-quality-check` for explanatory prose. Preserve
+   - Use `prose-quality-check` for explanatory prose. Preserve
      skill-specific nuance such as trigger boundaries, scope, ordering, risk
      level, and domain separation.
 6. Check progressive disclosure:

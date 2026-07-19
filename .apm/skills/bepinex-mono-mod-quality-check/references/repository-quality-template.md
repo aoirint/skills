@@ -101,10 +101,16 @@ See `$apm-usage` for installation, cooldown, license, and update details.
 
 ## Documentation and Markdown
 
-- Document setup, locked restore, formatting, build, debugging, packaging,
-  release, compatibility evidence, and any optional local tools in `README.md`.
-  Keep contribution requirements and the matching check matrix in
-  `CONTRIBUTING.md`.
+- Apply `software-documentation-maintenance` and require `docs/README.md`,
+  `docs/domain/README.md`, `docs/architecture/README.md`, and
+  `docs/operations/README.md`. Link the developer entry point from the root
+  README. Keep base-game, loader, Harmony, Unity, networking, and package-host
+  evidence in `domain/`; keep mod-selected models, boundaries, workflows, and
+  failure policy in `architecture/`; keep verified setup, locked restore,
+  formatting, build, debugging, packaging, release, runtime validation, and
+  Thunderstore procedures in `operations/`.
+- Keep contribution requirements and the matching check matrix in
+  `CONTRIBUTING.md`. Link to operations instead of duplicating full procedures.
 - Add `.markdownlint-cli2.yaml` that lints committed `**/*.md` by default,
   respects `.gitignore`, and excludes only transient agent/worktree locations.
   Keep every rule exception documented and narrow: line length, nested-list

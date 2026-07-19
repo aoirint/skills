@@ -27,7 +27,7 @@ Use this alert for AI-assisted reviews, replies, and thread notes:
 Omit an alert only when assistance was not significant.
 
 5. Keep verification evidence distinct: automated commands, CI results, non-AI manual checks, screenshots/videos, and AI-assisted inspections. Put requested AI-assisted inspections under `## Testing`, then `### AI-assisted inspections` after automated checks, with `Request: ...` and nested `AI-assisted result: ...`. Never describe AI-performed work as manual.
-6. Write in English except for exact source material. Keep bodies reviewable, use bullets and backticks, avoid large diffs, state skipped verification, and use `document-quality-check` or `security-check` for applicable prose or sensitive content.
+6. Write in English except for exact source material. Keep bodies reviewable, use bullets and backticks, avoid large diffs, state skipped verification, and use `prose-quality-check` or `security-check` for applicable prose or sensitive content.
 
 ## Reviews, notes, and CLI safety
 
