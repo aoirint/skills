@@ -126,6 +126,24 @@ or MCP dependency:
    `apm audit --ci` to the project's existing CI when the user requests CI
    enforcement.
 
+### 3.1 Maintain a packaged Skill collection
+
+Apply this section only when a repository publishes Skill copies in both an
+authoring target such as `.agents/skills/` and a package directory such as
+`.apm/skills/`.
+
+1. Identify the canonical source and each distributed copy. Use a supported
+   generator when one exists; otherwise update every copy in the same change.
+2. Compare relative file sets and content hashes before release. A missing,
+   extra, or different file is a release blocker, not a cosmetic discrepancy.
+3. After `apm install --frozen`, record the installer-reported target and
+   verify the named Skill at that actual target, rather than assuming a
+   configured or conventional directory was used.
+4. If `apm audit --ci` resolves a different target root, do not call the audit
+   a pass or failure without direct evidence. Record the discrepancy, verify
+   the installed file and lockfile hashes directly, and report the observed
+   behavior for follow-up.
+
 ## 4. Propose updates; do not silently apply them
 
 Pinned dependencies stay unchanged until a maintainer approves an update.
@@ -175,5 +193,10 @@ Before handoff, reconcile `THIRD_PARTY_NOTICES.md` with the reviewed lockfile:
 - Each committed APM-deployed third-party skill has one current
   `THIRD_PARTY_NOTICES.md` entry, including its license and required notices;
   removed skills have no stale entry unless a copy remains.
-- Deployment used `apm install --frozen`, and `apm audit --ci` passed.
+- Packaged collections have matching canonical and distributed file sets and
+  content hashes; the named installed Skill was checked at the
+  installer-reported target.
+- Deployment used `apm install --frozen`; `apm audit --ci` passed in the
+  verified target context, or any target-resolution discrepancy is documented
+  with direct installation and lockfile evidence.
 - Updates have a reviewable, cooldown-aware proposal before application.
