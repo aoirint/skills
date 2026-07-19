@@ -3,4 +3,3 @@
 
 # Bash scripts run on Linux CI and must keep LF endings.
 *.sh text eol=lf
-

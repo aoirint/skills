@@ -156,7 +156,7 @@ local_deployed_file_hashes:
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/build.yml.template: sha256:4a322f0cb9577b306d3f35a07b118d7f81cb259b74d662d8a2cbedc15ba1d0a4
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/lint.yml.template: sha256:f632f1f716a161b6f068e9dbe0313a435873fc3f31687aae09152a98749a4753
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/workflow-variables.example.json: sha256:9a3d19ece06e353022665803d22e7bc95e59a4259c422db926d9b366beb7d789
-  .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.gitattributes: sha256:c841830ca605bf57e09368497b898cb5b47c5776b583a427985a7b3a840edd99
+  .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.gitattributes: sha256:2b68c0cf28e58a65b9c842bb1f5733c32fe65e519c359c16b4081e8b21182e1e
   .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.gitignore.template: sha256:b139f97f286519249eb7f5b381827926a8fd18bedf29322e918195634bc5f2ee
   .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.markdownlint-cli2.yaml: sha256:1044e29915fe15e9083f808d1170c84cfc0b848123c0da435cabb9512d39c203
   .agents/skills/bepinex-mono-mod-quality-check/assets/template-map.json: sha256:d71a916b05124b2627471a08d501494105f12123b57a0c85a05128e392f531de
