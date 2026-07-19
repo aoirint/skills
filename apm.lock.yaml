@@ -38,11 +38,19 @@ local_deployed_files:
 - .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/generate-version/action.yml
 - .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/publish-thunderstore/action.yml
 - .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/publish-thunderstore/publish-thunderstore.sh
+- .agents/skills/bepinex-mono-mod-quality-check/assets/github/pull_request_template.md
+- .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/build.yml.template
+- .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/lint.yml.template
+- .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/workflow-variables.example.json
+- .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.gitattributes
+- .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.gitignore.template
+- .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.markdownlint-cli2.yaml
 - .agents/skills/bepinex-mono-mod-quality-check/assets/template-map.json
 - .agents/skills/bepinex-mono-mod-quality-check/references/canonical-templates.md
 - .agents/skills/bepinex-mono-mod-quality-check/references/implementation-runbook.md
 - .agents/skills/bepinex-mono-mod-quality-check/references/repository-derived-baseline.md
 - .agents/skills/bepinex-mono-mod-quality-check/references/repository-quality-template.md
+- .agents/skills/bepinex-mono-mod-quality-check/scripts/render_workflows.ps1
 - .agents/skills/bepinex-mono-mod-quality-check/scripts/sync_templates.ps1
 - .agents/skills/changelog-workflow
 - .agents/skills/changelog-workflow/README.md
@@ -128,11 +136,19 @@ local_deployed_file_hashes:
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/generate-version/action.yml: sha256:740ff4799955773e299e1a2aaf3f2f4c85d5b287ce5aeb3712cef2a3f963b610
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/publish-thunderstore/action.yml: sha256:aa75302334d13b50b76696e3759f1b0723f2262ae724103bb01515713d311329
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/publish-thunderstore/publish-thunderstore.sh: sha256:1801d6c68370a3c0de36d3910f6e9cbc319654669974365f8f52df759ee16023
-  .agents/skills/bepinex-mono-mod-quality-check/assets/template-map.json: sha256:7d70b4e767fa157148b8ad4f3ea1342c39ceff025c4fb03d5178b1e7a9eb56df
+  .agents/skills/bepinex-mono-mod-quality-check/assets/github/pull_request_template.md: sha256:c8743e1a281cbc38bfde66acdc1cf27db37074584eb65b6cd9eb67e6c3dd67a2
+  .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/build.yml.template: sha256:0a1a49c043da4d8bde0dd280d8232a5b02da53c2193ba02e379814c75b3f4583
+  .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/lint.yml.template: sha256:340acd31744af5cb77feac0aaeee22932db9662ba6768f47af4ca22185fb612f
+  .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/workflow-variables.example.json: sha256:fbf3b5255bbc64f6ce3e27358fefebabfbc1274da7790b7c3673e5018796ed35
+  .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.gitattributes: sha256:c107750ca71901e0e8918a4364f33c16aa9c45c43a23340dcdd9ca8e3de30a73
+  .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.gitignore.template: sha256:2fe968909ad4c017a4b4e1302c99fe144d40c3e289112fa76e7633afa72fce7e
+  .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.markdownlint-cli2.yaml: sha256:1044e29915fe15e9083f808d1170c84cfc0b848123c0da435cabb9512d39c203
+  .agents/skills/bepinex-mono-mod-quality-check/assets/template-map.json: sha256:d71a916b05124b2627471a08d501494105f12123b57a0c85a05128e392f531de
   .agents/skills/bepinex-mono-mod-quality-check/references/canonical-templates.md: sha256:da141688164aae5985252312dd2875e140a2ea24780e53f85641f040715c95f3
   .agents/skills/bepinex-mono-mod-quality-check/references/implementation-runbook.md: sha256:3823fe377bda6bdb8abd017c4290ef757d9b1b2b5a967d6ec66dcef10a99b911
   .agents/skills/bepinex-mono-mod-quality-check/references/repository-derived-baseline.md: sha256:47c027631228e724876fd0005aa1308886e6fafa314037a7dc22175bde21be9f
   .agents/skills/bepinex-mono-mod-quality-check/references/repository-quality-template.md: sha256:664c1569c5db9ff64b26b649ffb36f2faa68d1e3a2930b6bce525f184decef3d
+  .agents/skills/bepinex-mono-mod-quality-check/scripts/render_workflows.ps1: sha256:e0de19e0444f999d23f84367214c213861f9f84685406a0513dc235f41022f38
   .agents/skills/bepinex-mono-mod-quality-check/scripts/sync_templates.ps1: sha256:570d34b44120d7391c92e97220efb999d50aa42236f9c02286a682140955b37b
   .agents/skills/changelog-workflow/README.md: sha256:7ef8167d26522d95f62b9f11d752487d62b6bfdae05850315189fbe2a19fed83
   .agents/skills/changelog-workflow/SKILL.md: sha256:8fa4f9cddba329396cda8ea00f5e1ac3bb377f0f229c34f80a57b48f04b5f615
