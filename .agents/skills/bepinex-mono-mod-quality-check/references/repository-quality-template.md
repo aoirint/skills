@@ -38,6 +38,9 @@ constraint makes it inapplicable, and record that constraint in the review.
 - Ignore `bin/`, `obj/`, IDE caches, local logs, downloaded game files, and
   local profiles. Never use an ignore rule as a substitute for keeping secrets
   out of the repository.
+- Ignore common local secret/configuration files such as `.env` and nested
+  `.env` variants. If the repository intentionally commits an example, keep a
+  narrow negation for that exact example and confirm it remains visible.
 - Keep an explicit generated-code path only when the build actually produces
   it. Do not use broad `Generated/` or wildcard ignores that can hide authored
   C# files.
@@ -88,6 +91,13 @@ See `$apm-usage` for installation, cooldown, license, and update details.
   feeds as a convenient restore workaround.
 - Keep the assembly name, BepInEx metadata, project version, generated plugin
   information, and package identity on a verified synchronization path.
+- For a game-specific plugin with a stable tested process name, add and verify
+  `BepInProcess` so the loader does not activate it in unrelated processes.
+- At Harmony/game callback boundaries, make the declared client/host/server
+  role explicit, fail closed when network role is unavailable, and contain
+  failures from both the primary callback and its diagnostic sink. For
+  all-or-nothing observations, treat missing entries, metadata, or
+  classification fields as observation failure rather than partial success.
 
 ## Documentation and Markdown
 
@@ -123,6 +133,10 @@ See `$apm-usage` for installation, cooldown, license, and update details.
   locked restore; `dotnet format --no-restore --verify-no-changes`; build; and
   Markdown lint. Run ShellCheck before actionlint when actionlint can use it
   for inline shell validation.
+- Keep documentation, checked-in lint/check configuration, and CI in one
+  executable contract. Every retained configuration must be consumed by a
+  documented local command and an enabled CI step; remove stale configuration
+  or unsupported promises instead of treating file presence as enforcement.
 - Use `pinact run --check --min-age 7`, `actionlint`, and ShellCheck for
   workflow or composite-action changes. Cache downloaded tool archives only;
   verify their checksum on every extraction. Keep the tool version and checksum
@@ -130,6 +144,9 @@ See `$apm-usage` for installation, cooldown, license, and update details.
 - Cache NuGet using the committed lockfile path. Keep the .NET SDK version,
   target framework, and CI documentation aligned. Do not rely on the ambient
   runner toolchain for release-critical behavior.
+- Install the `global.json` SDK explicitly in CI with a full-SHA-pinned setup
+  action or pinned verified equivalent, then assert `dotnet --version` before
+  locked restore.
 - Review GitHub repository settings in addition to workflow YAML: Actions
   source restrictions and SHA-pin enforcement, default token permissions,
   branch protection/required checks, immutable releases, and release secrets.
@@ -164,6 +181,18 @@ See `$apm-usage` for installation, cooldown, license, and update details.
   prohibited runtime/local/build contents, and archive path-safety checks.
   Add host-specific fields and layout rules only as an extension based on that
   host's authoritative documentation.
+- Keep every archive-contract statement executable: map each required or
+  prohibited property to a validator assertion and a representative failing
+  fixture. Inspect link metadata when claiming unsafe-link rejection; path
+  traversal checks alone are insufficient.
+- Validate raw archive entry syntax before normalization, require regular-file
+  entry types, and inspect the packaged managed assembly rather than trusting
+  its filename. Verify assembly name, loader GUID/name/version, process
+  restriction, and enabled manifest/archive version against produced metadata.
+- Decode actual managed custom attributes for BepInEx identity, process, and
+  dependency checks; byte-string presence is not semantic validation. Keep a
+  positive fixture and a mutation fixture for every documented archive
+  rejection branch.
 - Set release-job-only `contents: write`; keep all other jobs read-only. Scope
   package-host tokens to the publishing step and never expose them to pull
   request or untrusted-code workflows.
@@ -177,6 +206,12 @@ See `$apm-usage` for installation, cooldown, license, and update details.
 - Inspect the final ZIP before publishing: expected root layout, one intended
   DLL, manifest, README, changelog, icon, license, and no game/runtime DLLs,
   local paths, logs, or build intermediates.
+- Inspect the contents of the packaged README/manifest/changelog themselves.
+  Required identity, supported game/loader baseline, dependencies, and release
+  version must appear in the files users receive and agree with the project and
+  evidence ledger. If developer and publication changelogs are separate, trace
+  the packaging input to the publication source; otherwise document the
+  canonical changelog as intentionally dual-purpose.
 
 ## Thunderstore publishing
 

@@ -122,6 +122,58 @@ independent stages.
    resolving project. Before accepting a new source/package/lock delta, review
    canonical URL, publisher, immutable version or digest, available hash,
    license, transitive graph, and seven-day release age.
+8. For every Harmony/game callback, write down the allowed execution role and
+   failure behavior. Check the current role explicitly before state mutation,
+   scans, UI, or network work; unavailable network state fails closed. Wrap the
+   primary callback and diagnostic sink independently so neither can throw into
+   the game callback.
+9. For each all-or-nothing observation, list every required layer used to
+   classify an entry: the entry itself, metadata, and classification fields.
+   Fail the observation when any layer is unavailable or Unity-destroyed; do
+   not silently skip it and return a partial result.
+10. For each base-game transaction, name the original values and all prepared,
+    spawned, or synchronized side effects. Put the restoration scope before the
+    first destructive mutation and keep the first through last fallible commit
+    operation inside it. On failure, restore exact original values, remove all
+    residue that can be removed safely, emit restoration evidence, and still
+    prevent the exception from escaping the game callback.
+    Guard rollback steps independently when one failed restoration operation
+    would otherwise prevent later cleanup or re-synchronization; record the
+    residual state that could not be restored.
+    For each acquisition step, fault immediately after allocation,
+    instantiation, registration, and spawn. The step must either transfer an
+    owned cleanup handle to rollback or clean up its partial resource before it
+    throws.
+11. Select Harmony prefix/postfix timing from the event meaning. Use postfix
+    for `completed`, `reset`, or `applied` observations unless the mod must
+    alter inputs before the base call. Verify that skipped/throwing base methods
+    do not advance completion-dependent mod state.
+12. For every patched RPC/network method, create a boundary ledger with one row
+    per host-local, remote-client, dedicated-server, and receive path that can
+    occur. Record role/stage, authoritative method arguments, fields mutated
+    before the hook, and fields updated only by a later RPC receive. Read or
+    rewrite only values proven authoritative at the chosen hook.
+    Enumerate every baseline caller of a shared boundary and the caller classes
+    exposed to other patches. Carry an explicit transaction-origin token or
+    pair entry/exit hooks when the shared callback alone cannot distinguish the
+    intended action from unrelated synchronization.
+    Add a boundary harness that calls the actual Harmony prefix/postfix methods
+    in the documented vanilla order. Exercise host-local, remote-client, and
+    unrelated shared-callback paths. Give method arguments, mirrored fields,
+    and deferred receive-stage fields distinct sentinel values, then fault each
+    stage so provenance and rollback cannot pass by equality coincidence.
+    Encode only mutations present in the inspected base-game body. Assert every
+    pre-hook sentinel, including fields intentionally left stale until a later
+    receive stage. A test that manually advances mirrored state earlier than
+    the real call graph is invalid evidence.
+13. Keep distinct names or value types for protocol indexes, catalog indexes,
+    network object IDs, and stable domain IDs. Add a fixture where a catalog
+    index differs from the stable ID and prove downstream hashing,
+    serialization, or persistence follows the contractually named identity.
+14. Write a lifecycle truth table for each eligibility/state predicate. Include
+    every named positive state plus adjacent loading, departing, travelling,
+    reset, and unavailable negatives. Do not implement a narrower product state
+    with a broader convenience proxy.
 
 ### 4.3 Archive contract and package content
 
@@ -130,6 +182,23 @@ independent stages.
    paths, required repository-owned files, the exact count and path of plugin
    DLLs, prohibited runtime/game DLLs, `bin/`, `obj/`, logs, profiles, local
    paths, secrets, and archive traversal/absolute-path/unsafe-link entries.
+   Map each prohibition to a direct validator assertion and a representative
+   failing fixture or deterministic test. Path normalization does not prove
+   unsafe-link rejection; inspect the archive metadata needed for every claim,
+   or narrow the documented contract.
+   Preserve raw entry names for separator/syntax checks before normalization,
+   require regular-file entry types, and inspect the packaged managed assembly
+   for expected assembly name, loader GUID/name/version, and enabled process
+   restriction. A correctly named corrupt or wrong binary must fail.
+   Decode the assembly custom-attribute table and compare the constructor
+   values of `BepInPlugin`, `BepInProcess`, and required dependency attributes;
+   do not substitute byte-string search. Maintain one positive fixture and one
+   mutation fixture for every documented rejection branch, including missing,
+   unexpected, duplicate, extra-DLL, corrupt-DLL, wrong identity/version, and
+   wrong or missing loader attributes.
+   Fixture tests must invoke the production validator/package path or the exact
+   shared library it calls. Do not copy validation rules into a test helper and
+   test the copy.
 2. Build into a clean staging directory. Copy only files allowed by the archive
    contract. Create exactly one archive, inspect its entries, and compute a
    SHA-256 digest.
@@ -137,7 +206,17 @@ independent stages.
    manifest fields, root layout, dependency syntax, namespace/category, version
    restrictions, authentication, and overwrite behavior. Do not use a
    Thunderstore manifest or GitHub asset convention for another host.
-4. Block package publication when host contract, package identity, runtime
+4. Extract the final archive and inspect the files users actually receive.
+   Verify that package-facing metadata/documentation states the enabled plugin
+   identity, release version, supported game/loader baseline, and dependencies
+   required by the product contract. Verify those claims against the project
+   and evidence ledger; do not accept an undistributed root README as proof.
+5. Trace the changelog file copied by packaging. It must be documented either
+   as a distinct publication-facing source or as a canonical dual-purpose
+   changelog, and it must contain the packaged stable version. Do not claim a
+   generated/derived release-note step unless automation performs and verifies
+   it.
+6. Block package publication when host contract, package identity, runtime
    evidence, or final-archive validation is blocked or failing.
 
 ### 4.4 Automation
@@ -150,6 +229,13 @@ independent stages.
    pinact; SDK setup; locked restore; format; no-restore build; tests; Markdown
    lint; archive validation when relevant. Use read-only permissions, explicit
    Bash, and PR-only cancellation concurrency.
+   Read the SDK version from `global.json` and install it explicitly using a
+   full-SHA-pinned setup action or pinned verified equivalent before restore;
+   verify `dotnet --version` matches. Do not depend on runner inventory.
+   Compare the workflow with README/CONTRIBUTING and committed lint/check
+   configuration. Every promised check and every retained configuration must
+   be invoked by a documented local command and CI, or be removed with a
+   concrete reason.
 3. Pin third-party actions by full SHA plus accurate version comment, containers
    by digest, and downloaded executable tools by adjacent version and checksum.
    Cache only verified archives and use committed lockfiles as NuGet cache keys.
@@ -188,11 +274,23 @@ not passed; record the command, reason, and resulting risk.
 | Automated tests exist or changed | documented test command after build | exit 0 and relevant tests execute |
 | Markdown/package text | checked-in Markdown linter over committed Markdown | exit 0 |
 | `.gitignore` change | `git status --short` plus intended/unintended file review | no required file hidden |
+| Callback/interop boundary change | role-denied/unavailable-state check; throwing-primary-callback check; throwing-diagnostic-sink check; all-or-nothing nullable-layer check | no unauthorized side effect or state transition; no exception escapes; no partial observation is emitted |
+| Base-game transaction change | fault injection at first mutation, every synchronization/RPC/spawn step, and final commit | exact original state restored; no prepared/spawned residue; restoration and bounded callback-exception evidence emitted |
+| Resource preparation/acquisition | fault after each allocation, instantiation, registration, and spawn using the production transaction | every acquired resource is transferred to rollback ownership or cleaned internally; no residue survives |
+| Network/RPC patch change | boundary-ledger review plus host-local, remote-client, server, and receive-path checks as applicable | every hook reads authoritative inputs/fields at that stage; both local and remote flows reach the intended exactly-once result |
+| Harmony provenance/transaction boundary | actual patch-entry harness in vanilla call order with distinct argument/field/receive sentinels and per-stage faults | provenance encloses the intended mutation on every path; unrelated callers do nothing; rollback restores the authoritative value rather than a mirrored stale field |
+| Shared RPC/event domain action | enumerate callers and test intended plus non-domain provenance paths | explicit origin reaches the effect exactly once; unrelated synchronization leaves state unchanged |
+| Identifier-dependent behavior | fixture where catalog/protocol index differs from stable domain ID | hash/persist/log/serialize result follows the contractually named identity |
+| Lifecycle predicate change | positive-and-adjacent-negative truth table | every named positive passes; loading/departing/travelling/reset/unavailable negatives fail unless explicitly included |
 | NuGet source/package/lock change | source/publisher/version/hash/license/transitive/age review | ledger records approval; mapping/locks cover every resolver |
 | Workflow/action/shell change | ShellCheck, `actionlint`, `pinact run --check --min-age 7`, manual pin/permission/concurrency/secret review | all pass; every executable input is pinned/verified |
+| Lint/check config or contributor command | trace config to local command and enabled CI step | each retained config is consumed and every promised command is runnable in both documented and CI contexts |
 | APM change | `apm lock`; lock review; `apm install --frozen`; `apm audit --ci` | expected refs/hashes and no drift |
 | Package/release change | clean staging, archive-contract inspection, SHA-256, exact-artifact handoff check | one valid archive; digest matches |
+| Package binary identity | decode built and archived assembly/custom-attribute metadata against project/package contract | assembly name, `BepInPlugin` GUID/name/version, `BepInProcess`, required dependencies, manifest, and archive identity agree; one mutation fixture per rejection rule fails |
+| Validator/policy fixture | invoke production command/path or the exact shared library it calls | fixture failure proves production enforcement; no duplicated test-only rule implementation |
 | Compatibility/release claim | clean-profile runtime test | record exact game build, BepInEx version, mod set, install path, scenario, result |
+| Structured validation logging requested | inspect representative startup, success, denial/failure, receiver/apply, restoration, and swallowed-exception records | role is observed or neutral rather than asserted; records prove the named outcome with boundary/source, result, and only necessary bounded before/after values; inner and outer swallowed exceptions are recorded; privacy exclusions hold |
 | GitHub Release | repository-setting review and fail-on-existing release path | settings/gaps recorded; no mutable overwrite path |
 
 ## 7. Completion report
