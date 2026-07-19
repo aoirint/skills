@@ -159,6 +159,11 @@ See `$apm-usage` for installation, cooldown, license, and update details.
   the DLL and required files, calculate a digest, and upload that artifact.
   Release jobs must download and verify this exact artifact instead of building
   a second copy.
+- Keep a small, versioned archive contract in the repository. Define a
+  host-neutral base with allowed root paths, an exact intended-plugin-DLL count,
+  prohibited runtime/local/build contents, and archive path-safety checks.
+  Add host-specific fields and layout rules only as an extension based on that
+  host's authoritative documentation.
 - Set release-job-only `contents: write`; keep all other jobs read-only. Scope
   package-host tokens to the publishing step and never expose them to pull
   request or untrusted-code workflows.

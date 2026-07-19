@@ -58,10 +58,12 @@ they do not replace this Skill's quality bar.
    - Match the target framework and language version to the repository's documented BepInEx and game runtime compatibility; do not upgrade either opportunistically.
    - Keep game and loader references compile-only when the release package relies on the player's installed runtime. Keep development analyzers and code generators private to the project.
    - Require a committed lockfile for every resolving project and run `dotnet restore --locked-mode`. After restore, run `dotnet format --no-restore --verify-no-changes` and a no-restore build. A missing lockfile or unlocked restore is a reproducibility finding.
+   - When a change adds or modifies automated tests, run the repository's documented test command after the locked restore and no-restore build. A separate Core or test project is justified only by its stated test, reuse, build, or dependency-isolation benefit, and must meet the same lockfile and source-mapping rules as every other resolving project.
    - Require `nuget.config` to clear unreviewed default sources and map direct and transitive package patterns to their intended source. Review every new feed, package, lockfile change, CI action, container, or downloaded tool for canonical source, publisher, immutable version or digest, content hash where available, license, transitive effects, and seven-day release age before adoption.
    - Do not commit game installations, mod-manager profiles, generated plugin metadata, `bin/`, `obj/`, or machine-local paths.
 5. Check package and release consistency.
    - Trace the release artifact from the built DLL to its archive. Confirm that the archive layout and every required file match the package host and repository documentation.
+   - Keep a versioned, repository-owned archive contract. Its host-neutral part must define the allowed root paths, exact plugin-DLL count, prohibited contents, and archive path-safety rules; add a host-specific extension only from the selected host's authoritative contract. Do not substitute another host's manifest or layout.
    - Reconcile package manifest identity, version, dependencies, compatibility claims, README, changelog, icon, and license with the release intent.
    - Keep developer changelog entries and user-facing release notes in their repository-defined roles. Do not claim untested game compatibility or publish a version already represented by an immutable release.
    - When the project derives manifest or package versions in CI, verify that the project version, generated version, and loader-compatible version are deliberately handled for stable, prerelease, and edge builds.
@@ -72,7 +74,7 @@ they do not replace this Skill's quality bar.
    - Separate validation artifacts, prereleases, and stable publishing according to the repository's version rules. Gate external package-host publication on the intended stable release mode and require exactly one reviewed package artifact.
    - Default workflow permissions to read-only. Scope `contents: write` and publishing secrets to the release job that needs them, and never expose a publish credential to pull-request validation.
 7. Run the narrowest relevant checks, then widen for the changed surface.
-   - For C# or project changes, run locked restore, format verification, and no-restore build. Use the solution or project path required by the repository layout.
+   - For C# or project changes, run locked restore, format verification, and no-restore build. Run the documented tests when automated tests are present or changed. Use the solution or project path required by the repository layout.
    - For documentation or package text, run Markdown lint over every committed Markdown file using the checked-in configuration.
    - For workflows, composite actions, or shell scripts, run ShellCheck, `actionlint`, and `pinact run --check --min-age 7`; check full-SHA action pins, container digests, downloaded-tool checksums, permissions, concurrency, and secret scope.
    - For APM changes, run `apm lock`, review locked refs and hashes, run `apm install --frozen`, then `apm audit --ci`.
