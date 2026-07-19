@@ -1,6 +1,6 @@
 ---
 name: bepinex-mono-mod-quality-check
-description: Review or create a BepInEx Mono mod for C# project and module structure, plugin identity, game compatibility, dependency boundaries, packaging, release metadata, and verification. Use when implementing, reviewing, preparing a release for, or diagnosing quality gaps in a BepInEx 5 Mono plugin or its build and release workflow.
+description: Review or create a BepInEx Mono mod for C# project and module structure, plugin identity, game compatibility, dependency boundaries, GitHub CI and release automation, packaging, release metadata, and verification. Use when implementing, reviewing, preparing a release for, or diagnosing quality gaps in a BepInEx 5 Mono plugin or its build and release workflow.
 ---
 
 # BepInEx Mono Mod Quality Check
@@ -11,6 +11,7 @@ description: Review or create a BepInEx Mono mod for C# project and module struc
 - Keep C# project and module boundaries aligned with gameplay policy, framework integration, and composition responsibilities.
 - Keep game and BepInEx compatibility explicit, evidence-backed, and scoped to what was actually tested.
 - Produce reproducible builds and installable release packages without committing local game or build output.
+- Keep GitHub Actions and release automation pinned, least-privilege, and traceable to the built artifact.
 - Report findings as actionable evidence, not assumed conventions from another mod.
 
 ## Workflow
@@ -42,12 +43,18 @@ description: Review or create a BepInEx Mono mod for C# project and module struc
    - Reconcile package manifest identity, version, dependencies, compatibility claims, README, changelog, icon, and license with the release intent.
    - Keep developer changelog entries and user-facing release notes in their repository-defined roles. Do not claim untested game compatibility or publish a version already represented by an immutable release.
    - When the project derives manifest or package versions in CI, verify that the project version, generated version, and loader-compatible version are deliberately handled for stable, prerelease, and edge builds.
-6. Run the narrowest relevant checks, then widen for the changed surface.
+6. Check GitHub repository settings, CI, and release automation when the repository uses GitHub Actions or GitHub Releases.
+   - Require the repository or organization Actions setting that enforces full-length commit-SHA pins. Independently verify every third-party `uses:` reference has a full commit SHA and an accurate version comment; inspect reusable workflows, container digests, and downloaded-tool checksums too.
+   - Require repository-level immutable releases where GitHub makes the setting available. Automation must attach every asset before publishing the release and must fail rather than replace an existing tag, release, or asset. If the setting is unavailable, record the residual risk and require an explicit fail-on-existing-release/tag/asset path instead of silently treating releases as immutable.
+   - Trace one release from its source commit through locked restore, build, archived artifact, and release asset. Publish only the artifact produced by that build; do not rebuild a separately checked-out revision in the release job. Create and verify an artifact digest across the build and release jobs.
+   - Separate validation artifacts, prereleases, and stable publishing according to the repository's version rules. Gate external package-host publication on the intended stable release mode and require exactly one reviewed package artifact.
+   - Default workflow permissions to read-only. Scope `contents: write` and publishing secrets to the release job that needs them, and never expose a publish credential to pull-request validation.
+7. Run the narrowest relevant checks, then widen for the changed surface.
    - For C# or project changes, run the documented locked restore, formatter/analyzer check, and build. Use `--no-restore` after a successful locked restore when the repository does so.
    - For documentation or package text, run the repository Markdown check.
    - For workflows, composite actions, or shell scripts, use `$github-actions-quality-check` and run the repository's action, shell, and pin checks.
    - For release or compatibility changes, perform the repository's documented package inspection and runtime validation. State exactly what environment, game version, loader version, and mod set were tested; record missing runtime evidence as a blocker rather than guessing.
-7. Report the result in this order: scope and evidence consulted; findings grouped by structure/plugin/build/package/runtime; checks passed or skipped; and remaining compatibility or release risks. Pair code-level findings with `$code-quality-check`, gameplay-mechanics claims with `$lethal-company-analyze` when applicable, and user-facing release text with `$release-note-workflow`.
+8. Report the result in this order: scope and evidence consulted; findings grouped by structure/plugin/build/CI/package/runtime; checks passed or skipped; and remaining compatibility or release risks. Pair code-level findings with `$code-quality-check`, GitHub workflow findings with `$github-actions-quality-check`, gameplay-mechanics claims with `$lethal-company-analyze` when applicable, and user-facing release text with `$release-note-workflow`.
 
 ## Reference Baseline
 

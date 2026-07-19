@@ -55,6 +55,34 @@ not automatic quality improvements.
 - Keep development history and end-user release notes separate when the
   repository distinguishes them.
 
+## GitHub CI and release automation
+
+The three source repositories use GitHub Actions to build an archive, upload
+that archive, and publish releases. Apply the following as a review baseline:
+
+- Enable the repository or organization policy requiring GitHub Actions to use
+  full-length commit-SHA pins. Keep the exact SHA in each `uses:` reference and
+  retain a version comment that a reviewer can verify. Pin containers by digest
+  and verify checksums for downloaded executables.
+- Keep ordinary CI read-only. Give the release job only the write permission it
+  needs, and pass package-host tokens only to that publishing step.
+- Build once from the release commit, upload the completed archive and its
+  digest, then download and verify that exact artifact before publishing it.
+  Do not publish a separately rebuilt archive or accept zero or multiple
+  package artifacts.
+- Enable GitHub immutable releases when available. Create the release as a
+  draft, attach all assets, then publish it so its tag and assets cannot be
+  changed afterward. If that setting is unavailable, record the residual risk;
+  still keep automation fail-closed if the intended release, tag, or asset
+  already exists.
+- Distinguish edge validation artifacts, prereleases, and stable releases.
+  Publish to external package hosts only for the repository's intended stable
+  mode, after package inspection and runtime evidence are available.
+
+GitHub documents the repository Actions setting for
+[full-length commit-SHA pins](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)
+and [immutable releases](https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases).
+
 ## Transferable verification shape
 
 Start with the repository's documented commands. The three source repositories
