@@ -8,6 +8,12 @@
       "comparison": "text-normalized-newlines"
     },
     {
+      "id": "repository-contributing",
+      "source": "repository/CONTRIBUTING.md",
+      "destination": "CONTRIBUTING.md",
+      "comparison": "text-normalized-newlines"
+    },
+    {
       "id": "github-pull-request-template",
       "source": "github/pull_request_template.md",
       "destination": ".github/pull_request_template.md",

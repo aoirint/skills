@@ -50,6 +50,11 @@ they do not replace this Skill's quality bar.
 - Commit an SDK-style project, `nuget.config` with explicit sources and package
   source mapping, one `packages.lock.json` per resolving project, a narrow
   `.gitignore`, Markdown lint configuration, and contributor documentation.
+- Keep the contributor agreement and the pull-request confirmation internally
+  complete. When adopting the bundled contract, deploy
+  `repository-contributing` and `github-pull-request-template` together; never
+  infer that a CLA checkbox is unsupported without inspecting its referenced
+  `CONTRIBUTING.md` section.
 - For C# changes, require locked restore, format verification without restore,
   and a no-restore build. For Markdown, workflow, shell, APM, package, or
   release changes, apply the corresponding checks in
