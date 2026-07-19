@@ -1,0 +1,4 @@
+interface:
+  display_name: "BepInEx Mono Mod Quality Check"
+  short_description: "Review BepInEx Mono mod quality."
+  default_prompt: "Use $bepinex-mono-mod-quality-check to review this BepInEx Mono mod for project, package, release, and verification quality."

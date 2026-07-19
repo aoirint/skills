@@ -21,6 +21,7 @@ apm install --global aoirint/skills
 | Skill | Purpose |
 | --- | --- |
 | [apm-usage](.apm/skills/apm-usage/README.md) | Safely set up, pin, deploy, audit, and update APM-managed agent dependencies. |
+| [bepinex-mono-mod-quality-check](.apm/skills/bepinex-mono-mod-quality-check/README.md) | Review BepInEx Mono mods for plugin, package, release, and verification quality. |
 | [changelog-workflow](.apm/skills/changelog-workflow/README.md) | Maintain canonical developer changelogs and release history. |
 | [code-quality-check](.apm/skills/code-quality-check/README.md) | Review implementation changes for readability, maintainability, and verification. |
 | [commit-message-quality-check](.apm/skills/commit-message-quality-check/README.md) | Draft and review accurate Conventional Commit messages. |
