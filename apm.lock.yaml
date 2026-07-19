@@ -178,7 +178,7 @@ local_deployed_file_hashes:
   .agents/skills/flet-project-quality-check/SKILL.md: sha256:58f98b100c297b7c27ad69b777ed5a07942f376d930aac49f3f9a1e4ef9fecbf
   .agents/skills/flet-project-quality-check/agents/openai.yaml: sha256:87eb0740c7ee3001db763e18b2cb1e5e0cd58a94c7915b73fcbc23ccd97d371e
   .agents/skills/flet-project-quality-check/references/architecture-and-ui.md: sha256:cd3125c5ff0f592376ad1dcd5caadbf570786bc1f9733a3dc7f367065c953495
-  .agents/skills/flet-project-quality-check/references/ci-packaging-security.md: sha256:9a0bde6cd5a867fdd390f2efba06701fc10fc40e413afd02b48018f7276d51cb
+  .agents/skills/flet-project-quality-check/references/ci-packaging-security.md: sha256:013db21c6c44aef7fa74334e5c2e6b103892824dc17376284ea3050309ae8dfd
   .agents/skills/flet-project-quality-check/references/implementation-runbook.md: sha256:a13a9960735cd6dca03f6cd25b79edec3155f373b3cc27d578364595519e4d84
   .agents/skills/flet-project-quality-check/references/tooling-and-testing.md: sha256:f552960672d706db90f1c80b0ee3880b952b1c16952df966fe6ccd232371f1f1
   .agents/skills/flet-project-quality-check/scripts/check_project.py: sha256:3ff0116a0d10db99b077835701e268c6bb3d08f83ea6702891eedf214caddead
