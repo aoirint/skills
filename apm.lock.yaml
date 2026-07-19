@@ -119,6 +119,7 @@ local_deployed_files:
 - .agents/skills/security-check/README.md
 - .agents/skills/security-check/SKILL.md
 - .agents/skills/security-check/agents/openai.yaml
+- .agents/skills/security-check/references/artifact-inspection.md
 - .agents/skills/security-check/references/external-code-execution.md
 - .agents/skills/skill-quality-check
 - .agents/skills/skill-quality-check/README.md
@@ -187,7 +188,7 @@ local_deployed_file_hashes:
   .agents/skills/git-worktree-workflow/SKILL.md: sha256:e6e453e43e2036309381cf11ded6499de03281e1b7bbb43b6aba05de59d6ba5b
   .agents/skills/git-worktree-workflow/agents/openai.yaml: sha256:3eb9da73e7a041e77d82f0d5c3a8c67e914575cff8651b71d077db30fe3da99a
   .agents/skills/github-actions-quality-check/README.md: sha256:a0767309bb84d170bc30070099a9f091b4c67cc00f790da88799685ab6bbaf5e
-  .agents/skills/github-actions-quality-check/SKILL.md: sha256:ab06297b0aee0708c0b5ef0cd4fff66d8c5d784fe15e2718f367fd3b0b9f6139
+  .agents/skills/github-actions-quality-check/SKILL.md: sha256:b512fa9daf59e1ae498ff00d345a36652fefff5cf8002d7e8a542fca60db1aa0
   .agents/skills/github-actions-quality-check/agents/openai.yaml: sha256:63b8022771cf5e036033c39fd700adf14b1ab23f7df78699474e472a7c28e73d
   .agents/skills/gitignore-workflow/README.md: sha256:0de188ebcdd40ea1aec701410e1c2182049b66bc4ec4d83a3bf55685b4267d47
   .agents/skills/gitignore-workflow/SKILL.md: sha256:727549890e7d5e54534098c36aa793dee3e491da307120a8c59ba6a42e8ce456
@@ -217,8 +218,9 @@ local_deployed_file_hashes:
   .agents/skills/rollout-workflow/SKILL.md: sha256:388562861550934c88ba19566fc6d1b9fbe9f528a44d62de4c7337bac327d225
   .agents/skills/rollout-workflow/agents/openai.yaml: sha256:543a7befd986c51540ef35603fe63830f5032dc02b31f89e7f2179df3b3ca5dc
   .agents/skills/security-check/README.md: sha256:d321689b998388180ac852fdb6374ab3b79bec508a53d00461a9db79fb246d2e
-  .agents/skills/security-check/SKILL.md: sha256:9f96fee336e80827f5d0970eeefe6e8b62ff92a053aefe301ae56b2c766b5191
+  .agents/skills/security-check/SKILL.md: sha256:38a16b5c97577ac532c4c685164a67b887992493e6fce1d41105a5d3ea32c06f
   .agents/skills/security-check/agents/openai.yaml: sha256:87edf0cc1e8717194d0c536f2d5ac0cc1ac9ec04402311d34e953d2e2b23fa19
+  .agents/skills/security-check/references/artifact-inspection.md: sha256:9842555f4789e77e6cf3d22b000116497207ecf6fa5587f2b1fe0dc20e7dffda
   .agents/skills/security-check/references/external-code-execution.md: sha256:87ca817baa02ef6b955e5878f0cd79c875abdb0be6e0177cfce158968e628bc3
   .agents/skills/skill-quality-check/README.md: sha256:f4ec14bdc1b75a3b13be6e1048ae803910e180e49bbcb1f8347630fc920212c9
   .agents/skills/skill-quality-check/SKILL.md: sha256:beb7297913e131b1b0eeb6fa8654e05b2f28e7408cc08566530af9b814a4560a
