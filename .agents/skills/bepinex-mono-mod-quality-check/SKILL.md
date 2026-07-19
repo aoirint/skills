@@ -34,6 +34,12 @@ settled. Do not move a mod-selected policy into reusable domain knowledge, and
 do not treat a well-structured document as proof that its game or release claim
 is correct.
 
+Use `unity-game-analyze` to establish version-specific game-code and serialized-asset evidence:
+the concrete call path, effective prefab/scene values, object/load reachability, lifecycle timing,
+authority, and unresolved runtime inputs. This Skill consumes that evidence to select and verify
+hooks, adapters, identity mappings, compatibility claims, and tests. It remains responsible for the
+mod decision; `unity-game-analyze` must not approve a Harmony target merely because a method exists.
+
 ## Required Template Baseline
 
 Use the quality baseline in this Skill for a repository that does not already
@@ -73,6 +79,7 @@ that procedure with an informal checklist.
    - Classify the request as `setup`, `alignment`, `implementation`, `release-readiness`, or `plan-only`. Execute only the runbook branches enabled by the evidence ledger and request type; record every disabled branch and its concrete reason.
    - For a new repository or a template-alignment review, read [repository-quality-template.md](references/repository-quality-template.md) after the runbook inventory. It is the normative file-by-file standard, not a source of target-specific values.
    - If the evidence ledger enables a contract represented by a bundled template, read [canonical-templates.md](references/canonical-templates.md), select only the applicable template IDs, and use the sync script for both application and CI drift checks. Keep target-specific workflow values in the caller, not in a copied action.
+   - When a patch, reflection target, serialized name/value, Unity object, game lifecycle, or build-compatibility claim lacks a closed target-build trace, use `unity-game-analyze` and record its evidence handoff. Do not reconstruct the Unity code/asset procedure informally inside the mod review.
 2. Check C# project and module structure.
    - Start from the repository's existing layout. Do not introduce projects, layers, or folder taxonomy solely to resemble another mod.
    - Keep the loader entry point and composition root small. It may create the controller, adapters, state, and use cases, but it must not become the location for gameplay policy or framework callbacks.

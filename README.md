@@ -37,6 +37,7 @@ apm install --global aoirint/skills
 | [security-check](.apm/skills/security-check/README.md) | Review repository changes for practical security and supply-chain risks. |
 | [skill-quality-check](.apm/skills/skill-quality-check/README.md) | Review Agent Skills for clear triggers, focused scope, and validation readiness. |
 | [software-documentation-maintenance](.apm/skills/software-documentation-maintenance/README.md) | Design and maintain coherent software documentation systems. |
+| [unity-game-analyze](.apm/skills/unity-game-analyze/README.md) | Trace Unity game behavior through decompiled code and serialized assets. |
 
 ## License
 
