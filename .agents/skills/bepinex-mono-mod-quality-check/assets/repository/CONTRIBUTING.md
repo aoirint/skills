@@ -311,4 +311,3 @@ This includes, but is not limited to:
 
 Report the issue to the maintainer through a private and secure channel when
 possible, or to a trusted security organization.
-
