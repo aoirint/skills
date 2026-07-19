@@ -4,6 +4,14 @@ This baseline captures transferable BepInEx Mono repository practices. Apply it
 only after reading the target repository's own instructions; game and package
 host details remain repository-specific, not universal requirements.
 
+## Contents
+
+- [Transferable project shape](#transferable-project-shape)
+- [Transferable module shape](#transferable-module-shape)
+- [Transferable release shape](#transferable-release-shape)
+- [GitHub CI and release automation](#github-ci-and-release-automation)
+- [Transferable verification shape](#transferable-verification-shape)
+
 ## Transferable project shape
 
 - Use an SDK-style project with an explicit target framework and language
@@ -36,6 +44,26 @@ names.
 - Add a Core port plus an Interop adapter when Core needs external data or an
   effect. Make state ownership explicit rather than sharing mutable singleton
   access across callbacks and use cases.
+
+When one callback or frame drives more than one presentation, use one coherent
+observation flow. Let Interop sample live game objects and framework calls once,
+translate them to framework-free values, let Core derive the mod's conditions,
+and give every presenter the same immutable result. Keep direct observations,
+derived conditions, and diagnostic proxies distinct so a proxy is not mistaken
+for a complete game decision.
+
+Model related availability structurally. If a target, metadata object, or
+similar prerequisite makes several fields available together, put those
+fields under one optional aggregate or result variant rather than exposing
+correlated nullable properties that permit impossible combinations. Preserve
+an unreadable value separately from a real `false`, empty, or absent
+observation.
+
+Do not retain each coherent update merely because Core defines its type. Keep
+the frame transient until a named feature needs history, smoothing, change
+detection, save/restore, or another cross-callback lifetime. When retention is
+required, document replacement and reset rules instead of introducing an
+unbounded or session-ambiguous cache.
 
 Use this shape only when it clarifies a real separation. A small plugin can
 remain one project and use a few cohesive modules. Create another C# project

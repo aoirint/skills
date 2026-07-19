@@ -116,28 +116,49 @@ independent stages.
    references. Interop owns callbacks, configuration, logging, game access,
    networking, and port adapters. A callback validates/translates then
    delegates; Core never reaches a game singleton directly.
-5. Add a separate Core or test project only for documented test, reuse, build,
+5. When one callback/update feeds multiple outputs, establish one coherent
+   update boundary in this order: let Interop read each required live object,
+   method, reflection field, and physics/network result once; convert those
+   reads to framework-free direct observations; let Core derive conditions and
+   proxy results once; then pass the same immutable frame/result to every HUD,
+   world-rendering, logging, or other presentation path. Presentation code must
+   not query the game again. Record duplicate-read consolidation as an
+   intentional timing/read-count change, preserve externally significant call
+   ordering, and compare every output label, threshold, identity, and absence
+   case with the pre-refactor contract.
+6. Keep direct observations, derived conditions, and deliberately incomplete
+   diagnostic proxies separate in type and property names. Group fields whose
+   availability is correlated under one optional aggregate or explicit result
+   variant so the model cannot represent impossible partial combinations.
+   Preserve unreadable/unknown separately from observed false, empty, or
+   absent values.
+7. Keep an update frame local to the handler/use case by default. Add a Core
+   store only when a named cross-callback rule requires history, smoothing,
+   change detection, save/restore, or another retained value; document its
+   replacement, reset, and session lifetime. Core ownership of a value type is
+   not by itself a reason to retain the latest frame.
+8. Add a separate Core or test project only for documented test, reuse, build,
    or dependency-isolation value. For every new project, repeat the target
    framework review, source mapping, lockfile, restore, format, build, and test
    coverage steps. Verify it is not included in the player package unless the
    archive contract explicitly requires it.
-6. Configure game and BepInEx references compile-only when the player install
+9. Configure game and BepInEx references compile-only when the player install
    supplies them. Mark analyzers, generators, and build-only metadata helpers
    `PrivateAssets="all"`. Do not use local game paths as a restore workaround.
-7. Add `nuget.config`, then generate and commit the lockfile for every
+10. Add `nuget.config`, then generate and commit the lockfile for every
    resolving project. Before accepting a new source/package/lock delta, review
    canonical URL, publisher, immutable version or digest, available hash,
    license, transitive graph, and seven-day release age.
-8. For every Harmony/game callback, write down the allowed execution role and
+11. For every Harmony/game callback, write down the allowed execution role and
    failure behavior. Check the current role explicitly before state mutation,
    scans, UI, or network work; unavailable network state fails closed. Wrap the
    primary callback and diagnostic sink independently so neither can throw into
    the game callback.
-9. For each all-or-nothing observation, list every required layer used to
+12. For each all-or-nothing observation, list every required layer used to
    classify an entry: the entry itself, metadata, and classification fields.
    Fail the observation when any layer is unavailable or Unity-destroyed; do
    not silently skip it and return a partial result.
-10. For each base-game transaction, name the original values and all prepared,
+13. For each base-game transaction, name the original values and all prepared,
     spawned, or synchronized side effects. Put the restoration scope before the
     first destructive mutation and keep the first through last fallible commit
     operation inside it. On failure, restore exact original values, remove all
@@ -150,11 +171,11 @@ independent stages.
     instantiation, registration, and spawn. The step must either transfer an
     owned cleanup handle to rollback or clean up its partial resource before it
     throws.
-11. Select Harmony prefix/postfix timing from the event meaning. Use postfix
+14. Select Harmony prefix/postfix timing from the event meaning. Use postfix
     for `completed`, `reset`, or `applied` observations unless the mod must
     alter inputs before the base call. Verify that skipped/throwing base methods
     do not advance completion-dependent mod state.
-12. For every patched RPC/network method, create a boundary ledger with one row
+15. For every patched RPC/network method, create a boundary ledger with one row
     per host-local, remote-client, dedicated-server, and receive path that can
     occur. Record role/stage, authoritative method arguments, fields mutated
     before the hook, and fields updated only by a later RPC receive. Read or
@@ -172,11 +193,11 @@ independent stages.
     pre-hook sentinel, including fields intentionally left stale until a later
     receive stage. A test that manually advances mirrored state earlier than
     the real call graph is invalid evidence.
-13. Keep distinct names or value types for protocol indexes, catalog indexes,
+16. Keep distinct names or value types for protocol indexes, catalog indexes,
     network object IDs, and stable domain IDs. Add a fixture where a catalog
     index differs from the stable ID and prove downstream hashing,
     serialization, or persistence follows the contractually named identity.
-14. Write a lifecycle truth table for each eligibility/state predicate. Include
+17. Write a lifecycle truth table for each eligibility/state predicate. Include
     every named positive state plus adjacent loading, departing, travelling,
     reset, and unavailable negatives. Do not implement a narrower product state
     with a broader convenience proxy.
@@ -280,6 +301,7 @@ not passed; record the command, reason, and resulting risk.
 | Automated tests exist or changed | documented test command after build | exit 0 and relevant tests execute |
 | Markdown/package text | checked-in Markdown linter over committed Markdown | exit 0 |
 | `.gitignore` change | `git status --short` plus intended/unintended file review | no required file hidden |
+| One callback/update feeds multiple outputs | observation-source spy or call-count fixture when a harness exists; otherwise source and built-call-site inspection plus recorded runtime gap; compare every output from deliberately distinct direct/derived/proxy and absent/unknown inputs | each live query runs once per subject/update; every output consumes the same frame/result; impossible partial availability is unrepresentable; unknown does not collapse into false/absence |
 | Callback/interop boundary change | role-denied/unavailable-state check; throwing-primary-callback check; throwing-diagnostic-sink check; all-or-nothing nullable-layer check | no unauthorized side effect or state transition; no exception escapes; no partial observation is emitted |
 | Base-game transaction change | fault injection at first mutation, every synchronization/RPC/spawn step, and final commit | exact original state restored; no prepared/spawned residue; restoration and bounded callback-exception evidence emitted |
 | Resource preparation/acquisition | fault after each allocation, instantiation, registration, and spawn using the production transaction | every acquired resource is transferred to rollback ownership or cleaned internally; no residue survives |
