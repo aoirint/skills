@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "templates": [
+    {
+      "id": "github-generate-version",
+      "source": "github/actions/generate-version/action.yml",
+      "destination": ".github/actions/generate-version/action.yml",
+      "comparison": "text-normalized-newlines"
+    },
+    {
+      "id": "github-publish-thunderstore-action",
+      "source": "github/actions/publish-thunderstore/action.yml",
+      "destination": ".github/actions/publish-thunderstore/action.yml",
+      "comparison": "text-normalized-newlines"
+    },
+    {
+      "id": "github-publish-thunderstore-script",
+      "source": "github/actions/publish-thunderstore/publish-thunderstore.sh",
+      "destination": ".github/actions/publish-thunderstore/publish-thunderstore.sh",
+      "comparison": "bytes"
+    }
+  ]
+}

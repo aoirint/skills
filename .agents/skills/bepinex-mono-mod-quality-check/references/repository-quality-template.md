@@ -154,6 +154,10 @@ See `$apm-usage` for installation, cooldown, license, and update details.
 
 ## Composite actions
 
+- Prefer an exact bundled action from this Skill when its documented contract
+  matches the repository. Apply and verify it with the template sync script;
+  keep project paths, package names, categories, credentials, and other local
+  values in the calling workflow. Do not edit the copied action locally.
 - Extract repeated versioning, packaging, or publishing behavior into a local
   composite action only when it has a stable repository-wide contract. Give it
   explicit inputs and outputs, Bash `set -euo pipefail`, and focused validation
@@ -169,6 +173,10 @@ See `$apm-usage` for installation, cooldown, license, and update details.
   keep only CI orchestration and deterministic repository tasks in YAML or
   shell. Test changed action scripts with ShellCheck and their calling workflow
   with actionlint and pinact.
+- Add the selected template IDs and `sync_templates.ps1 -Check` command to
+  contributor documentation and CI. A repository that needs a different
+  contract must stop selecting that template and document the concrete reason;
+  an untracked local edit is drift, not customization.
 
 ## Release automation
 

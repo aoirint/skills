@@ -69,6 +69,7 @@ recorded in the evidence ledger and completion report.
 | APM files and deployed output | `apm.yml`, lock, generated target as one unit | ledger says APM `no` |
 | GitHub workflows/actions | validation workflow and release workflow only when enabled | ledger says GitHub Actions `no` |
 | Host manifest/publish action | exact selected-host extension only | host is `none` or blocked |
+| Canonical-template selection | selected template IDs, canonical-content destinations, documented `-Check` command | no bundled template matches the enabled contract |
 
 ## 4. Apply changes in dependency order
 
@@ -93,6 +94,11 @@ independent stages.
 5. Add Markdown lint configuration. It must target committed `**/*.md`, honor
    `.gitignore`, exclude only transient agent/worktree paths, and explain every
    disabled rule inline.
+6. When the evidence ledger enables a bundled template, select its IDs from
+   `assets/template-map.json`, apply them with `scripts/sync_templates.ps1`, and
+   add the same selection with `-Check` to contributor documentation and CI.
+   Do not apply Thunderstore templates when the package host is absent,
+   blocked, or different.
 
 ### 4.2 Project, module, and dependency boundary
 
@@ -284,6 +290,7 @@ not passed; record the command, reason, and resulting risk.
 | Lifecycle predicate change | positive-and-adjacent-negative truth table | every named positive passes; loading/departing/travelling/reset/unavailable negatives fail unless explicitly included |
 | NuGet source/package/lock change | source/publisher/version/hash/license/transitive/age review | ledger records approval; mapping/locks cover every resolver |
 | Workflow/action/shell change | ShellCheck, `actionlint`, `pinact run --check --min-age 7`, manual pin/permission/concurrency/secret review | all pass; every executable input is pinned/verified |
+| Bundled template adopted or changed | run `sync_templates.ps1 -Check` with the repository's selected IDs in the canonical Skill and every opted-in consumer | every selected destination exists and satisfies its manifest comparison mode; exclusions and local variants are documented |
 | Lint/check config or contributor command | trace config to local command and enabled CI step | each retained config is consumed and every promised command is runnable in both documented and CI contexts |
 | APM change | `apm lock`; lock review; `apm install --frozen`; `apm audit --ci` | expected refs/hashes and no drift |
 | Package/release change | clean staging, archive-contract inspection, SHA-256, exact-artifact handoff check | one valid archive; digest matches |

@@ -28,6 +28,11 @@ they do not replace this Skill's quality bar.
   and a no-restore build. For Markdown, workflow, shell, APM, package, or
   release changes, apply the corresponding checks in
   [repository-quality-template.md](references/repository-quality-template.md).
+- When the target adopts a bundled CI or publishing contract, copy its files
+  exactly from this Skill's canonical `assets/` and enforce the manifest's
+  exact-content drift checks. Follow
+  [canonical-templates.md](references/canonical-templates.md) for selection,
+  synchronization, validation, and rollout; do not fork a template silently.
 - Treat a missing required file, unpinned external executable input, unreviewed
   package source, absent lockfile, or unverified final archive as a finding;
   do not downgrade it to a repository preference.
@@ -47,6 +52,7 @@ that procedure with an informal checklist.
    - Create the evidence ledger from the runbook before selecting a target framework, loader references, plugin identity, package metadata, archive layout, or publish destination. Mark an unavailable fact `blocked`; never fill it from another BepInEx repository.
    - Classify the request as `setup`, `alignment`, `implementation`, `release-readiness`, or `plan-only`. Execute only the runbook branches enabled by the evidence ledger and request type; record every disabled branch and its concrete reason.
    - For a new repository or a template-alignment review, read [repository-quality-template.md](references/repository-quality-template.md) after the runbook inventory. It is the normative file-by-file standard, not a source of target-specific values.
+   - If the evidence ledger enables a contract represented by a bundled template, read [canonical-templates.md](references/canonical-templates.md), select only the applicable template IDs, and use the sync script for both application and CI drift checks. Keep target-specific workflow values in the caller, not in a copied action.
 2. Check C# project and module structure.
    - Start from the repository's existing layout. Do not introduce projects, layers, or folder taxonomy solely to resemble another mod.
    - Keep the loader entry point and composition root small. It may create the controller, adapters, state, and use cases, but it must not become the location for gameplay policy or framework callbacks.
@@ -110,3 +116,8 @@ that procedure with an informal checklist.
 Read [repository-derived-baseline.md](references/repository-derived-baseline.md) when starting a new BepInEx Mono project or when the repository does not already document its structure and quality gates. It records transferable practices; it is a baseline, not a replacement for the target repository's contract.
 
 Read [repository-quality-template.md](references/repository-quality-template.md) when creating or aligning a repository. It turns that baseline into a checklist for ignore rules, APM, NuGet, Markdown, CI, composite actions, and conditional Thunderstore publishing.
+
+Read [canonical-templates.md](references/canonical-templates.md) when a target
+can adopt an exact bundled Composite Action or script. It defines the canonical
+assets, synchronization command, drift gate, and multi-repository maintenance
+procedure.
