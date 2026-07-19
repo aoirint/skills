@@ -11,7 +11,14 @@ Set-StrictMode -Version Latest
 
 function Get-RenderedTemplate([string] $TemplatePath, [psobject] $Variables) {
     $text = [IO.File]::ReadAllText($TemplatePath)
-    $required = @('project_directory', 'project_file', 'plugin_assembly', 'thunderstore_categories')
+    $required = @(
+        'project_directory',
+        'project_file',
+        'plugin_assembly',
+        'thunderstore_namespace',
+        'thunderstore_community',
+        'thunderstore_categories'
+    )
     foreach ($name in $required) {
         $value = $Variables.$name
         if ($null -eq $value) { throw "Missing workflow variable: $name" }

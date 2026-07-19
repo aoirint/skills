@@ -96,7 +96,6 @@ jobs:
 
           cd ..
           rm -rf "${ARTIFACT_STEM:?}/"
- 
       - name: Upload artifact
         id: upload-artifact
         # The package is already a zip file, so upload it without recompressing
@@ -191,13 +190,10 @@ jobs:
         with:
           artifact_path: ./tmp_artifacts/*.zip
           token: ${{ secrets.THUNDERSTORE_TOKEN }}
-          namespace: aoirint
-          community: lethal-company
+          namespace: @@THUNDERSTORE_NAMESPACE@@
+          community: @@THUNDERSTORE_COMMUNITY@@
           community_categories: |
-            mods
-            clientside
-            tweaks-and-quality-of-life
-            ai-generated
+            @@THUNDERSTORE_CATEGORIES@@
 
       - name: Add Thunderstore summary
         if: steps.publish-thunderstore.outcome == 'success'

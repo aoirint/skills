@@ -17,6 +17,9 @@ The mapping in `assets/template-map.json` installs these template groups:
 The version template requires the marker and file contract it documents. The
 Thunderstore templates apply only when the evidence ledger selects
 Thunderstore and the release workflow supplies the required reviewed inputs.
+Keep `thunderstore_namespace`, `thunderstore_community`, and
+`thunderstore_categories` as target-specific render variables; never replace
+them with values copied from another repository.
 
 ## Initial provenance
 
