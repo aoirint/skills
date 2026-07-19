@@ -59,6 +59,6 @@ description: Review or create a BepInEx Mono mod for C# project and module struc
 
 ## Reference Baseline
 
-Read [repository-derived-baseline.md](references/repository-derived-baseline.md) when starting a new BepInEx Mono project or when the repository does not already document its structure and quality gates. It records the transferable practices observed in AutoTerminalScanClassic, CruiserJumpPractice, and SkipDropshipCompany; it is a baseline, not a replacement for the target repository's contract.
+Read [repository-derived-baseline.md](references/repository-derived-baseline.md) when starting a new BepInEx Mono project or when the repository does not already document its structure and quality gates. It records transferable practices; it is a baseline, not a replacement for the target repository's contract.
 
 Read [repository-quality-template.md](references/repository-quality-template.md) when creating or aligning a repository. It turns that baseline into a checklist for ignore rules, APM, NuGet, Markdown, CI, composite actions, and conditional Thunderstore publishing.

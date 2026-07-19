@@ -1,9 +1,8 @@
 # Repository Quality Template
 
-Use this checklist to create or align a BepInEx Mono repository. It is derived
-from AutoTerminalScanClassic, CruiserJumpPractice, and SkipDropshipCompany.
-Choose values from the target game's compatibility evidence and package-host
-contract; do not copy their Lethal Company versions, team names, or categories.
+Use this checklist to create or align a BepInEx Mono repository. Choose values
+from the target game's compatibility evidence and package-host contract; do not
+copy another repository's versions, team names, or categories.
 
 ## Contents
 

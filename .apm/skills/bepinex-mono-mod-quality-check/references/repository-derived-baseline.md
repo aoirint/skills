@@ -1,9 +1,8 @@
 # Repository-Derived Baseline
 
-This baseline was derived from AutoTerminalScanClassic, CruiserJumpPractice, and
-SkipDropshipCompany. Apply it only after reading the target repository's own
-instructions; the three projects are Lethal Company / Thunderstore examples,
-not universal BepInEx requirements.
+This baseline captures transferable BepInEx Mono repository practices. Apply it
+only after reading the target repository's own instructions; game and package
+host details remain repository-specific, not universal requirements.
 
 ## Transferable project shape
 
@@ -20,8 +19,8 @@ not universal BepInEx requirements.
 
 ## Transferable module shape
 
-The three source repositories use a composition root plus `Core` and `Interop`
-modules. Preserve the responsibility boundary rather than the exact folder
+Use a composition root plus `Core` and `Interop` modules when that separation
+clarifies responsibilities. Preserve the boundary rather than the exact folder
 names.
 
 - The loader entry point and composition root assemble the plugin. They wire
@@ -57,8 +56,8 @@ not automatic quality improvements.
 
 ## GitHub CI and release automation
 
-The three source repositories use GitHub Actions to build an archive, upload
-that archive, and publish releases. Apply the following as a review baseline:
+For repositories that use GitHub Actions to build an archive and publish
+releases, apply the following review baseline:
 
 - Enable the repository or organization policy requiring GitHub Actions to use
   full-length commit-SHA pins. Keep the exact SHA in each `uses:` reference and
@@ -85,8 +84,7 @@ and [immutable releases](https://docs.github.com/en/code-security/concepts/suppl
 
 ## Transferable verification shape
 
-Start with the repository's documented commands. The three source repositories
-commonly use the following categories:
+Start with the repository's documented commands. Common categories include:
 
 ```powershell
 dotnet restore --locked-mode
