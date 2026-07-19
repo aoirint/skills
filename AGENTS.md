@@ -45,6 +45,9 @@ When adding or substantially changing a skill:
 - Treat `apm.yml`, `apm.lock.yaml`, and `.agents/` deployment output as one
   reviewable unit. After a source or dependency change, run `apm lock`, review
   the lockfile, run `apm install --frozen`, then run `apm audit --ci`.
+- Keep Skills used to maintain this collection, rather than to assist consumers,
+  in `devDependencies`. Production dependencies are transitive for consumers
+  of the root APM package.
 - Remote dependencies require a full commit SHA, source review, and the
   seven-day cooldown. For a monorepo subdirectory, calculate the cooldown from
   the last commit affecting that subdirectory.

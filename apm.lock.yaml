@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-07-18T23:19:36.955892+00:00'
+generated_at: '2026-07-19T00:19:58.215222+00:00'
 apm_version: 0.24.1
 dependencies:
 - repo_url: mizchi/skills
@@ -21,6 +21,7 @@ dependencies:
     .agents/skills/empirical-prompt-tuning/SKILL-ja.md: sha256:0a38d830802c2e08a7faca13928fedf6911e00b896946b4b03910d662de6dea5
     .agents/skills/empirical-prompt-tuning/SKILL.md: sha256:252418e7ef022981d2dda2e3ec57fa1c786d30af68c50b7e062edf1d7361b0cb
   content_hash: sha256:20e7fba93c7267ba6e3a7b27787ca49191b762dffcfb804b01da9183b1b0c891
+  is_dev: true
 local_deployed_files:
 - .agents/skills/apm-usage
 - .agents/skills/apm-usage/README.md

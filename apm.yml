@@ -10,6 +10,9 @@ license: MIT
 targets:
 - codex
 dependencies:
+  apm: []
+  mcp: []
+devDependencies:
   apm:
   - mizchi/skills/meta/empirical-prompt-tuning#7a0d72866a0bb3e9ac3e2768c328b09ba2bc40c4
   mcp: []
