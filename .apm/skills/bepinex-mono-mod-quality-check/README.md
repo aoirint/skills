@@ -2,7 +2,7 @@
 
 ## Overview
 
-Review BepInEx Mono mods for plugin identity, compatibility, packaging, release metadata, and verification quality.
+Review BepInEx Mono mods for C# project structure, module boundaries, plugin identity, compatibility, packaging, release metadata, and verification quality.
 
 ## Install
 

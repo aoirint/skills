@@ -18,6 +18,32 @@ not universal BepInEx requirements.
 - Commit the NuGet lockfile and restore in locked mode so CI and local builds
   resolve the same graph.
 
+## Transferable module shape
+
+The three source repositories use a composition root plus `Core` and `Interop`
+modules. Preserve the responsibility boundary rather than the exact folder
+names.
+
+- The loader entry point and composition root assemble the plugin. They wire
+  state, use cases, handlers, adapters, configuration, and logging, without
+  becoming a second place for gameplay policy.
+- Core owns the mod's policy: domain state, use cases, handlers, result values,
+  and port interfaces. Keep it free of BepInEx, Harmony, Unity, and game types
+  so lifecycle and game API concerns remain visible at its boundary.
+- Interop owns framework and game integration: plugin configuration and
+  logging, Harmony patches, game-object and network access, and concrete
+  adapters. Let callbacks guard the external boundary and delegate; keep
+  gameplay decisions in Core.
+- Add a Core port plus an Interop adapter when Core needs external data or an
+  effect. Make state ownership explicit rather than sharing mutable singleton
+  access across callbacks and use cases.
+
+Use this shape only when it clarifies a real separation. A small plugin can
+remain one project and use a few cohesive modules. Create another C# project
+only for a concrete test, reuse, build, or dependency-isolation requirement;
+multiple target frameworks and release assembly layout are costs to validate,
+not automatic quality improvements.
+
 ## Transferable release shape
 
 - Treat the built DLL and package assets as one release unit. Inspect the final
