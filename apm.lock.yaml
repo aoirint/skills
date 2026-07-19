@@ -44,6 +44,7 @@ local_deployed_files:
 - .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.gitattributes
 - .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.gitignore.template
 - .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.markdownlint-cli2.yaml
+- .agents/skills/bepinex-mono-mod-quality-check/assets/repository/CONTRIBUTING.md
 - .agents/skills/bepinex-mono-mod-quality-check/assets/template-map.json
 - .agents/skills/bepinex-mono-mod-quality-check/references/canonical-templates.md
 - .agents/skills/bepinex-mono-mod-quality-check/references/implementation-runbook.md
@@ -147,20 +148,21 @@ local_deployed_file_hashes:
   .agents/skills/apm-usage/scripts/propose_bootstrap_update.py: sha256:e29c8a695d1a0d8f9c44b612a58c9462e55f754ef8b739ff7f01d4e1dc2d7530
   .agents/skills/apm-usage/scripts/propose_bootstrap_update.py.lock: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
   .agents/skills/bepinex-mono-mod-quality-check/README.md: sha256:5efe73b049fe5fae2687e98f7e6b4cf9cba9ad316254bbe7dfe38f9afb4149c2
-  .agents/skills/bepinex-mono-mod-quality-check/SKILL.md: sha256:36e4d901a2347d01d4eb6025d38fe5c51e76508d8f9dc82ff5a39e2cefab764c
+  .agents/skills/bepinex-mono-mod-quality-check/SKILL.md: sha256:3f439baecc783d3c7f73795b4be5326921bdf50225abe41fea2ab64be284260e
   .agents/skills/bepinex-mono-mod-quality-check/agents/openai.yaml: sha256:51cd63666bc30d2e936c90eb442decd1e631602382d20a363002174e5db4b5ba
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/generate-version/action.yml: sha256:740ff4799955773e299e1a2aaf3f2f4c85d5b287ce5aeb3712cef2a3f963b610
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/publish-thunderstore/action.yml: sha256:aa75302334d13b50b76696e3759f1b0723f2262ae724103bb01515713d311329
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/publish-thunderstore/publish-thunderstore.sh: sha256:1801d6c68370a3c0de36d3910f6e9cbc319654669974365f8f52df759ee16023
-  .agents/skills/bepinex-mono-mod-quality-check/assets/github/pull_request_template.md: sha256:32bf56dd2f0e5be1c40ad3053bcf6f2fcf4f3d96eed26608254e30e38e9d2b50
+  .agents/skills/bepinex-mono-mod-quality-check/assets/github/pull_request_template.md: sha256:7e76e5b61d9cfb448400518e6f7ca8e4c268d642fbf6173a75287ca0946ae9fc
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/build.yml.template: sha256:4a322f0cb9577b306d3f35a07b118d7f81cb259b74d662d8a2cbedc15ba1d0a4
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/lint.yml.template: sha256:f632f1f716a161b6f068e9dbe0313a435873fc3f31687aae09152a98749a4753
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/workflow-variables.example.json: sha256:9a3d19ece06e353022665803d22e7bc95e59a4259c422db926d9b366beb7d789
   .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.gitattributes: sha256:2b68c0cf28e58a65b9c842bb1f5733c32fe65e519c359c16b4081e8b21182e1e
   .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.gitignore.template: sha256:b139f97f286519249eb7f5b381827926a8fd18bedf29322e918195634bc5f2ee
   .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.markdownlint-cli2.yaml: sha256:1044e29915fe15e9083f808d1170c84cfc0b848123c0da435cabb9512d39c203
-  .agents/skills/bepinex-mono-mod-quality-check/assets/template-map.json: sha256:d71a916b05124b2627471a08d501494105f12123b57a0c85a05128e392f531de
-  .agents/skills/bepinex-mono-mod-quality-check/references/canonical-templates.md: sha256:2efae143695cd0f5734b00772c86b49cb57ac849d922eddb80a065bd69702576
+  .agents/skills/bepinex-mono-mod-quality-check/assets/repository/CONTRIBUTING.md: sha256:14e8dc89dc60ca3dedc7eee95ec9e25820ab55b5e3f1fc9cd34f769862da2465
+  .agents/skills/bepinex-mono-mod-quality-check/assets/template-map.json: sha256:ebc85ebbd44d94f986568d5ae294c4adfa6843b59d440f1fa674fe137407891c
+  .agents/skills/bepinex-mono-mod-quality-check/references/canonical-templates.md: sha256:0e57867851a41a4847dec472b5452ab05f1bc5823b148cd89d349c7f080dab22
   .agents/skills/bepinex-mono-mod-quality-check/references/implementation-runbook.md: sha256:18f3f25efb77ebee5333f2bc83eca9d618e6be81105f763e5fd0cce8d5232577
   .agents/skills/bepinex-mono-mod-quality-check/references/repository-derived-baseline.md: sha256:021ed0bd0329ef1833711bf320834aab69f96d7a65e3788e1b4a61d7ae07641a
   .agents/skills/bepinex-mono-mod-quality-check/references/repository-quality-template.md: sha256:7e5f792690bbf396876c9ac933e67aa471362a109808b779cb76962bb81c9eb6
@@ -176,9 +178,9 @@ local_deployed_file_hashes:
   .agents/skills/commit-message-quality-check/SKILL.md: sha256:8f3a31aee818171304a58684b8ef01a237ef0863f6fc09718eb1d693ea8464da
   .agents/skills/commit-message-quality-check/agents/openai.yaml: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
   .agents/skills/flet-project-quality-check/README.md: sha256:2decda6cca135c83c5b81bbdc52abc002a47ed5163e56871b3421c6c7ccb948a
-  .agents/skills/flet-project-quality-check/SKILL.md: sha256:58f98b100c297b7c27ad69b777ed5a07942f376d930aac49f3f9a1e4ef9fecbf
+  .agents/skills/flet-project-quality-check/SKILL.md: sha256:78aa28563314322934268841b6ae49c91fb938372b1f4b3f4ee3b7fa6055deee
   .agents/skills/flet-project-quality-check/agents/openai.yaml: sha256:87eb0740c7ee3001db763e18b2cb1e5e0cd58a94c7915b73fcbc23ccd97d371e
-  .agents/skills/flet-project-quality-check/references/architecture-and-ui.md: sha256:cd3125c5ff0f592376ad1dcd5caadbf570786bc1f9733a3dc7f367065c953495
+  .agents/skills/flet-project-quality-check/references/architecture-and-ui.md: sha256:8a2525039d7fb369fc1e651c4c8849d72de0506163c0939e57ee937a9f259e31
   .agents/skills/flet-project-quality-check/references/ci-packaging-security.md: sha256:b8b3eab94f226da854aa9f1380fe6dfabb898b164bf7726f5439eda59a8220b6
   .agents/skills/flet-project-quality-check/references/implementation-runbook.md: sha256:a13a9960735cd6dca03f6cd25b79edec3155f373b3cc27d578364595519e4d84
   .agents/skills/flet-project-quality-check/references/tooling-and-testing.md: sha256:f552960672d706db90f1c80b0ee3880b952b1c16952df966fe6ccd232371f1f1

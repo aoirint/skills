@@ -8,6 +8,11 @@ repository.
 
 The mapping in `assets/template-map.json` installs these template groups:
 
+- `repository-contributing` and `github-pull-request-template`: keep the
+  contributor workflow, AI-assistance disclosure, and Contribution License
+  Agreement text and confirmation synchronized as one contract. Do not deploy
+  the CLA checkbox without the bundled agreement, or the agreement without its
+  required confirmation.
 - `github-generate-version`: derive stable, prerelease, and edge versions and
   synchronize project and Thunderstore manifest versions.
 - `github-publish-thunderstore-action` and
@@ -23,12 +28,15 @@ them with values copied from another repository.
 
 ## Initial provenance
 
-The canonical assets were seeded from portable files that matched across
-reviewed first-party consumers. Their initial Git blob identities are recorded
-without making those consumers part of the quality contract:
+The canonical assets were seeded from reviewed first-party consumer files.
+Portable files matched across consumers; the contributor guide was generalized
+only by replacing repository-specific names and URLs with repository-relative
+wording. Their initial source Git blob identities are recorded without making
+those consumers part of the quality contract:
 
 | Template | Initial Git blob |
 | --- | --- |
+| `repository-contributing` | `2b8b39f943946719558a0877088c1268f9a87d75` |
 | `github-generate-version` | `0535faef6bfa4195e015c3a8c1e6c575d3e2c9ec` |
 | `github-publish-thunderstore-action` | `18dbef7efb310fe4cf03d7318cbd779c45ea5638` |
 | `github-publish-thunderstore-script` | `0e3bcb2ae5ff850e1a25db6591565ec0f67af0ee` |
@@ -44,13 +52,16 @@ repository contract; omitting `-Template` selects all bundled templates.
 ```powershell
 & .agents/skills/bepinex-mono-mod-quality-check/scripts/sync_templates.ps1 `
   -RepoRoot . -Apply `
-  -Template github-generate-version
+  -Template repository-contributing,github-pull-request-template
 ```
 
 Use the same selection in contributor documentation and CI, replacing
 `-Apply` with `-Check`. The check fails when a selected destination is missing
 or modified. YAML must match exactly after Git-policy line-ending
 normalization; executable shell files must match byte-for-byte, including LF.
+Select `repository-contributing` and `github-pull-request-template` together;
+they are not independently adoptable because the checkbox confirms the
+agreement in the companion document.
 
 ## Improve without drift
 
