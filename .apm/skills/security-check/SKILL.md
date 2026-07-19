@@ -55,6 +55,20 @@ description: >-
      unless the controls are explicit and reviewed.
    - Disable network access or sandbox execution where the workflow and tooling
      reasonably allow it.
+   - Use a real public domain in an example only when that specific service is
+     part of the demonstrated contract and contacting it is intentional. For a
+     generic hostname or URL, use an example name reserved by
+     [RFC 2606](https://www.rfc-editor.org/rfc/rfc2606.html) or
+     [RFC 6761](https://www.rfc-editor.org/rfc/rfc6761.html), such as
+     `example.com`, `example.net`, `example.org`, a subdomain of one of them,
+     or a suitable `.test`, `.invalid`, or `.localhost` name.
+     Choose `.localhost` only when loopback behavior is the point of the
+     example; do not make it look like a neutral remote service.
+   - Do not substitute an arbitrary plausible or unrelated live domain into
+     sample configuration, tests, screenshots, documentation, or generated
+     prompts. A reserved name does not authorize network access: keep runnable
+     examples mocked/offline unless the task explicitly requires a reviewed
+     live request.
 4. Handle suspected security vulnerabilities carefully:
    - Do not post exploit details, reproduction steps, secret values, vulnerable
      endpoints, private data, or other sensitive security details in public
@@ -188,6 +202,8 @@ description: >-
   treated as examples, not exemptions.
 - Secrets, permissions, unsafe defaults, and untrusted input paths were checked
   when relevant.
+- Example hostnames and URLs name the intentional real service or use an
+  RFC-reserved example domain without introducing accidental live traffic.
 - Suspected vulnerabilities were kept out of public channels when sensitive
   details were involved, with private maintainer or trusted-organization
   reporting used when appropriate.

@@ -64,6 +64,16 @@ local_deployed_files:
 - .agents/skills/commit-message-quality-check/README.md
 - .agents/skills/commit-message-quality-check/SKILL.md
 - .agents/skills/commit-message-quality-check/agents/openai.yaml
+- .agents/skills/flet-project-quality-check
+- .agents/skills/flet-project-quality-check/README.md
+- .agents/skills/flet-project-quality-check/SKILL.md
+- .agents/skills/flet-project-quality-check/agents/openai.yaml
+- .agents/skills/flet-project-quality-check/references/architecture-and-ui.md
+- .agents/skills/flet-project-quality-check/references/ci-packaging-security.md
+- .agents/skills/flet-project-quality-check/references/implementation-runbook.md
+- .agents/skills/flet-project-quality-check/references/tooling-and-testing.md
+- .agents/skills/flet-project-quality-check/scripts/check_project.py
+- .agents/skills/flet-project-quality-check/scripts/check_project.py.lock
 - .agents/skills/git-worktree-workflow
 - .agents/skills/git-worktree-workflow/README.md
 - .agents/skills/git-worktree-workflow/SKILL.md
@@ -166,6 +176,15 @@ local_deployed_file_hashes:
   .agents/skills/commit-message-quality-check/README.md: sha256:c23949080d05f47cce728410ca3190225397aa41ac2015c6f02ee478ec412a24
   .agents/skills/commit-message-quality-check/SKILL.md: sha256:8f3a31aee818171304a58684b8ef01a237ef0863f6fc09718eb1d693ea8464da
   .agents/skills/commit-message-quality-check/agents/openai.yaml: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
+  .agents/skills/flet-project-quality-check/README.md: sha256:2decda6cca135c83c5b81bbdc52abc002a47ed5163e56871b3421c6c7ccb948a
+  .agents/skills/flet-project-quality-check/SKILL.md: sha256:e636e9e590e6baf88fc5bdd0fd22462742dcedb81a5e68dd0c120c1fb2c3c2ac
+  .agents/skills/flet-project-quality-check/agents/openai.yaml: sha256:87eb0740c7ee3001db763e18b2cb1e5e0cd58a94c7915b73fcbc23ccd97d371e
+  .agents/skills/flet-project-quality-check/references/architecture-and-ui.md: sha256:054a8965148198ea99cefe413fb2ca6ec7b4bf0e0d674ff835f19d2a6d1900c5
+  .agents/skills/flet-project-quality-check/references/ci-packaging-security.md: sha256:811e78392655305818b7f55af96bca63e107f6f360357fd5b69019aa4f76189a
+  .agents/skills/flet-project-quality-check/references/implementation-runbook.md: sha256:c1d6780747f1090da52580f0e8329cabc411d1dac59b1746c5d788d8d2d2e452
+  .agents/skills/flet-project-quality-check/references/tooling-and-testing.md: sha256:d60c93ec5e37d4a5f6460709a8ec2864250218a5f927d8d41667ea37f4080de2
+  .agents/skills/flet-project-quality-check/scripts/check_project.py: sha256:1b2caa340ec3de8bbceaa803cc9bc6fdc5150ff3ba14b226bd03753322ea7bd7
+  .agents/skills/flet-project-quality-check/scripts/check_project.py.lock: sha256:76042d39ffdbb675188966b4fc41d312b0ec9374a7aa438d4f5e919adcf04c07
   .agents/skills/git-worktree-workflow/README.md: sha256:fa6483b5919a01b84fa0d6ffcbaae20b84ed3807e18029e8807e61b0ee4f9de9
   .agents/skills/git-worktree-workflow/SKILL.md: sha256:e6e453e43e2036309381cf11ded6499de03281e1b7bbb43b6aba05de59d6ba5b
   .agents/skills/git-worktree-workflow/agents/openai.yaml: sha256:3eb9da73e7a041e77d82f0d5c3a8c67e914575cff8651b71d077db30fe3da99a
@@ -200,7 +219,7 @@ local_deployed_file_hashes:
   .agents/skills/rollout-workflow/SKILL.md: sha256:388562861550934c88ba19566fc6d1b9fbe9f528a44d62de4c7337bac327d225
   .agents/skills/rollout-workflow/agents/openai.yaml: sha256:543a7befd986c51540ef35603fe63830f5032dc02b31f89e7f2179df3b3ca5dc
   .agents/skills/security-check/README.md: sha256:d321689b998388180ac852fdb6374ab3b79bec508a53d00461a9db79fb246d2e
-  .agents/skills/security-check/SKILL.md: sha256:7562de775c028cdb048616910378df51e17ad7517d24849a9b735c53053c4933
+  .agents/skills/security-check/SKILL.md: sha256:9f96fee336e80827f5d0970eeefe6e8b62ff92a053aefe301ae56b2c766b5191
   .agents/skills/security-check/agents/openai.yaml: sha256:87edf0cc1e8717194d0c536f2d5ac0cc1ac9ec04402311d34e953d2e2b23fa19
   .agents/skills/security-check/references/external-code-execution.md: sha256:87ca817baa02ef6b955e5878f0cd79c875abdb0be6e0177cfce158968e628bc3
   .agents/skills/skill-quality-check/README.md: sha256:f4ec14bdc1b75a3b13be6e1048ae803910e180e49bbcb1f8347630fc920212c9
