@@ -151,12 +151,20 @@ configuration visible to Git.
   are not a sufficient gate unless repository settings or the publishing workflow demonstrably
   waits for their successful check runs.
 - Produce one manifest containing artifact name, target, app/build version, source commit, build
-  workflow/run, Python/Flet/uv versions, and SHA-256.
+  workflow/run, Flet/uv versions, and SHA-256. Record the builder interpreter separately from the
+  Python runtime actually packaged into each target artifact. Derive each packaged runtime identity
+  from the inspected final archive or bundle; do not copy the builder's `.python-version` value into
+  every target record by assumption.
 - Inspect the final archive/installer/app bundle for expected identity, entry point, assets,
-  licenses/notices, and absence of tests, caches, `.env`, credentials, local paths, source-control
-  metadata, development tools, and unrelated files. Inspect archive entry paths without unsafe
-  extraction, reject traversal/unsupported special files, and verify executable mode bits for
-  launchers on targets that require them.
+  licenses/notices, and absence of repository-owned tests, caches, `.env`, credentials, local
+  paths, source-control metadata, development tools, and unrelated files. Inspect archive entry
+  paths without unsafe extraction, reject traversal/unsupported special files, and verify
+  executable mode bits for launchers on targets that require them.
+- Make development-content rules provenance-aware. Reject repository-owned development-only source
+  outside the artifact contract, test, agent, cache, secret, and workflow paths, but do not classify
+  a dependency-owned `site-packages/.../tests` or package metadata directory as repository leakage
+  solely because of a basename match. Continue to reject unsafe paths, unsupported special files,
+  caches, and secret-bearing content at every depth where the rule is semantically valid.
 - Install or launch the produced artifact on every supported target class. Verify first run,
   upgrade/migration when supported, data path, settings, network failure, clean shutdown, and
   uninstall/residual-data policy.
