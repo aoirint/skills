@@ -59,6 +59,7 @@ recorded in the evidence ledger and completion report.
 | --- | --- | --- |
 | Solution and SDK-style plugin project | explicit `TargetFramework`, `LangVersion`, identity/version synchronization path | `plan-only` has no repository to edit |
 | `nuget.config` | `<clear />`; explicit approved sources; `packageSourceMapping` covering direct, transitive, and framework packages | no NuGet resolution is possible or required, with evidence |
+| `global.json` | exact SDK version used by CI and release builds | no .NET SDK is required, with evidence |
 | `packages.lock.json` | one committed lockfile per resolving project | project resolves no packages, with project-file evidence |
 | `.gitignore` | narrow local/generated rules; never hides source, assets, lockfiles, or docs | none |
 | `README.md` | setup, checks, debugging, packaging, compatibility evidence, release path | none |

@@ -38,11 +38,11 @@ Use `github-actions-quality-check` and `security-check` while implementing this 
   credentials in separately triggered, protected jobs/environments.
 - Keep CI commands equal to the documented local commands. CI-only hidden flags and local-only
   shortcuts are findings.
-- Select runners per job with `github-actions-quality-check`. Prefer `ubuntu-slim` for Flet project
-  lint, type-check, and unit-test jobs only after a representative run shows they fit its
-  unprivileged container, minimal tool set, single CPU, 5 GB RAM, and 15-minute limit. Keep Flet or
-  Flutter desktop/mobile builds on a full platform runner; their native toolchains and resource use
-  are not lightweight automation.
+- Select runners per job with `github-actions-quality-check`. Start Flet lint, type-check, and
+  unit-test jobs on `ubuntu-slim`. Move a job to a full VM only when its required Composite Action,
+  tools, or runtime cannot meet the slim container, resource, software, or 15-minute limits; then
+  validate the reason and periodically retry slim. Keep Flet or Flutter desktop/mobile builds on a
+  full platform runner; their native toolchains and resource use are not lightweight automation.
 - Extract repeated, repository-owned same-runner setup into a local Composite Action when multiple
   workflows need the exact same lock verification, sync, or tool installation. Keep job ownership,
   runner selection, permissions, artifact upload, and release gating in the workflow. If the shared

@@ -20,6 +20,10 @@ jobs:
     runs-on: ubuntu-slim
 
     steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
       - uses: ./.github/actions/lint-source
 
   build:
@@ -96,6 +100,7 @@ jobs:
 
           cd ..
           rm -rf "${ARTIFACT_STEM:?}/"
+          sha256sum "${ARTIFACT_STEM}.zip" > SHA256SUMS
 
       - name: Upload artifact
         id: upload-artifact
@@ -105,7 +110,7 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: artifact
-          path: ./tmp_artifacts/*.zip
+          path: ./tmp_artifacts/*
           if-no-files-found: error
           retention-days: 14
           compression-level: 0
@@ -166,6 +171,11 @@ jobs:
         with:
           name: artifact
           path: ./tmp_artifacts
+
+      - name: Verify downloaded artifact digest
+        run: |
+          cd ./tmp_artifacts
+          sha256sum -c SHA256SUMS
 
       - name: Publish release
         # Create immutable releases so an already-published version cannot be

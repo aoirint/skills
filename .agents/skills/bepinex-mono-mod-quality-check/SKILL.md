@@ -48,7 +48,7 @@ facts such as game build, loader version, package host, and release namespace;
 they do not replace this Skill's quality bar.
 
 - Commit an SDK-style project, `nuget.config` with explicit sources and package
-  source mapping, one `packages.lock.json` per resolving project, a narrow
+  source mapping, `global.json` selecting the release SDK, one `packages.lock.json` per resolving project, a narrow
   `.gitignore`, Markdown lint configuration, and contributor documentation.
 - Keep the contributor agreement and the pull-request confirmation internally
   complete. When adopting the bundled contract, deploy
