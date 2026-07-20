@@ -26,6 +26,16 @@ Keep `thunderstore_namespace`, `thunderstore_community`, and
 `thunderstore_categories` as target-specific render variables; never replace
 them with values copied from another repository.
 
+`assets/github/workflows/` contains rendered CI skeletons rather than
+exact-sync template IDs: project and package-host values are intentionally
+render variables. Render the paired `pull-request.yml.template`,
+`source-quality.yml.template`, and `main.yml.template` together. The first two
+validate proposed source; `Main` repeats that validation on the pushed
+integration commit, gates its build through `needs`, and retains every build
+artifact including non-published edge output. Do not fold the event boundaries
+back into one trigger-heavy workflow or add manual dispatch without a named
+operator procedure.
+
 ## Initial provenance
 
 The canonical assets were seeded from reviewed first-party consumer files.

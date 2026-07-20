@@ -1,20 +1,7 @@
-name: Lint
+name: Source Quality
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  merge_group:
-    types:
-      - checks_requested
-  workflow_dispatch:
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.run_id }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  workflow_call:
 
 defaults:
   run:
@@ -179,7 +166,7 @@ jobs:
         run: pinact run --check --min-age 7
 
       - name: Setup .NET
-        # Keep dotnet-version aligned with build.yml per the README .NET and
+        # Keep dotnet-version aligned with main.yml per the README .NET and
         # C# tooling update policy. The cache path is intentionally the project
         # lock file; update it only if the lock file moves or projects are
         # added.

@@ -59,6 +59,10 @@ they do not replace this Skill's quality bar.
   and a no-restore build. For Markdown, workflow, shell, APM, package, or
   release changes, apply the corresponding checks in
   [repository-quality-template.md](references/repository-quality-template.md).
+- Use event-owned CI entry workflows: pull requests (and merge queues when used) validate proposed
+  source, while the integration branch re-runs source validation on its exact commit and directly
+  gates build, retained edge artifacts, and publication through `needs`. Do not add manual dispatch
+  or polling jobs without a documented operator/recovery need.
 - When the target adopts a bundled CI or publishing contract, copy its files
   exactly from this Skill's canonical `assets/` and enforce the manifest's
   exact-content drift checks. Follow
@@ -146,6 +150,7 @@ that procedure with an informal checklist.
    - Trace one release from its source commit through locked restore, build, archived artifact, and release asset. Publish only the artifact produced by that build; do not rebuild a separately checked-out revision in the release job. Create and verify an artifact digest across the build and release jobs.
    - Install the exact SDK selected by `global.json` in CI with a full-SHA-pinned setup action or another pinned, verified mechanism before restore. Do not assume a hosted runner already contains the release-critical SDK.
    - Separate validation artifacts, prereleases, and stable publishing according to the repository's version rules. Gate external package-host publication on the intended stable release mode and require exactly one reviewed package artifact.
+   - Retain every integration-branch edge build as a workflow artifact, with its source commit and digest visible in the workflow summary, even when the edge version is deliberately not published.
    - Default workflow permissions to read-only. Scope `contents: write` and publishing secrets to the release job that needs them, and never expose a publish credential to pull-request validation.
 7. Run the narrowest relevant checks, then widen for the changed surface.
    - For C# or project changes, run locked restore, format verification, and no-restore build. Run the documented tests when automated tests are present or changed. Use the solution or project path required by the repository layout.

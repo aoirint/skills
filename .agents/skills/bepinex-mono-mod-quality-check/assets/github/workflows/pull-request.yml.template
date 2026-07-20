@@ -1,0 +1,21 @@
+name: Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+  merge_group:
+    types:
+      - checks_requested
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  source-quality:
+    # Keep proposed source validation separate from publishing privileges.
+    uses: ./.github/workflows/source-quality.yml

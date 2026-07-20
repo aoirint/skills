@@ -45,8 +45,9 @@ try {
     $repoRootPath = [IO.Path]::GetFullPath($RepoRoot)
     $variables = Get-Content -LiteralPath $VariablesFile -Raw | ConvertFrom-Json
     $templates = @(
-        @{ Source = 'build.yml.template'; Destination = '.github/workflows/build.yml' },
-        @{ Source = 'lint.yml.template'; Destination = '.github/workflows/lint.yml' },
+        @{ Source = 'pull-request.yml.template'; Destination = '.github/workflows/pull-request.yml' },
+        @{ Source = 'source-quality.yml.template'; Destination = '.github/workflows/source-quality.yml' },
+        @{ Source = 'main.yml.template'; Destination = '.github/workflows/main.yml' },
         @{ Source = '.gitignore.template'; Destination = '.gitignore' },
         @{ Source = '.markdownlint-cli2.yaml'; Destination = '.markdownlint-cli2.yaml' }
     )

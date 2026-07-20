@@ -67,7 +67,7 @@ recorded in the evidence ledger and completion report.
 | `.markdownlint-cli2.yaml` | lint committed Markdown, respect `.gitignore`, narrow documented exceptions | none |
 | versioned archive contract | host-neutral root/path/DLL/prohibited-content rules | no package/archive is produced, with evidence |
 | APM files and deployed output | `apm.yml`, lock, generated target as one unit | ledger says APM `no` |
-| GitHub workflows/actions | validation workflow and release workflow only when enabled | ledger says GitHub Actions `no` |
+| GitHub workflows/actions | event-owned pull-request and integration-branch workflows, shared source-quality gate, build/release only when enabled | ledger says GitHub Actions `no` |
 | Host manifest/publish action | exact selected-host extension only | host is `none` or blocked |
 | Canonical-template selection | selected template IDs, canonical-content destinations, documented `-Check` command | no bundled template matches the enabled contract |
 
@@ -251,11 +251,17 @@ independent stages.
 1. If APM is `yes`, preserve/create `apm.yml`, pin remote sources to full SHAs,
    check provenance/license/last-changed-subdirectory cooldown, record third
    party notices, then commit manifest, lockfile, and generated output together.
-2. If GitHub Actions is `yes`, create/align a validation workflow in this order:
-   checkout; external-tool setup and verification; ShellCheck; actionlint;
-   pinact; SDK setup; locked restore; format; no-restore build; tests; Markdown
-   lint; archive validation when relevant. Use read-only permissions, explicit
-   Bash, and PR-only cancellation concurrency.
+2. If GitHub Actions is `yes`, create/align event-owned entry workflows: `Pull
+   Request` for `pull_request` and `merge_group` when used; `Main` for the
+   protected integration-branch push. Both run the same source-quality gate on
+   their checked-out commit. `Main` uses direct `needs` dependencies to gate
+   build, artifact upload, and publication; never substitute API polling or an
+   `await-quality` job. Run source quality in this order: checkout; external-tool
+   setup and verification; ShellCheck; actionlint; pinact; SDK setup; locked
+   restore; format; no-restore build; tests; Markdown lint; archive validation
+   when relevant. Use read-only permissions, explicit Bash, and PR-only
+   cancellation concurrency. Add manual dispatch only for a documented
+   diagnostic or recovery operation.
    Read the SDK version from `global.json` and install it explicitly using a
    full-SHA-pinned setup action or pinned verified equivalent before restore;
    verify `dotnet --version` matches. Do not depend on runner inventory.
@@ -267,7 +273,8 @@ independent stages.
    by digest, and downloaded executable tools by adjacent version and checksum.
    Cache only verified archives and use committed lockfiles as NuGet cache keys.
 4. If GitHub Releases is `yes`, create a build job that creates one archive and
-   digest from the release commit; publish only a downloaded-and-verified copy.
+   digest from the integration-branch commit, then uploads it for every build
+   including unpublished edge builds; publish only a downloaded-and-verified copy.
    The release job alone receives `contents: write`; it creates a draft, adds
    all assets and checksum, then publishes. It fails on an existing tag,
    release, or asset and never rebuilds or replaces an artifact. Require
