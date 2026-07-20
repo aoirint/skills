@@ -32,9 +32,10 @@ description: Quality-check GitHub Actions workflows and composite actions. Use w
    `.github/actionlint.yaml` only for deliberate labels or variables that actionlint cannot infer.
    Use a local Composite Action only for a stable sequence of steps that runs on the caller job's
    runner, such as locked setup or a repeated command bundle. Keep job ownership, runner choice,
-   permissions, artifact boundaries, and release gates visible in the workflow. When several entry
-   workflows must reuse a multi-job quality gate, use a reusable workflow instead; do not flatten
-   it into a Composite Action.
+   permissions, artifact boundaries, and release gates visible in the workflow. Prefer a local
+   Composite Action for a same-runner shared quality sequence. Use a reusable workflow only when
+   job-level matrix, outputs, or permission boundaries make a Composite Action insufficient, and
+   document that reason; do not add `workflow_call` merely to avoid a small amount of workflow YAML.
 6. Pin third-party actions and reusable workflows to complete commit SHAs with accurate version comments. For external actions, downloaded tools, or containers, use `security-check` to review provenance, release age, pinning, permissions, and runtime behavior.
 7. Run the repository's documented `actionlint`, ShellCheck, and `pinact` checks. Use `pinact run --check --min-age 7` for pin verification and `GITHUB_TOKEN` when available. Check standalone changed automation shell scripts with ShellCheck; if no targets exist, record that scope.
 8. Summarize actionlint, ShellCheck, pinact, other automated checks, AI-assisted inspections, and skipped checks separately. Record any reduced validation scope caused by unavailable optional integrations.

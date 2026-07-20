@@ -145,10 +145,11 @@ See `$apm-usage` for installation, cooldown, license, and update details.
   Markdown lint. Run ShellCheck before actionlint when actionlint can use it
   for inline shell validation.
 - Extract a same-runner repeated setup/check sequence into a local Composite
-  Action only when it materially reduces duplication. Reuse a multi-job
-  source-quality gate through a reusable workflow; keep runner choice, job
-  permissions, artifact upload, and release dependencies visible in entry
-  workflows.
+  Action when it materially reduces duplication, including this shared
+  source-quality sequence. Keep runner choice, job permissions, artifact
+  upload, and release dependencies visible in entry workflows. Introduce a
+  reusable workflow only when job-level matrix, outputs, or permission
+  boundaries make a Composite Action insufficient; document that reason.
 - Keep documentation, checked-in lint/check configuration, and CI in one
   executable contract. Every retained configuration must be consumed by a
   documented local command and an enabled CI step; remove stale configuration

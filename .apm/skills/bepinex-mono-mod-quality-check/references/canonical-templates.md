@@ -29,8 +29,9 @@ them with values copied from another repository.
 `assets/github/workflows/` contains rendered CI skeletons rather than
 exact-sync template IDs: project and package-host values are intentionally
 render variables. Render the paired `pull-request.yml.template`,
-`source-quality.yml.template`, and `main.yml.template` together. The first two
-validate proposed source; `Main` repeats that validation on the pushed
+`main.yml.template`, and `actions/run-source-quality/action.yml.template`
+together. The local Composite Action validates source on the caller's runner;
+`Main` repeats that validation on the pushed
 integration commit, gates its build through `needs`, and retains every build
 artifact including non-published edge output. Do not fold the event boundaries
 back into one trigger-heavy workflow or add manual dispatch without a named

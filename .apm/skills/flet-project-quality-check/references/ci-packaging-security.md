@@ -46,7 +46,8 @@ Use `github-actions-quality-check` and `security-check` while implementing this 
 - Extract repeated, repository-owned same-runner setup into a local Composite Action when multiple
   workflows need the exact same lock verification, sync, or tool installation. Keep job ownership,
   runner selection, permissions, artifact upload, and release gating in the workflow. If the shared
-  source-quality gate contains multiple jobs, use a reusable workflow instead. The bundled checker
+  source-quality gate needs job-level matrix, outputs, or permission boundaries that a Composite
+  Action cannot express, use a reusable workflow and document that reason. The bundled checker
   follows reachable local Composite Actions and reusable workflows when it verifies required commands
   and immutable external pins.
 
@@ -138,7 +139,9 @@ permissions:
 
 jobs:
   quality:
-    uses: ./.github/workflows/source-quality.yml
+    runs-on: ubuntu-slim
+    steps:
+      - uses: ./.github/actions/run-source-quality
 
   plan:
     # Read canonical version/release state only; do not publish.

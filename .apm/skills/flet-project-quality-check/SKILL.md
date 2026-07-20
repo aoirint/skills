@@ -119,8 +119,9 @@ informal list.
    - CI must check the lock, exact sync, Ruff lint, Ruff format, strict mypy, tests, coverage, and any
      repository-specific documentation or build contracts from a clean checkout.
    - Keep pull-request and integration-branch entry workflows distinct. Reuse a local Composite
-     Action for a same-runner setup/check sequence, or a reusable workflow for a shared multi-job
-     quality gate; do not introduce manual dispatch or cross-workflow polling without an explicit
+     Action for a same-runner setup/check sequence. Use a reusable workflow only when job-level
+     matrix, outputs, or permission boundaries make a Composite Action insufficient, and document
+     that reason; do not introduce manual dispatch or cross-workflow polling without an explicit
      operator/trust-boundary need.
    - Verify every selected Flet target on a compatible runner. Keep packaging/release jobs separate
      from untrusted pull-request validation and inspect the final artifact, not only source tests.

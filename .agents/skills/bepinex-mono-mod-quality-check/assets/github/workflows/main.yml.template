@@ -17,7 +17,10 @@ jobs:
   source-quality:
     # A merged commit is validated again in this workflow. This direct
     # dependency is the release gate; do not replace it with workflow polling.
-    uses: ./.github/workflows/source-quality.yml
+    runs-on: ubuntu-slim
+
+    steps:
+      - uses: ./.github/actions/run-source-quality
 
   build:
     needs: source-quality
@@ -43,7 +46,7 @@ jobs:
           csproj_file: "@@PROJECT_DIRECTORY@@/@@PROJECT_FILE@@"
 
       - name: Setup .NET
-        # Keep dotnet-version aligned with source-quality.yml per the README .NET and
+        # Keep dotnet-version aligned with the source-quality action per the README .NET and
         # C# tooling update policy.
         uses: actions/setup-dotnet@c2fa09f4bde5ebb9d1777cf28262a3eb3db3ced7 # v5.2.0
         with:

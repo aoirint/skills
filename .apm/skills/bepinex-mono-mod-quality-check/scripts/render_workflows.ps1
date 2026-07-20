@@ -46,13 +46,13 @@ try {
     $variables = Get-Content -LiteralPath $VariablesFile -Raw | ConvertFrom-Json
     $templates = @(
         @{ Source = 'pull-request.yml.template'; Destination = '.github/workflows/pull-request.yml' },
-        @{ Source = 'source-quality.yml.template'; Destination = '.github/workflows/source-quality.yml' },
         @{ Source = 'main.yml.template'; Destination = '.github/workflows/main.yml' },
+        @{ Source = 'run-source-quality/action.yml.template'; Destination = '.github/actions/run-source-quality/action.yml' },
         @{ Source = '.gitignore.template'; Destination = '.gitignore' },
         @{ Source = '.markdownlint-cli2.yaml'; Destination = '.markdownlint-cli2.yaml' }
     )
     foreach ($entry in $templates) {
-        $templateRoot = if ($entry.Source -in @('.gitignore.template', '.markdownlint-cli2.yaml')) { Join-Path $skillRoot 'assets/repository' } else { Join-Path $skillRoot 'assets/github/workflows' }
+        $templateRoot = if ($entry.Source -in @('.gitignore.template', '.markdownlint-cli2.yaml')) { Join-Path $skillRoot 'assets/repository' } elseif ($entry.Source -eq 'run-source-quality/action.yml.template') { Join-Path $skillRoot 'assets/github/actions' } else { Join-Path $skillRoot 'assets/github/workflows' }
         $expected = Get-RenderedTemplate (Join-Path $templateRoot $entry.Source) $variables
         $destination = Join-Path $repoRootPath $entry.Destination
         if ($Apply) {
