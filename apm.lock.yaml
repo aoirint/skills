@@ -150,7 +150,7 @@ local_deployed_file_hashes:
   .agents/skills/apm-usage/scripts/propose_bootstrap_update.py: sha256:e29c8a695d1a0d8f9c44b612a58c9462e55f754ef8b739ff7f01d4e1dc2d7530
   .agents/skills/apm-usage/scripts/propose_bootstrap_update.py.lock: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
   .agents/skills/bepinex-mono-mod-quality-check/README.md: sha256:5efe73b049fe5fae2687e98f7e6b4cf9cba9ad316254bbe7dfe38f9afb4149c2
-  .agents/skills/bepinex-mono-mod-quality-check/SKILL.md: sha256:3f439baecc783d3c7f73795b4be5326921bdf50225abe41fea2ab64be284260e
+  .agents/skills/bepinex-mono-mod-quality-check/SKILL.md: sha256:af3e53ac26f4de9d01d618a0bba15b1e0a4e09f405a6992e6fbd3a116ed299c3
   .agents/skills/bepinex-mono-mod-quality-check/agents/openai.yaml: sha256:51cd63666bc30d2e936c90eb442decd1e631602382d20a363002174e5db4b5ba
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/generate-version/action.yml: sha256:740ff4799955773e299e1a2aaf3f2f4c85d5b287ce5aeb3712cef2a3f963b610
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/publish-thunderstore/action.yml: sha256:aa75302334d13b50b76696e3759f1b0723f2262ae724103bb01515713d311329
@@ -203,7 +203,7 @@ local_deployed_file_hashes:
   .agents/skills/issue-quality-check/SKILL.md: sha256:15d0bd7ee53fad247f0f8354803f4c209ae32dcb57fb823be68814a4aeeaf743
   .agents/skills/issue-quality-check/agents/openai.yaml: sha256:e54aa6bbae7cf7d2cf57a95e5749cc1527238295e420ac00d96902ce114e9cdb
   .agents/skills/lethal-company-analyze/README.md: sha256:25274fc0d0155864c4e421d315a1b91d21cc203a4c75e25a740c17f04f9387d6
-  .agents/skills/lethal-company-analyze/SKILL.md: sha256:109162321ed3b61bf20fe14fc5116aa96aa126c79ccc92f063d3ddbb744bba13
+  .agents/skills/lethal-company-analyze/SKILL.md: sha256:51db9fef584970142a0454012678b1e7ccc1a2e1e53561e28cdedb0135ba06dd
   .agents/skills/lethal-company-analyze/agents/openai.yaml: sha256:fb80fc51dba972198601c2ec76805752f34a214bbd9a73d4bbdff7e8165ad0bf
   .agents/skills/lethal-company-analyze/references/efficient-full-enumeration.md: sha256:afdfc6f9704c7cb4d957eccb7e9301972d3e9afea5657363a6fdabc5a010071a
   .agents/skills/lethal-company-analyze/references/evidence-policy.md: sha256:cca856ad89f907d429609fb0a6560c3050cc0a30fe8e400fc049f70296dc27f8

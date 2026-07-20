@@ -81,6 +81,12 @@ that procedure with an informal checklist.
 1. Establish the repository contract before proposing changes.
    - Read `AGENTS.md`, `README.md`, `CONTRIBUTING.md`, the project file, lockfile, package assets, and relevant CI or release scripts to find target-specific facts and existing stricter rules. Do not use their absence as a reason to omit this Skill's baseline.
    - Create the evidence ledger from the runbook before selecting a target framework, loader references, plugin identity, package metadata, archive layout, or publish destination. Mark an unavailable fact `blocked`; never fill it from another BepInEx repository.
+   - Treat a requested game-version change as a compatibility alignment. Record
+     the old and target version, Steam manifest/build identifier, matching
+     managed-code and serialized-asset evidence handoff hashes, game-reference
+     package version, every compatibility claim, and the required build and
+     runtime checks. Do not claim the target version when code and asset
+     evidence come from different builds.
    - Classify the request as `setup`, `alignment`, `implementation`, `release-readiness`, or `plan-only`. Execute only the runbook branches enabled by the evidence ledger and request type; record every disabled branch and its concrete reason.
    - For a new repository or a template-alignment review, read [repository-quality-template.md](references/repository-quality-template.md) after the runbook inventory. It is the normative file-by-file standard, not a source of target-specific values.
    - If the evidence ledger enables a contract represented by a bundled template, read [canonical-templates.md](references/canonical-templates.md), select only the applicable template IDs, and use the sync script for both application and CI drift checks. Keep target-specific workflow values in the caller, not in a copied action.
@@ -116,6 +122,11 @@ that procedure with an informal checklist.
 4. Check build and dependency boundaries.
    - Match the target framework and language version to the repository's documented BepInEx and game runtime compatibility; do not upgrade either opportunistically.
    - Keep game and loader references compile-only when the release package relies on the player's installed runtime. Keep development analyzers and code generators private to the project.
+   - When updating a game-specific compile reference, update its resolved
+     package and lockfile to the target game version, then reconcile every
+     version-bearing project, package, changelog, and compatibility document
+     field. A successful compilation proves only API resolution; it does not
+     establish runtime compatibility.
    - Require a committed lockfile for every resolving project and run `dotnet restore --locked-mode`. After restore, run `dotnet format --no-restore --verify-no-changes` and a no-restore build. A missing lockfile or unlocked restore is a reproducibility finding.
    - When a change adds or modifies automated tests, run the repository's documented test command after the locked restore and no-restore build. A separate Core or test project is justified only by its stated test, reuse, build, or dependency-isolation benefit, and must meet the same lockfile and source-mapping rules as every other resolving project.
    - Require `nuget.config` to clear unreviewed default sources and map direct and transitive package patterns to their intended source. Review every new feed, package, lockfile change, CI action, container, or downloaded tool for canonical source, publisher, immutable version or digest, content hash where available, license, transitive effects, and seven-day release age before adoption.
