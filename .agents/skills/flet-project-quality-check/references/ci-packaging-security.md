@@ -53,6 +53,14 @@ Use `github-actions-quality-check` and `security-check` while implementing this 
 
 ## Event-owned workflow shape
 
+The bundled `assets/github/` templates instantiate this source-quality floor:
+`pull-request.yml.template`, `main.yml.template`, and the small local
+`setup-python`, `install-workflow-tools`, `lint-source`, and `test-source`
+Composite Actions. Keep the two workflows responsible for event boundaries and
+job dependencies; each action owns one named setup or check sequence. Add a
+repository-specific `plan`/build/release extension only after its artifact and
+publication facts are evidenced.
+
 This shape is normative; replace action SHAs/version comments and the integration branch with
 reviewed current values. Add repository-specific documentation or packaging checks rather than
 removing the baseline commands.

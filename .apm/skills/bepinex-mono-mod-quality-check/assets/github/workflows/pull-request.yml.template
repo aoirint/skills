@@ -21,4 +21,4 @@ jobs:
     runs-on: ubuntu-slim
 
     steps:
-      - uses: ./.github/actions/run-source-quality
+      - uses: ./.github/actions/lint-source

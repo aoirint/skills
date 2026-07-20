@@ -29,8 +29,10 @@ them with values copied from another repository.
 `assets/github/workflows/` contains rendered CI skeletons rather than
 exact-sync template IDs: project and package-host values are intentionally
 render variables. Render the paired `pull-request.yml.template`,
-`main.yml.template`, and `actions/run-source-quality/action.yml.template`
-together. The local Composite Action validates source on the caller's runner;
+`main.yml.template`, and the local `install-workflow-tools`, `setup-dotnet`,
+and `lint-source` Composite Actions together. The small actions expose their
+individual toolchain, environment, and lint responsibilities; `lint-source`
+validates source on the caller's runner;
 `Main` repeats that validation on the pushed
 integration commit, gates its build through `needs`, and retains every build
 artifact including non-published edge output. Do not fold the event boundaries
