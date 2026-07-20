@@ -159,7 +159,7 @@ local_deployed_file_hashes:
   .agents/skills/apm-usage/scripts/propose_bootstrap_update.py: sha256:e29c8a695d1a0d8f9c44b612a58c9462e55f754ef8b739ff7f01d4e1dc2d7530
   .agents/skills/apm-usage/scripts/propose_bootstrap_update.py.lock: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
   .agents/skills/bepinex-mono-mod-quality-check/README.md: sha256:5efe73b049fe5fae2687e98f7e6b4cf9cba9ad316254bbe7dfe38f9afb4149c2
-  .agents/skills/bepinex-mono-mod-quality-check/SKILL.md: sha256:3546c7c703ee77b7cac0ae4e054506673b05a96dee9b5ba97bfb7427e151860e
+  .agents/skills/bepinex-mono-mod-quality-check/SKILL.md: sha256:27f31266ed754e2320d540e886dbe52adfe3209133e9fac82376434eb0d7092f
   .agents/skills/bepinex-mono-mod-quality-check/agents/openai.yaml: sha256:51cd63666bc30d2e936c90eb442decd1e631602382d20a363002174e5db4b5ba
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/generate-version/action.yml: sha256:740ff4799955773e299e1a2aaf3f2f4c85d5b287ce5aeb3712cef2a3f963b610
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/install-workflow-tools/action.yml.template: sha256:8f881f57add1754f54fcdd59eed60a174f1cdcd240dfba708eafb4ec95cc6ecc
@@ -201,7 +201,7 @@ local_deployed_file_hashes:
   .agents/skills/flet-project-quality-check/assets/github/workflows/main.yml.template: sha256:c34cabe25ebd933f1dde5b943942783bda5ad545f5c344b847daaba6d6ac5b32
   .agents/skills/flet-project-quality-check/assets/github/workflows/pull-request.yml.template: sha256:af8bbb2ba7cc94dab4be12f4d9ff5ce47ed99e3216be4af689d324b7ae5e7515
   .agents/skills/flet-project-quality-check/references/architecture-and-ui.md: sha256:8a2525039d7fb369fc1e651c4c8849d72de0506163c0939e57ee937a9f259e31
-  .agents/skills/flet-project-quality-check/references/ci-packaging-security.md: sha256:43117d5ed53afb832b33c47392dd35803d68820d9794ef494bf0742d4c3615fc
+  .agents/skills/flet-project-quality-check/references/ci-packaging-security.md: sha256:0da55849767a07e6ba12826103e04dc4ec439afa685b6f8a8292b07e762db7e5
   .agents/skills/flet-project-quality-check/references/implementation-runbook.md: sha256:7e4bf4366e2be29d4f9697605439db86f2df0fe6e3d9147909cd786bf440aeb0
   .agents/skills/flet-project-quality-check/references/tooling-and-testing.md: sha256:244481b95cfc88e1da8044c7e50b92be611fe1799171cb1892daf89228a54cc4
   .agents/skills/flet-project-quality-check/scripts/check_project.py: sha256:8afc799a9bed2ce6003c7b43b4b67b3a96f381604ad43bdb19921a222be14c64
@@ -211,7 +211,7 @@ local_deployed_file_hashes:
   .agents/skills/git-worktree-workflow/SKILL.md: sha256:5b68551b1eccf3c7da5bd771178be735a01c5eb612c25c91584ffbd88fd3ffef
   .agents/skills/git-worktree-workflow/agents/openai.yaml: sha256:3eb9da73e7a041e77d82f0d5c3a8c67e914575cff8651b71d077db30fe3da99a
   .agents/skills/github-actions-quality-check/README.md: sha256:a0767309bb84d170bc30070099a9f091b4c67cc00f790da88799685ab6bbaf5e
-  .agents/skills/github-actions-quality-check/SKILL.md: sha256:fe026b3418ecccaeaf0511d27978237c4e681a1c39c5b5e742f6d1a35ead147b
+  .agents/skills/github-actions-quality-check/SKILL.md: sha256:951d74faa5bb23d9f1a6e2ba82217a4f5f7618ceca2d56751837e0eb288fbf39
   .agents/skills/github-actions-quality-check/agents/openai.yaml: sha256:63b8022771cf5e036033c39fd700adf14b1ab23f7df78699474e472a7c28e73d
   .agents/skills/github-actions-quality-check/references/runner-selection.md: sha256:88743b114948ba4b743b441192d44e61b65f4ce5748044c5a2a93d169313aecd
   .agents/skills/gitignore-workflow/README.md: sha256:0de188ebcdd40ea1aec701410e1c2182049b66bc4ec4d83a3bf55685b4267d47
