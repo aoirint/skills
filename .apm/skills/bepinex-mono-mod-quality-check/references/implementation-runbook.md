@@ -271,7 +271,10 @@ independent stages.
    The release job alone receives `contents: write`; it creates a draft, adds
    all assets and checksum, then publishes. It fails on an existing tag,
    release, or asset and never rebuilds or replaces an artifact. Require
-   immutable releases where available; otherwise record residual risk.
+   immutable releases where available; otherwise record residual risk. After
+   publication, query the release record and verify its tag, target commit,
+   immutable/prerelease state, exact asset count, asset digest, and each
+   intentionally skipped host-publishing step.
 5. If external publishing is enabled, gate it to the confirmed stable mode,
    exactly one reviewed prebuilt archive, passing digest/archive/runtime checks,
    and a credential scoped to the one publish step. Never expose it to PR jobs.
@@ -320,7 +323,7 @@ not passed; record the command, reason, and resulting risk.
 | Validator/policy fixture | invoke production command/path or the exact shared library it calls | fixture failure proves production enforcement; no duplicated test-only rule implementation |
 | Compatibility/release claim | clean-profile runtime test | record exact game build, BepInEx version, mod set, install path, scenario, result |
 | Structured validation logging requested | inspect representative startup, success, denial/failure, receiver/apply, restoration, and swallowed-exception records | role is observed or neutral rather than asserted; records prove the named outcome with boundary/source, result, and only necessary bounded before/after values; inner and outer swallowed exceptions are recorded; privacy exclusions hold |
-| GitHub Release | repository-setting review and fail-on-existing release path | settings/gaps recorded; no mutable overwrite path |
+| GitHub Release | repository-setting review, fail-on-existing release path, and post-publication release-record inspection | settings/gaps recorded; tag and target commit match; immutability, prerelease/stable mode, asset count, and asset digest match; intentionally skipped host publishing is recorded |
 
 ## 7. Completion report
 
