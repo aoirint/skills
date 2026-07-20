@@ -72,8 +72,13 @@ local_deployed_files:
 - .agents/skills/flet-project-quality-check/references/ci-packaging-security.md
 - .agents/skills/flet-project-quality-check/references/implementation-runbook.md
 - .agents/skills/flet-project-quality-check/references/tooling-and-testing.md
+- .agents/skills/flet-project-quality-check/scripts/__pycache__/check_project.cpython-313.pyc
+- .agents/skills/flet-project-quality-check/scripts/__pycache__/check_project.cpython-314.pyc
+- .agents/skills/flet-project-quality-check/scripts/__pycache__/test_check_project.cpython-313.pyc
+- .agents/skills/flet-project-quality-check/scripts/__pycache__/test_check_project.cpython-314.pyc
 - .agents/skills/flet-project-quality-check/scripts/check_project.py
 - .agents/skills/flet-project-quality-check/scripts/check_project.py.lock
+- .agents/skills/flet-project-quality-check/scripts/test_check_project.py
 - .agents/skills/git-worktree-workflow
 - .agents/skills/git-worktree-workflow/README.md
 - .agents/skills/git-worktree-workflow/SKILL.md
@@ -179,14 +184,19 @@ local_deployed_file_hashes:
   .agents/skills/commit-message-quality-check/SKILL.md: sha256:8f3a31aee818171304a58684b8ef01a237ef0863f6fc09718eb1d693ea8464da
   .agents/skills/commit-message-quality-check/agents/openai.yaml: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
   .agents/skills/flet-project-quality-check/README.md: sha256:2decda6cca135c83c5b81bbdc52abc002a47ed5163e56871b3421c6c7ccb948a
-  .agents/skills/flet-project-quality-check/SKILL.md: sha256:78aa28563314322934268841b6ae49c91fb938372b1f4b3f4ee3b7fa6055deee
+  .agents/skills/flet-project-quality-check/SKILL.md: sha256:35780c3dbf9736bdcb2542802f75f579a41bc0d64e1d052b8c5d75264f733613
   .agents/skills/flet-project-quality-check/agents/openai.yaml: sha256:87eb0740c7ee3001db763e18b2cb1e5e0cd58a94c7915b73fcbc23ccd97d371e
   .agents/skills/flet-project-quality-check/references/architecture-and-ui.md: sha256:8a2525039d7fb369fc1e651c4c8849d72de0506163c0939e57ee937a9f259e31
   .agents/skills/flet-project-quality-check/references/ci-packaging-security.md: sha256:8fb665009b6c769cba0defdb422208ff66972eef34a1a59e32d598fcce18e523
-  .agents/skills/flet-project-quality-check/references/implementation-runbook.md: sha256:a13a9960735cd6dca03f6cd25b79edec3155f373b3cc27d578364595519e4d84
-  .agents/skills/flet-project-quality-check/references/tooling-and-testing.md: sha256:f552960672d706db90f1c80b0ee3880b952b1c16952df966fe6ccd232371f1f1
-  .agents/skills/flet-project-quality-check/scripts/check_project.py: sha256:3ff0116a0d10db99b077835701e268c6bb3d08f83ea6702891eedf214caddead
+  .agents/skills/flet-project-quality-check/references/implementation-runbook.md: sha256:7e4bf4366e2be29d4f9697605439db86f2df0fe6e3d9147909cd786bf440aeb0
+  .agents/skills/flet-project-quality-check/references/tooling-and-testing.md: sha256:0810ece0a9d4b518525920af79260291734378e36494081d14ee00b891cb15de
+  .agents/skills/flet-project-quality-check/scripts/__pycache__/check_project.cpython-313.pyc: sha256:ddacb5021acead590ffb3e4711ae89011ccf253e197fe4b28e84bc7b9da852af
+  .agents/skills/flet-project-quality-check/scripts/__pycache__/check_project.cpython-314.pyc: sha256:63240e1362694782d95fb407bfb199199389f7bcf79a049f896b39314782c164
+  .agents/skills/flet-project-quality-check/scripts/__pycache__/test_check_project.cpython-313.pyc: sha256:3836c88bce4589bcf12973907dbfced6b7c4abee7a791f9e2a8729c62d9b94ba
+  .agents/skills/flet-project-quality-check/scripts/__pycache__/test_check_project.cpython-314.pyc: sha256:5d419be2eae7cd7365f4445808aaa2736337a7d135f2c3a927a9e918fba6bf3f
+  .agents/skills/flet-project-quality-check/scripts/check_project.py: sha256:3b0884d1e26a7316ac6d1a8fb99777d334794bb670851f7abb8b7181bb0836a8
   .agents/skills/flet-project-quality-check/scripts/check_project.py.lock: sha256:76042d39ffdbb675188966b4fc41d312b0ec9374a7aa438d4f5e919adcf04c07
+  .agents/skills/flet-project-quality-check/scripts/test_check_project.py: sha256:ff07bcfee3e291f9190436b01ec5b1b10226c4bf350f976096cf5920eceb37b5
   .agents/skills/git-worktree-workflow/README.md: sha256:fa6483b5919a01b84fa0d6ffcbaae20b84ed3807e18029e8807e61b0ee4f9de9
   .agents/skills/git-worktree-workflow/SKILL.md: sha256:e6e453e43e2036309381cf11ded6499de03281e1b7bbb43b6aba05de59d6ba5b
   .agents/skills/git-worktree-workflow/agents/openai.yaml: sha256:3eb9da73e7a041e77d82f0d5c3a8c67e914575cff8651b71d077db30fe3da99a
