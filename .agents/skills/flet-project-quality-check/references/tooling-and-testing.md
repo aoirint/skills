@@ -211,9 +211,10 @@ versions before adopting new rule families or mypy error codes.
 - Do not place `PLR0917`, `ALL`, or a parent selector such as `PLR` or `PL` in Ruff `ignore`,
   `extend-ignore`, `per-file-ignores`, or `extend-per-file-ignores`. External ABI exceptions belong
   on the exact definition line, not in blanket configuration.
-- Do not configure Ruff top-level `exclude`/`extend-exclude` or lint-level `exclude`; its standard
-  environment/cache defaults and the repository's explicit `ruff check .` invocation provide a
-  reviewable coverage boundary.
+- Ruff top-level `exclude`/`extend-exclude` and lint-level `exclude` may contain only generated APM
+  or agent-worktree roots: `.agents/skills`, `.agents/worktrees`, and `apm_modules` (optionally with
+  a trailing `/**`). Do not exclude `src`, `tests`, `scripts`, or extension directories; the
+  repository's explicit `ruff check .` invocation must cover all project-owned Python.
 - Select Ruff `FBT` so Boolean parameters and calls cannot hide meaning positionally. Do not replace
   a Boolean trap with an untyped string flag; use an enum or explicit policy type when the modes
   carry domain meaning.

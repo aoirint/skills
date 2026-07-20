@@ -72,6 +72,11 @@ NESTED_EXCLUDED_PYTHON_PARTS = {
     "__pycache__",
     "site-packages",
 }
+ALLOWED_RUFF_EXCLUDE_PATHS = {
+    ".agents/skills",
+    ".agents/worktrees",
+    "apm_modules",
+}
 RECEIVER_PRESERVING_DECORATOR_PATHS = {
     "abc.abstractmethod",
     "builtins.property",
@@ -274,14 +279,20 @@ class Checker:
             "pyproject.toml",
             "PLR0917 must not be suppressed globally or through per-file ignores",
         )
+        ruff_excludes = {
+            _normalize_ruff_exclude(pattern)
+            for value in (
+                ruff.get("exclude"),
+                ruff.get("extend-exclude"),
+                ruff_lint.get("exclude"),
+            )
+            for pattern in _string_list(value)
+        }
         self.require(
-            not _string_list(ruff.get("exclude"))
-            and not _string_list(ruff.get("extend-exclude"))
-            and not _string_list(ruff_lint.get("exclude")),
+            ruff_excludes <= ALLOWED_RUFF_EXCLUDE_PATHS,
             "ruff-owned-source-exclusion",
             "pyproject.toml",
-            "Ruff exclude and extend-exclude settings must not remove project-owned Python "
-            "coverage",
+            "Ruff exclusions may contain only generated APM or agent-worktree paths",
         )
 
         mypy = _table(tool, "mypy")
@@ -817,6 +828,11 @@ def _python_file_is_excluded(relative_parts: tuple[str, ...]) -> bool:
     return relative_parts[0] != "src" and any(
         part in {"build", "dist"} for part in relative_parts[:-1]
     )
+
+
+def _normalize_ruff_exclude(pattern: str) -> str:
+    normalized = pattern.replace("\\", "/").strip("/")
+    return normalized.removesuffix("/**").rstrip("/")
 
 
 def _assignment_value(node: ast.AST) -> ast.expr | None:
