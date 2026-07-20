@@ -326,6 +326,58 @@ branch = true
                     {finding.code for finding in checker.findings},
                 )
 
+    def test_accepts_generated_agent_skill_exclusion(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            pyproject = root / "pyproject.toml"
+            pyproject.write_text(
+                """
+[project]
+requires-python = ">=3.13,<3.14"
+dependencies = []
+
+[dependency-groups]
+dev = ["mypy", "pytest", "pytest-cov", "ruff"]
+
+[tool.uv]
+exclude-newer = "P7D"
+
+[tool.ruff]
+extend-exclude = [".agents/skills/**"]
+
+[tool.ruff.lint]
+preview = true
+explicit-preview-rules = true
+select = [
+    "ANN", "ASYNC", "B", "C90", "E", "F", "FBT", "I", "PL", "PLR0917",
+    "PT", "RUF", "S", "TRY", "UP", "W",
+]
+
+[tool.ruff.lint.pylint]
+max-positional-args = 0
+
+[tool.mypy]
+strict = true
+warn_unreachable = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-branch --cov-fail-under=100"
+
+[tool.coverage.report]
+fail_under = 100
+
+[tool.coverage.run]
+branch = true
+""",
+                encoding="utf-8",
+            )
+            checker = Checker(root)
+            checker._check_pyproject(pyproject)
+            self.assertNotIn(
+                "ruff-owned-source-exclusion",
+                {finding.code for finding in checker.findings},
+            )
+
 
 if __name__ == "__main__":
     unittest.main()
