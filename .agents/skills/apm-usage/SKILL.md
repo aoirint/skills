@@ -190,8 +190,8 @@ repository-owned metadata guard described in [CI guards](references/ci-guards.md
 It verifies the unpublished project version and the lock generator version
 without downloading or executing APM. Keep it in the existing lint job so
 adoption requires one step rather than a new workflow. Do not make consumer CI
-depend on a path inside the deployed Skill; copy the helper into the
-repository's own `.github/scripts/` directory.
+depend on a path inside the deployed Skill; copy the template into the
+repository's own `.github/actions/check-apm-project/` directory.
 
 The metadata guard is not a replacement for `apm install --frozen` or
 `apm audit --ci`. Add those separately when the requested CI policy includes

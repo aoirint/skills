@@ -10,12 +10,11 @@ Markdown lint checks without adding an installer to the lint job.
 
 ## APM project metadata
 
-The Skill includes `scripts/check_project_metadata.py` as the reviewed source
-for a small repository-owned guard. Copy its current implementation to
-`.github/scripts/check-apm-project.py`; the copied script carries the expected
-APM version as an explicit constant. Do not invoke the deployed Skill path from
-CI: that would make a consumer workflow depend on the Skill's internal
-directory structure.
+The Skill includes `assets/check-apm-project/action.yml` as the reviewed
+template for a small repository-owned Composite Action. Copy the action to
+`.github/actions/check-apm-project/action.yml`. Do not invoke the deployed Skill
+path from CI: that would make a consumer workflow depend on the Skill's
+internal directory structure.
 
 The copied guard checks two repository invariants:
 
@@ -26,13 +25,15 @@ Add one step to an existing composite lint action:
 
 ```yaml
 - name: Check APM project metadata
-  shell: bash
-  run: python .github/scripts/check-apm-project.py
+  uses: ./.github/actions/check-apm-project
+  with:
+    expected-apm-version: "0.25.0"
 ```
 
-The check uses only the Python standard library and does not download or
-execute APM. Review the helper as repository code, and update its expected APM
-version in the same PR that deliberately changes the lock generator version.
+The check uses only the Python standard library available on the selected
+runner and does not download or execute APM. Review the copied Composite Action
+as repository code, and update its caller's expected APM version in the same PR
+that deliberately changes the lock generator version.
 
 If it reports a lock generator mismatch, invoke the reviewed APM executable by
 absolute path, remove only the validated repository's `apm.lock.yaml`, and run
