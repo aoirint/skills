@@ -49,7 +49,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:531cf05b398b76bc2b030911b17ecd9c824fb58f53d14f5105a74631bd0b04f1
+  content_hash: sha256:321500a19019939f87f7600f40b029584048c3f14c6f297ba0b557d51804f59f
 - kind: project-relative
   target: agents
   value: .agents/skills/apm-usage/agents/openai.yaml
@@ -68,6 +68,24 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:e78b1b181f73ec6c02ed4a6b5839388911d9238606e9575ff6e9f29e7dcfbae4
+- kind: project-relative
+  target: agents
+  value: .agents/skills/apm-usage/references/ci-guards.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0a61dd4efce49424ee07feafb6fad256f56152ed14c96829f4b66f8e0f5ee680
+- kind: project-relative
+  target: agents
+  value: .agents/skills/apm-usage/scripts/check_project_metadata.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:d7b37e7fef79f5b186d5c151d22d4d2828bb79a2996078e6b3239279c50b0444
 - kind: project-relative
   target: agents
   value: .agents/skills/apm-usage/scripts/propose_bootstrap_update.py
@@ -1217,6 +1235,8 @@ local_deployed_files:
 - .agents/skills/apm-usage/SKILL.md
 - .agents/skills/apm-usage/agents/openai.yaml
 - .agents/skills/apm-usage/references/apm-bootstrap.json
+- .agents/skills/apm-usage/references/ci-guards.md
+- .agents/skills/apm-usage/scripts/check_project_metadata.py
 - .agents/skills/apm-usage/scripts/propose_bootstrap_update.py
 - .agents/skills/apm-usage/scripts/propose_bootstrap_update.py.lock
 - .agents/skills/bepinex-mono-mod-quality-check
@@ -1342,9 +1362,11 @@ local_deployed_files:
 - .agents/skills/unity-game-analyze/scripts/inventory_build.py.lock
 local_deployed_file_hashes:
   .agents/skills/apm-usage/README.md: sha256:70351aaebf54291433dfcff86280e87edc757ff4e93e506aa1e8f06a0b913f06
-  .agents/skills/apm-usage/SKILL.md: sha256:531cf05b398b76bc2b030911b17ecd9c824fb58f53d14f5105a74631bd0b04f1
+  .agents/skills/apm-usage/SKILL.md: sha256:321500a19019939f87f7600f40b029584048c3f14c6f297ba0b557d51804f59f
   .agents/skills/apm-usage/agents/openai.yaml: sha256:931ed250f3abe81dcad27da5b668d7546cd65f528cd37de754dee4c9df1905e0
   .agents/skills/apm-usage/references/apm-bootstrap.json: sha256:e78b1b181f73ec6c02ed4a6b5839388911d9238606e9575ff6e9f29e7dcfbae4
+  .agents/skills/apm-usage/references/ci-guards.md: sha256:0a61dd4efce49424ee07feafb6fad256f56152ed14c96829f4b66f8e0f5ee680
+  .agents/skills/apm-usage/scripts/check_project_metadata.py: sha256:d7b37e7fef79f5b186d5c151d22d4d2828bb79a2996078e6b3239279c50b0444
   .agents/skills/apm-usage/scripts/propose_bootstrap_update.py: sha256:e29c8a695d1a0d8f9c44b612a58c9462e55f754ef8b739ff7f01d4e1dc2d7530
   .agents/skills/apm-usage/scripts/propose_bootstrap_update.py.lock: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
   .agents/skills/bepinex-mono-mod-quality-check/README.md: sha256:b7e3ca928b448415fc6536f1577e27e7c7cd8494f0cf76d9e5711d12f5f3ce11
