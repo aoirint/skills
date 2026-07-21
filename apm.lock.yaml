@@ -571,7 +571,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:0875dbb4501ce3c7fb4dc960e0b29c766141c129c011778e334e9163c4788a0c
+  content_hash: sha256:4aff6599ccb6c8fd00e44d34e48cdc51b672de71199bca90d02511e18c357b27
 - kind: project-relative
   target: agents
   value: .agents/skills/flet-project-quality-check/references/ci-packaging-security.md
@@ -589,7 +589,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:d4eec4cca447debcfdc82f29a189b14127d1f87087a241bf35b704f49b3d2590
+  content_hash: sha256:cca28b8704fe499b85521ccd85a80f1b1ca1fc6014d18cca0e173f2a9acfc59b
 - kind: project-relative
   target: agents
   value: .agents/skills/flet-project-quality-check/references/tooling-and-testing.md
@@ -1411,9 +1411,9 @@ local_deployed_file_hashes:
   .agents/skills/flet-project-quality-check/assets/github/actions/test-source/action.yml: sha256:9f30c8839f16399b789358e3404f0ff9ad11fffa1f7a94f7da5ad41e50eb524f
   .agents/skills/flet-project-quality-check/assets/github/workflows/main.yml.template: sha256:c34cabe25ebd933f1dde5b943942783bda5ad545f5c344b847daaba6d6ac5b32
   .agents/skills/flet-project-quality-check/assets/github/workflows/pull-request.yml.template: sha256:af8bbb2ba7cc94dab4be12f4d9ff5ce47ed99e3216be4af689d324b7ae5e7515
-  .agents/skills/flet-project-quality-check/references/architecture-and-ui.md: sha256:0875dbb4501ce3c7fb4dc960e0b29c766141c129c011778e334e9163c4788a0c
+  .agents/skills/flet-project-quality-check/references/architecture-and-ui.md: sha256:4aff6599ccb6c8fd00e44d34e48cdc51b672de71199bca90d02511e18c357b27
   .agents/skills/flet-project-quality-check/references/ci-packaging-security.md: sha256:8c976bdaf600d769a49b902f095a735076ea8dddac93f73f2c592f9d642987ac
-  .agents/skills/flet-project-quality-check/references/implementation-runbook.md: sha256:d4eec4cca447debcfdc82f29a189b14127d1f87087a241bf35b704f49b3d2590
+  .agents/skills/flet-project-quality-check/references/implementation-runbook.md: sha256:cca28b8704fe499b85521ccd85a80f1b1ca1fc6014d18cca0e173f2a9acfc59b
   .agents/skills/flet-project-quality-check/references/tooling-and-testing.md: sha256:7b85f1d8ce65708650540ba1795e1242076c884c6fd994ffb1c355cbdec5f2df
   .agents/skills/flet-project-quality-check/scripts/check_project.py: sha256:8afc799a9bed2ce6003c7b43b4b67b3a96f381604ad43bdb19921a222be14c64
   .agents/skills/flet-project-quality-check/scripts/check_project.py.lock: sha256:76042d39ffdbb675188966b4fc41d312b0ec9374a7aa438d4f5e919adcf04c07
