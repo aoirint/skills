@@ -8,12 +8,20 @@ These skills are packaged and installed with
 
 Install APM first.
 
-### All skills (global)
+### Install all skills globally
 
 To install the complete collection into your user scope, run:
 
 ```shell
-apm install --global aoirint/skills
+apm install --global "aoirint/skills#main"
+```
+
+### Update skills globally
+
+If you initially installed the skills from the `main` branch (using `#main`), you can update them by running:
+
+```shell
+apm update --global "aoirint/skills"
 ```
 
 ## Skills
