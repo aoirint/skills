@@ -148,7 +148,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:c5f3381f0e7f718cbe667d84aeb60ca5f5ab15b3ab5819348c3f8eb0d26ba872
+  content_hash: sha256:ccdceff82db139bb17effdce39391224b12b427bce80883a9222b33adbfb141f
 - kind: project-relative
   target: agents
   value: .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/install-workflow-tools/action.yml.template
@@ -211,7 +211,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:6049248e41de5e4068da67d61e91b924b4f57925c9e75e845c82ade5cdfc8072
+  content_hash: sha256:98e90864e9d6aeccb7d2326fc518247807b48532458a2d1a4b5988d3884eb3bf
 - kind: project-relative
   target: agents
   value: .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/pull-request.yml.template
@@ -1392,14 +1392,14 @@ local_deployed_file_hashes:
   .agents/skills/bepinex-mono-mod-quality-check/README.md: sha256:f1cedde8c48a1aa4ebe4a57decff164fd845ba82a64ddcbe66e9fc9f349286f5
   .agents/skills/bepinex-mono-mod-quality-check/SKILL.md: sha256:032b4c3a3f5fa20fc5940c41e77eb072ae29962aeb1f1904471abc45590d9c33
   .agents/skills/bepinex-mono-mod-quality-check/agents/openai.yaml: sha256:a4d486e33ec1ce652ec78ffbc6c783b8005bd30202716385aaf5b5b686451cf7
-  .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/generate-version/action.yml: sha256:c5f3381f0e7f718cbe667d84aeb60ca5f5ab15b3ab5819348c3f8eb0d26ba872
+  .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/generate-version/action.yml: sha256:ccdceff82db139bb17effdce39391224b12b427bce80883a9222b33adbfb141f
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/install-workflow-tools/action.yml.template: sha256:8f881f57add1754f54fcdd59eed60a174f1cdcd240dfba708eafb4ec95cc6ecc
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/lint-source/action.yml.template: sha256:07bbc46da35639c3e555567dbfff1f29d58340e201abf4359b622173a1cb771f
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/publish-thunderstore/action.yml: sha256:aa75302334d13b50b76696e3759f1b0723f2262ae724103bb01515713d311329
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/publish-thunderstore/publish-thunderstore.sh: sha256:1801d6c68370a3c0de36d3910f6e9cbc319654669974365f8f52df759ee16023
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/setup-dotnet/action.yml.template: sha256:a2d07a4b0b215b444a34fa99b80b3f00297db02e9c8440be2805c63bba39e040
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/pull_request_template.md: sha256:c2cd5f21467fefe507ab47af0a342f72c67d1b38d6c5f5d9ca07c4ea5f5be38d
-  .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/main.yml.template: sha256:6049248e41de5e4068da67d61e91b924b4f57925c9e75e845c82ade5cdfc8072
+  .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/main.yml.template: sha256:98e90864e9d6aeccb7d2326fc518247807b48532458a2d1a4b5988d3884eb3bf
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/pull-request.yml.template: sha256:b4ff31aed4a8f4b5362ffa3def1b69fb4e3fdf80c6631f60179a9d45c11f36c1
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/workflow-variables.example.json: sha256:9a3d19ece06e353022665803d22e7bc95e59a4259c422db926d9b366beb7d789
   .agents/skills/bepinex-mono-mod-quality-check/assets/repository/.gitattributes: sha256:2b68c0cf28e58a65b9c842bb1f5733c32fe65e519c359c16b4081e8b21182e1e
