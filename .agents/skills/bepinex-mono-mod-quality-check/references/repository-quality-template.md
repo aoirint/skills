@@ -11,6 +11,7 @@ constraint makes it inapplicable, and record that constraint in the review.
 
 ## Contents
 
+- [Repository family alignment](#repository-family-alignment)
 - [Repository foundation](#repository-foundation)
 - [APM-managed agent guidance](#apm-managed-agent-guidance)
 - [NuGet and C# project quality](#nuget-and-c-project-quality)
@@ -21,12 +22,35 @@ constraint makes it inapplicable, and record that constraint in the review.
 - [Thunderstore publishing](#thunderstore-publishing)
 - [Completion review](#completion-review)
 
+## Repository family alignment
+
+- When the maintainer designates peer repositories, review their exact
+  revisions before adding the generic baseline. Treat their shared portable
+  paths, section structure, content, and newline policy as the presumptive
+  family contract.
+- Account for every missing, extra, changed, and newline-different target path
+  in the repository-family delta ledger. Product behavior, runtime, tests,
+  package host, repository visibility, and a distinct maintenance lifecycle are
+  valid reasons only when the exact constraint is recorded.
+- Do not create a one-repository improvement under labels such as "stricter",
+  "cleaner", or "more explicit". Improve the canonical source first and use
+  `rollout-workflow` for compatible peers, or retain the existing shared
+  content unchanged.
+- For a private target, use local or authenticated inspection and keep private
+  source and artifacts out of public review channels. Do not infer permission
+  for public package publication from a public peer's workflow.
+- Use a fresh-context comparison after each correction round when convergence
+  review is requested. Stop only when no actionable material difference
+  remains and every intentional difference has a concrete disposition.
+
 ## Repository foundation
 
 - Keep the solution, plugin project, `assets/`, `docs/`, `CHANGELOG.md`,
   `LICENSE`, `README.md`, and `CONTRIBUTING.md` in intentional, documented
   roles. Keep base-game evidence separate from mod-specific architecture and
   operations documentation.
+- When `CONTRIBUTING.md` links `.github/CODEOWNERS`, require that file to exist
+  and identify the active maintainer or owning team.
 - Start `.gitignore` with only project-local paths: game installs, mod-manager
   profiles, generated plugin metadata, local `work/` or `build/` directories,
   and agent worktrees. Do not ignore source, release assets, lockfiles, or
@@ -38,9 +62,6 @@ constraint makes it inapplicable, and record that constraint in the review.
 - Ignore `bin/`, `obj/`, IDE caches, local logs, downloaded game files, and
   local profiles. Never use an ignore rule as a substitute for keeping secrets
   out of the repository.
-- Ignore common local secret/configuration files such as `.env` and nested
-  `.env` variants. If the repository intentionally commits an example, keep a
-  narrow negation for that exact example and confirm it remains visible.
 - Keep an explicit generated-code path only when the build actually produces
   it. Do not use broad `Generated/` or wildcard ignores that can hide authored
   C# files.
@@ -71,6 +92,11 @@ See `$apm-usage` for installation, cooldown, license, and update details.
 - Use an SDK-style plugin project with an explicit target framework and C#
   language version selected for the tested BepInEx and game runtime. Record the
   compatibility reason; do not upgrade it only because a newer SDK exists.
+- Keep repeated build properties in project files until at least two projects
+  actually share them and the repository family uses a common props file. Do
+  not add `Directory.Build.props` merely to centralize a small solution.
+  Preserve the family `global.json` when the build uses .NET; SDK selection is
+  a separate responsibility from MSBuild property centralization.
 - Commit one `packages.lock.json` per project that resolves packages. Restore
   with `dotnet restore --locked-mode` locally and in CI; use `--no-restore` for
   format and build after that successful restore.

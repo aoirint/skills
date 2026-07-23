@@ -43,6 +43,7 @@ jobs:
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
+          fetch-depth: 0
           persist-credentials: false
 
       - name: Generate version plan
@@ -221,8 +222,26 @@ jobs:
           generateReleaseNotes: true
           artifacts: |
             ./tmp_artifacts/*.zip
+            ./tmp_artifacts/SHA256SUMS
           artifactErrorsFailBuild: true
-          artifactContentType: application/zip
+
+      - name: Verify published release record
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ needs.plan.outputs.git_version }}
+        run: |
+          set -euo pipefail
+          archive_name=$(awk 'NR == 1 { print $2 }' ./tmp_artifacts/SHA256SUMS)
+          expected_archive_digest="sha256:$(sha256sum "./tmp_artifacts/${archive_name}" | cut -d ' ' -f 1)"
+          expected_sums_digest="sha256:$(sha256sum ./tmp_artifacts/SHA256SUMS | cut -d ' ' -f 1)"
+          release_json=$(gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${RELEASE_TAG}")
+          [[ "$(jq -r '.tag_name' <<< "${release_json}")" == "${RELEASE_TAG}" ]]
+          [[ "$(jq -r '.target_commitish' <<< "${release_json}")" == "${GITHUB_SHA}" ]]
+          [[ "$(jq -r '.draft' <<< "${release_json}")" == "false" ]]
+          [[ "$(jq -r '.immutable' <<< "${release_json}")" == "true" ]]
+          [[ "$(jq '.assets | length' <<< "${release_json}")" -eq 2 ]]
+          [[ "$(jq -r --arg name "${archive_name}" '.assets[] | select(.name == $name) | .digest' <<< "${release_json}")" == "${expected_archive_digest}" ]]
+          [[ "$(jq -r '.assets[] | select(.name == "SHA256SUMS") | .digest' <<< "${release_json}")" == "${expected_sums_digest}" ]]
 
       - name: Publish stable release to Thunderstore
         id: publish-thunderstore

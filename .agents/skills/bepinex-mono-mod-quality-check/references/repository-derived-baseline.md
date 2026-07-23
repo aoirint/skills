@@ -75,8 +75,11 @@ not automatic quality improvements.
 
 - Treat the built DLL and package assets as one release unit. Inspect the final
   archive, not only the build directory.
-- Include only the files required by the selected package host, commonly a
-  manifest, user README, changelog, icon, and license alongside the plugin DLL.
+- Keep the repository family's distribution package ready even before external
+  publication is enabled: commonly a manifest, user README, user-facing
+  changelog, editable and rendered icon, and license alongside the plugin DLL.
+  Publication authorization controls the upload side effect, not whether these
+  release assets exist or are validated.
 - Keep package dependency strings, description, version, and compatibility
   claims synchronized with the tested release baseline.
 - Keep development history and end-user release notes separate when the
