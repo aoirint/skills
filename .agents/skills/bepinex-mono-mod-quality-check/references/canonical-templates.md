@@ -20,7 +20,9 @@ The mapping in `assets/template-map.json` installs these template groups:
   Agreement text and confirmation synchronized as one contract. Do not deploy
   the CLA checkbox without the bundled agreement, or the agreement without its
   required confirmation. Adopt this pair only when `.github/CODEOWNERS` exists
-  and identifies the maintainer linked by the contributor guide.
+  and identifies the maintainer linked by the contributor guide. The sync
+  script enforces paired selection and a non-empty ownership rule; the adopter
+  must review that the named maintainer or team is correct.
 - `github-generate-version`: derive stable, prerelease, and edge versions and
   synchronize project and Thunderstore manifest versions.
 - `github-publish-thunderstore-action` and

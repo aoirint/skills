@@ -98,17 +98,16 @@ docker run --rm --network none --user 1000:1000 -v ".:/workdir" davidanson/markd
 git ls-files '*.sh' | ForEach-Object { shellcheck $_ }
 actionlint -pyflakes=
 pinact run --check --min-age 7
-DOTNET_CLI_UI_LANGUAGE=en dotnet build --no-restore
+$env:DOTNET_CLI_UI_LANGUAGE = 'en'
+dotnet build --no-restore
 ```
 
 Use the commands as follows:
 
-- Run `dotnet format` and `DOTNET_CLI_UI_LANGUAGE=en dotnet build` for source
+- Run `dotnet format` and the environment-pinned `dotnet build` for source
   changes.
 - Run Markdown lint for documentation changes.
-  The Docker command is the documented pinned path, but Docker is not required.
-  Another `markdownlint-cli2` installation method is acceptable when it uses the
-  repository configuration.
+  The Docker command is the reviewed immutable path.
 - Run `shellcheck`, `actionlint`, and `pinact` when changing GitHub Actions
   workflows, composite actions, shell scripts, or related repository automation.
   ShellCheck should run before actionlint so actionlint can use its ShellCheck
