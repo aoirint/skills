@@ -94,22 +94,28 @@ Run the checks that match your change before opening a pull request:
 
 ```powershell
 dotnet format --no-restore --verify-no-changes
-pnpm --config.minimumReleaseAge=10080 --config.minimumReleaseAgeStrict=true --config.minimumReleaseAgeIgnoreMissingTime=false --config.minimumReleaseAgeExclude= dlx markdownlint-cli2@0.22.0 --config .markdownlint-cli2.yaml "**/*.md"
+docker run --rm --network none --user 1000:1000 -v ".:/workdir" davidanson/markdownlint-cli2:v0.22.1@sha256:0ed9a5f4c77ef447da2a2ac6e67caf74b214a7f80288819565e8b7d2ac148fe5
 git ls-files '*.sh' | ForEach-Object { shellcheck $_ }
 actionlint -pyflakes=
 pinact run --check --min-age 7
-dotnet build --no-restore
+DOTNET_CLI_UI_LANGUAGE=en dotnet build --no-restore
 ```
 
 Use the commands as follows:
 
-- Run `dotnet format` and `dotnet build` for source changes.
+- Run `dotnet format` and `DOTNET_CLI_UI_LANGUAGE=en dotnet build` for source
+  changes.
 - Run Markdown lint for documentation changes.
-  Keep the exact package version and fail-closed cooldown settings.
+  The Docker command is the documented pinned path, but Docker is not required.
+  Another `markdownlint-cli2` installation method is acceptable when it uses the
+  repository configuration.
 - Run `shellcheck`, `actionlint`, and `pinact` when changing GitHub Actions
   workflows, composite actions, shell scripts, or related repository automation.
   ShellCheck should run before actionlint so actionlint can use its ShellCheck
   integration for inline workflow shell scripts.
+
+On Linux, run the Markdown lint command with `sudo docker` and use
+`--user "$(id -u):$(id -g)"`.
 
 For package or release changes, also verify the release documentation in
 [README.md](./README.md), the selected package-host contract, and the exact

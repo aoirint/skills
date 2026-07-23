@@ -49,6 +49,8 @@ constraint makes it inapplicable, and record that constraint in the review.
   `LICENSE`, `README.md`, and `CONTRIBUTING.md` in intentional, documented
   roles. Keep base-game evidence separate from mod-specific architecture and
   operations documentation.
+- When `CONTRIBUTING.md` links `.github/CODEOWNERS`, require that file to exist
+  and identify the active maintainer or owning team.
 - Start `.gitignore` with only project-local paths: game installs, mod-manager
   profiles, generated plugin metadata, local `work/` or `build/` directories,
   and agent worktrees. Do not ignore source, release assets, lockfiles, or
@@ -60,9 +62,6 @@ constraint makes it inapplicable, and record that constraint in the review.
 - Ignore `bin/`, `obj/`, IDE caches, local logs, downloaded game files, and
   local profiles. Never use an ignore rule as a substitute for keeping secrets
   out of the repository.
-- Ignore common local secret/configuration files such as `.env` and nested
-  `.env` variants. If the repository intentionally commits an example, keep a
-  narrow negation for that exact example and confirm it remains visible.
 - Keep an explicit generated-code path only when the build actually produces
   it. Do not use broad `Generated/` or wildcard ignores that can hide authored
   C# files.

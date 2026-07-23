@@ -251,8 +251,10 @@ independent stages.
    manifest, root layout, dependency syntax, package README, user-facing
    changelog, editable icon source, rendered icon, license, version handling,
    and inert publisher action even when the repository does not currently
-   publish there. Validate those files in the final archive. Keep the external
-   upload step disabled until the maintainer authorizes the namespace,
+   publish there. Keep editable sources and publisher tooling in the repository,
+   not in the user package. Validate only the host-required distributable files
+   against the authoritative final-archive layout. Keep the external upload step
+   disabled until the maintainer authorizes the namespace,
    categories, credential, and release mode. Do not use one host's manifest or
    layout for another host.
 4. Extract the final archive and inspect the files users actually receive.

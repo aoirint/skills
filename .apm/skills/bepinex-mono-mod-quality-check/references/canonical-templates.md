@@ -4,6 +4,13 @@ Use the bundled templates only when the target repository adopts the matching
 release contract. They are exact reusable files, not examples to rewrite per
 repository.
 
+## Contents
+
+- [Bundled templates](#bundled-templates)
+- [Initial provenance](#initial-provenance)
+- [Adopt or verify](#adopt-or-verify)
+- [Improve without drift](#improve-without-drift)
+
 ## Bundled templates
 
 The mapping in `assets/template-map.json` installs these template groups:
@@ -12,7 +19,8 @@ The mapping in `assets/template-map.json` installs these template groups:
   contributor workflow, AI-assistance disclosure, and Contribution License
   Agreement text and confirmation synchronized as one contract. Do not deploy
   the CLA checkbox without the bundled agreement, or the agreement without its
-  required confirmation.
+  required confirmation. Adopt this pair only when `.github/CODEOWNERS` exists
+  and identifies the maintainer linked by the contributor guide.
 - `github-generate-version`: derive stable, prerelease, and edge versions and
   synchronize project and Thunderstore manifest versions.
 - `github-publish-thunderstore-action` and
@@ -52,10 +60,12 @@ host. Render them without adopting a publishing workflow:
   -RepoRoot . -Apply -ProjectDirectory ExampleMod
 ```
 
-Use `-Check` with the same project directory in contributor guidance and CI.
-The renderer changes only `.gitignore` and `.markdownlint-cli2.yaml`; use the
-exact-sync template IDs for `.gitattributes`, contributor policy, and the pull
-request template.
+Use `-Check` with the same project directory in CI. The rendered `lint-source`
+Composite Action includes this gate. Document the same command in target
+contributor guidance when maintainers expect it to run locally. The renderer
+changes only `.gitignore` and `.markdownlint-cli2.yaml`; use the exact-sync
+template IDs for `.gitattributes`, contributor policy, and the pull request
+template.
 
 ## Initial provenance
 
