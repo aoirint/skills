@@ -93,6 +93,11 @@ See `$apm-usage` for installation, cooldown, license, and update details.
 - Use an SDK-style plugin project with an explicit target framework and C#
   language version selected for the tested BepInEx and game runtime. Record the
   compatibility reason; do not upgrade it only because a newer SDK exists.
+- Keep repeated build properties in project files until at least two projects
+  actually share them and the repository family uses a common props file. Do
+  not add `Directory.Build.props` merely to centralize a small solution.
+  Preserve the family `global.json` when the build uses .NET; SDK selection is
+  a separate responsibility from MSBuild property centralization.
 - Commit one `packages.lock.json` per project that resolves packages. Restore
   with `dotnet restore --locked-mode` locally and in CI; use `--no-restore` for
   format and build after that successful restore.

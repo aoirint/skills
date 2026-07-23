@@ -239,7 +239,10 @@ independent stages.
    wrong or missing loader attributes.
    Fixture tests must invoke the production validator/package path or the exact
    shared library it calls. Do not copy validation rules into a test helper and
-   test the copy.
+   test the copy. A rejected fixture proves only its first failing guard. Start
+   from the passing fixture, keep every earlier predicate valid, mutate one
+   intended property, and assert the intended stable diagnostic or typed
+   result rather than accepting any exception or nonzero exit.
 2. Build into a clean staging directory. Copy only files allowed by the archive
    contract. Create exactly one archive, inspect its entries, and compute a
    SHA-256 digest.
@@ -290,6 +293,11 @@ independent stages.
    configuration. Every promised check and every retained configuration must
    be invoked by a documented local command and CI, or be removed with a
    concrete reason.
+   Keep archive creation in this CI-owned path. Retain a locally runnable
+   validator, but do not add a second production packager, a `release/` helper
+   directory, or a repository-specific approval/evidence schema unless a named
+   consumer and distinct lifecycle require it. Consolidation must preserve the
+   stable release job and its verified artifact handoff.
 3. Pin third-party actions by full SHA plus accurate version comment, containers
    by digest, and downloaded executable tools by adjacent version and checksum.
    Cache only verified archives and use committed lockfiles as NuGet cache keys.

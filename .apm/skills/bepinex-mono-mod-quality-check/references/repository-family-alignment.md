@@ -71,6 +71,28 @@ the target-specific threat or compatibility condition.
 5. Do not add documentation categories or evidence machinery merely because a
    general baseline permits them. Match the family document map and add a
    concern only when it has a distinct owner, audience, and change lifecycle.
+6. Keep the family workflow entry points and ownership boundaries. When the
+   family uses `pull-request.yml` and `main.yml`, add target-specific jobs or
+   values inside that split instead of inventing a combined workflow. Keep
+   packaging in CI, preserve stable publication while version `0.0.0` blocks
+   it, and remove duplicate packagers only after CI owns every required step.
+
+## Documentation and history hygiene
+
+1. For Lethal Company build identity in public compatibility documentation,
+   use the Steam Build ID and Steam Manifest ID. Document loader, dependency,
+   and runtime facts separately; do not expose local extraction paths, private
+   repository details, or redundant handoff hashes.
+2. Match the family document names, section hierarchy, prose granularity, and
+   terminology. Avoid repeating the game version in filenames, headings, and
+   prose when one compatibility owner already establishes it. Use direct
+   domain wording instead of foregrounding analysis or trace mechanics.
+3. When the maintainer explicitly requests a history rewrite, treat unwanted
+   private names, machine paths, or incorrect license text as a reachable-ref
+   audit. Correct the current tree, rewrite only the authorized repository,
+   inspect all branches and tags, then re-scan exact strings before pushing.
+   Coordinate any force-push for already-shared history, and do not reproduce
+   the removed private text in a public change description.
 
 ## Independent review loop
 

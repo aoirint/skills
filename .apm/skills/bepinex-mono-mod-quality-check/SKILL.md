@@ -136,6 +136,9 @@ conditional branches, verification matrix, and report format. Do not replace tha
      its lifecycle/state ownership cannot be stated clearly; do not split it merely by file type or pre-emptive reuse.
    - Keep one plugin project when it enforces the needed boundary. Add separate C# projects only when a concrete test,
      reuse, build, or dependency-isolation need outweighs the added target-framework and packaging complexity.
+   - Keep repeated build properties in project files until at least two projects actually share them and the repository
+     family uses a common props file. Do not add `Directory.Build.props` merely to centralize a small solution.
+     `global.json` has a separate SDK-selection role and remains required when the family build uses it.
 3. Check the plugin boundary.
    - Ensure the assembly name, plugin GUID, plugin name, and loader-facing version have one documented source of truth
      or a verified synchronization path.
@@ -230,6 +233,9 @@ conditional branches, verification matrix, and report format. Do not replace tha
      distinct publication-facing source or explicitly declare the canonical changelog dual-purpose; do not describe a
      derivation step that packaging does not perform. Do not claim untested game compatibility or publish a version
      already represented by an immutable release.
+   - A negative package fixture proves only the first production guard it reaches. Derive it from the passing fixture,
+     preserve every earlier invariant, mutate the intended property, and assert the intended branch-specific diagnostic
+     or result. A generic exception or nonzero exit does not prove the advertised rejection branch.
    - When the project derives manifest or package versions in CI, verify that the project version, generated version,
      and loader-compatible version are deliberately handled for stable, prerelease, and edge builds.
 6. Check GitHub repository settings, CI, and release automation when the repository uses GitHub Actions or GitHub
@@ -251,6 +257,9 @@ conditional branches, verification matrix, and report format. Do not replace tha
      artifact.
    - Retain every integration-branch edge build as a workflow artifact, with its source commit and digest visible in the
      workflow summary, even when the edge version is deliberately not published.
+   - Keep archive creation CI-owned. A locally callable validator is useful, but a second repository-local production
+     packager, `release/` helper tree, or custom approval schema needs a distinct consumer and lifecycle. Never remove the
+     stable release path while consolidating packaging ownership.
    - Default workflow permissions to read-only. Scope `contents: write` and publishing secrets to the release job that
      needs them, and never expose a publish credential to pull-request validation.
 7. Run the narrowest relevant checks, then widen for the changed surface.
@@ -274,6 +283,13 @@ conditional branches, verification matrix, and report format. Do not replace tha
      authority at the event boundary; use a neutral role when unavailable. Every exception swallowed inside a patch
      callback, including an inner transaction catch, emits the bounded callback-exception event in addition to domain
      restoration evidence. Preserve the product's privacy exclusions.
+   - In public Lethal Company compatibility documents, identify the game build with the Steam Build ID and Steam
+     Manifest ID. Keep loader, dependency, and runtime facts in their own fields; do not add local extraction paths,
+     private-repository identifiers, or redundant evidence hashes. Prefer direct domain titles and prose over repeatedly
+     labeling sections as analysis, trace, or version artifacts.
+   - If the maintainer marks content for history rewriting, correct the current tree, inspect every reachable branch and
+     tag for the exact unwanted text, and rewrite only the authorized repository before publication or coordinated
+     force-push. Re-scan after rewriting. Do not disclose the removed private text in a public commit or pull request.
 8. Report the result in this order: scope and evidence consulted; findings grouped by
    structure/plugin/build/CI/package/runtime; checks passed or skipped; and remaining compatibility or release risks.
    State every omitted baseline item and its concrete constraint; do not report a quality pass based only on an existing
