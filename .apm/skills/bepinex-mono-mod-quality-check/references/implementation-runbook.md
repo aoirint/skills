@@ -109,6 +109,10 @@ independent stages.
    add the same selection with `-Check` to contributor documentation and CI.
    Do not apply Thunderstore templates when the package host is absent,
    blocked, or different.
+8. Render the shared `.gitignore` and Markdown policy with
+   `scripts/render_repository_files.ps1` when the designated repository family
+   uses that contract. This renderer is package-host-neutral; do not invoke the
+   Thunderstore workflow renderer merely to obtain repository foundation files.
 
 ### 4.2 Project, module, and dependency boundary
 

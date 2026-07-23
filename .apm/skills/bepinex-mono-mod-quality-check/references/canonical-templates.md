@@ -44,6 +44,19 @@ output. Keep the workflow default at `contents: read` and grant
 `contents: write` only to the release job. Do not fold the event boundaries back into one trigger-heavy workflow
 or add manual dispatch without a named operator procedure.
 
+Repository ignore and Markdown policy are independent of the selected package
+host. Render them without adopting a publishing workflow:
+
+```powershell
+& .agents/skills/bepinex-mono-mod-quality-check/scripts/render_repository_files.ps1 `
+  -RepoRoot . -Apply -ProjectDirectory ExampleMod
+```
+
+Use `-Check` with the same project directory in contributor guidance and CI.
+The renderer changes only `.gitignore` and `.markdownlint-cli2.yaml`; use the
+exact-sync template IDs for `.gitattributes`, contributor policy, and the pull
+request template.
+
 ## Initial provenance
 
 The canonical assets were seeded from reviewed first-party consumer files.
