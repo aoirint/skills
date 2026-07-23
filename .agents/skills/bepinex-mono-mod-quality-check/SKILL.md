@@ -2,9 +2,9 @@
 name: bepinex-mono-mod-quality-check
 description:
   Review or create a BepInEx Mono mod for C# project and module structure, plugin identity, game compatibility,
-  dependency boundaries, GitHub CI and release automation, packaging, release metadata, and verification. Use when
-  implementing, reviewing, preparing a release for, or diagnosing quality gaps in a BepInEx 5 Mono plugin or its build
-  and release workflow.
+  dependency boundaries, repository-family alignment, GitHub CI and release automation, package readiness, release
+  metadata, and verification. Use when implementing, reviewing, preparing a release for, diagnosing quality gaps in,
+  or applying a minimal-difference peer rollout to a BepInEx 5 Mono plugin or its build and release workflow.
 ---
 
 # BepInEx Mono Mod Quality Check
@@ -88,6 +88,11 @@ conditional branches, verification matrix, and report format. Do not replace tha
    - Create the evidence ledger from the runbook before selecting a target framework, loader references, plugin
      identity, package metadata, archive layout, or publish destination. Mark an unavailable fact `blocked`; never fill
      it from another BepInEx repository.
+   - When the maintainer designates peer repositories or requests horizontal rollout, follow
+     [repository-family-alignment.md](references/repository-family-alignment.md) before applying the abstract baseline.
+     Require a disposition for every missing, extra, changed, or newline-different target path. Reuse portable shared
+     content exactly unless a concrete product, runtime, test, package-host, repository-visibility, or maintenance
+     constraint requires the smallest possible difference.
    - Treat a requested game-version change as a compatibility alignment. Record the old and target version, Steam
      manifest/build identifier, matching managed-code and serialized-asset evidence handoff hashes, game-reference
      package version, every compatibility claim, and the required build and runtime checks. Do not claim the target
@@ -97,7 +102,7 @@ conditional branches, verification matrix, and report format. Do not replace tha
      reason.
    - For a new repository or a template-alignment review, read
      [repository-quality-template.md](references/repository-quality-template.md) after the runbook inventory. It is the
-     normative file-by-file standard, not a source of target-specific values.
+     normative file-by-file standard, not permission to fork a designated repository family's portable conventions.
    - If the evidence ledger enables a contract represented by a bundled template, read
      [canonical-templates.md](references/canonical-templates.md), select only the applicable template IDs, and use the
      sync script for both application and CI drift checks. Keep target-specific workflow values in the caller, not in a
@@ -131,6 +136,9 @@ conditional branches, verification matrix, and report format. Do not replace tha
      its lifecycle/state ownership cannot be stated clearly; do not split it merely by file type or pre-emptive reuse.
    - Keep one plugin project when it enforces the needed boundary. Add separate C# projects only when a concrete test,
      reuse, build, or dependency-isolation need outweighs the added target-framework and packaging complexity.
+   - Keep repeated build properties in project files until at least two projects actually share them and the repository
+     family uses a common props file. Do not add `Directory.Build.props` merely to centralize a small solution.
+     `global.json` has a separate SDK-selection role and remains required when the family build uses it.
 3. Check the plugin boundary.
    - Ensure the assembly name, plugin GUID, plugin name, and loader-facing version have one documented source of truth
      or a verified synchronization path.
@@ -209,6 +217,11 @@ conditional branches, verification matrix, and report format. Do not replace tha
      the selected host's authoritative contract. Do not substitute another host's manifest or layout.
    - Reconcile package manifest identity, version, dependencies, compatibility claims, README, changelog, icon, and
      license with the release intent.
+   - Separate package readiness from publication authorization. When the evidence ledger confirms a distribution host,
+     keep the repository family's portable manifest, package README, user-facing changelog, editable and rendered icon,
+     license, final-archive validation, and inert publisher tooling complete even when an external upload is not yet
+     enabled. If the host is blocked or explicitly none, do not invent or borrow host-specific metadata. Gate the
+     publication side effect on explicit host, namespace, category, credential, runtime, and release-mode approval.
    - Verify version synchronization from produced outputs, not duplicated source literals. Generate loader-facing
      metadata from the project version or inspect the built assembly and compare project, assembly, loader-facing,
      manifest, archive, and tag versions that are enabled for the release.
@@ -221,6 +234,9 @@ conditional branches, verification matrix, and report format. Do not replace tha
      distinct publication-facing source or explicitly declare the canonical changelog dual-purpose; do not describe a
      derivation step that packaging does not perform. Do not claim untested game compatibility or publish a version
      already represented by an immutable release.
+   - A negative package fixture proves only the first production guard it reaches. Derive it from the passing fixture,
+     preserve every earlier invariant, mutate the intended property, and assert the intended branch-specific diagnostic
+     or result. A generic exception or nonzero exit does not prove the advertised rejection branch.
    - When the project derives manifest or package versions in CI, verify that the project version, generated version,
      and loader-compatible version are deliberately handled for stable, prerelease, and edge builds.
 6. Check GitHub repository settings, CI, and release automation when the repository uses GitHub Actions or GitHub
@@ -242,6 +258,9 @@ conditional branches, verification matrix, and report format. Do not replace tha
      artifact.
    - Retain every integration-branch edge build as a workflow artifact, with its source commit and digest visible in the
      workflow summary, even when the edge version is deliberately not published.
+   - Keep archive creation CI-owned. A locally callable validator is useful, but a second repository-local production
+     packager, `release/` helper tree, or custom approval schema needs a distinct consumer and lifecycle. Never remove the
+     stable release path while consolidating packaging ownership.
    - Default workflow permissions to read-only. Scope `contents: write` and publishing secrets to the release job that
      needs them, and never expose a publish credential to pull-request validation.
 7. Run the narrowest relevant checks, then widen for the changed surface.
@@ -265,6 +284,9 @@ conditional branches, verification matrix, and report format. Do not replace tha
      authority at the event boundary; use a neutral role when unavailable. Every exception swallowed inside a patch
      callback, including an inner transaction catch, emits the bounded callback-exception event in addition to domain
      restoration evidence. Preserve the product's privacy exclusions.
+   - If the maintainer marks content for history rewriting, correct the current tree, inspect every reachable branch and
+     tag for the exact unwanted text, and rewrite only the authorized repository before publication or coordinated
+     force-push. Re-scan after rewriting. Do not disclose the removed private text in a public commit or pull request.
 8. Report the result in this order: scope and evidence consulted; findings grouped by
    structure/plugin/build/CI/package/runtime; checks passed or skipped; and remaining compatibility or release risks.
    State every omitted baseline item and its concrete constraint; do not report a quality pass based only on an existing
@@ -279,6 +301,10 @@ practices; it is a baseline, not a replacement for the target repository's contr
 Read [repository-quality-template.md](references/repository-quality-template.md) when creating or aligning a repository.
 It turns that baseline into a checklist for ignore rules, APM, NuGet, Markdown, CI, composite actions, and conditional
 Thunderstore publishing.
+
+Read [repository-family-alignment.md](references/repository-family-alignment.md) when the maintainer designates peer
+repositories or asks for a minimal-difference rollout. It defines the delta ledger, privacy boundary, canonical-first
+improvement rule, newline review, and independent convergence loop.
 
 Read [canonical-templates.md](references/canonical-templates.md) when a target can adopt an exact bundled Composite
 Action or script. It defines the canonical assets, synchronization command, drift gate, and multi-repository maintenance

@@ -22,6 +22,8 @@ apm_modules/
 *.user
 *.userosscache
 *.sln.docstates
+.env
+.env.*
 *.env
 
 # User-specific files (MonoDevelop/Xamarin Studio)
