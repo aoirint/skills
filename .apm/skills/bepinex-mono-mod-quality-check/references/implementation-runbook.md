@@ -22,10 +22,16 @@ evidence ledger; it does not choose which baseline controls are optional.
    `CONTRIBUTING.md`, all `*.sln` and `*.csproj`, `nuget.config`, every
    `packages.lock.json`, `.gitignore`, `.markdownlint-cli2.yaml`, package
    assets, `.github/workflows/`, `.github/actions/`, and release scripts.
-3. For `alignment`, compare every item in the required inventory below with the
+3. When the maintainer designates peer repositories, record their exact
+   revisions and build the missing/extra/changed/newline delta ledger from
+   `repository-family-alignment.md` before applying the generic inventory.
+   Classify every difference as `match`, `target-specific`,
+   `canonical-improvement`, or `remove`; no difference may remain unexplained.
+4. For `alignment`, compare every item in the required inventory below with the
    repository. A missing baseline item is a finding. Do not mark it optional
    because a predecessor repository did not use it.
-4. For `plan-only`, produce the same inventory and evidence ledger, label every
+5. For `plan-only`, produce the same inventory, delta ledger when applicable,
+   and evidence ledger, label every
    uninspected item `unverified`, and do not claim a check passed.
 
 ## 2. Evidence ledger
@@ -82,20 +88,23 @@ independent stages.
 
 1. Define intentional roles for solution/project files, `assets/`, `docs/`,
    package assets, and generated output.
-2. Add `.gitignore` local rules first: game installs, profiles, `bin/`, `obj/`,
+2. If a repository-family delta ledger applies, restore its exact portable
+   files before target-specific edits. Apply the shared `.gitattributes` first,
+   preserve file and section ordering, and renormalize tracked text.
+3. Add `.gitignore` local rules first: game installs, profiles, `bin/`, `obj/`,
    IDE caches, logs, local work/build directories, agent worktrees, and only
    actually generated metadata. Keep any pinned upstream ignore template as a
    separate, commit-linked block below local rules.
-3. Run `git status --short`. Stop and correct the ignore rules if a source,
+4. Run `git status --short`. Stop and correct the ignore rules if a source,
    asset, lockfile, or document that must be committed becomes hidden.
-4. Write README and CONTRIBUTING content from the evidence ledger. README names
+5. Write README and CONTRIBUTING content from the evidence ledger. README names
    setup, restore, format, build, test, debugging, packaging, compatibility
    evidence, and release steps. CONTRIBUTING maps each changed surface to its
    required verification.
-5. Add Markdown lint configuration. It must target committed `**/*.md`, honor
+6. Add Markdown lint configuration. It must target committed `**/*.md`, honor
    `.gitignore`, exclude only transient agent/worktree paths, and explain every
    disabled rule inline.
-6. When the evidence ledger enables a bundled template, select its IDs from
+7. When the evidence ledger enables a bundled template, select its IDs from
    `assets/template-map.json`, apply them with `scripts/sync_templates.ps1`, and
    add the same selection with `-Check` to contributor documentation and CI.
    Do not apply Thunderstore templates when the package host is absent,
@@ -340,14 +349,16 @@ not passed; record the command, reason, and resulting risk.
 Use this exact order:
 
 1. Request type and repository state.
-2. Evidence ledger, including every `blocked` fact and dependent blocked branch.
-3. Baseline inventory: `present`, `added`, `finding`, or `valid exception` for
+2. Repository-family revisions and delta ledger when applicable, including
+   every remaining target-specific difference and concrete reason.
+3. Evidence ledger, including every `blocked` fact and dependent blocked branch.
+4. Baseline inventory: `present`, `added`, `finding`, or `valid exception` for
    every artifact in section 3.
-4. Files changed and synchronization paths verified.
-5. Verification matrix results: `passed`, `failed`, or `skipped` with the exact
+5. Files changed and synchronization paths verified.
+6. Verification matrix results: `passed`, `failed`, or `skipped` with the exact
    command/reason/risk.
-6. Runtime and package-host evidence.
-7. Remaining risks and the precise condition that prevents approval or
+7. Runtime and package-host evidence.
+8. Remaining risks and the precise condition that prevents approval or
    publication.
 
 Do not call the repository ready when any required baseline artifact is a

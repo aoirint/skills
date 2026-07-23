@@ -88,6 +88,11 @@ conditional branches, verification matrix, and report format. Do not replace tha
    - Create the evidence ledger from the runbook before selecting a target framework, loader references, plugin
      identity, package metadata, archive layout, or publish destination. Mark an unavailable fact `blocked`; never fill
      it from another BepInEx repository.
+   - When the maintainer designates peer repositories or requests horizontal rollout, follow
+     [repository-family-alignment.md](references/repository-family-alignment.md) before applying the abstract baseline.
+     Require a disposition for every missing, extra, changed, or newline-different target path. Reuse portable shared
+     content exactly unless a concrete product, runtime, test, package-host, repository-visibility, or maintenance
+     constraint requires the smallest possible difference.
    - Treat a requested game-version change as a compatibility alignment. Record the old and target version, Steam
      manifest/build identifier, matching managed-code and serialized-asset evidence handoff hashes, game-reference
      package version, every compatibility claim, and the required build and runtime checks. Do not claim the target
@@ -97,7 +102,7 @@ conditional branches, verification matrix, and report format. Do not replace tha
      reason.
    - For a new repository or a template-alignment review, read
      [repository-quality-template.md](references/repository-quality-template.md) after the runbook inventory. It is the
-     normative file-by-file standard, not a source of target-specific values.
+     normative file-by-file standard, not permission to fork a designated repository family's portable conventions.
    - If the evidence ledger enables a contract represented by a bundled template, read
      [canonical-templates.md](references/canonical-templates.md), select only the applicable template IDs, and use the
      sync script for both application and CI drift checks. Keep target-specific workflow values in the caller, not in a
@@ -279,6 +284,10 @@ practices; it is a baseline, not a replacement for the target repository's contr
 Read [repository-quality-template.md](references/repository-quality-template.md) when creating or aligning a repository.
 It turns that baseline into a checklist for ignore rules, APM, NuGet, Markdown, CI, composite actions, and conditional
 Thunderstore publishing.
+
+Read [repository-family-alignment.md](references/repository-family-alignment.md) when the maintainer designates peer
+repositories or asks for a minimal-difference rollout. It defines the delta ledger, privacy boundary, canonical-first
+improvement rule, newline review, and independent convergence loop.
 
 Read [canonical-templates.md](references/canonical-templates.md) when a target can adopt an exact bundled Composite
 Action or script. It defines the canonical assets, synchronization command, drift gate, and multi-repository maintenance

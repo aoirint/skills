@@ -85,8 +85,8 @@ dotnet restore --locked-mode
   entries when the behavior changes.
 - Update [CHANGELOG.md](./CHANGELOG.md) for developer-facing changes that should
   appear in release history.
-- Update files under [assets/](./assets/) when the Thunderstore package
-  metadata, icon, README, or release notes change.
+- Update package-facing metadata, documentation, icons, or release notes when
+  the repository's selected package host uses them.
 - Do not commit build output, downloaded game files, local mod manager profiles, or local machine configuration.
 
 ## Verification
@@ -94,9 +94,9 @@ dotnet restore --locked-mode
 Run the checks that match your change before opening a pull request:
 
 ```powershell
-dotnet format
+dotnet format --no-restore --verify-no-changes
 docker run --rm --network none --user 1000:1000 -v ".:/workdir" davidanson/markdownlint-cli2:v0.22.1@sha256:0ed9a5f4c77ef447da2a2ac6e67caf74b214a7f80288819565e8b7d2ac148fe5
-shellcheck .github/actions/publish-thunderstore/publish-thunderstore.sh
+git ls-files '*.sh' | ForEach-Object { shellcheck $_ }
 actionlint -pyflakes=
 pinact run --check --min-age 7
 DOTNET_CLI_UI_LANGUAGE=en dotnet build
@@ -119,8 +119,8 @@ On Linux, run the Markdown lint command with `sudo docker` and use
 `--user "$(id -u):$(id -g)"`.
 
 For package or release changes, also verify the release documentation in
-[README.md](./README.md) and confirm that the Thunderstore-facing files under
-`assets/` are still correct.
+[README.md](./README.md), the selected package-host contract, and the exact
+files copied into the final archive.
 
 ## Pull requests
 
