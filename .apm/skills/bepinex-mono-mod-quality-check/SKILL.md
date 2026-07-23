@@ -2,9 +2,9 @@
 name: bepinex-mono-mod-quality-check
 description:
   Review or create a BepInEx Mono mod for C# project and module structure, plugin identity, game compatibility,
-  dependency boundaries, GitHub CI and release automation, packaging, release metadata, and verification. Use when
-  implementing, reviewing, preparing a release for, or diagnosing quality gaps in a BepInEx 5 Mono plugin or its build
-  and release workflow.
+  dependency boundaries, repository-family alignment, GitHub CI and release automation, package readiness, release
+  metadata, and verification. Use when implementing, reviewing, preparing a release for, diagnosing quality gaps in,
+  or applying a minimal-difference peer rollout to a BepInEx 5 Mono plugin or its build and release workflow.
 ---
 
 # BepInEx Mono Mod Quality Check
@@ -217,10 +217,11 @@ conditional branches, verification matrix, and report format. Do not replace tha
      the selected host's authoritative contract. Do not substitute another host's manifest or layout.
    - Reconcile package manifest identity, version, dependencies, compatibility claims, README, changelog, icon, and
      license with the release intent.
-   - Separate package readiness from publication authorization. Keep the repository family's portable manifest,
-     package README, user-facing changelog, editable and rendered icon, license, final-archive validation, and inert
-     publisher tooling complete even when an external upload is not yet enabled. Gate only the publication side
-     effect on explicit host, namespace, category, credential, runtime, and release-mode approval.
+   - Separate package readiness from publication authorization. When the evidence ledger confirms a distribution host,
+     keep the repository family's portable manifest, package README, user-facing changelog, editable and rendered icon,
+     license, final-archive validation, and inert publisher tooling complete even when an external upload is not yet
+     enabled. If the host is blocked or explicitly none, do not invent or borrow host-specific metadata. Gate the
+     publication side effect on explicit host, namespace, category, credential, runtime, and release-mode approval.
    - Verify version synchronization from produced outputs, not duplicated source literals. Generate loader-facing
      metadata from the project version or inspect the built assembly and compare project, assembly, loader-facing,
      manifest, archive, and tag versions that are enabled for the release.
@@ -283,10 +284,6 @@ conditional branches, verification matrix, and report format. Do not replace tha
      authority at the event boundary; use a neutral role when unavailable. Every exception swallowed inside a patch
      callback, including an inner transaction catch, emits the bounded callback-exception event in addition to domain
      restoration evidence. Preserve the product's privacy exclusions.
-   - In public Lethal Company compatibility documents, identify the game build with the Steam Build ID and Steam
-     Manifest ID. Keep loader, dependency, and runtime facts in their own fields; do not add local extraction paths,
-     private-repository identifiers, or redundant evidence hashes. Prefer direct domain titles and prose over repeatedly
-     labeling sections as analysis, trace, or version artifacts.
    - If the maintainer marks content for history rewriting, correct the current tree, inspect every reachable branch and
      tag for the exact unwanted text, and rewrite only the authorized repository before publication or coordinated
      force-push. Re-scan after rewriting. Do not disclose the removed private text in a public commit or pull request.
