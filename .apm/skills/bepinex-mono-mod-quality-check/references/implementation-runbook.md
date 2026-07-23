@@ -243,10 +243,15 @@ independent stages.
 2. Build into a clean staging directory. Copy only files allowed by the archive
    contract. Create exactly one archive, inspect its entries, and compute a
    SHA-256 digest.
-3. If a package host is confirmed, add only its authoritative extension:
-   manifest fields, root layout, dependency syntax, namespace/category, version
-   restrictions, authentication, and overwrite behavior. Do not use a
-   Thunderstore manifest or GitHub asset convention for another host.
+3. Track package readiness separately from publication authorization. For the
+   repository family's supported distribution host, prepare its authoritative
+   manifest, root layout, dependency syntax, package README, user-facing
+   changelog, editable icon source, rendered icon, license, version handling,
+   and inert publisher action even when the repository does not currently
+   publish there. Validate those files in the final archive. Keep the external
+   upload step disabled until the maintainer authorizes the host, namespace,
+   categories, credential, and release mode. Do not use one host's manifest or
+   layout for another host.
 4. Extract the final archive and inspect the files users actually receive.
    Verify that package-facing metadata/documentation states the enabled plugin
    identity, release version, supported game/loader baseline, and dependencies
@@ -309,7 +314,7 @@ independent stages.
 | APM = no | omit APM files/checks and record this | create empty APM configuration |
 | GitHub Actions = no | document local checks | invent workflow YAML or pin rules |
 | GitHub Releases = no | retain archive/digest validation if packaging | require draft/immutable-release behavior |
-| Package host = none | define archive contract if an archive exists | create a host manifest or upload workflow |
+| Active external publishing = no | keep family package assets, archive validation, and inert publisher tooling ready | execute an upload or omit release-readiness assets solely because publication is disabled |
 | Package host = Thunderstore | apply Thunderstore section in the template | publish edge/prerelease without a supported contract |
 | Custom package host | add only verified host extension | borrow Thunderstore/GitHub metadata |
 | No automated tests | record no-test status and test strategy | invent a test command |

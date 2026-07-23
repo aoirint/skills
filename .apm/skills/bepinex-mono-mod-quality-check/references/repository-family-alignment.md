@@ -12,15 +12,19 @@ family.
 2. Preserve repository visibility. Inspect a private target through its local
    checkout or authenticated tooling, and do not copy its unpublished source,
    logs, or configuration into public issues, pull requests, or repositories.
-   Repository privacy is also a concrete reason to omit a public publishing
-   path until the maintainer authorizes it.
+   Privacy can block an external publication side effect; it does not by
+   itself justify omitting package assets, validation, or an inert publisher
+   action needed to make the repository publication-ready.
 3. Inventory tracked paths, directory shape, file order and section structure,
    portable file contents, toolchain selectors, CI composition, package-host
    assets, and line-ending attributes. Compare content structure and newline
    policy, not only filenames.
 4. Treat content shared by all designated peers as the presumptive family
-   baseline. When peers differ, identify the documented canonical template or
-   the peer whose role the maintainer designated; do not silently blend them.
+   baseline. When peers differ, prefer a documented canonical template, then a
+   peer whose role the maintainer designated. If neither exists, preserve the
+   target until the difference is resolved or promote a portable improvement
+   to a new canonical source and roll it out to compatible peers. Do not stop
+   unrelated work, select by apparent recency, or silently blend peers.
 
 ## Build a delta ledger
 
@@ -56,9 +60,11 @@ the target-specific threat or compatibility condition.
 2. Preserve shared files that the target does not need to execute directly when
    they are part of the family governance contract, such as `AGENTS.md`, APM
    metadata, notices, contributor policy, ownership, and template drift checks.
-3. Keep product code, game integration, test projects, package-host extensions,
-   and private/public release paths different only where the delta ledger names
-   the requirement.
+3. Keep product code, game integration, test projects, active publication
+   steps, and private/public release paths different only where the delta
+   ledger names the requirement. Keep portable package assets, final-archive
+   validation, and publication tooling aligned even when an external publish
+   step remains disabled pending authorization or credentials.
 4. Apply the shared `.gitattributes` before broad edits and renormalize tracked
    text. Verify the worktree newline policy separately from Git's normalized
    index representation.

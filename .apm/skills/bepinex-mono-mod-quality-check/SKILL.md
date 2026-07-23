@@ -214,6 +214,10 @@ conditional branches, verification matrix, and report format. Do not replace tha
      the selected host's authoritative contract. Do not substitute another host's manifest or layout.
    - Reconcile package manifest identity, version, dependencies, compatibility claims, README, changelog, icon, and
      license with the release intent.
+   - Separate package readiness from publication authorization. Keep the repository family's portable manifest,
+     package README, user-facing changelog, editable and rendered icon, license, final-archive validation, and inert
+     publisher tooling complete even when an external upload is not yet enabled. Gate only the publication side
+     effect on explicit host, namespace, category, credential, runtime, and release-mode approval.
    - Verify version synchronization from produced outputs, not duplicated source literals. Generate loader-facing
      metadata from the project version or inspect the built assembly and compare project, assembly, loader-facing,
      manifest, archive, and tag versions that are enabled for the release.
