@@ -21,7 +21,7 @@ apm install --global "aoirint/skills#main"
 If you initially installed the skills from the `main` branch (using `#main`), you can update them by running:
 
 ```shell
-apm update --global "aoirint/skills"
+apm update --global
 ```
 
 ## Skills
