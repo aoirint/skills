@@ -60,7 +60,20 @@ Before `gh pr merge` creates a squash or merge commit:
    or `\r\n` text. Pass the candidate file directly to
    `git interpret-trailers --parse`; do not pipe a shell string that may alter
    line endings. Require each expected trailer exactly once.
-4. Only after that validation succeeds, pass the same file with
+4. Before merging, test the stored-message verifier itself. Put the candidate
+   message in a JSON fixture shaped like the commit API response, decode it
+   through the same JSON parser planned for post-merge verification, and
+   require `commit.message` to be one string equal to the candidate.
+5. Only after those validations succeed, pass the same body file with
    `gh pr merge --body-file`.
-5. Verify the stored commit message and trailers after merge. Treat this as a
-   secondary check, not a substitute for pre-merge validation.
+6. Verify the stored commit message and trailers after merge. Preserve the
+   multiline value as one string:
+   - Save the full commit API JSON response to a temporary file and parse it as
+     JSON. In PowerShell, use `Get-Content -Raw | ConvertFrom-Json`.
+   - Do not assign line-oriented output from
+     `gh api --jq '.commit.message'` directly to a PowerShell variable; a
+     multiline value becomes an array of lines and breaks exact comparison.
+   - Write the decoded `commit.message` string to a file, compare it with the
+     candidate allowing at most terminal-newline normalization, and pass that
+     file directly to `git interpret-trailers --parse`.
+   Treat this as a secondary check, not a substitute for pre-merge validation.
