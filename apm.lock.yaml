@@ -130,7 +130,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:d8fae6092b30358cf8c00d0468b1b49d11466fee5f88f8dfa255c114f2fde28e
+  content_hash: sha256:ebbff7315f258d35cde206427f9190a71464959809e9dadb304a72ddab5babdc
 - kind: project-relative
   target: agents
   value: .agents/skills/bepinex-mono-mod-quality-check/agents/openai.yaml
@@ -1410,7 +1410,7 @@ local_deployed_file_hashes:
   .agents/skills/apm-usage/scripts/propose_bootstrap_update.py: sha256:9d7d3a4292a9ad4a833f970a51cce0202f3850503d39e410c1d2fccad5eb0b58
   .agents/skills/apm-usage/scripts/propose_bootstrap_update.py.lock: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
   .agents/skills/bepinex-mono-mod-quality-check/README.md: sha256:f1cedde8c48a1aa4ebe4a57decff164fd845ba82a64ddcbe66e9fc9f349286f5
-  .agents/skills/bepinex-mono-mod-quality-check/SKILL.md: sha256:d8fae6092b30358cf8c00d0468b1b49d11466fee5f88f8dfa255c114f2fde28e
+  .agents/skills/bepinex-mono-mod-quality-check/SKILL.md: sha256:ebbff7315f258d35cde206427f9190a71464959809e9dadb304a72ddab5babdc
   .agents/skills/bepinex-mono-mod-quality-check/agents/openai.yaml: sha256:a4d486e33ec1ce652ec78ffbc6c783b8005bd30202716385aaf5b5b686451cf7
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/check-apm-project/action.yml: sha256:108bc5e9964026880fb49086728f8458b16174f33636dea79276bd286505bbd4
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/generate-version/action.yml: sha256:ccdceff82db139bb17effdce39391224b12b427bce80883a9222b33adbfb141f

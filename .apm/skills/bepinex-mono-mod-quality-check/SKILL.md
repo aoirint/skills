@@ -222,6 +222,11 @@ conditional branches, verification matrix, and report format. Do not replace tha
    - Reconcile package manifest identity, version, dependencies, compatibility claims, README, changelog, icon, and
      any explicitly selected license with the release intent. Do not create, infer, or package a license until the
      maintainer selects one.
+   - When compatibility is repeated across the package README, developer
+     changelog, and package changelog, preserve the canonical hierarchy,
+     tested environment, platform requirements, and reference links in every
+     applicable destination. Do not shorten a copy by flattening or omitting
+     supported compatibility context.
    - Separate package readiness from publication authorization. When the evidence ledger confirms a distribution host,
      keep the repository family's portable manifest, package README, user-facing changelog, editable and rendered icon,
      final-archive validation, inert publisher tooling, and a license only when explicitly selected complete even when
@@ -240,8 +245,11 @@ conditional branches, verification matrix, and report format. Do not replace tha
      distinct publication-facing source or explicitly declare the canonical changelog dual-purpose; do not describe a
      derivation step that packaging does not perform. Do not claim untested game compatibility or publish a version
      already represented by an immutable release.
-   - Treat `0.0.0` as a development placeholder, not a released changelog version. Keep pending work under
-     `Unreleased` until a real release version and date are selected.
+   - Reserve `0.0.0` for unpublished edge or development builds; do not use it
+     as a released changelog version. Derive every other release version from
+     the project source instead of hardcoding a specific public version in
+     workflows. Keep pending work under `Unreleased` until a real release
+     version and date are selected.
    - A negative package fixture proves only the first production guard it reaches. Derive it from the passing fixture,
      preserve every earlier invariant, mutate the intended property, and assert the intended branch-specific diagnostic
      or result. A generic exception or nonzero exit does not prove the advertised rejection branch.
@@ -267,6 +275,9 @@ conditional branches, verification matrix, and report format. Do not replace tha
      external package-host publication on the intended stable release mode and require exactly one reviewed package
      artifact. Keep a separate committed publication-authorization input disabled until the maintainer explicitly
      approves the side effect; a stable version alone is not authorization.
+     Do not introduce a separate release mode merely because a numeric public
+     release remains beta: when the repository classifies it as stable release
+     mode, express beta status in its release metadata and notes.
    - Retain every integration-branch edge build as a workflow artifact, with its source commit and digest visible in the
      workflow summary, even when the edge version is deliberately not published.
    - Keep archive creation CI-owned. A locally callable validator is useful, but a second repository-local production
