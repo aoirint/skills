@@ -25,6 +25,11 @@ and distinct from user-facing release notes.
 6. Source compatibility, support, environment, and migration claims. Mark unsourced claims as missing input or draft
    material; distinguish confirmed, best-effort, limited-check, and known-issue evidence. Group paired tools and
    dependencies with the product/version they qualify.
+   When the same compatibility statement appears in multiple changelogs or
+   user documentation, use an established canonical hierarchy and preserve its
+   entries, nesting, dates, and reference links. Do not flatten a tested
+   environment into a generic dependency label or delete supported-platform
+   details to make copies look shorter.
 7. Preserve historical accuracy. Mark backfilled metadata as backfilled, retain meaningful prerelease history, attach
    withdrawn or superseded notes to the affected entry, and use complete prerelease versions when they matter.
 8. Describe public package metadata from actual publication-channel history, not local or GitHub-only artifacts. Treat a
