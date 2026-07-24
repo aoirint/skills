@@ -41,7 +41,7 @@ apm update --global "aoirint/skills"
 | [lethal-company-analyze](.apm/skills/lethal-company-analyze/README.md) | Investigate version-specific Lethal Company mechanics with reproducible evidence. |
 | [pull-request-quality-check](.apm/skills/pull-request-quality-check/README.md) | Review pull requests and PR-thread communication. |
 | [prose-quality-check](.apm/skills/prose-quality-check/README.md) | Review explanatory prose for readability, local structure, and preserved nuance. |
-| [release-note-workflow](.apm/skills/release-note-workflow/README.md) | Create, update, and review user-facing release notes. |
+| [release-note-workflow](.apm/skills/release-note-workflow/README.md) | Create, update, and review channel-specific release notes, and assess publication readiness. |
 | [rollout-workflow](.apm/skills/rollout-workflow/README.md) | Roll out a validated canonical change to compatible repositories. |
 | [security-check](.apm/skills/security-check/README.md) | Review repository changes for practical security and supply-chain risks. |
 | [skill-quality-check](.apm/skills/skill-quality-check/README.md) | Review Agent Skills for clear triggers, focused scope, and validation readiness. |
