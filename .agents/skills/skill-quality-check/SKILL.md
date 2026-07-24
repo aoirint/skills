@@ -104,3 +104,6 @@ When validating with scenarios, keep the report categories separate:
   metadata. Record these as assumptions or blockers.
 - **Skill-quality-check ambiguity**: places where this skill did not say what to inspect or how to
   decide. Only these count as unclear points for improving `skill-quality-check` itself.
+- **Unavailable measurements**: evaluation interfaces that do not expose a
+  requested metric, such as tool-use count or duration. Record the metric as
+  unavailable; do not estimate it or treat it as a Skill finding.
