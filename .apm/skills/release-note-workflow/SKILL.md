@@ -1,10 +1,8 @@
 ---
 name: release-note-workflow
 description:
-  Create, update, or review channel-specific user-facing release notes, and assess publication readiness. Use when
-  deriving public notes or package changelogs from canonical developer history, reconciling prerelease and stable
-  history across GitHub or package hosts, or checking release readiness; not for canonical changelog authoring or
-  publishing.
+  Create or review channel-specific release notes from a canonical changelog.
+  Use when checking destination history or publication readiness.
 ---
 
 # Release Note Workflow

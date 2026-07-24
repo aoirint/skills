@@ -20,9 +20,14 @@ review checklist.
 - Keep exactly one `name` and one `description` in `SKILL.md` frontmatter unless the local platform
   explicitly requires more.
 - Use hyphen-case skill names with lowercase letters, digits, and hyphens.
-- Write `description` in third person, with the main use case and trigger terms early.
-- Include both positive triggers and practical boundaries. The body is loaded only after selection,
-  so do not rely on body-only "When to Use" text for discovery.
+- Write `description` in third person, with the primary capability and trigger
+  terms early.
+- Prefer the shortest description that still selects the skill reliably. A
+  clause earns space only when removing it would change whether an in-scope or
+  adjacent prompt selects the skill.
+- Keep workflow details and supported variants in the body. Include a boundary
+  in `description` only when it distinguishes the skill from an adjacent
+  trigger; the body is loaded too late to correct a wrong selection.
 - Check candidate user prompts against the description:
     - Obvious in-scope prompts should select the skill.
     - Adjacent but out-of-scope prompts should not select it unless paired with another skill.
