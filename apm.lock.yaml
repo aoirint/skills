@@ -49,7 +49,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e74c264946d8c2c8a525c57b93cf5ba6dc0d2b8f49dd88552470e71fde7e5771
+  content_hash: sha256:eccf9236d430e2d89b7803b63b9f001d8232f363794815bd409888dde45bcf38
 - kind: project-relative
   target: agents
   value: .agents/skills/apm-usage/agents/openai.yaml
@@ -1392,7 +1392,7 @@ local_deployed_files:
 - .agents/skills/unity-game-analyze/scripts/inventory_build.py.lock
 local_deployed_file_hashes:
   .agents/skills/apm-usage/README.md: sha256:70351aaebf54291433dfcff86280e87edc757ff4e93e506aa1e8f06a0b913f06
-  .agents/skills/apm-usage/SKILL.md: sha256:e74c264946d8c2c8a525c57b93cf5ba6dc0d2b8f49dd88552470e71fde7e5771
+  .agents/skills/apm-usage/SKILL.md: sha256:eccf9236d430e2d89b7803b63b9f001d8232f363794815bd409888dde45bcf38
   .agents/skills/apm-usage/agents/openai.yaml: sha256:931ed250f3abe81dcad27da5b668d7546cd65f528cd37de754dee4c9df1905e0
   .agents/skills/apm-usage/assets/check-apm-project/action.yml: sha256:108bc5e9964026880fb49086728f8458b16174f33636dea79276bd286505bbd4
   .agents/skills/apm-usage/references/apm-bootstrap.json: sha256:f3b8921d2db8d6bfad9088657895b126ebd8d87b92133bd65331be4a8a0a515e

@@ -183,8 +183,12 @@ or MCP dependency:
    unclear license or required notice as a blocker unless a maintainer records
    an explicit exception.
 4. Add the dependency to `apm.yml` with the full commit SHA, never a default
-   branch, `latest`, or an unbounded range. Keep MCP entries under the same
-   review gate and do not put tokens in tracked YAML.
+   branch, `latest`, or an unbounded range. When selecting multiple Skills from
+   one repository at one ref, use one object-form dependency with `git`, `ref`,
+   and `skills`; do not encode each Skill as a separate virtual dependency.
+   Keep separate entries only when their repository, ref, or dependency policy
+   differs. Keep MCP entries under the same review gate and do not put tokens
+   in tracked YAML.
 5. Run `apm lock` to resolve and download without deploying to agent targets.
    Review `apm.lock.yaml`: each dependency must resolve to the expected commit
    and carry its content hash. In PowerShell checks, wrap variable-cardinality
