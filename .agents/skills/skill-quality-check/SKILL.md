@@ -39,7 +39,10 @@ description: >-
    - When the skill has a clear target, put that target before the action or
      workflow in `name` (for example, `lethal-company-analyze` or
      `apm-usage`).
-   - `description` states what the skill does and when to use it.
+   - `description` uses the smallest capability-and-trigger statement that
+     reliably selects the skill.
+   - Move workflow details, supported variants, and boundaries that do not
+     change skill selection into the body or omit them.
    - Trigger words are front-loaded enough to survive shortened skill lists.
 4. Check scope:
    - One primary job per skill.
