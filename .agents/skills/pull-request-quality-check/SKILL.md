@@ -49,3 +49,18 @@ independently reviewable themes when requested, label inferences, and omit secre
 
 When using `gh`, write Markdown to a temporary file and pass `--body-file`. Verify the stored body with
 `gh pr view --json body`, correct quoting, and remove the temporary file.
+
+Before `gh pr merge` creates a squash or merge commit:
+
+1. Resolve the exact PR head SHA and pass it with `--match-head-commit`.
+2. Write the merge body with real line breaks to a temporary file; do not pass
+   an escaped string containing literal `\n` sequences.
+3. Build the complete candidate commit message from the exact subject and body
+   file. Write those exact bytes to a candidate file and reject literal `\n`
+   or `\r\n` text. Pass the candidate file directly to
+   `git interpret-trailers --parse`; do not pipe a shell string that may alter
+   line endings. Require each expected trailer exactly once.
+4. Only after that validation succeeds, pass the same file with
+   `gh pr merge --body-file`.
+5. Verify the stored commit message and trailers after merge. Treat this as a
+   secondary check, not a substitute for pre-merge validation.
