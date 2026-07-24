@@ -1,9 +1,9 @@
 lockfile_version: '1'
-generated_at: '2026-07-21T00:37:53.849301+00:00'
-apm_version: 0.25.0
+generated_at: '2026-07-24T13:48:52.956768+00:00'
+apm_version: 0.26.0
 dependencies:
 - repo_url: mizchi/skills
-  name: skills
+  name: empirical-prompt-tuning
   host: github.com
   resolved_commit: 7a0d72866a0bb3e9ac3e2768c328b09ba2bc40c4
   resolved_ref: 7a0d72866a0bb3e9ac3e2768c328b09ba2bc40c4
@@ -49,7 +49,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:3d8cc3a3e4ea64c72c9ac1e5b360b9803f5739de40a6184518e9dc60db5d625e
+  content_hash: sha256:e74c264946d8c2c8a525c57b93cf5ba6dc0d2b8f49dd88552470e71fde7e5771
 - kind: project-relative
   target: agents
   value: .agents/skills/apm-usage/agents/openai.yaml
@@ -76,7 +76,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e78b1b181f73ec6c02ed4a6b5839388911d9238606e9575ff6e9f29e7dcfbae4
+  content_hash: sha256:f3b8921d2db8d6bfad9088657895b126ebd8d87b92133bd65331be4a8a0a515e
 - kind: project-relative
   target: agents
   value: .agents/skills/apm-usage/references/ci-guards.md
@@ -85,7 +85,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:9045d6923cd22b2452d8d73f55c4cd5cf90d3b1369731f692a69e6de93bb64df
+  content_hash: sha256:7898244519895206b90713bdeb23d7bc8ba54437f8205944cdce98acf12fe1d1
 - kind: project-relative
   target: agents
   value: .agents/skills/apm-usage/scripts/propose_bootstrap_update.py
@@ -94,7 +94,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e29c8a695d1a0d8f9c44b612a58c9462e55f754ef8b739ff7f01d4e1dc2d7530
+  content_hash: sha256:9d7d3a4292a9ad4a833f970a51cce0202f3850503d39e410c1d2fccad5eb0b58
 - kind: project-relative
   target: agents
   value: .agents/skills/apm-usage/scripts/propose_bootstrap_update.py.lock
@@ -175,7 +175,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:c009771a7f8c21c34a5e894249628ad72f891a194696ac1b84fef976d2464986
+  content_hash: sha256:b00bb7dcd936ea572c8186fb43f8ca69ee2b2bf714711ace27cefa3eb994ac72
 - kind: project-relative
   target: agents
   value: .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/publish-thunderstore/action.yml
@@ -464,42 +464,6 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
-- kind: project-relative
-  target: agents
-  value: .agents/skills/empirical-prompt-tuning
-  runtime: null
-  scope: project
-  owners:
-  - mizchi/skills/meta/empirical-prompt-tuning
-  active_owner: mizchi/skills/meta/empirical-prompt-tuning
-  content_hash: null
-- kind: project-relative
-  target: agents
-  value: .agents/skills/empirical-prompt-tuning/README.md
-  runtime: null
-  scope: project
-  owners:
-  - mizchi/skills/meta/empirical-prompt-tuning
-  active_owner: mizchi/skills/meta/empirical-prompt-tuning
-  content_hash: sha256:c7db7d27122bcffe416e5607700a7cd1778cad260d3e104c5bb6da7b7f976b3d
-- kind: project-relative
-  target: agents
-  value: .agents/skills/empirical-prompt-tuning/SKILL-ja.md
-  runtime: null
-  scope: project
-  owners:
-  - mizchi/skills/meta/empirical-prompt-tuning
-  active_owner: mizchi/skills/meta/empirical-prompt-tuning
-  content_hash: sha256:0a38d830802c2e08a7faca13928fedf6911e00b896946b4b03910d662de6dea5
-- kind: project-relative
-  target: agents
-  value: .agents/skills/empirical-prompt-tuning/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - mizchi/skills/meta/empirical-prompt-tuning
-  active_owner: mizchi/skills/meta/empirical-prompt-tuning
-  content_hash: sha256:252418e7ef022981d2dda2e3ec57fa1c786d30af68c50b7e062edf1d7361b0cb
 - kind: project-relative
   target: agents
   value: .agents/skills/flet-project-quality-check
@@ -1256,6 +1220,42 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
+- kind: project-relative
+  target: codex
+  value: .agents/skills/empirical-prompt-tuning
+  runtime: null
+  scope: project
+  owners:
+  - mizchi/skills/meta/empirical-prompt-tuning
+  active_owner: mizchi/skills/meta/empirical-prompt-tuning
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/empirical-prompt-tuning/README.md
+  runtime: null
+  scope: project
+  owners:
+  - mizchi/skills/meta/empirical-prompt-tuning
+  active_owner: mizchi/skills/meta/empirical-prompt-tuning
+  content_hash: sha256:c7db7d27122bcffe416e5607700a7cd1778cad260d3e104c5bb6da7b7f976b3d
+- kind: project-relative
+  target: codex
+  value: .agents/skills/empirical-prompt-tuning/SKILL-ja.md
+  runtime: null
+  scope: project
+  owners:
+  - mizchi/skills/meta/empirical-prompt-tuning
+  active_owner: mizchi/skills/meta/empirical-prompt-tuning
+  content_hash: sha256:0a38d830802c2e08a7faca13928fedf6911e00b896946b4b03910d662de6dea5
+- kind: project-relative
+  target: codex
+  value: .agents/skills/empirical-prompt-tuning/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - mizchi/skills/meta/empirical-prompt-tuning
+  active_owner: mizchi/skills/meta/empirical-prompt-tuning
+  content_hash: sha256:252418e7ef022981d2dda2e3ec57fa1c786d30af68c50b7e062edf1d7361b0cb
 local_deployed_files:
 - .agents/skills/apm-usage
 - .agents/skills/apm-usage/README.md
@@ -1392,12 +1392,12 @@ local_deployed_files:
 - .agents/skills/unity-game-analyze/scripts/inventory_build.py.lock
 local_deployed_file_hashes:
   .agents/skills/apm-usage/README.md: sha256:70351aaebf54291433dfcff86280e87edc757ff4e93e506aa1e8f06a0b913f06
-  .agents/skills/apm-usage/SKILL.md: sha256:3d8cc3a3e4ea64c72c9ac1e5b360b9803f5739de40a6184518e9dc60db5d625e
+  .agents/skills/apm-usage/SKILL.md: sha256:e74c264946d8c2c8a525c57b93cf5ba6dc0d2b8f49dd88552470e71fde7e5771
   .agents/skills/apm-usage/agents/openai.yaml: sha256:931ed250f3abe81dcad27da5b668d7546cd65f528cd37de754dee4c9df1905e0
   .agents/skills/apm-usage/assets/check-apm-project/action.yml: sha256:108bc5e9964026880fb49086728f8458b16174f33636dea79276bd286505bbd4
-  .agents/skills/apm-usage/references/apm-bootstrap.json: sha256:e78b1b181f73ec6c02ed4a6b5839388911d9238606e9575ff6e9f29e7dcfbae4
-  .agents/skills/apm-usage/references/ci-guards.md: sha256:9045d6923cd22b2452d8d73f55c4cd5cf90d3b1369731f692a69e6de93bb64df
-  .agents/skills/apm-usage/scripts/propose_bootstrap_update.py: sha256:e29c8a695d1a0d8f9c44b612a58c9462e55f754ef8b739ff7f01d4e1dc2d7530
+  .agents/skills/apm-usage/references/apm-bootstrap.json: sha256:f3b8921d2db8d6bfad9088657895b126ebd8d87b92133bd65331be4a8a0a515e
+  .agents/skills/apm-usage/references/ci-guards.md: sha256:7898244519895206b90713bdeb23d7bc8ba54437f8205944cdce98acf12fe1d1
+  .agents/skills/apm-usage/scripts/propose_bootstrap_update.py: sha256:9d7d3a4292a9ad4a833f970a51cce0202f3850503d39e410c1d2fccad5eb0b58
   .agents/skills/apm-usage/scripts/propose_bootstrap_update.py.lock: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
   .agents/skills/bepinex-mono-mod-quality-check/README.md: sha256:f1cedde8c48a1aa4ebe4a57decff164fd845ba82a64ddcbe66e9fc9f349286f5
   .agents/skills/bepinex-mono-mod-quality-check/SKILL.md: sha256:d8fae6092b30358cf8c00d0468b1b49d11466fee5f88f8dfa255c114f2fde28e
@@ -1405,7 +1405,7 @@ local_deployed_file_hashes:
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/check-apm-project/action.yml: sha256:108bc5e9964026880fb49086728f8458b16174f33636dea79276bd286505bbd4
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/generate-version/action.yml: sha256:ccdceff82db139bb17effdce39391224b12b427bce80883a9222b33adbfb141f
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/install-workflow-tools/action.yml.template: sha256:8f881f57add1754f54fcdd59eed60a174f1cdcd240dfba708eafb4ec95cc6ecc
-  .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/lint-source/action.yml.template: sha256:c009771a7f8c21c34a5e894249628ad72f891a194696ac1b84fef976d2464986
+  .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/lint-source/action.yml.template: sha256:b00bb7dcd936ea572c8186fb43f8ca69ee2b2bf714711ace27cefa3eb994ac72
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/publish-thunderstore/action.yml: sha256:aa75302334d13b50b76696e3759f1b0723f2262ae724103bb01515713d311329
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/publish-thunderstore/publish-thunderstore.sh: sha256:1801d6c68370a3c0de36d3910f6e9cbc319654669974365f8f52df759ee16023
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/setup-dotnet/action.yml.template: sha256:a2d07a4b0b215b444a34fa99b80b3f00297db02e9c8440be2805c63bba39e040
