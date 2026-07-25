@@ -55,7 +55,8 @@ When using `gh`, write Markdown to a temporary file and pass `--body-file`.
 Verify the stored body from the complete `--json body` response, not
 line-oriented `--jq` output. In PowerShell, preserve the response as one raw
 string, decode it, require `body` to be a `[string]`, compare it with the
-candidate, and remove the temporary file.
+candidate allowing only terminal-newline normalization, and remove the
+temporary file. Do not normalize any other whitespace or line endings.
 
 Before writing an AI-assisted body or comment, run
 `scripts/check_llm_disclosure.py` against the candidate. For a
@@ -71,7 +72,8 @@ independent completion unit:
 3. Audit the complete target set at the end, including targets that required
    no edit.
 4. Report success only when every target has exactly one required alert at the
-   absolute top and every stored body matches its approved candidate.
+   absolute top and every stored body matches its approved candidate, allowing
+   only terminal-newline normalization.
 
 Before `gh pr merge` creates a squash or merge commit:
 

@@ -922,7 +922,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:ef2857ed6b7211a0ef6ac4cb6e1d39a944e66a2ccf87efadcbff235af146e0e3
+  content_hash: sha256:3772297d3a34fddb651a0958be6e39ad3d415ee7f507739a85f88cd935480e46
 - kind: project-relative
   target: agents
   value: .agents/skills/pull-request-quality-check/agents/openai.yaml
@@ -949,7 +949,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:ecef5b6732ecef2e674184f3ae114c0f5a16bc8ce0550b03d03b2b53e93d6f37
+  content_hash: sha256:bc9c5cbd8efa77095eac42e53da714ed8dff86fa3b0e7870fc3e7eca1ca36e20
 - kind: project-relative
   target: agents
   value: .agents/skills/release-note-workflow
@@ -1497,10 +1497,10 @@ local_deployed_file_hashes:
   .agents/skills/prose-quality-check/SKILL.md: sha256:9ec45813d04382e04a3b504fd187e4151fc5198352564bd0bcb064f4eaf9a702
   .agents/skills/prose-quality-check/agents/openai.yaml: sha256:b83e0a5d151e6e20df6f7d97f268955c6abfd105d53820f6baad0de8403fc062
   .agents/skills/pull-request-quality-check/README.md: sha256:5c15de701adc508b9dd828846317f47b0f5b925c5a8842b6c32b4d9e3946e11f
-  .agents/skills/pull-request-quality-check/SKILL.md: sha256:ef2857ed6b7211a0ef6ac4cb6e1d39a944e66a2ccf87efadcbff235af146e0e3
+  .agents/skills/pull-request-quality-check/SKILL.md: sha256:3772297d3a34fddb651a0958be6e39ad3d415ee7f507739a85f88cd935480e46
   .agents/skills/pull-request-quality-check/agents/openai.yaml: sha256:1ddb931336ca5ce10b9accf92787e36168c1c71a4b999bd85f130144e778bfa4
   .agents/skills/pull-request-quality-check/references/fallback-pr-body.md: sha256:b381d75f9d1f525ce72f594b1cd8a8de37539bf29c5750c139bbd7113f606dfc
-  .agents/skills/pull-request-quality-check/scripts/check_llm_disclosure.py: sha256:ecef5b6732ecef2e674184f3ae114c0f5a16bc8ce0550b03d03b2b53e93d6f37
+  .agents/skills/pull-request-quality-check/scripts/check_llm_disclosure.py: sha256:bc9c5cbd8efa77095eac42e53da714ed8dff86fa3b0e7870fc3e7eca1ca36e20
   .agents/skills/release-note-workflow/README.md: sha256:f13446e75a1c77495c4d55476ba8ca919aa3181e0864feb7a668a20a5cdf964b
   .agents/skills/release-note-workflow/SKILL.md: sha256:4bf6bce5a710547368d24aee8c05294744960ec6307a1d0ad5105248043d9b48
   .agents/skills/release-note-workflow/agents/openai.yaml: sha256:30cfe7d4520783cfc8c72f5f81cc3e7a5708a5827e691f0003a665d89558fda0
