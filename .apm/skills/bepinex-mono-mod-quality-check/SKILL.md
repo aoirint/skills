@@ -263,6 +263,11 @@ conditional branches, verification matrix, and report format. Do not replace tha
    - Verify identity, supported game/loader baseline, dependencies, and release version on the exact metadata and
      documentation files copied into the final archive. Repository-root prose does not satisfy a package-facing claim
      when it is not distributed.
+   - When a package-facing README embeds screenshots or diagrams, verify that every reference resolves and renders in
+     the package host or its documented renderer. Keep renderer-specific fallback files separate from editable
+     developer sources, and do not treat root-README rendering as package validation. Package an image only when the
+     host contract requires it; otherwise a stable repository-hosted fallback may avoid duplicating an asset whose
+     authoring lifecycle belongs in developer documentation.
    - Keep developer changelog entries and user-facing release notes in their repository-defined roles. Either package a
      distinct publication-facing source or explicitly declare the canonical changelog dual-purpose; do not describe a
      derivation step that packaging does not perform. Do not claim untested game compatibility or publish a version
