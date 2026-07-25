@@ -48,11 +48,10 @@ Use this limited model when its benefits fit the feature:
 ### Treat host installation as consent when it is safe to do so
 
 Host installation of the same mod may itself be the consent signal when the
-protected guest capability does not affect the host's security. This supports
-the practical model used by mods such as BeeOverlay and CruiserJumpPractice:
-the host chose to install the mod and thereby accepts its ordinary guest-facing
-practice or information feature, while an unmodded host does not silently
-receive that behavior.
+protected guest capability does not affect the host's security. In this model,
+the host chose to install the mod and thereby accepts its declared ordinary
+guest-facing practice or information feature, while an unmodded host does not
+silently receive that behavior.
 
 Make this choice only after recording why a guest's use cannot compromise host
 security. In particular, it must not grant host process, file, configuration,
