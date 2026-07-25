@@ -77,13 +77,21 @@ independent completion unit:
 
 Before `gh pr merge` creates a squash or merge commit:
 
-1. Resolve the pull request's canonical title and number from GitHub. For a squash merge, explicitly set the subject to
-   `<pull request title> (#<pull request number>)`; do not rely on the CLI default or omit the number.
-2. Resolve the exact PR head SHA and pass it with `--match-head-commit`.
+1. Resolve the pull request's canonical title, number, and head SHA from GitHub. Build the squash subject from that
+   metadata as `<pull request title> (#<pull request number>)`; do not rely on the CLI default or omit the number.
+   In PowerShell, use:
+
+    ```powershell
+    $pr = gh pr view <pr> --json number,title,headRefOid | ConvertFrom-Json
+    $subject = "$($pr.title) (#$($pr.number))"
+    if ($subject -notmatch '\(#[1-9]\d*\)$') { throw 'Missing PR number suffix.' }
+    ```
+
+2. Build the complete candidate commit message from that exact `$subject` and the merge body. The merge command must
+   receive the same `$subject` through `--subject`; a candidate file alone does not set the stored commit subject.
 3. Write the merge body with real line breaks to a temporary file; do not pass
    an escaped string containing literal `\n` sequences.
-4. Build the complete candidate commit message from the exact subject and body
-   file. Write those exact bytes to a candidate file and reject literal `\n`
+4. Write the exact candidate bytes to a file and reject literal `\n`
    or `\r\n` text. Pass the candidate file directly to
    `git interpret-trailers --parse`; do not pipe a shell string that may alter
    line endings. Require each expected trailer exactly once.
@@ -91,8 +99,13 @@ Before `gh pr merge` creates a squash or merge commit:
    message in a JSON fixture shaped like the commit API response, decode it
    through the same JSON parser planned for post-merge verification, and
    require `commit.message` to be one string equal to the candidate.
-6. Only after those validations succeed, pass the same body file with
-   `gh pr merge --body-file`.
+6. Only after those validations succeed, run the merge with the exact subject and resolved head SHA:
+
+    ```powershell
+    gh pr merge $pr.number --squash --subject $subject --match-head-commit $pr.headRefOid --body-file <body-file>
+    ```
+
+   Do not omit `--subject`, even if a CLI default currently appears to match the PR title.
 7. Verify the stored commit message and trailers after merge. Preserve the
    multiline value as one string:
    - Query the repository commit endpoint

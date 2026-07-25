@@ -29,7 +29,9 @@ Reference:
 2. If the message is a GitHub pull request squash-merge commit, obtain the
    canonical pull request title and number from GitHub. Require the first line
    to be exactly `<pull request title> (#<pull request number>)`; do not rely
-   on a CLI default or accept a title that omits the number.
+   on a CLI default or accept a title that omits the number. Verify that this
+   exact candidate is passed as the merge command or API payload's subject,
+   rather than merely being prepared for comparison.
 3. Verify the first-line format, blank-line structure, body placement, and
    footer placement.
 4. Check that the type, optional scope, breaking-change marker, and short
