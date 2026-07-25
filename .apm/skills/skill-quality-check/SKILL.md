@@ -15,6 +15,8 @@ description: >-
 - Make `description` concise, specific, and useful for implicit skill selection.
 - Keep `SKILL.md` lean: core workflow in the body, detailed variants in directly linked
   `references/`, deterministic helpers in `scripts/`, reusable output materials in `assets/`.
+- For skills that produce visual or rendered artifacts, make the canonical source, required
+  derivatives, intended consumers, and validation boundary explicit.
 - Separate project-specific or domain-specific knowledge into dedicated domain skills or reference
   files instead of mixing it into general workflow skills.
 - Use `security-check` when a skill describes security-sensitive behavior, external
@@ -68,6 +70,12 @@ description: >-
    - Include `scripts/` only for repeatable or fragile automation, and test representative scripts.
    - Include `assets/` only for files used in outputs.
    - Remove placeholder or auxiliary files that do not directly support the skill.
+   - For a visual or rendered artifact, identify the editable canonical source, each committed
+     derivative, its consumer, and how the derivative is regenerated. Verify that every consumer
+     links to the intended representation.
+   - Keep transient previews and render intermediates out of tracked outputs. Retain a generated
+     binary only when it is required by a consumer or distribution target, and regenerate it when
+     its canonical source or rendering requirement changes.
 8. Check metadata alignment:
    - Check every changed skill folder for `agents/openai.yaml`. For new skills, create it unless
      the repository has an explicit reason to omit app metadata for that skill.
@@ -79,6 +87,9 @@ description: >-
 9. Validate and iterate:
    - Run the available skill validator, if the project has one.
    - Run spelling, formatting, or project checks appropriate to Markdown-only changes.
+   - When the skill produces visual or rendered artifacts, validate them in every declared
+     consumer or renderer. Source syntax, file dimensions, and a local preview alone do not
+     establish compatibility or readability.
    - For each new or substantially revised skill, prepare two or three realistic validation
      scenarios before evaluation, including at least one median case and one edge or out-of-scope
      case.
