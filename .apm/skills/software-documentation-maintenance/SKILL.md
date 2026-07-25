@@ -84,22 +84,27 @@ docs/
 - `docs/operations/` owns repeatable development, test, migration, deployment, release, recovery,
   incident, and artifact-generation procedures.
 
-For documentation diagrams and other derived visual assets, place the canonical editable source with a discoverable
-authoring procedure. An indexed concern directory such as `docs/diagrams/` may own these assets when they have an
-independent lifecycle; otherwise use `operations/`. The procedure names required derivatives, their rendering
-consumers, regeneration timing, and validation. Keep the user-facing document focused on the information the asset
-communicates rather than duplicating that procedure.
+Classify visual material by responsibility and lifecycle, not by its medium. `domain/` and `architecture/` own the
+facts a diagram explains. Use an indexed `docs/release/` extension when a diagram, icon, screenshot, or package-renderer
+fallback is a shared release-facing asset: keep its editable source and focused authoring guide together there, while
+linking back to the document that owns its facts. `operations/` owns shared rendering, conversion, capture, and
+verification procedures that apply across more than one release asset. Keep runtime-package files in their
+package-owned location.
 
 Keep all four indexes even when a section has no detailed document yet. State that it currently has
 no entries and name the condition that would add one. This makes absence explicit instead of making
 readers guess whether documentation is missing.
 
 Extend the base map when a distinct audience or change lifecycle justifies it. Examples include
-`docs/user/`, `docs/api/`, `docs/security/`, `docs/decisions/`, or nested concern directories. Add
+`docs/user/`, `docs/api/`, `docs/security/`, `docs/decisions/`, `docs/release/`, or nested concern directories. Add
 each extension to `docs/README.md`, define its ownership against the three base sections, and avoid
 parallel categories that could canonically own the same fact. Existing repositories may retain
 clear equivalent names during a staged migration, but the final map must provide the required base
 paths unless repository instructions explicitly document an approved exception.
+
+For diagram, icon, screenshot, or renderer-fallback work, read
+[visual documentation assets](references/visual-documentation-assets.md) before creating a directory or moving an
+asset. It defines responsibility-based placement and which local differences a rollout may retain.
 
 ## Workflow
 
@@ -206,7 +211,9 @@ prerequisites, inputs, exact commands or actions where precision matters, expect
 state-changing effects, rollback or recovery, verification, and the trigger for updating the
 procedure. For a derived visual asset, also identify the canonical editable source,
 each retained derivative and its consumer, the regeneration timing, and the target-renderer check;
-keep transient previews out of the documented deliverables. Verify commands, paths, environment
+keep transient previews out of the documented deliverables. Keep an asset-specific guide next to
+the source when they change together; link it to a shared operation rather than duplicating that
+operation. Verify commands, paths, environment
 variables, CI jobs, package contents, and release targets against the repository.
 
 ### 5. Migrate without losing information
