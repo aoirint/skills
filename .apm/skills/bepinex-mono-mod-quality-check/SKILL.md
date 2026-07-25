@@ -164,7 +164,8 @@ conditional branches, verification matrix, and report format. Do not replace tha
      default non-host use to denied. Require an explicit host authorization path before enabling the feature for a
      guest, and make the host's authorization value authoritative rather than letting the guest self-authorize from a
      local setting or mod-presence check. Document the consent model, denial behavior, and any deliberately different
-     policy.
+     policy. Read [guest-feature-authorization.md](references/guest-feature-authorization.md) before selecting the
+     authorization transport, settings, lifetime, or verification matrix.
    - Bind the global `Enabled` setting at the Interop/configuration boundary and gate the mod's declared work before
      expensive observation, mutation, presentation, or network sends. Keep the plugin loaded so lifecycle cleanup and
      safe callbacks remain valid. If a global gate is impractical, document the concrete scale or lifecycle constraint
