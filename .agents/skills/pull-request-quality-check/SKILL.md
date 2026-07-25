@@ -77,21 +77,23 @@ independent completion unit:
 
 Before `gh pr merge` creates a squash or merge commit:
 
-1. Resolve the exact PR head SHA and pass it with `--match-head-commit`.
-2. Write the merge body with real line breaks to a temporary file; do not pass
+1. Resolve the pull request's canonical title and number from GitHub. For a squash merge, explicitly set the subject to
+   `<pull request title> (#<pull request number>)`; do not rely on the CLI default or omit the number.
+2. Resolve the exact PR head SHA and pass it with `--match-head-commit`.
+3. Write the merge body with real line breaks to a temporary file; do not pass
    an escaped string containing literal `\n` sequences.
-3. Build the complete candidate commit message from the exact subject and body
+4. Build the complete candidate commit message from the exact subject and body
    file. Write those exact bytes to a candidate file and reject literal `\n`
    or `\r\n` text. Pass the candidate file directly to
    `git interpret-trailers --parse`; do not pipe a shell string that may alter
    line endings. Require each expected trailer exactly once.
-4. Before merging, test the stored-message verifier itself. Put the candidate
+5. Before merging, test the stored-message verifier itself. Put the candidate
    message in a JSON fixture shaped like the commit API response, decode it
    through the same JSON parser planned for post-merge verification, and
    require `commit.message` to be one string equal to the candidate.
-5. Only after those validations succeed, pass the same body file with
+6. Only after those validations succeed, pass the same body file with
    `gh pr merge --body-file`.
-6. Verify the stored commit message and trailers after merge. Preserve the
+7. Verify the stored commit message and trailers after merge. Preserve the
    multiline value as one string:
    - Query the repository commit endpoint
      `repos/{owner}/{repo}/commits/{sha}`, whose response contains
@@ -106,4 +108,6 @@ Before `gh pr merge` creates a squash or merge commit:
    - Write the decoded `commit.message` string to a file, compare it with the
      candidate allowing at most terminal-newline normalization, and pass that
      file directly to `git interpret-trailers --parse`.
+   - Require the stored first line to contain the exact `(#<pull request
+     number>)` suffix from the candidate subject.
    Treat this as a secondary check, not a substitute for pre-merge validation.

@@ -26,15 +26,19 @@ Reference:
 
 1. Read the proposed message and, when available, the staged diff or
    commit diff it describes.
-2. Verify the first-line format, blank-line structure, body placement, and
+2. If the message is a GitHub pull request squash-merge commit, obtain the
+   canonical pull request title and number from GitHub. Require the first line
+   to be exactly `<pull request title> (#<pull request number>)`; do not rely
+   on a CLI default or accept a title that omits the number.
+3. Verify the first-line format, blank-line structure, body placement, and
    footer placement.
-3. Check that the type, optional scope, breaking-change marker, and short
+4. Check that the type, optional scope, breaking-change marker, and short
    description match the dominant intent of the change.
-4. Check that any body explains useful context, motivation, or impact instead
+5. Check that any body explains useful context, motivation, or impact instead
    of repeating the summary.
-5. Check required footer or trailer metadata, including `BREAKING CHANGE` and
+6. Check required footer or trailer metadata, including `BREAKING CHANGE` and
    AI agent `Co-authored-by:` trailers when applicable.
-6. Before an operation creates or rewrites a commit, validate the exact
+7. Before an operation creates or rewrites a commit, validate the exact
    candidate message that the operation will receive:
    - Build it from the same subject and body file or bytes that will be passed
      to the command or API.
@@ -52,8 +56,8 @@ Reference:
      as raw text, decode it, assert that the selected value is a `[string]`,
      and only then compare it with the candidate.
    - Do not perform the mutation until the candidate passes.
-7. Recommend the smallest correction that makes the message valid and accurate.
-8. If the diff contains multiple unrelated logical changes, recommend splitting
+8. Recommend the smallest correction that makes the message valid and accurate.
+9. If the diff contains multiple unrelated logical changes, recommend splitting
    the commit when practical.
 
 ## Format
