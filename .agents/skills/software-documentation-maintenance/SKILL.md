@@ -84,6 +84,12 @@ docs/
 - `docs/operations/` owns repeatable development, test, migration, deployment, release, recovery,
   incident, and artifact-generation procedures.
 
+For documentation diagrams and other derived visual assets, place the canonical editable source with a discoverable
+authoring procedure. An indexed concern directory such as `docs/diagrams/` may own these assets when they have an
+independent lifecycle; otherwise use `operations/`. The procedure names required derivatives, their rendering
+consumers, regeneration timing, and validation. Keep the user-facing document focused on the information the asset
+communicates rather than duplicating that procedure.
+
 Keep all four indexes even when a section has no detailed document yet. State that it currently has
 no entries and name the condition that would add one. This makes absence explicit instead of making
 readers guess whether documentation is missing.
@@ -195,10 +201,13 @@ requires an undocumented external fact, add or update the domain document first.
 defects and intended-but-unimplemented paths explicitly instead of presenting the desired design as
 current behavior.
 
-For `operations/`, state prerequisites, inputs, exact commands or actions where precision matters,
-expected outputs, state-changing effects, rollback or recovery, verification, and the trigger for
-updating the procedure. Verify commands, paths, environment variables, CI jobs, package contents,
-and release targets against the repository.
+For `operations/` and any indexed concern directory that owns artifact generation, state
+prerequisites, inputs, exact commands or actions where precision matters, expected outputs,
+state-changing effects, rollback or recovery, verification, and the trigger for updating the
+procedure. For a derived visual asset, also identify the canonical editable source,
+each retained derivative and its consumer, the regeneration timing, and the target-renderer check;
+keep transient previews out of the documented deliverables. Verify commands, paths, environment
+variables, CI jobs, package contents, and release targets against the repository.
 
 ### 5. Migrate without losing information
 
