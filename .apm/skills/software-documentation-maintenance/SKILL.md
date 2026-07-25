@@ -123,6 +123,11 @@ Use the required map rather than a file's current name:
 - Put repeatable maintainer actions in `operations/`.
 - Keep user contracts, installation, configuration, examples, troubleshooting, and compatibility in
   the root README or an indexed user-facing extension; link to technical detail instead of copying it.
+- When deriving user guidance from a domain mechanic, keep exact predicates, thresholds, and
+  implementation terms in the domain document. In the user-facing summary, lead with the
+  player-visible outcome, name each independently relevant condition, and give only bounded
+  guidance supported by that domain knowledge. Synchronize parallel package-facing READMEs in the
+  same change.
 - Keep contribution, review, security-reporting, and agent policy in their repository governance
   files; link to operations when a procedure is shared.
 
