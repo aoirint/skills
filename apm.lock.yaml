@@ -1165,7 +1165,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:5d6384c59080a3b230cd6976a6115b300b091e026aabd6ddb2eea25d7d192095
+  content_hash: sha256:967e49ba1593e58753ff48c94394d0edcadfba55574151f91cf7679d6aa7b774
 - kind: project-relative
   target: agents
   value: .agents/skills/unity-game-analyze
@@ -1529,7 +1529,7 @@ local_deployed_file_hashes:
   .agents/skills/software-documentation-maintenance/README.md: sha256:df6442dbefc58dab91b442b51f3ca4a0af5938f844542d35a3c18a721b631861
   .agents/skills/software-documentation-maintenance/SKILL.md: sha256:36d61f85d5f982e691c807a369ada22bbeb661ef13dca1891591e34c0662d890
   .agents/skills/software-documentation-maintenance/agents/openai.yaml: sha256:ee6ff516cfb6b9d7a76bacd166c461bc79cd012e0a7e7683aada95e1b5d1ff14
-  .agents/skills/software-documentation-maintenance/references/visual-documentation-assets.md: sha256:5d6384c59080a3b230cd6976a6115b300b091e026aabd6ddb2eea25d7d192095
+  .agents/skills/software-documentation-maintenance/references/visual-documentation-assets.md: sha256:967e49ba1593e58753ff48c94394d0edcadfba55574151f91cf7679d6aa7b774
   .agents/skills/unity-game-analyze/README.md: sha256:844d7294c5867870315e0a2d521d59654e9b0f4ee14885902ceca84ba7c70ec7
   .agents/skills/unity-game-analyze/SKILL.md: sha256:68481c536fbfbda49b8c6e1a74f55faf4ce48c14006efeb13b37a83509e4e7d9
   .agents/skills/unity-game-analyze/agents/openai.yaml: sha256:d6b6ee37197ee95d8a81bddeabc3ccc6a87b80dababa874ed5ab514e317f3088
