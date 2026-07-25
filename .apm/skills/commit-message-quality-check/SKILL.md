@@ -41,7 +41,12 @@ Reference:
 6. Check required footer or trailer metadata, including `BREAKING CHANGE` and
    AI agent `Co-authored-by:` trailers when applicable.
 7. For a squash merge or other remote commit creation, determine the complete
-   applicable trailer set before writing the payload. Put every approved
+   applicable trailer set before writing the payload. For every human credit,
+   retain the explicit repository-policy or maintainer/user instruction that
+   authorizes the exact `Name <email>` line. Do not infer co-authorship merely
+   from issue ownership, a design discussion, or a referenced/provided snippet;
+   if the attribution source or identity is ambiguous, request it before
+   creating the commit. Put every approved
    `Co-authored-by:` line in the body file passed to the merge command, retain
    each full `Token: value` line exactly once, and verify that same set in the
    stored commit; do not treat a matching token with a different value as
@@ -158,6 +163,18 @@ For squash merges or other remote commit creation, do not trust an escaped
 command-line string or a post-merge inspection as the primary check. Validate
 the exact pre-mutation payload as described in the workflow, then verify the
 stored commit message after the operation as a secondary check.
+
+## Human Co-Author Trailers
+
+An issue author, design contributor, or snippet provider can be an approved
+co-author when repository policy or an explicit maintainer/user instruction
+requires it. Before adding the trailer, resolve the exact `Name <email>` from
+that attribution source and retain a concise record of why the credit was
+approved. Do not automatically turn issue authorship, discussion participation,
+or use of a snippet into `Co-authored-by:` attribution. If the instruction,
+identity, or intended level of credit is missing, request clarification rather
+than inventing a trailer. Once approved, preserve the exact line in the same
+candidate and stored-message checks used for AI co-authors.
 
 ## Type Selection
 

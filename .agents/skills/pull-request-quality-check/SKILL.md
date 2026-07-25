@@ -87,9 +87,16 @@ Before `gh pr merge` creates a squash or merge commit:
     if ($subject -notmatch '\(#[1-9]\d*\)$') { throw 'Missing PR number suffix.' }
     ```
 
-2. Determine every applicable trailer before writing the merge body. Preserve each approved `Co-authored-by:` trailer
-   exactly once; when an AI agent materially contributed, include the repository-required identity (for Codex,
-   `Co-authored-by: Codex <noreply@openai.com>` unless a repository rule supplies another value).
+2. Determine every applicable trailer before writing the merge body. Create an approved trailer set with the exact
+   `Token: value` line and its attribution source for each entry. A human issue author, design contributor, or snippet
+   provider is included only when repository policy or an explicit maintainer/user instruction requires that credit;
+   issue ownership or a referenced snippet alone does not create a `Co-authored-by:` trailer. Resolve the contributor's
+   intended `Name <email>` from that source before merging; if it is unavailable or ambiguous, stop and request it
+   rather than guessing. Preserve each approved `Co-authored-by:` trailer exactly once. When an AI agent materially
+   contributed, include the repository-required identity (for Codex, `Co-authored-by: Codex <noreply@openai.com>`
+   unless a repository rule supplies another value). Do not auto-add a person merely because they opened an issue or
+   supplied a snippet; record the policy or instruction that approved each human credit in the merge preflight or PR
+   note without exposing private contact details.
 3. Write the merge body with real line breaks to a temporary file; do not pass an escaped string containing literal
    `\n` sequences. Put applicable trailers in its footer block, after one blank line from any body text and with no
    blank lines between trailers.
