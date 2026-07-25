@@ -40,7 +40,13 @@ Reference:
    of repeating the summary.
 6. Check required footer or trailer metadata, including `BREAKING CHANGE` and
    AI agent `Co-authored-by:` trailers when applicable.
-7. Before an operation creates or rewrites a commit, validate the exact
+7. For a squash merge or other remote commit creation, determine the complete
+   applicable trailer set before writing the payload. Put every approved
+   `Co-authored-by:` line in the body file passed to the merge command, retain
+   each full `Token: value` line exactly once, and verify that same set in the
+   stored commit; do not treat a matching token with a different value as
+   preserved or permit an unapproved additional `Co-authored-by:` line.
+8. Before an operation creates or rewrites a commit, validate the exact
    candidate message that the operation will receive:
    - Build it from the same subject and body file or bytes that will be passed
      to the command or API.
@@ -58,8 +64,8 @@ Reference:
      as raw text, decode it, assert that the selected value is a `[string]`,
      and only then compare it with the candidate.
    - Do not perform the mutation until the candidate passes.
-8. Recommend the smallest correction that makes the message valid and accurate.
-9. If the diff contains multiple unrelated logical changes, recommend splitting
+9. Recommend the smallest correction that makes the message valid and accurate.
+10. If the diff contains multiple unrelated logical changes, recommend splitting
    the commit when practical.
 
 ## Format
