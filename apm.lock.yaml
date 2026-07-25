@@ -211,7 +211,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:c2cd5f21467fefe507ab47af0a342f72c67d1b38d6c5f5d9ca07c4ea5f5be38d
+  content_hash: sha256:86785b3ed9a26b41d19e55727d6a0d069931964f98d3989ffdc24a583a390929
 - kind: project-relative
   target: agents
   value: .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/main.yml.template
@@ -940,7 +940,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:b381d75f9d1f525ce72f594b1cd8a8de37539bf29c5750c139bbd7113f606dfc
+  content_hash: sha256:c058e90344bb10812e10877a35c66bd6111da9d4f1a4f907b66f9e7e5328d799
 - kind: project-relative
   target: agents
   value: .agents/skills/pull-request-quality-check/scripts/check_llm_disclosure.py
@@ -1439,7 +1439,7 @@ local_deployed_file_hashes:
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/publish-thunderstore/action.yml: sha256:aa75302334d13b50b76696e3759f1b0723f2262ae724103bb01515713d311329
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/publish-thunderstore/publish-thunderstore.sh: sha256:1801d6c68370a3c0de36d3910f6e9cbc319654669974365f8f52df759ee16023
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/setup-dotnet/action.yml.template: sha256:a2d07a4b0b215b444a34fa99b80b3f00297db02e9c8440be2805c63bba39e040
-  .agents/skills/bepinex-mono-mod-quality-check/assets/github/pull_request_template.md: sha256:c2cd5f21467fefe507ab47af0a342f72c67d1b38d6c5f5d9ca07c4ea5f5be38d
+  .agents/skills/bepinex-mono-mod-quality-check/assets/github/pull_request_template.md: sha256:86785b3ed9a26b41d19e55727d6a0d069931964f98d3989ffdc24a583a390929
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/main.yml.template: sha256:09876b3e4253ab3cd03538252ae14752f85c4b0f9591eeb272ab10ddc7efeb19
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/pull-request.yml.template: sha256:b4ff31aed4a8f4b5362ffa3def1b69fb4e3fdf80c6631f60179a9d45c11f36c1
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/workflows/workflow-variables.example.json: sha256:c75305b13481cd12efa9844325573801b8edfca9c5920b44227cc1e2e3a7a917
@@ -1509,7 +1509,7 @@ local_deployed_file_hashes:
   .agents/skills/pull-request-quality-check/README.md: sha256:5c15de701adc508b9dd828846317f47b0f5b925c5a8842b6c32b4d9e3946e11f
   .agents/skills/pull-request-quality-check/SKILL.md: sha256:10296f18c7100f91fcd57f2355a6275c20dc4059f8cf0c65d11eb8b92cb3c7b0
   .agents/skills/pull-request-quality-check/agents/openai.yaml: sha256:1ddb931336ca5ce10b9accf92787e36168c1c71a4b999bd85f130144e778bfa4
-  .agents/skills/pull-request-quality-check/references/fallback-pr-body.md: sha256:b381d75f9d1f525ce72f594b1cd8a8de37539bf29c5750c139bbd7113f606dfc
+  .agents/skills/pull-request-quality-check/references/fallback-pr-body.md: sha256:c058e90344bb10812e10877a35c66bd6111da9d4f1a4f907b66f9e7e5328d799
   .agents/skills/pull-request-quality-check/scripts/check_llm_disclosure.py: sha256:bc9c5cbd8efa77095eac42e53da714ed8dff86fa3b0e7870fc3e7eca1ca36e20
   .agents/skills/release-note-workflow/README.md: sha256:f13446e75a1c77495c4d55476ba8ca919aa3181e0864feb7a668a20a5cdf964b
   .agents/skills/release-note-workflow/SKILL.md: sha256:518296cb00d1ef181785ea8abd0150b9704b5cdd05a48fc0390284c548ef421c

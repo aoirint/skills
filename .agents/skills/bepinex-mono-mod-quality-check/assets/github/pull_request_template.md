@@ -55,6 +55,31 @@ generated outputs, packaging concerns,
 or areas that need extra attention for reasons other than AI assistance.
 -->
 
+### Proposed merge attribution
+
+<!--
+Keep every potential squash-merge co-author reviewable from PR creation through
+updates. Include the author of an implemented issue and every material design
+or snippet provider by default; a reviewer must explicitly mark a candidate
+"Not applicable" to exclude them.
+
+For a human candidate, record the public GitHub account and immutable numeric
+user ID, a non-private contribution basis, status, and the resolved trailer:
+- @login (GitHub user ID: 123)
+  - Resolved trailer: Co-authored-by: login <123+login@users.noreply.github.com>
+  - Basis: Implemented issue #123 / material design or snippet contribution.
+  - Status: Included / Needs identity / Needs review / Not applicable
+
+Prefer the contributor's chosen Name <email> for the trailer, but do not put a
+private email in this PR. When only @login is known, resolve its current numeric
+ID immediately before merge and use the ID-based GitHub noreply address shown
+above. If any candidate's contribution, applicability, account, ID, trailer,
+or status is uncertain, use Needs identity or Needs review and do not merge.
+Do not use a legacy LOGIN@users.noreply.github.com fallback. State "None
+proposed" if no candidates apply. Make all candidate/status/identity changes
+reviewable; do not silently remove or replace an entry.
+-->
+
 ### AI disclosure
 
 <!--
