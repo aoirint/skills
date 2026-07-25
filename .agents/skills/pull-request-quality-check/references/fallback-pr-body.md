@@ -89,6 +89,17 @@ user ID, a non-private contribution basis, status, and the resolved trailer:
   - Basis: Implemented issue #123 / material design or snippet contribution.
   - Status: Included / Needs identity / Needs review / Not applicable
 
+Do not add the PR creator or the person who merges merely because of those
+roles. GitHub squash merge records the PR creator as primary Git author, but
+that can differ from the material contributors. If the creator is not material
+to the final diff, mark this `Needs review` and do not merge until a maintainer
+confirms that attribution or selects another authorized integration path. A
+review comment or approval alone is not a candidate. Include every final-diff
+PR-head commit author and existing co-author trailer unless already the PR
+creator's primary Git author. If GitHub applied a review suggestion that remains
+in the final diff, include its suggestion provider and applier, and record the
+source commit SHA or review URL here.
+
 Use the ID-based GitHub noreply address shown above for every human trailer by
 default. Use a Public Email only when the contributor explicitly directs that
 choice and GitHub currently exposes the exact address; record the choice here.

@@ -64,6 +64,23 @@ description:
    status changes reviewable rather than silently replacing the block. If any candidate's contribution, applicability,
    account, numeric ID, resolved trailer, or review status is uncertain, use `Needs identity` or `Needs review` and
    stop the merge until the uncertainty is resolved.
+   For a GitHub-hosted squash merge, expect GitHub to record the PR creator as the primary Git author. This is platform
+   metadata, not proof of material contribution: the creator can be neither an author nor co-author of the PR-head
+   commits. Do not add that person as `Co-authored-by:` merely because they opened the PR, and do not add the merge
+   actor merely for performing the merge. Record the PR creator and, after merge, the PR's `mergedBy` separately from
+   the trailer set. If the PR creator is not a material contributor in the final diff, mark that attribution mismatch
+   `Needs review` and stop before merging until a maintainer confirms the intentional GitHub-squash attribution or
+   selects another authorized integration path. Verify the stored commit's GitHub author association resolves to the
+   PR creator; record the platform committer as observed rather than assuming it is the merge actor.
+8. A review comment or approval alone does not create a co-author candidate. Before each squash merge, inspect all
+   commits reachable only from the PR head and the applied review suggestions. For each head-only commit whose material
+   change remains in the final PR diff, include its Git author and every existing `Co-authored-by:` identity in the
+   expected trailer set, unless that identity is already the PR creator's primary Git author. Preserve exact existing
+   trailers when available; otherwise resolve the contributor's GitHub account under the human-trailer rule above.
+   When GitHub created a commit by applying a review suggestion, include every suggestion provider and suggestion
+   applier that GitHub recorded as a co-author of that commit, provided the suggestion remains in the final PR diff.
+   Record each candidate's source commit SHA or review URL in the PR attribution block. If a head commit, applied
+   suggestion, contributor set, or final-diff presence cannot be determined, mark it `Needs review` and stop the merge.
 
 ## Reviews, notes, and CLI safety
 
