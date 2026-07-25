@@ -41,19 +41,24 @@ Reference:
 6. Check required footer or trailer metadata, including `BREAKING CHANGE` and
    AI agent `Co-authored-by:` trailers when applicable.
 7. For a squash merge or other remote commit creation, determine the complete
-   applicable trailer set before writing the payload. For every human credit,
-   retain the explicit repository-policy or maintainer/user instruction that
-   authorizes the exact `Name <email>` line. Do not infer co-authorship merely
-   from issue ownership, a design discussion, or a referenced/provided snippet;
-   if the attribution source or identity is ambiguous, request it before
-   creating the commit. Put every approved
+   applicable trailer set before writing the payload. Include the author of an
+   implemented issue and every material design or snippet contributor by
+   default, unless review marks the contributor not applicable. Retain the
+   GitHub account and numeric ID used to resolve each human trailer. Prefer the
+   contributor's chosen `Name <email>`; otherwise use the account's
+   `ID+LOGIN@users.noreply.github.com` address. If the numeric ID cannot be
+   resolved, retain `Needs identity` and stop rather than using a legacy
+   noreply form. Put every expected
    `Co-authored-by:` line in the body file passed to the merge command, retain
    each full `Token: value` line exactly once, and verify that same set in the
    stored commit; do not treat a matching token with a different value as
    preserved or permit an unapproved additional `Co-authored-by:` line.
    When the associated PR has a proposed-attribution block, require every
-   payload trailer to match an `Approved` exact line there and do not promote a
-   `Pending review` entry during merge.
+   payload trailer to match an `Included` exact line there, omit only `Not
+   applicable` candidates, and stop for `Needs identity` or unreviewed changes.
+   Any uncertainty about a candidate's contribution, applicability, GitHub
+   account, numeric ID, resolved trailer, or review status blocks the merge;
+   do not omit, guess, or downgrade that candidate to proceed.
 8. Before an operation creates or rewrites a commit, validate the exact
    candidate message that the operation will receive:
    - Build it from the same subject and body file or bytes that will be passed
@@ -169,15 +174,17 @@ stored commit message after the operation as a secondary check.
 
 ## Human Co-Author Trailers
 
-An issue author, design contributor, or snippet provider can be an approved
-co-author when repository policy or an explicit maintainer/user instruction
-requires it. Before adding the trailer, resolve the exact `Name <email>` from
-that attribution source and retain a concise record of why the credit was
-approved. Do not automatically turn issue authorship, discussion participation,
-or use of a snippet into `Co-authored-by:` attribution. If the instruction,
-identity, or intended level of credit is missing, request clarification rather
-than inventing a trailer. Once approved, preserve the exact line in the same
-candidate and stored-message checks used for AI co-authors.
+Treat the author of an implemented issue and a material design or snippet
+provider as co-authors by default. Keep their `@login` and numeric GitHub user
+ID in the PR attribution record, so a reviewer can mark a candidate `Not
+applicable` before merging. Prefer the contributor's chosen `Name <email>` for
+the trailer. When only a GitHub account is known, use the ID-based GitHub
+noreply form `Co-authored-by: login <ID+LOGIN@users.noreply.github.com>` after
+confirming the account's current ID; it avoids exposing private email and
+survives username changes. If the lookup cannot resolve that ID, retain
+`Needs identity` in the PR and stop rather than using a legacy noreply address
+or inventing one. Preserve every resolved line in the same candidate and
+stored-message checks used for AI co-authors.
 
 ## Type Selection
 

@@ -46,14 +46,22 @@ description:
    sensitive content.
 7. When a PR may produce a commit with human or AI co-author trailers, keep the proposed trailer set reviewable in
    the PR body from creation through every update. Use the repository template's closest relevant section; if none
-   exists, append `## Proposed merge attribution` after the required template content. For each candidate, show the
-   exact `Co-authored-by: Name <email>` line, a concise non-private basis, and `Pending review` or `Approved` status.
-   State `None proposed` when the set is empty. Treat this block as review evidence, not authorization: an entry may
-   reach `Approved` only through applicable repository policy or an explicit maintainer/user instruction. Do not copy
-   private contact data into a public PR; when a public-safe identity is unavailable, retain the unresolved candidate
-   without a trailer and request clarification. On a PR update, preserve every unresolved or approved candidate unless
-   its basis changed; make additions, removals, identity changes, and status changes reviewable rather than silently
-   replacing the block.
+   exists, append `## Proposed merge attribution` after the required template content. Include the issue author when
+   the PR implements their issue, and include a design or snippet provider whose material contribution is used; these
+   are default co-authors unless a reviewer marks the candidate `Not applicable`. For each human candidate, show their
+   canonical GitHub account as `@login` and immutable numeric GitHub user ID, the resolved exact `Co-authored-by:`
+   line, a concise non-private basis, and `Included`, `Needs identity`, or `Not applicable` status. For an AI
+   candidate, show its exact trailer, basis, and status. State `None proposed` when the set is empty.
+
+   Resolve a human trailer in this order: use the contributor's chosen `Name <email>` when available; otherwise look
+   up `@login` immediately before merge and use `Co-authored-by: login <ID+LOGIN@users.noreply.github.com>`. Never
+   expose a private email in the PR body. If neither an email nor a GitHub account with a resolved numeric ID is
+   available, retain `Needs identity` and request an account or retry the lookup rather than inventing an address. On
+   a PR update, preserve every
+   candidate unless its basis changed; make additions, removals, account/ID changes, resolved-trailer changes, and
+   status changes reviewable rather than silently replacing the block. If any candidate's contribution, applicability,
+   account, numeric ID, resolved trailer, or review status is uncertain, use `Needs identity` or `Needs review` and
+   stop the merge until the uncertainty is resolved.
 
 ## Reviews, notes, and CLI safety
 
@@ -97,18 +105,17 @@ Before `gh pr merge` creates a squash or merge commit:
     if ($subject -notmatch '\(#[1-9]\d*\)$') { throw 'Missing PR number suffix.' }
     ```
 
-2. Determine every applicable trailer before writing the merge body. Create an approved trailer set with the exact
-   `Token: value` line and its attribution source for each entry. A human issue author, design contributor, or snippet
-   provider is included only when repository policy or an explicit maintainer/user instruction requires that credit;
-   issue ownership or a referenced snippet alone does not create a `Co-authored-by:` trailer. Resolve the contributor's
-   intended `Name <email>` from that source before merging; if it is unavailable or ambiguous, stop and request it
-   rather than guessing. Preserve each approved `Co-authored-by:` trailer exactly once. When an AI agent materially
-   contributed, include the repository-required identity (for Codex, `Co-authored-by: Codex <noreply@openai.com>`
-   unless a repository rule supplies another value). Do not auto-add a person merely because they opened an issue or
-   supplied a snippet; record the policy or instruction that approved each human credit in the merge preflight or PR
-   note without exposing private contact details. If the PR has a `## Proposed merge attribution` block, reconcile it
-   before merging: use only entries marked `Approved`, require their exact lines to match the approved trailer set,
-   and stop if a pending, missing, or changed candidate would be omitted or added without review.
+2. Determine every applicable trailer before writing the merge body. Create an expected trailer set with the exact
+   `Token: value` line and attribution source for each entry. Include the author of an implemented issue and each
+   material design or snippet contributor by default, unless their PR-body candidate is marked `Not applicable`.
+   Resolve human trailers using the PR body's GitHub account and the stated fallback order; preserve each expected
+   `Co-authored-by:` trailer exactly once. When an AI agent materially contributed, include the repository-required
+   identity (for Codex, `Co-authored-by: Codex <noreply@openai.com>` unless a repository rule supplies another value).
+   If the PR has a `## Proposed merge attribution` block, reconcile it before merging: require every `Included` entry's
+   exact line to match the expected set, omit only `Not applicable` entries, and stop for `Needs identity`, a missing
+   candidate, or an unreviewed identity/trailer change. After merge, verify that each GitHub-account fallback trailer
+   is attributed to its expected account. Treat any uncertainty about a co-author candidate as a merge blocker, not as
+   a reason to omit, guess, or downgrade the candidate.
 3. Write the merge body with real line breaks to a temporary file; do not pass an escaped string containing literal
    `\n` sequences. Put applicable trailers in its footer block, after one blank line from any body text and with no
    blank lines between trailers.
