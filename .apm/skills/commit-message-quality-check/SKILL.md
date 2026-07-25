@@ -51,6 +51,9 @@ Reference:
    each full `Token: value` line exactly once, and verify that same set in the
    stored commit; do not treat a matching token with a different value as
    preserved or permit an unapproved additional `Co-authored-by:` line.
+   When the associated PR has a proposed-attribution block, require every
+   payload trailer to match an `Approved` exact line there and do not promote a
+   `Pending review` entry during merge.
 8. Before an operation creates or rewrites a commit, validate the exact
    candidate message that the operation will receive:
    - Build it from the same subject and body file or bytes that will be passed
