@@ -89,11 +89,11 @@ user ID, a non-private contribution basis, status, and the resolved trailer:
   - Basis: Implemented issue #123 / material design or snippet contribution.
   - Status: Included / Needs identity / Needs review / Not applicable
 
-Prefer the contributor's chosen Name <email> for the trailer, but do not put a
-private email in this PR. When only @login is known, resolve its current numeric
-ID immediately before merge and use the ID-based GitHub noreply address shown
-above. If any candidate's contribution, applicability, account, ID, trailer,
-or status is uncertain, use Needs identity or Needs review and do not merge.
+Use the ID-based GitHub noreply address shown above for every human trailer; do
+not put a contributor's real email in this PR or trailer. Resolve @login's
+current numeric ID immediately before merge. If any candidate's contribution,
+applicability, account, ID, trailer, or status is uncertain, use Needs identity
+or Needs review and do not merge.
 Do not use a legacy LOGIN@users.noreply.github.com fallback. State "None
 proposed" if no candidates apply. Make all candidate/status/identity changes
 reviewable; do not silently remove or replace an entry.

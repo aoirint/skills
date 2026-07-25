@@ -53,10 +53,10 @@ description:
    line, a concise non-private basis, and `Included`, `Needs identity`, or `Not applicable` status. For an AI
    candidate, show its exact trailer, basis, and status. State `None proposed` when the set is empty.
 
-   Resolve a human trailer in this order: use the contributor's chosen `Name <email>` when available; otherwise look
-   up `@login` immediately before merge and use `Co-authored-by: login <ID+LOGIN@users.noreply.github.com>`. Never
-   expose a private email in the PR body. If neither an email nor a GitHub account with a resolved numeric ID is
-   available, retain `Needs identity` and request an account or retry the lookup rather than inventing an address. On
+   Resolve every human trailer from a GitHub account: look up `@login` immediately before merge and use
+   `Co-authored-by: login <ID+LOGIN@users.noreply.github.com>`. Do not use a contributor's real email in either the
+   PR body or trailer. If a GitHub account or its resolved numeric ID is unavailable, retain `Needs identity` and
+   request an account or retry the lookup rather than inventing an address. On
    a PR update, preserve every
    candidate unless its basis changed; make additions, removals, account/ID changes, resolved-trailer changes, and
    status changes reviewable rather than silently replacing the block. If any candidate's contribution, applicability,
@@ -108,7 +108,7 @@ Before `gh pr merge` creates a squash or merge commit:
 2. Determine every applicable trailer before writing the merge body. Create an expected trailer set with the exact
    `Token: value` line and attribution source for each entry. Include the author of an implemented issue and each
    material design or snippet contributor by default, unless their PR-body candidate is marked `Not applicable`.
-   Resolve human trailers using the PR body's GitHub account and the stated fallback order; preserve each expected
+   Resolve human trailers using the PR body's GitHub account and numeric ID; preserve each expected
    `Co-authored-by:` trailer exactly once. When an AI agent materially contributed, include the repository-required
    identity (for Codex, `Co-authored-by: Codex <noreply@openai.com>` unless a repository rule supplies another value).
    If the PR has a `## Proposed merge attribution` block, reconcile it before merging: require every `Included` entry's
