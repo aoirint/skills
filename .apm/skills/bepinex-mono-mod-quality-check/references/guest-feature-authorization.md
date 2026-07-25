@@ -4,6 +4,15 @@ Use this reference when a BepInEx mod exposes a practice, debug, cheat-like,
 or other feature that a non-host player could use to materially change shared
 gameplay, game balance, progression, challenge, or another player's session.
 
+## Contents
+
+- [1. Classify the feature](#1-classify-the-feature)
+- [2. Set a practical boundary for the control](#2-set-a-practical-boundary-for-the-control)
+- [3. State the policy before choosing transport](#3-state-the-policy-before-choosing-transport)
+- [4. Implement an authoritative authorization path](#4-implement-an-authoritative-authorization-path)
+- [5. Provide a coherent global gate](#5-provide-a-coherent-global-gate)
+- [6. Verify policy, not only RPC reachability](#6-verify-policy-not-only-rpc-reachability)
+
 ## 1. Classify the feature
 
 Treat a feature as host-authorized by default when a guest can use it to:

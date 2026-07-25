@@ -161,11 +161,12 @@ conditional branches, verification matrix, and report format. Do not replace tha
      (`client`, `host`, or server) using an explicit role check at the Interop boundary. Treat unavailable network state
      as not authorized for that role; do not rely on incidental RPC stage or prior state to suppress work.
    - For practice, debug, cheat-like, or other client-visible features that can substantially change game balance,
-     default non-host use to denied. Require an explicit host authorization path before enabling the feature for a
-     guest, and make the host's authorization value authoritative rather than letting the guest self-authorize from a
-     local setting or mod-presence check. Document the consent model, denial behavior, and any deliberately different
-     policy. Read [guest-feature-authorization.md](references/guest-feature-authorization.md) before selecting the
-     authorization transport, settings, lifetime, or verification matrix.
+     default non-host use to denied. Require an authoritative host consent path before enabling the feature for a
+     guest. A local guest setting never grants consent. Use the host's installation of the same mod as the consent
+     signal only when the documented feature cannot affect host security or another protected trust boundary;
+     otherwise require an explicit host-controlled allow/deny policy. Document the consent model, denial behavior,
+     and any deliberately different policy. Read [guest-feature-authorization.md](references/guest-feature-authorization.md)
+     before selecting the authorization transport, settings, lifetime, or verification matrix.
    - Bind the global `Enabled` setting at the Interop/configuration boundary and gate the mod's declared work before
      expensive observation, mutation, presentation, or network sends. Keep the plugin loaded so lifecycle cleanup and
      safe callbacks remain valid. If a global gate is impractical, document the concrete scale or lifecycle constraint
