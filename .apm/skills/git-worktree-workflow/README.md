@@ -2,7 +2,7 @@
 
 ## Overview
 
-Set up and use isolated Git worktrees for repository work and safe pull-request merges.
+Set up and use isolated Git worktrees for repository work.
 
 ## Install
 
