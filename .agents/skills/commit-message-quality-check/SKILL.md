@@ -45,8 +45,10 @@ Reference:
    implemented issue and every material design or snippet contributor by
    default, unless review marks the contributor not applicable. Retain the
    GitHub account and numeric ID used to resolve each human trailer. Use the
-   account's `ID+LOGIN@users.noreply.github.com` address; do not use a
-   contributor's real email. If the numeric ID cannot be resolved, retain
+   account's `ID+LOGIN@users.noreply.github.com` address by default. Use a
+   Public Email only when the contributor explicitly directs its use and the
+   current GitHub user response exposes that exact email; record the choice in
+   the PR attribution block. If the numeric ID cannot be resolved, retain
    `Needs identity` and stop rather than using a legacy
    noreply form. Put every expected
    `Co-authored-by:` line in the body file passed to the merge command, retain
@@ -179,10 +181,12 @@ provider as co-authors by default. Keep their `@login` and numeric GitHub user
 ID in the PR attribution record, so a reviewer can mark a candidate `Not
 applicable` before merging. Use the ID-based GitHub noreply form
 `Co-authored-by: login <ID+LOGIN@users.noreply.github.com>` after confirming
-the account's current ID; do not use a contributor's real email. It avoids
-exposing private email and survives username changes. If the GitHub account or
-lookup cannot resolve that ID, retain `Needs identity` in the PR and stop
-rather than using a legacy noreply address or inventing one. Preserve every
+the account's current ID. Use a Public Email only if the contributor explicitly
+directs that choice and GitHub currently exposes the exact address as public;
+otherwise do not use a real email. The default avoids exposing private email
+and survives username changes. If the GitHub account or lookup cannot resolve
+that ID, retain `Needs identity` in the PR and stop rather than using a legacy
+noreply address or inventing one. Preserve every
 resolved line in the same candidate and
 stored-message checks used for AI co-authors.
 

@@ -53,10 +53,12 @@ description:
    line, a concise non-private basis, and `Included`, `Needs identity`, or `Not applicable` status. For an AI
    candidate, show its exact trailer, basis, and status. State `None proposed` when the set is empty.
 
-   Resolve every human trailer from a GitHub account: look up `@login` immediately before merge and use
-   `Co-authored-by: login <ID+LOGIN@users.noreply.github.com>`. Do not use a contributor's real email in either the
-   PR body or trailer. If a GitHub account or its resolved numeric ID is unavailable, retain `Needs identity` and
-   request an account or retry the lookup rather than inventing an address. On
+   Resolve every human trailer from a GitHub account. By default, look up `@login` immediately before merge and use
+   `Co-authored-by: login <ID+LOGIN@users.noreply.github.com>`. Use a Public Email instead only when that contributor
+   explicitly directs its use for the trailer and the current GitHub user response exposes the same email; record that
+   choice in the PR attribution block. Otherwise do not use a real email in either the PR body or trailer. If a GitHub
+   account or its resolved numeric ID is unavailable, retain `Needs identity` and request an account or retry the
+   lookup rather than inventing an address. On
    a PR update, preserve every
    candidate unless its basis changed; make additions, removals, account/ID changes, resolved-trailer changes, and
    status changes reviewable rather than silently replacing the block. If any candidate's contribution, applicability,

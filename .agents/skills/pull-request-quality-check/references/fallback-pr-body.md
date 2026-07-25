@@ -89,8 +89,10 @@ user ID, a non-private contribution basis, status, and the resolved trailer:
   - Basis: Implemented issue #123 / material design or snippet contribution.
   - Status: Included / Needs identity / Needs review / Not applicable
 
-Use the ID-based GitHub noreply address shown above for every human trailer; do
-not put a contributor's real email in this PR or trailer. Resolve @login's
+Use the ID-based GitHub noreply address shown above for every human trailer by
+default. Use a Public Email only when the contributor explicitly directs that
+choice and GitHub currently exposes the exact address; record the choice here.
+Otherwise do not put a real email in this PR or trailer. Resolve @login's
 current numeric ID immediately before merge. If any candidate's contribution,
 applicability, account, ID, trailer, or status is uncertain, use Needs identity
 or Needs review and do not merge.
