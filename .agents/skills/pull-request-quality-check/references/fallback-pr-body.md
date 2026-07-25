@@ -85,7 +85,7 @@ or snippet provider by default; a reviewer must explicitly mark a candidate
 For a human candidate, record the public GitHub account and immutable numeric
 user ID, a non-private contribution basis, status, and the resolved trailer:
 - @login (GitHub user ID: 123)
-  - Resolved trailer: Co-authored-by: login <123+login@users.noreply.github.com>
+  - Resolved trailer: Co-authored-by: login <GitHub-provided-noreply@example.com>
   - Basis: Implemented issue #123 / material design or snippet contribution.
   - Status: Included / Needs identity / Needs review / Not applicable
 
@@ -100,13 +100,14 @@ creator's primary Git author. If GitHub applied a review suggestion that remains
 in the final diff, include its suggestion provider and applier, and record the
 source commit SHA or review URL here.
 
-Use the ID-based GitHub noreply address shown above for every human trailer by
-default. Use a Public Email only when the contributor explicitly directs that
-choice and GitHub currently exposes the exact address; record the choice here.
-Otherwise do not put a real email in this PR or trailer. Resolve @login's
-current numeric ID immediately before merge. If any candidate's contribution,
-applicability, account, ID, trailer, or status is uncertain, use Needs identity
-or Needs review and do not merge.
+Use a contributor-supplied GitHub-provided noreply address for every human
+trailer by default; never synthesize one from @login or numeric ID. Use a Public
+Email only when the contributor explicitly directs that choice and GitHub
+currently exposes the exact address; record the choice here. An existing
+trailer is reusable only when its GitHub author association proves the same
+account. If any candidate's contribution, applicability, account, exact email,
+trailer, or status is uncertain, use Needs identity or Needs review and do not
+merge.
 Do not use a legacy LOGIN@users.noreply.github.com fallback. State "None
 proposed" if no candidates apply. Make all candidate/status/identity changes
 reviewable; do not silently remove or replace an entry.

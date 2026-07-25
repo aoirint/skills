@@ -44,12 +44,13 @@ Reference:
    applicable trailer set before writing the payload. Include the author of an
    implemented issue and every material design or snippet contributor by
    default, unless review marks the contributor not applicable. Retain the
-   GitHub account and numeric ID used to resolve each human trailer. Use the
-   account's `ID+LOGIN@users.noreply.github.com` address by default. Use a
-   Public Email only when the contributor explicitly directs its use and the
-   current GitHub user response exposes that exact email; record the choice in
-   the PR attribution block. If the numeric ID cannot be resolved, retain
-   `Needs identity` and stop rather than using a legacy
+   GitHub account and exact attributable email used to resolve each human
+   trailer. Use the contributor's explicitly supplied GitHub-provided noreply
+   address by default. Use a Public Email only when the contributor explicitly
+   directs its use and the current GitHub user response exposes that exact
+   email; record the choice in the PR attribution block. Never synthesize a
+   noreply address from `@login` or an ID. If the exact email cannot be
+   resolved, retain `Needs identity` and stop rather than using a legacy
    noreply form. Put every expected
    `Co-authored-by:` line in the body file passed to the merge command, retain
    each full `Token: value` line exactly once, and verify that same set in the
@@ -189,14 +190,14 @@ stored commit message after the operation as a secondary check.
 Treat the author of an implemented issue and a material design or snippet
 provider as co-authors by default. Keep their `@login` and numeric GitHub user
 ID in the PR attribution record, so a reviewer can mark a candidate `Not
-applicable` before merging. Use the ID-based GitHub noreply form
-`Co-authored-by: login <ID+LOGIN@users.noreply.github.com>` after confirming
-the account's current ID. Use a Public Email only if the contributor explicitly
-directs that choice and GitHub currently exposes the exact address as public;
-otherwise do not use a real email. The default avoids exposing private email
-and survives username changes. If the GitHub account or lookup cannot resolve
-that ID, retain `Needs identity` in the PR and stop rather than using a legacy
-noreply address or inventing one. Preserve every
+applicable` before merging. Use the contributor's explicitly supplied
+GitHub-provided noreply email by default; never synthesize a noreply address
+from their account ID and login. Use a Public Email only if the contributor
+explicitly directs that choice and GitHub currently exposes the exact address
+as public. An existing trailer is reusable only when its GitHub author
+association proves the same account. If no exact attributable email is
+available, retain `Needs identity` in the PR and stop rather than using a
+legacy noreply address or inventing one. Preserve every
 resolved line in the same candidate and
 stored-message checks used for AI co-authors.
 
