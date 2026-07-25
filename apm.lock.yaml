@@ -643,7 +643,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:fa6483b5919a01b84fa0d6ffcbaae20b84ed3807e18029e8807e61b0ee4f9de9
+  content_hash: sha256:215859c56b05d43e815f9bb71f55710fcf6d08cebd161e417783eeb47bee5c34
 - kind: project-relative
   target: agents
   value: .agents/skills/git-worktree-workflow/SKILL.md
@@ -652,7 +652,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:da8c5c925df4482590b76b9f23f76e0406ddc14eb7673bf440292a2950a4e5c4
+  content_hash: sha256:8fd8c01aa12f299897046606e8e6cd450d184384fe94497009beb144dbdad1af
 - kind: project-relative
   target: agents
   value: .agents/skills/git-worktree-workflow/agents/openai.yaml
@@ -661,7 +661,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:3eb9da73e7a041e77d82f0d5c3a8c67e914575cff8651b71d077db30fe3da99a
+  content_hash: sha256:955ee964bb0f7d02e2a2a42f3885deb4f65ec0fc5cbc5aa2b9569e58b5f8cb92
 - kind: project-relative
   target: agents
   value: .agents/skills/github-actions-quality-check
@@ -922,7 +922,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:df99973eb38095815aaf029fe7812010705cd5f8b9277a4d5008158796fbacca
+  content_hash: sha256:015c363d8130a99f3cd2744a35ec48b707b396cad4ea8338e47a2d62963bfda5
 - kind: project-relative
   target: agents
   value: .agents/skills/pull-request-quality-check/agents/openai.yaml
@@ -1482,9 +1482,9 @@ local_deployed_file_hashes:
   .agents/skills/flet-project-quality-check/scripts/check_project.py: sha256:8afc799a9bed2ce6003c7b43b4b67b3a96f381604ad43bdb19921a222be14c64
   .agents/skills/flet-project-quality-check/scripts/check_project.py.lock: sha256:76042d39ffdbb675188966b4fc41d312b0ec9374a7aa438d4f5e919adcf04c07
   .agents/skills/flet-project-quality-check/scripts/test_check_project.py: sha256:e60cd5e1d92d15f6fb79dc73e042310bca048d4144614f59f2a44cf13a6c92c5
-  .agents/skills/git-worktree-workflow/README.md: sha256:fa6483b5919a01b84fa0d6ffcbaae20b84ed3807e18029e8807e61b0ee4f9de9
-  .agents/skills/git-worktree-workflow/SKILL.md: sha256:da8c5c925df4482590b76b9f23f76e0406ddc14eb7673bf440292a2950a4e5c4
-  .agents/skills/git-worktree-workflow/agents/openai.yaml: sha256:3eb9da73e7a041e77d82f0d5c3a8c67e914575cff8651b71d077db30fe3da99a
+  .agents/skills/git-worktree-workflow/README.md: sha256:215859c56b05d43e815f9bb71f55710fcf6d08cebd161e417783eeb47bee5c34
+  .agents/skills/git-worktree-workflow/SKILL.md: sha256:8fd8c01aa12f299897046606e8e6cd450d184384fe94497009beb144dbdad1af
+  .agents/skills/git-worktree-workflow/agents/openai.yaml: sha256:955ee964bb0f7d02e2a2a42f3885deb4f65ec0fc5cbc5aa2b9569e58b5f8cb92
   .agents/skills/github-actions-quality-check/README.md: sha256:a0767309bb84d170bc30070099a9f091b4c67cc00f790da88799685ab6bbaf5e
   .agents/skills/github-actions-quality-check/SKILL.md: sha256:1f2c556cda51ab47553bb7b2b9fbdcd4baa3709b2ba8d412c58397c6c5c5732d
   .agents/skills/github-actions-quality-check/agents/openai.yaml: sha256:63b8022771cf5e036033c39fd700adf14b1ab23f7df78699474e472a7c28e73d
@@ -1507,7 +1507,7 @@ local_deployed_file_hashes:
   .agents/skills/prose-quality-check/SKILL.md: sha256:9ec45813d04382e04a3b504fd187e4151fc5198352564bd0bcb064f4eaf9a702
   .agents/skills/prose-quality-check/agents/openai.yaml: sha256:b83e0a5d151e6e20df6f7d97f268955c6abfd105d53820f6baad0de8403fc062
   .agents/skills/pull-request-quality-check/README.md: sha256:5c15de701adc508b9dd828846317f47b0f5b925c5a8842b6c32b4d9e3946e11f
-  .agents/skills/pull-request-quality-check/SKILL.md: sha256:df99973eb38095815aaf029fe7812010705cd5f8b9277a4d5008158796fbacca
+  .agents/skills/pull-request-quality-check/SKILL.md: sha256:015c363d8130a99f3cd2744a35ec48b707b396cad4ea8338e47a2d62963bfda5
   .agents/skills/pull-request-quality-check/agents/openai.yaml: sha256:1ddb931336ca5ce10b9accf92787e36168c1c71a4b999bd85f130144e778bfa4
   .agents/skills/pull-request-quality-check/references/fallback-pr-body.md: sha256:b381d75f9d1f525ce72f594b1cd8a8de37539bf29c5750c139bbd7113f606dfc
   .agents/skills/pull-request-quality-check/scripts/check_llm_disclosure.py: sha256:bc9c5cbd8efa77095eac42e53da714ed8dff86fa3b0e7870fc3e7eca1ca36e20

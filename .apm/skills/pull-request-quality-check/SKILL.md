@@ -77,23 +77,33 @@ independent completion unit:
 
 Before `gh pr merge` creates a squash or merge commit:
 
-1. Resolve the pull request's canonical title and number from GitHub. For a squash merge, explicitly set the subject to
-   `<pull request title> (#<pull request number>)`; do not rely on the CLI default or omit the number.
-2. Resolve the exact PR head SHA and pass it with `--match-head-commit`.
-3. Write the merge body with real line breaks to a temporary file; do not pass
+1. Resolve the pull request's canonical title, number, and current head SHA from GitHub. Treat that SHA as the sole
+   candidate identity for pre-merge status evidence.
+2. Run `gh pr checks <pr> --required --json name,state,bucket,link,workflow` for that current PR head; its
+   `--required` filter, rather than a check name, determines the repository's merge gate. Immediately resolve the PR
+   head again and discard the check result if the SHA changed. Stop the merge when a required check is `fail`,
+   `pending`, or `cancel`; for a failed or cancelled GitHub Actions run, inspect its logs or cancellation evidence and
+   obtain a concrete cause before proposing a fix or retry. Record an external check separately instead of diagnosing it
+   as Actions.
+3. Do not infer candidate health from the default branch's history or from a check for another SHA. A dynamic update
+   failure, including a Dependabot `pull_request_exists_for_latest_version` result, is not a candidate merge blocker
+   unless it targets the current head and is required by the repository's rules.
+4. For a squash merge, explicitly set the subject to `<pull request title> (#<pull request number>)`; do not rely on
+   the CLI default or omit the number. Pass the resolved head SHA with `--match-head-commit`.
+5. Write the merge body with real line breaks to a temporary file; do not pass
    an escaped string containing literal `\n` sequences.
-4. Build the complete candidate commit message from the exact subject and body
+6. Build the complete candidate commit message from the exact subject and body
    file. Write those exact bytes to a candidate file and reject literal `\n`
    or `\r\n` text. Pass the candidate file directly to
    `git interpret-trailers --parse`; do not pipe a shell string that may alter
    line endings. Require each expected trailer exactly once.
-5. Before merging, test the stored-message verifier itself. Put the candidate
+7. Before merging, test the stored-message verifier itself. Put the candidate
    message in a JSON fixture shaped like the commit API response, decode it
    through the same JSON parser planned for post-merge verification, and
    require `commit.message` to be one string equal to the candidate.
-6. Only after those validations succeed, pass the same body file with
+8. Only after those validations succeed, pass the same body file with
    `gh pr merge --body-file`.
-7. Verify the stored commit message and trailers after merge. Preserve the
+9. Verify the stored commit message and trailers after merge. Preserve the
    multiline value as one string:
    - Query the repository commit endpoint
      `repos/{owner}/{repo}/commits/{sha}`, whose response contains
