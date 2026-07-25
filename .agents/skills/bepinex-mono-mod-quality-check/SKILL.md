@@ -76,6 +76,9 @@ namespace; they do not replace this Skill's quality bar.
   do not fork a template silently.
 - Treat a missing required file, unpinned external executable input, unreviewed package source, absent lockfile, or
   unverified final archive as a finding; do not downgrade it to a repository preference.
+- Provide a global `Enabled` configuration setting by default. It must disable the mod's declared functionality without
+  implying that BepInEx unloads the plugin. Omit it only when the mod's size, lifecycle, or implementation constraints
+  make a coherent global gate impractical; record that concrete constraint and the available narrower controls.
 - Allow a target repository to add stricter checks. Record a concrete compatibility or host constraint before omitting a
   baseline item.
 
@@ -157,6 +160,17 @@ conditional branches, verification matrix, and report format. Do not replace tha
    - Gate callback-driven state changes, scans, UI work, and network sends on the mod's declared execution role
      (`client`, `host`, or server) using an explicit role check at the Interop boundary. Treat unavailable network state
      as not authorized for that role; do not rely on incidental RPC stage or prior state to suppress work.
+   - For practice, debug, cheat-like, or other client-visible features that can substantially change game balance,
+     default non-host use to denied. Require an authoritative host consent path before enabling the feature for a
+     guest. A local guest setting never grants consent. Use the host's installation of the same mod as the consent
+     signal only when the documented feature cannot affect host security or another protected trust boundary;
+     otherwise require an explicit host-controlled allow/deny policy. Document the consent model, denial behavior,
+     and any deliberately different policy. Read [guest-feature-authorization.md](references/guest-feature-authorization.md)
+     before selecting the authorization transport, settings, lifetime, or verification matrix.
+   - Bind the global `Enabled` setting at the Interop/configuration boundary and gate the mod's declared work before
+     expensive observation, mutation, presentation, or network sends. Keep the plugin loaded so lifecycle cleanup and
+     safe callbacks remain valid. If a global gate is impractical, document the concrete scale or lifecycle constraint
+     and verify that the narrower controls cover the intended operational need.
    - When an observation must be all-or-nothing, enumerate every prerequisite needed to classify each entry. A
      missing/destroyed entry, required metadata object, or required classification field fails the whole observation;
      never return a partial count merely because one nullable layer was skipped.
