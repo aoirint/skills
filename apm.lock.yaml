@@ -301,7 +301,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:b19764f22f3ef4374d9ba0a94b419846398a2a7849cfb7276d7f2dc05532c9ec
+  content_hash: sha256:99c14ec9ee3fa51375977d21801ce25b7de71e2f099c78cd06f7b17e4749eaf3
 - kind: project-relative
   target: agents
   value: .agents/skills/bepinex-mono-mod-quality-check/references/implementation-runbook.md
@@ -1439,7 +1439,7 @@ local_deployed_file_hashes:
   .agents/skills/bepinex-mono-mod-quality-check/assets/repository/CONTRIBUTING.md: sha256:89afb2410a3c30c9bb697088d79f42b55aabf9f1864f039fccbf0f643b082d6a
   .agents/skills/bepinex-mono-mod-quality-check/assets/template-map.json: sha256:ebc85ebbd44d94f986568d5ae294c4adfa6843b59d440f1fa674fe137407891c
   .agents/skills/bepinex-mono-mod-quality-check/references/canonical-templates.md: sha256:268371468d41221932d1bef774325f682fa4bbe58907c5edd9915b5690c9e610
-  .agents/skills/bepinex-mono-mod-quality-check/references/guest-feature-authorization.md: sha256:b19764f22f3ef4374d9ba0a94b419846398a2a7849cfb7276d7f2dc05532c9ec
+  .agents/skills/bepinex-mono-mod-quality-check/references/guest-feature-authorization.md: sha256:99c14ec9ee3fa51375977d21801ce25b7de71e2f099c78cd06f7b17e4749eaf3
   .agents/skills/bepinex-mono-mod-quality-check/references/implementation-runbook.md: sha256:20920e7c4bf3004914507b15729302a4239c10c6d7754cd39fb213162d7beb7c
   .agents/skills/bepinex-mono-mod-quality-check/references/repository-derived-baseline.md: sha256:386b0dabcc9d657c22b1654737bb9b2d9038c3e87ec9e84bd970a3af48bcf333
   .agents/skills/bepinex-mono-mod-quality-check/references/repository-family-alignment.md: sha256:8d88dfe1267a2aec93ad71d7b1ba4d5148c7d5ef148ee35d3cb90568f8ce6ba7

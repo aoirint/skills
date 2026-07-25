@@ -24,7 +24,34 @@ or reveal balance-relevant state may use a documented client-only policy.
 When classification is uncertain, use host authorization until game evidence
 shows the feature is local and non-material.
 
-## 2. State the policy before choosing transport
+## 2. Set a practical boundary for the control
+
+Host authorization is a consent and friction mechanism, not a security
+boundary. It makes ordinary guest-side misuse less convenient and lets the
+host explicitly accept balance-changing features in a shared session. It does
+not prevent a user from modifying their local mod, bypassing its checks, or
+using a different cheat. Do not represent it as anti-cheat, tamper resistance,
+authentication, or a guarantee against abuse.
+
+Use this limited model when its benefits fit the feature:
+
+- deny by default so a guest does not silently impose a balance-changing tool
+  on a host or other players;
+- make the host's opt-in visible and authoritative, so responsibility for
+  allowing the capability is an informed session decision rather than an
+  accidental guest-local toggle; and
+- keep the protocol proportionate. A small explicit allow/deny exchange is
+  usually sufficient; do not build identity, cryptographic attestation,
+  mod-integrity, version-negotiation, or a general anti-cheat system unless the
+  mod has a separate, evidenced requirement for one.
+
+State the accepted limitation in architecture documentation whenever this
+model protects a materially balance-changing feature. The documented claim
+should be no stronger than: normal mod clients require host consent; deliberately
+modified or independently malicious clients are outside this mechanism's
+protection.
+
+## 3. State the policy before choosing transport
 
 Document these facts in the mod architecture before implementing a handshake:
 
@@ -41,7 +68,7 @@ For balance-changing guest features, use fail-closed behavior: no response,
 denial, unavailable network state, or expired session authorization disables the
 guest capability.
 
-## 3. Implement an authoritative authorization path
+## 4. Implement an authoritative authorization path
 
 Use an authoritative host-to-client path, normally a targeted response to a
 guest request, when the game has no verified general mod-list or authorization
@@ -67,7 +94,7 @@ protocol.
 Keep Unity, Netcode, BepInEx configuration, and RPC code in Interop. Pass Core
 only the plain authorization result or an explicit policy value.
 
-## 4. Provide a coherent global gate
+## 5. Provide a coherent global gate
 
 Give the mod a global `Enabled` configuration setting by default. It controls
 the mod's declared functionality; it does not unload the BepInEx plugin.
@@ -88,7 +115,7 @@ specific scale, lifecycle, or implementation constraint. Document the affected
 paths, why a gate would be unsafe or misleading, and the narrower controls that
 remain available. "This mod is large" alone is not enough.
 
-## 5. Verify policy, not only RPC reachability
+## 6. Verify policy, not only RPC reachability
 
 Cover the applicable rows below with the real Interop boundary or a faithful
 harness. Use distinct values so an incorrect role, stale authorization, or
