@@ -2,7 +2,8 @@
 name: pull-request-quality-check
 description:
   Quality-check repository pull requests and PR-thread communication. Use when creating, updating, reviewing, or
-  validating PR titles, bodies, review comments, replies, or thread notes.
+  validating PR titles, bodies, review comments, replies, thread notes, or GitHub squash-merge attribution and
+  commit-message payloads.
 ---
 
 # Pull Request Quality Check
@@ -50,8 +51,14 @@ description:
    the PR implements their issue, and include a design or snippet provider whose material contribution is used; these
    are default co-authors unless a reviewer marks the candidate `Not applicable`. For each human candidate, show their
    canonical GitHub account as `@login` and immutable numeric GitHub user ID, the resolved exact `Co-authored-by:`
-   line, a concise non-private basis, and `Included`, `Needs identity`, or `Not applicable` status. For an AI
+   line, a concise non-private basis, and `Included`, `Needs identity`, `Needs review`, or `Not applicable` status. For an AI
    candidate, show its exact trailer, basis, and status. State `None proposed` when the set is empty.
+
+   Apply role precedence before selecting trailers: the PR creator is the GitHub-squash primary Git author; a
+   final-diff head-commit author, implemented-issue author, or material design/snippet contributor is a trailer
+   candidate only when distinct from that primary author. Reviewers and merge actors are not candidates from those
+   roles alone. Preserve an independently evidenced existing trailer even when a person's other role would not create
+   one.
 
    Resolve every human trailer from a GitHub account and an exact email that GitHub can attribute to that account. Use
    the contributor's explicitly supplied GitHub-provided noreply address by default. Use a Public Email instead only
@@ -79,9 +86,10 @@ description:
    expected trailer set, unless that identity is already the PR creator's primary Git author. Preserve exact existing
    trailers when available; otherwise resolve the contributor's GitHub account under the human-trailer rule above.
    When GitHub created a commit by applying a review suggestion, include every suggestion provider and suggestion
-   applier that GitHub recorded as a co-author of that commit, provided the suggestion remains in the final PR diff.
-   Record each candidate's source commit SHA or review URL in the PR attribution block. If a head commit, applied
-   suggestion, contributor set, or final-diff presence cannot be determined, mark it `Needs review` and stop the merge.
+   applier that GitHub recorded as a co-author of that commit, provided the suggestion remains in the final PR diff,
+   except an identity already represented as the PR creator's primary Git author. Record each candidate's source commit
+   SHA or review URL in the PR attribution block. If a head commit, applied suggestion, contributor set, or final-diff
+   presence cannot be determined, mark it `Needs review` and stop the merge.
 
 ## Reviews, notes, and CLI safety
 

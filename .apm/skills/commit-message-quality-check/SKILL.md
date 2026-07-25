@@ -62,6 +62,13 @@ Reference:
    Any uncertainty about a candidate's contribution, applicability, GitHub
    account, numeric ID, resolved trailer, or review status blocks the merge;
    do not omit, guess, or downgrade that candidate to proceed.
+   Apply role precedence before selecting trailers: the PR creator is the
+   GitHub-squash primary Git author; a final-diff head-commit author,
+   implemented-issue author, or material design/snippet contributor is a
+   trailer candidate only when distinct from that primary author. Reviewers and
+   merge actors are not candidates from those roles alone. Preserve an
+   independently evidenced existing trailer even when another role would not
+   create one.
    For a GitHub-hosted squash merge, expect GitHub to record the PR creator as
    the primary Git author even when another person performs the merge. This is
    platform metadata, not proof of contribution: the creator may be neither an
@@ -209,7 +216,8 @@ set unless the identity is already the PR creator's primary Git author.
 Preserve exact existing trailers where available; otherwise resolve the GitHub
 account under the human-trailer rule. GitHub records the suggestion provider and
 the person who applies an accepted suggestion as co-authors of its generated
-commit; carry both identities when that suggestion remains in the final diff.
+commit; carry both identities when that suggestion remains in the final diff,
+except an identity already represented as the PR creator's primary Git author.
 Record the source commit SHA or review URL in the PR attribution block. If a
 head commit, applied status, contributor set, or final-diff presence is
 uncertain, mark it `Needs review` and stop the merge.

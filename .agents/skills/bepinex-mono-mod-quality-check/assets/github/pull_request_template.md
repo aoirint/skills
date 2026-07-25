@@ -78,8 +78,9 @@ confirms that attribution or selects another authorized integration path. A
 review comment or approval alone is not a candidate. Include every final-diff
 PR-head commit author and existing co-author trailer unless already the PR
 creator's primary Git author. If GitHub applied a review suggestion that remains
-in the final diff, include its suggestion provider and applier, and record the
-source commit SHA or review URL here.
+in the final diff, include its suggestion provider and applier unless already
+the PR creator's primary Git author, and record the source commit SHA or review
+URL here.
 
 Use a contributor-supplied GitHub-provided noreply address for every human
 trailer by default; never synthesize one from @login or numeric ID. Use a Public
