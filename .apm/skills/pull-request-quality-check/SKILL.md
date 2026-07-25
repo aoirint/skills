@@ -91,9 +91,13 @@ Before `gh pr merge` creates a squash or merge commit:
    `gh pr merge --body-file`.
 6. Verify the stored commit message and trailers after merge. Preserve the
    multiline value as one string:
-   - Save the full commit API JSON response to a temporary file and parse it as
-     JSON. In PowerShell, use `Get-Content -Raw | ConvertFrom-Json`, then
-     require `commit.message` to be a `[string]`.
+   - Query the repository commit endpoint
+     `repos/{owner}/{repo}/commits/{sha}`, whose response contains
+     `commit.message`; do not use the Git-data endpoint
+     `repos/{owner}/{repo}/git/commits/{sha}`, whose `message` is at the root.
+     Save the full response to a temporary file and parse it as JSON. In
+     PowerShell, use `Get-Content -Raw | ConvertFrom-Json`, then require
+     `commit.message` to be a `[string]`.
    - Do not assign line-oriented output from
      `gh api --jq '.commit.message'` directly to a PowerShell variable; a
      multiline value becomes an array of lines and breaks exact comparison.
