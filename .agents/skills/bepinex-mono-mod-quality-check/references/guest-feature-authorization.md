@@ -37,13 +37,34 @@ Use this limited model when its benefits fit the feature:
 
 - deny by default so a guest does not silently impose a balance-changing tool
   on a host or other players;
-- make the host's opt-in visible and authoritative, so responsibility for
-  allowing the capability is an informed session decision rather than an
-  accidental guest-local toggle; and
+- make the host's consent signal authoritative, so responsibility for allowing
+  the capability is a host decision rather than an accidental guest-local
+  toggle; and
 - keep the protocol proportionate. A small explicit allow/deny exchange is
   usually sufficient; do not build identity, cryptographic attestation,
   mod-integrity, version-negotiation, or a general anti-cheat system unless the
   mod has a separate, evidenced requirement for one.
+
+### Treat host installation as consent when it is safe to do so
+
+Host installation of the same mod may itself be the consent signal when the
+protected guest capability does not affect the host's security. This supports
+the practical model used by mods such as BeeOverlay and CruiserJumpPractice:
+the host chose to install the mod and thereby accepts its ordinary guest-facing
+practice or information feature, while an unmodded host does not silently
+receive that behavior.
+
+Make this choice only after recording why a guest's use cannot compromise host
+security. In particular, it must not grant host process, file, configuration,
+save, network, moderation, identity, privilege, or arbitrary-RPC authority; it
+must not make the host execute an untrusted guest-controlled action; and it
+must not weaken another independently protected trust boundary. Shared-game
+balance effects alone do not require an additional host toggle when the host's
+installation is an informed acceptance of that mod's declared scope.
+
+For a capability that can affect host security, authority, or another trust
+boundary, host presence is insufficient. Require an explicit host-controlled
+allow/deny policy, and document why that stronger consent is needed.
 
 State the accepted limitation in architecture documentation whenever this
 model protects a materially balance-changing feature. The documented claim
@@ -58,7 +79,7 @@ Document these facts in the mod architecture before implementing a handshake:
 | Question | Required answer |
 | --- | --- |
 | Protected capability | Which guest action or information is gated? |
-| Host decision | Which host-controlled setting or policy grants it? |
+| Host consent signal | Is host installation sufficient, or which explicit host-controlled setting grants it? Why is that strength appropriate? |
 | Default | Is guest use denied or allowed before authorization, and why? |
 | Failure behavior | What happens on no host mod, no reply, deny, disconnect, or reset? |
 | Lifetime | When does authorization expire and reset? |
@@ -75,8 +96,11 @@ guest request, when the game has no verified general mod-list or authorization
 protocol.
 
 - Validate the execution role before sending, receiving, or applying a request.
-- Let the host read its own current policy and return an explicit allow/deny
-  value. Mod presence alone is not permission.
+- Choose the response from the documented consent signal. When installation is
+  sufficient under section 2, a host response confirming this mod's presence
+  grants the capability. Otherwise, let the host read its current explicit
+  policy and return an allow/deny value. Do not infer consent from a different
+  mod's presence.
 - Target the response to the requesting client unless every recipient needs the
   same result.
 - Keep the client-side result connection-scoped. Clear it on disconnect,
@@ -124,11 +148,13 @@ wrong recipient cannot pass by coincidence.
 | Host state | Guest state | Expected result |
 | --- | --- | --- |
 | Mod absent or no response | Feature requested | Guest feature stays disabled. |
-| Mod present, host denies | Feature requested | Guest feature stays disabled. |
-| Mod present, host allows | Feature requested | Only the authorized guest capability enables. |
+| Same mod present; installation is documented as sufficient consent | Feature requested | Only the documented guest capability enables. |
+| Mod present, explicit host policy denies | Feature requested | Guest feature stays disabled. |
+| Mod present, explicit host policy allows | Feature requested | Only the authorized guest capability enables. |
 | Host policy changes or session ends | Previously allowed guest | Authorization resets at the documented boundary. |
 | Global gate disabled | Host or guest | Declared mod functionality is disabled without plugin unload. |
 | Guest lacks the mod | Shared session | Normal game callbacks and other clients remain safe. |
 
-Also verify that requests are bounded, host policy is authoritative, and a guest
-cannot enable the protected path by editing only local configuration.
+Also verify that requests are bounded, the documented host consent signal is
+authoritative for unmodified clients, and editing only guest-local configuration
+does not enable the protected path against an unmodified host.
