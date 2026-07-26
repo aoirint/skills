@@ -1012,7 +1012,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:cf6a00ab4e703c9f6d734337a30478904a8734968bb9e17a69db983b3f4943c7
+  content_hash: sha256:61ff7e27674d45949003576bef5bdb0c225172f69ba1d6c0a3129feabc42c23a
 - kind: project-relative
   target: agents
   value: .agents/skills/python-quality-check/scripts/check_project.py
@@ -1646,7 +1646,7 @@ local_deployed_file_hashes:
   .agents/skills/python-quality-check/SKILL.md: sha256:76c8c0d01064417e4d8e709a22f2b60b5ec62a57d9c641029e95c76a8b39b79d
   .agents/skills/python-quality-check/agents/openai.yaml: sha256:f0b4ad3807e177becec02271314fb32c1ec8d5a7682725ddd4a611a5381084d1
   .agents/skills/python-quality-check/references/ci-and-distribution.md: sha256:0f97408fd9f98dc43d468064e4f601eb26ce10e01939a9cc8ba3227ca97b6947
-  .agents/skills/python-quality-check/references/tooling-and-testing.md: sha256:cf6a00ab4e703c9f6d734337a30478904a8734968bb9e17a69db983b3f4943c7
+  .agents/skills/python-quality-check/references/tooling-and-testing.md: sha256:61ff7e27674d45949003576bef5bdb0c225172f69ba1d6c0a3129feabc42c23a
   .agents/skills/python-quality-check/scripts/check_project.py: sha256:8175b500198399a2ce8b79b4fc8d1902f791d163a0d6dfd35b5ce56b41c5ccc5
   .agents/skills/python-quality-check/scripts/check_project.py.lock: sha256:76042d39ffdbb675188966b4fc41d312b0ec9374a7aa438d4f5e919adcf04c07
   .agents/skills/python-quality-check/scripts/inspect_distribution.py: sha256:86cc60199cf85c6eab39f648c9892963fbfd2ec6d913106119b0eb679eca6849

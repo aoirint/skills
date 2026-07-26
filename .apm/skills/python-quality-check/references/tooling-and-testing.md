@@ -150,6 +150,10 @@ configured development target.
 - Run both `ruff check` and `ruff format --check`.
 - Use a reasoned selected rule set rather than `ALL`. Treat configuration
   warnings as failures.
+- Keep every `[tool.ruff.lint].select` entry on its own line with a concise
+  rationale comment. Preserve those comments when reordering, extracting, or
+  deploying this baseline; add or update the rationale in the same change as a
+  rule selection change.
 - Fix code first. A file or line suppression must name the exact rule and give
   a durable reason at the suppression site.
 - Require keyword arguments at first-party definitions and call sites,
