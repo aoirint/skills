@@ -107,6 +107,12 @@ Use `security-check` for security- or supply-chain-sensitive content and
    selected context is a current job name that runs on pull requests (and on
    `merge_group` when a merge queue is used). Do not create a ruleset that can
    block every merge because its required checks cannot run.
+   When the default ruleset is missing or incomplete, apply every safe baseline
+   rule first. If no current job context can safely be required, omit only the
+   required-status-checks rule, record the ruleset as incomplete, then add or
+   adapt pull-request validation and update the ruleset after observing a
+   successful run. Read [repository-enforcement.md](references/repository-enforcement.md)
+   for the ordered recovery flow and `gh` API command templates.
    Mark inaccessible settings as unverified and record any approved policy
    exception explicitly.
 9. Summarize actionlint, ShellCheck, pinact, other automated checks,
@@ -195,5 +201,7 @@ Use `security-check` for security- or supply-chain-sensitive content and
   selection and image-lifecycle guidance.
 - [fallback-pr-body.md](references/fallback-pr-body.md): fallback PR template
   when no repository template applies.
+- [repository-enforcement.md](references/repository-enforcement.md): recovery
+  flow and `gh` command templates for Actions policies and default rulesets.
 - `scripts/check_llm_disclosure.py`: validate required LLM disclosure,
   disclosure-only repairs, and stored-body preservation.
