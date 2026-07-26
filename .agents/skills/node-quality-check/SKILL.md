@@ -1,9 +1,9 @@
 ---
 name: node-quality-check
 description: >-
-  Quality-check Node.js application, package, and build-tool changes. Use when
-  creating, editing, or reviewing Node.js source, dependency, configuration, or
-  package-manager validation workflows.
+  Quality-check pnpm-managed Node.js application, package, and build-tool changes.
+  Use when creating, editing, or reviewing Node.js source, dependencies,
+  configuration, pnpm-lock.yaml, or pnpm-based validation workflows.
 ---
 
 # Node Quality Check
@@ -16,21 +16,23 @@ description: >-
 
 ## Goals
 
-- Install dependencies reproducibly with the package manager and lockfile selected by
-  the repository.
+- Install dependencies reproducibly with pnpm and the committed lockfile.
 - Run the smallest meaningful checks first, then expand validation when the change has
   wider production impact.
 - Review dependency and automation changes as supply-chain-sensitive work.
 
 ## Workflow
 
-1. Read the changed files, package manifest, lockfile, package-manager configuration,
-   and repository guidance. Use the package manager indicated by the committed lockfile
-   and configuration; do not substitute another package manager.
-2. Install dependencies with the package manager's lockfile-enforcing mode when
-   dependencies are missing or stale. Do not modify the lockfile during a verification
-   install unless the task explicitly changes dependencies.
-3. Run the repository's documented type checking, linting, tests, and build commands.
+1. Read the changed files, `package.json`, `pnpm-lock.yaml`, workspace and pnpm
+   configuration, and repository guidance. Use pnpm; do not substitute npm or another
+   package manager.
+2. For source-only validation, install dependencies with `pnpm install --frozen-lockfile`
+   when dependencies are missing or stale. Do not modify `pnpm-lock.yaml` during a
+   verification install. If the task changes dependencies, update the manifest and
+   lockfile together using the repository's documented pnpm command, review the lockfile
+   diff, then replay the result with `pnpm install --frozen-lockfile`.
+3. Run the repository's documented type checking, linting, tests, and build commands
+   with pnpm.
    Start with checks closest to the changed code, then run a production build when the
    change affects routing, bundling, rendering, application configuration, or another
    cross-cutting behavior.
@@ -44,7 +46,7 @@ description: >-
 6. If a check fails, isolate and correct the narrow cause, then rerun that same check
    before widening validation. Record environmental blockers instead of claiming a
    skipped check passed.
-7. Summarize the package-manager command, checks run, results, supply-chain review
+7. Summarize the pnpm commands, checks run, results, supply-chain review
    scope, and each skipped check with its reason.
 
 ## Default Validation Shape
@@ -52,11 +54,11 @@ description: >-
 Use the repository's script names. A typical sequence is:
 
 ```shell
-<package-manager> install <lockfile-enforcing-option>
-<package-manager> run typecheck
-<package-manager> run lint
-<package-manager> test
-<package-manager> run build
+pnpm install --frozen-lockfile
+pnpm run typecheck
+pnpm run lint
+pnpm test
+pnpm run build
 ```
 
 Run only scripts that the repository defines, and record intentionally omitted commands.

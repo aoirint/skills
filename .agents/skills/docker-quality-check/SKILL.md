@@ -44,6 +44,23 @@ description: >-
 7. Summarize commands run, build and smoke-test results, and every skipped check with a
    concrete reason.
 
+## CI Tool Pinning
+
+When a workflow installs hadolint, pin both the release version and the SHA-256 of the
+exact platform asset. Download over HTTPS, verify the hash before making the file
+executable, and install it only into the runner's temporary directory. Before changing
+a pin, verify the official release provenance and the repository's required adoption
+cooldown.
+
+```shell
+curl -sSfLO https://github.com/hadolint/hadolint/releases/download/v2.14.0/hadolint-linux-x86_64
+echo "6bf226944684f56c84dd014e8b979d27425c0148f61b3bd99bcc6f39e9dc5a47  hadolint-linux-x86_64" | sha256sum -c -
+install -m 0755 hadolint-linux-x86_64 "$RUNNER_TEMP/bin/hadolint"
+```
+
+Replace the version and checksum together only after independently verifying the
+official release asset. Do not use a floating download URL or skip hash verification.
+
 ## Default Checks
 
 ```shell

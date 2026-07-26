@@ -499,7 +499,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:9acdc657eb2979be6fe6f4f3e543c370399f0ab18037e9cfa744b4a0837216e4
+  content_hash: sha256:1dfe7b749211884c5ffcc9670406330c9c89b91e9147f9507c3e168270828b4d
 - kind: project-relative
   target: agents
   value: .agents/skills/docker-quality-check/agents/openai.yaml
@@ -922,7 +922,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:b9f0b64a3fb0b8d0e4ea12392033d4c3b4b38710e2f36ccaf35297d6baed6887
+  content_hash: sha256:2830b8eecbfe150c34fb05e54f17daa26b44e79319c9c712bc69226c7612fcba
 - kind: project-relative
   target: agents
   value: .agents/skills/node-quality-check/agents/openai.yaml
@@ -1547,7 +1547,7 @@ local_deployed_file_hashes:
   .agents/skills/commit-message-quality-check/SKILL.md: sha256:db272bb7467bcb6a6c3d837dec60a34f7081c135fcd40a9e00cf4a84e29ffabe
   .agents/skills/commit-message-quality-check/agents/openai.yaml: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
   .agents/skills/docker-quality-check/README.md: sha256:912a73d3de06babc6eed1ecdaf275139ae465797083dc5427affb54d00c57bf0
-  .agents/skills/docker-quality-check/SKILL.md: sha256:9acdc657eb2979be6fe6f4f3e543c370399f0ab18037e9cfa744b4a0837216e4
+  .agents/skills/docker-quality-check/SKILL.md: sha256:1dfe7b749211884c5ffcc9670406330c9c89b91e9147f9507c3e168270828b4d
   .agents/skills/docker-quality-check/agents/openai.yaml: sha256:8abdaaa5a0458e86821080f50a2dfc34374c5c673a6c257fa351a2a96a16d064
   .agents/skills/flet-project-quality-check/README.md: sha256:2decda6cca135c83c5b81bbdc52abc002a47ed5163e56871b3421c6c7ccb948a
   .agents/skills/flet-project-quality-check/SKILL.md: sha256:96215456dc5b72eb92551d5ef0e2eb81bf3126c71084919705d15bd32e022ccf
@@ -1587,7 +1587,7 @@ local_deployed_file_hashes:
   .agents/skills/lethal-company-analyze/references/reporting-and-review.md: sha256:b4b895fcec9c815489a8bba53b65cee02d3a58c51c8cc0670aa6ad7a41ff0582
   .agents/skills/lethal-company-analyze/references/rng-and-runtime-modeling.md: sha256:16bfd80e576715bf7a0248a095c412faea18cda034bc244189dcb729b7b7638b
   .agents/skills/node-quality-check/README.md: sha256:2ee45f13b965c57f229e5b350a4d33e3c551f266cb62295d7674ba97ef37ca36
-  .agents/skills/node-quality-check/SKILL.md: sha256:b9f0b64a3fb0b8d0e4ea12392033d4c3b4b38710e2f36ccaf35297d6baed6887
+  .agents/skills/node-quality-check/SKILL.md: sha256:2830b8eecbfe150c34fb05e54f17daa26b44e79319c9c712bc69226c7612fcba
   .agents/skills/node-quality-check/agents/openai.yaml: sha256:fdee1277399a7246416c5f8a0e10e5ecd63fa4506db1dff16e0ccb78170e798d
   .agents/skills/prose-quality-check/README.md: sha256:8e4d9f8f8fdfba1cf7fe71fa88cac6baffa0d3c7616f744c0e3b1add102be5e7
   .agents/skills/prose-quality-check/SKILL.md: sha256:9ec45813d04382e04a3b504fd187e4151fc5198352564bd0bcb064f4eaf9a702
