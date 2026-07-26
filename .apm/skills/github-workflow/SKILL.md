@@ -109,6 +109,13 @@ Use `security-check` for security- or supply-chain-sensitive content and
      Treat this required pull-request-only administrator bypass as a baseline
      setting, not as a policy exception; evaluate any additional bypass actors
      or exceptions separately.
+   Build an evidence map for every baseline setting from that repository's
+   current API response and post-change read-back. Never infer compliance from
+   a related setting, a prior repository audit, or an API default. Treat an
+   unsupported endpoint as unverified rather than applied. For an apply
+   request, set each requested baseline value explicitly even when its
+   pre-change value was not captured; for an audit-only request, leave that
+   value unverified.
    Before creating or changing required status checks, verify that every
    selected context is a current job name that runs on pull requests (and on
    `merge_group` when a merge queue is used). Do not create a ruleset that can

@@ -22,11 +22,23 @@ gh api "repos/$repo" --jq '{default_branch,allow_squash_merge,allow_merge_commit
 gh api "repos/$repo/immutable-releases"
 gh api "repos/$repo/actions/permissions"
 gh api "repos/$repo/actions/permissions/selected-actions"
+gh api "repos/$repo/actions/permissions/workflow"
 gh api "repos/$repo/rulesets"
 ```
 
-Treat an unavailable setting as unverified. Do not infer a fork-workflow
-approval policy or ruleset bypass from another repository.
+Build a per-setting evidence map from these responses and from the read-back
+after every mutation. Record the endpoint, observed value, and result as
+`verified`, `unverified`, or an approved exception. Treat an unavailable
+setting as unverified; do not infer a fork-workflow approval policy, merge
+method, or ruleset bypass from another repository or a related setting.
+For an apply request, set every requested baseline value explicitly even if
+the pre-change response omitted it; for an audit-only request, retain that
+omission as unverified.
+
+The fork-contributor approval endpoint can return `404` for personal-owner
+repositories. Do not report that policy as applied in that case; record it as
+unverified and use the repository settings UI or a supported API when one is
+available.
 
 ## 2. Apply the safe fallback ruleset
 
@@ -37,7 +49,7 @@ squash merging, and allow repository-admin bypass only on pull requests.
 Omit only `required_status_checks`; record the ruleset as incomplete and do
 not claim status-check enforcement.
 
-Use the template in section 4 after removing its
+Use the template in section 5 after removing its
 `required_status_checks` object. For an existing ruleset, preserve unrelated
 rules and send the complete reviewed replacement with `PUT`.
 
@@ -65,6 +77,16 @@ only the external action or reusable-workflow names that the inventory finds.
 Keep full-SHA pinning required for workflow execution, but allow each selected
 name with `@*` so updating a pinned version does not require a settings change.
 Do not wildcard an owner or all actions.
+
+Set `allowed_actions=selected`, `sha_pinning_required=true`,
+`github_owned_allowed=true`, and `verified_allowed=false` explicitly during an
+apply. Do not assume an omitted pre-change SHA-pinning value was already safe.
+
+When the inventory finds no external `uses:` reference, set selected actions
+with GitHub-owned actions allowed, Marketplace verified creators disallowed,
+and no `patterns_allowed[]` entries. This is a valid least-privilege result;
+downloaded tools are not Action allowlist entries and still require the
+separate `security-check` review.
 
 ```powershell
 gh api --method PUT "repos/$repo/actions/permissions" `
@@ -116,8 +138,10 @@ section 2.
 gh api --method POST "repos/$repo/rulesets" --input ruleset.json
 ```
 
-For an existing ruleset, fetch it first, preserve every unrelated rule, and
-send the complete reviewed replacement to `PUT repos/$repo/rulesets/<id>`.
+For an existing ruleset, fetch its detail before changing it. Preserve every
+unrelated rule; identify extra bypass actors and other exceptions separately
+instead of silently treating them as the administrator baseline. Send only the
+complete, reviewed replacement to `PUT repos/$repo/rulesets/<id>`.
 
 ## 6. Verify the stored policy
 
@@ -129,4 +153,6 @@ gh api "repos/$repo/rulesets/<id>"
 Confirm the target is `~DEFAULT_BRANCH`, deletion and force pushes are
 restricted, pull requests allow only squash merging, the observed check is
 required, and the only baseline bypass is repository-admin with
-`pull_request` mode.
+`pull_request` mode. Also read back the repository merge settings, immutable
+releases, both Actions policy endpoints, and workflow token permissions; mark
+every unavailable value unverified.
