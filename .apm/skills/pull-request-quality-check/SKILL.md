@@ -51,8 +51,8 @@ description:
    the PR implements their issue, and include a design or snippet provider whose material contribution is used; these
    are default co-authors unless a reviewer marks the candidate `Not applicable`. For each human candidate, show their
    canonical GitHub account as `@login` and immutable numeric GitHub user ID, the resolved exact `Co-authored-by:`
-   line, a concise non-private basis, and `Included`, `Needs identity`, `Needs review`, or `Not applicable` status. For an AI
-   candidate, show its exact trailer, basis, and status. State `None proposed` when the set is empty.
+   line, a concise non-private basis, and `Included`, `Needs identity`, `Needs review`, or `Not applicable` status.
+   For an AI candidate, show its exact trailer, basis, and status. State `None proposed` when the set is empty.
 
    Apply role precedence before selecting trailers: the PR creator is the GitHub-squash primary Git author; a
    final-diff head-commit author, implemented-issue author, or material design/snippet contributor is a trailer
