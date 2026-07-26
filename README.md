@@ -33,12 +33,14 @@ apm update --global
 | [changelog-workflow](.apm/skills/changelog-workflow/README.md) | Maintain canonical developer changelogs and release history. |
 | [code-quality-check](.apm/skills/code-quality-check/README.md) | Review implementation changes for readability, maintainability, and verification. |
 | [commit-message-quality-check](.apm/skills/commit-message-quality-check/README.md) | Draft and review accurate Conventional Commit messages. |
+| [docker-quality-check](.apm/skills/docker-quality-check/README.md) | Review Dockerfiles, Compose configurations, and container runtime changes. |
 | [flet-project-quality-check](.apm/skills/flet-project-quality-check/README.md) | Create and review production-quality Python Flet projects. |
 | [git-worktree-workflow](.apm/skills/git-worktree-workflow/README.md) | Set up and use isolated Git worktrees for repository work. |
 | [github-actions-quality-check](.apm/skills/github-actions-quality-check/README.md) | Review GitHub Actions workflows and composite actions. |
 | [gitignore-workflow](.apm/skills/gitignore-workflow/README.md) | Create and maintain repository `.gitignore` rules. |
 | [issue-quality-check](.apm/skills/issue-quality-check/README.md) | Review GitHub issue titles, bodies, comments, and updates. |
 | [lethal-company-analyze](.apm/skills/lethal-company-analyze/README.md) | Investigate version-specific Lethal Company mechanics with reproducible evidence. |
+| [node-quality-check](.apm/skills/node-quality-check/README.md) | Review Node.js source, dependency, configuration, and validation changes. |
 | [pull-request-quality-check](.apm/skills/pull-request-quality-check/README.md) | Review pull requests and PR-thread communication. |
 | [prose-quality-check](.apm/skills/prose-quality-check/README.md) | Review explanatory prose for readability, local structure, and preserved nuance. |
 | [release-note-workflow](.apm/skills/release-note-workflow/README.md) | Create, update, and review channel-specific release notes, and assess publication readiness. |

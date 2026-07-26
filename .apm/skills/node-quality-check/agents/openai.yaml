@@ -1,0 +1,6 @@
+interface:
+  display_name: "Node.js Quality Check"
+  short_description: "Review Node.js changes and validation."
+  default_prompt: >-
+    Use $node-quality-check to review this Node.js change for package-manager
+    reproducibility, validation coverage, dependency safety, and runtime compatibility.
