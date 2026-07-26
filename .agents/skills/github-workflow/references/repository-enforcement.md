@@ -61,7 +61,10 @@ whose current name was not observed on a pull request.
 
 Inventory `uses:` in workflow files and all reachable local composite actions
 or reusable workflows. Preserve local actions and GitHub-owned actions; allow
-only the exact full-SHA external references that the inventory finds.
+only the external action or reusable-workflow names that the inventory finds.
+Keep full-SHA pinning required for workflow execution, but allow each selected
+name with `@*` so updating a pinned version does not require a settings change.
+Do not wildcard an owner or all actions.
 
 ```powershell
 gh api --method PUT "repos/$repo/actions/permissions" `
@@ -69,12 +72,15 @@ gh api --method PUT "repos/$repo/actions/permissions" `
 
 gh api --method PUT "repos/$repo/actions/permissions/selected-actions" `
   -F github_owned_allowed=true -F verified_allowed=false `
-  -f 'patterns_allowed[]=EXTERNAL_OWNER/ACTION@FULL_40_CHARACTER_SHA'
+  -f 'patterns_allowed[]=EXTERNAL_OWNER/ACTION@*'
+
+gh api --method PUT "repos/$repo/actions/permissions/workflow" `
+  -f default_workflow_permissions=read `
+  -F can_approve_pull_request_reviews=false
 ```
 
-Repeat `patterns_allowed[]` only for additional observed external references.
-Read back both endpoints after the change. Never use a wildcard pattern when
-the inventory provides a full SHA.
+Repeat `patterns_allowed[]` only for additional observed external action or
+reusable-workflow names. Read back all three endpoints after the change.
 
 ## 5. Create or complete the default ruleset
 

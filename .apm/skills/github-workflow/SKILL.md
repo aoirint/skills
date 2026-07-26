@@ -65,8 +65,11 @@ Use `security-check` for security- or supply-chain-sensitive content and
    stable same-runner sequence; use a reusable workflow only when job-level
    matrix, outputs, or permission boundaries require it. Before restricting an
    Actions allowlist, inventory `uses:` references in entry workflows and every
-   reachable local composite action or reusable workflow; retain only the
-   exact pinned external references that are actually required.
+   reachable local composite action or reusable workflow. Retain only the
+   required external action or reusable-workflow names; when full-SHA pinning
+   is enforced, allow an individual name with `@*` so new pinned versions do
+   not require repository-setting changes. Do not wildcard an owner or all
+   actions without an approved policy.
 5. Pin third-party actions and reusable workflows to complete commit SHAs with
    accurate version comments. For external actions, downloaded tools, or
    containers, use `security-check` to review provenance, release age, pinning,
@@ -93,6 +96,9 @@ Use `security-check` for security- or supply-chain-sensitive content and
    - Allow actions and reusable workflows from the repository owner and
      selected non-owner publishers only; require every action and reusable
      workflow to be pinned to a full-length commit SHA.
+   - Default `GITHUB_TOKEN` permissions to read repository contents and
+     packages, and do not allow GitHub Actions to create or approve pull
+     requests.
    - Require approval before fork pull-request workflows run for every
      external contributor.
    - Maintain a default-branch ruleset named `default` that targets the
