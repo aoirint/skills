@@ -63,7 +63,10 @@ Use `security-check` for security- or supply-chain-sensitive content and
    changing a GitHub-hosted runner. Validate action inputs against documentation
    or metadata for the exact pinned version. Use a Composite Action for a
    stable same-runner sequence; use a reusable workflow only when job-level
-   matrix, outputs, or permission boundaries require it.
+   matrix, outputs, or permission boundaries require it. Before restricting an
+   Actions allowlist, inventory `uses:` references in entry workflows and every
+   reachable local composite action or reusable workflow; retain only the
+   exact pinned external references that are actually required.
 5. Pin third-party actions and reusable workflows to complete commit SHAs with
    accurate version comments. For external actions, downloaded tools, or
    containers, use `security-check` to review provenance, release age, pinning,
@@ -93,12 +96,17 @@ Use `security-check` for security- or supply-chain-sensitive content and
    - Require approval before fork pull-request workflows run for every
      external contributor.
    - Maintain a default-branch ruleset named `default` that targets the
-     default branch, allows repository-admin bypass, restricts deletions,
+     default branch, allows repository-admin bypass only through pull
+     requests, restricts deletions,
      requires pull requests before merging with squash as the only allowed
      merge method, requires status checks to pass, and blocks force pushes.
-     Treat this required administrator bypass as a baseline setting, not as a
-     policy exception; evaluate any additional bypass actors or exceptions
-     separately.
+     Treat this required pull-request-only administrator bypass as a baseline
+     setting, not as a policy exception; evaluate any additional bypass actors
+     or exceptions separately.
+   Before creating or changing required status checks, verify that every
+   selected context is a current job name that runs on pull requests (and on
+   `merge_group` when a merge queue is used). Do not create a ruleset that can
+   block every merge because its required checks cannot run.
    Mark inaccessible settings as unverified and record any approved policy
    exception explicitly.
 9. Summarize actionlint, ShellCheck, pinact, other automated checks,
