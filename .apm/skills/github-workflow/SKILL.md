@@ -96,6 +96,9 @@ Use `security-check` for security- or supply-chain-sensitive content and
      default branch, allows repository-admin bypass, restricts deletions,
      requires pull requests before merging with squash as the only allowed
      merge method, requires status checks to pass, and blocks force pushes.
+     Treat this required administrator bypass as a baseline setting, not as a
+     policy exception; evaluate any additional bypass actors or exceptions
+     separately.
    Mark inaccessible settings as unverified and record any approved policy
    exception explicitly.
 9. Summarize actionlint, ShellCheck, pinact, other automated checks,
