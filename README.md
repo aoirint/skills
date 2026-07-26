@@ -41,6 +41,7 @@ apm update --global
 | [lethal-company-analyze](.apm/skills/lethal-company-analyze/README.md) | Investigate version-specific Lethal Company mechanics with reproducible evidence. |
 | [node-quality-check](.apm/skills/node-quality-check/README.md) | Review Node.js source, dependency, configuration, and validation changes. |
 | [prose-quality-check](.apm/skills/prose-quality-check/README.md) | Review explanatory prose for readability, local structure, and preserved nuance. |
+| [python-quality-check](.apm/skills/python-quality-check/README.md) | Create and review strict, reproducible uv-managed Python projects. |
 | [release-note-workflow](.apm/skills/release-note-workflow/README.md) | Create, update, and review channel-specific release notes, and assess publication readiness. |
 | [rollout-workflow](.apm/skills/rollout-workflow/README.md) | Roll out a validated canonical change to compatible repositories. |
 | [security-check](.apm/skills/security-check/README.md) | Review repository changes for practical security and supply-chain risks. |
