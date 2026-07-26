@@ -88,6 +88,10 @@ review checklist.
 - For each new or substantially revised skill, use scenario-based validation:
     - Prepare two or three realistic scenarios before dispatching evaluators.
     - Include at least one critical requirement per scenario.
+    - For evidence-sensitive audits, diagnoses, or state-changing operations, include both complete
+      and incomplete evidence. Score factual claims against the supplied artifacts, require a
+      requested-value record or request payload plus a post-change read-back plan for apply tasks,
+      and require unavailable values to remain unverified in audit-only tasks.
     - Use fresh evaluators for each iteration.
     - Apply one theme of fixes per iteration.
     - Maintain a failure-pattern ledger.

@@ -1111,7 +1111,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:167d772a549df2b5f146c8f776025197315afc219d7c52c8d459e717a5660d5d
+  content_hash: sha256:69db929b42f4dcc249e8f5a2b39459c653b320c3880831b5722198deb61dc3e1
 - kind: project-relative
   target: agents
   value: .agents/skills/skill-quality-check/agents/openai.yaml
@@ -1129,7 +1129,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:2d33bc3a032ebfbd3b2fa36e9160008a1ad256e22c6bb5a7d421ca1e04b2b5f3
+  content_hash: sha256:864d804be8a8ae8fa95adbfacd28a00e203d8f6e8940a0fbee3a73fe27dbde9c
 - kind: project-relative
   target: agents
   value: .agents/skills/software-documentation-maintenance
@@ -1534,9 +1534,9 @@ local_deployed_file_hashes:
   .agents/skills/security-check/references/artifact-inspection.md: sha256:9842555f4789e77e6cf3d22b000116497207ecf6fa5587f2b1fe0dc20e7dffda
   .agents/skills/security-check/references/external-code-execution.md: sha256:87ca817baa02ef6b955e5878f0cd79c875abdb0be6e0177cfce158968e628bc3
   .agents/skills/skill-quality-check/README.md: sha256:f4ec14bdc1b75a3b13be6e1048ae803910e180e49bbcb1f8347630fc920212c9
-  .agents/skills/skill-quality-check/SKILL.md: sha256:167d772a549df2b5f146c8f776025197315afc219d7c52c8d459e717a5660d5d
+  .agents/skills/skill-quality-check/SKILL.md: sha256:69db929b42f4dcc249e8f5a2b39459c653b320c3880831b5722198deb61dc3e1
   .agents/skills/skill-quality-check/agents/openai.yaml: sha256:dde624797ed750b9132f45378710cb6ea182a35705551b45d4b862bb6ce85805
-  .agents/skills/skill-quality-check/references/authoring-best-practices.md: sha256:2d33bc3a032ebfbd3b2fa36e9160008a1ad256e22c6bb5a7d421ca1e04b2b5f3
+  .agents/skills/skill-quality-check/references/authoring-best-practices.md: sha256:864d804be8a8ae8fa95adbfacd28a00e203d8f6e8940a0fbee3a73fe27dbde9c
   .agents/skills/software-documentation-maintenance/README.md: sha256:df6442dbefc58dab91b442b51f3ca4a0af5938f844542d35a3c18a721b631861
   .agents/skills/software-documentation-maintenance/SKILL.md: sha256:36d61f85d5f982e691c807a369ada22bbeb661ef13dca1891591e34c0662d890
   .agents/skills/software-documentation-maintenance/agents/openai.yaml: sha256:ee6ff516cfb6b9d7a76bacd166c461bc79cd012e0a7e7683aada95e1b5d1ff14

@@ -25,6 +25,8 @@ description: >-
 - Preserve a consistent top-level structure: `When to Use`, `Goals`, and `Workflow` unless a local
   skill has a stronger established pattern.
 - Require scenario-based validation for new or materially revised skills.
+- Require evidence-calibrated conclusions when a skill audits, diagnoses, or
+  changes external state.
 
 ## Workflow
 
@@ -102,6 +104,14 @@ description: >-
    - For each new or substantially revised skill, prepare two or three realistic validation
      scenarios before evaluation, including at least one median case and one edge or out-of-scope
      case.
+   - When a target skill makes evidence-sensitive findings or changes external state, include an
+     evidence-complete scenario and an evidence-incomplete scenario. Require the evaluator to
+     distinguish observed facts, planned changes, post-change verification, approved exceptions,
+     and unavailable evidence; an unavailable source must not become an inferred pass.
+   - Score those scenarios against the supplied artifacts and checklist, not merely the executor's
+     confidence or self-reported completion. For a requested apply operation, require an explicit
+     requested-value record or request payload and a post-change read-back plan; for an audit-only
+     operation, require unavailable values to remain unverified.
    - For a consolidation, include one scenario for every retired Skill's primary trigger plus a
      hold-out scenario for the destination trigger. Treat a missing retained guardrail, resource,
      disclosure, or verification step as a regression even if the new Skill's broad description
