@@ -80,7 +80,24 @@ Use `security-check` for security- or supply-chain-sensitive content and
 8. For repository enforcement, compare required status-check contexts with
    current workflow job names and verify integration freshness, merge-queue
    compatibility, release immutability, tag rules, Actions permissions, and
-   protected environments. Mark inaccessible settings as unverified.
+   protected environments. Unless an approved repository policy intentionally
+   differs, require these repository settings:
+   - Enable release immutability.
+   - Allow squash merging only; use `Pull request title` as the default squash
+     commit-message format.
+   - Always suggest updating pull request branches, allow auto-merge, and
+     automatically delete head branches.
+   - Allow actions and reusable workflows from the repository owner and
+     selected non-owner publishers only; require every action and reusable
+     workflow to be pinned to a full-length commit SHA.
+   - Require approval before fork pull-request workflows run for every
+     external contributor.
+   - Maintain a default-branch ruleset named `default` that targets the
+     default branch, allows repository-admin bypass, restricts deletions,
+     requires pull requests before merging with squash as the only allowed
+     merge method, requires status checks to pass, and blocks force pushes.
+   Mark inaccessible settings as unverified and record any approved policy
+   exception explicitly.
 9. Summarize actionlint, ShellCheck, pinact, other automated checks,
    AI-assisted inspections, and skipped checks separately.
 
