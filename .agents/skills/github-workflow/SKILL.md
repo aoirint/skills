@@ -63,7 +63,13 @@ Use `security-check` for security- or supply-chain-sensitive content and
    changing a GitHub-hosted runner. Validate action inputs against documentation
    or metadata for the exact pinned version. Use a Composite Action for a
    stable same-runner sequence; use a reusable workflow only when job-level
-   matrix, outputs, or permission boundaries require it.
+   matrix, outputs, or permission boundaries require it. Before restricting an
+   Actions allowlist, inventory `uses:` references in entry workflows and every
+   reachable local composite action or reusable workflow. Retain only the
+   required external action or reusable-workflow names; when full-SHA pinning
+   is enforced, allow an individual name with `@*` so new pinned versions do
+   not require repository-setting changes. Do not wildcard an owner or all
+   actions without an approved policy.
 5. Pin third-party actions and reusable workflows to complete commit SHAs with
    accurate version comments. For external actions, downloaded tools, or
    containers, use `security-check` to review provenance, release age, pinning,
@@ -80,7 +86,48 @@ Use `security-check` for security- or supply-chain-sensitive content and
 8. For repository enforcement, compare required status-check contexts with
    current workflow job names and verify integration freshness, merge-queue
    compatibility, release immutability, tag rules, Actions permissions, and
-   protected environments. Mark inaccessible settings as unverified.
+   protected environments. Unless an approved repository policy intentionally
+   differs, require these repository settings:
+   - Enable release immutability.
+   - Allow squash merging only; use `Pull request title` as the default squash
+     commit-message format.
+   - Always suggest updating pull request branches, allow auto-merge, and
+     automatically delete head branches.
+   - Allow actions and reusable workflows from the repository owner and
+     selected non-owner publishers only; require every action and reusable
+     workflow to be pinned to a full-length commit SHA.
+   - Default `GITHUB_TOKEN` permissions to read repository contents and
+     packages, and do not allow GitHub Actions to create or approve pull
+     requests.
+   - Require approval before fork pull-request workflows run for every
+     external contributor.
+   - Maintain a default-branch ruleset named `default` that targets the
+     default branch, allows repository-admin bypass only through pull
+     requests, restricts deletions,
+     requires pull requests before merging with squash as the only allowed
+     merge method, requires status checks to pass, and blocks force pushes.
+     Treat this required pull-request-only administrator bypass as a baseline
+     setting, not as a policy exception; evaluate any additional bypass actors
+     or exceptions separately.
+   Build an evidence map for every baseline setting from that repository's
+   current API response and post-change read-back. Never infer compliance from
+   a related setting, a prior repository audit, or an API default. Treat an
+   unsupported endpoint as unverified rather than applied. For an apply
+   request, set each requested baseline value explicitly even when its
+   pre-change value was not captured; for an audit-only request, leave that
+   value unverified.
+   Before creating or changing required status checks, verify that every
+   selected context is a current job name that runs on pull requests (and on
+   `merge_group` when a merge queue is used). Do not create a ruleset that can
+   block every merge because its required checks cannot run.
+   When the default ruleset is missing or incomplete, apply every safe baseline
+   rule first. If no current job context can safely be required, omit only the
+   required-status-checks rule, record the ruleset as incomplete, then add or
+   adapt pull-request validation and update the ruleset after observing a
+   successful run. Read [repository-enforcement.md](references/repository-enforcement.md)
+   for the ordered recovery flow and `gh` API command templates.
+   Mark inaccessible settings as unverified and record any approved policy
+   exception explicitly.
 9. Summarize actionlint, ShellCheck, pinact, other automated checks,
    AI-assisted inspections, and skipped checks separately.
 
@@ -167,5 +214,7 @@ Use `security-check` for security- or supply-chain-sensitive content and
   selection and image-lifecycle guidance.
 - [fallback-pr-body.md](references/fallback-pr-body.md): fallback PR template
   when no repository template applies.
+- [repository-enforcement.md](references/repository-enforcement.md): recovery
+  flow and `gh` command templates for Actions policies and default rulesets.
 - `scripts/check_llm_disclosure.py`: validate required LLM disclosure,
   disclosure-only repairs, and stored-body preservation.
