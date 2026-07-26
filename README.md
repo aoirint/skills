@@ -35,11 +35,9 @@ apm update --global
 | [commit-message-quality-check](.apm/skills/commit-message-quality-check/README.md) | Draft and review accurate Conventional Commit messages. |
 | [flet-project-quality-check](.apm/skills/flet-project-quality-check/README.md) | Create and review production-quality Python Flet projects. |
 | [git-worktree-workflow](.apm/skills/git-worktree-workflow/README.md) | Set up and use isolated Git worktrees for repository work. |
-| [github-actions-quality-check](.apm/skills/github-actions-quality-check/README.md) | Review GitHub Actions workflows and composite actions. |
+| [github-workflow](.apm/skills/github-workflow/README.md) | Create and review GitHub Actions workflows, issues, and pull requests. |
 | [gitignore-workflow](.apm/skills/gitignore-workflow/README.md) | Create and maintain repository `.gitignore` rules. |
-| [issue-quality-check](.apm/skills/issue-quality-check/README.md) | Review GitHub issue titles, bodies, comments, and updates. |
 | [lethal-company-analyze](.apm/skills/lethal-company-analyze/README.md) | Investigate version-specific Lethal Company mechanics with reproducible evidence. |
-| [pull-request-quality-check](.apm/skills/pull-request-quality-check/README.md) | Review pull requests and PR-thread communication. |
 | [prose-quality-check](.apm/skills/prose-quality-check/README.md) | Review explanatory prose for readability, local structure, and preserved nuance. |
 | [release-note-workflow](.apm/skills/release-note-workflow/README.md) | Create, update, and review channel-specific release notes, and assess publication readiness. |
 | [rollout-workflow](.apm/skills/rollout-workflow/README.md) | Roll out a validated canonical change to compatible repositories. |
