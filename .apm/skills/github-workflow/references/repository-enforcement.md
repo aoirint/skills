@@ -5,6 +5,15 @@ pull-request or status-check rules. Run the commands from the target
 repository with authenticated `gh`; replace `OWNER/REPO`, check contexts, and
 full commit SHAs with observed values.
 
+## Contents
+
+- [Inventory before changing policy](#1-inventory-before-changing-policy)
+- [Apply the safe fallback ruleset](#2-apply-the-safe-fallback-ruleset)
+- [Make a required-check context safe to require](#3-make-a-required-check-context-safe-to-require)
+- [Restrict Actions without breaking composites](#4-restrict-actions-without-breaking-composites)
+- [Create or complete the default ruleset](#5-create-or-complete-the-default-ruleset)
+- [Verify the stored policy](#6-verify-the-stored-policy)
+
 ## 1. Inventory before changing policy
 
 ```powershell
