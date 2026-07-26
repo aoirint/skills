@@ -53,6 +53,15 @@ description: >-
      otherwise make the skill broad or stale.
    - Reference `security-check` instead of duplicating partial security or supply-chain
      policy unless the target skill owns a narrower implementation detail.
+   - For a consolidation or retirement, make an explicit migration inventory before deleting
+     any source Skill. Map every retiring Skill's trigger promise, critical guardrails,
+     `agents/openai.yaml`, scripts, references, assets, README index row, and repository
+     references to its destination or removal rationale. Consolidate only when the resulting
+     Skill has one coherent coordinating job; otherwise retain or split the Skills.
+   - Preserve each supported entry scenario in the destination workflow, even when its detailed
+     instructions move to a directly linked reference. Search canonical sources, deployed copies,
+     documentation, and lock/deployment metadata for retired names; update intentional callers
+     and leave no stale public index row or resource path.
 5. Check structure:
    - Prefer `When to Use`, `Goals`, and `Workflow` for Agent Skills.
    - Keep required steps explicit, ordered, and written as imperatives.
@@ -93,6 +102,10 @@ description: >-
    - For each new or substantially revised skill, prepare two or three realistic validation
      scenarios before evaluation, including at least one median case and one edge or out-of-scope
      case.
+   - For a consolidation, include one scenario for every retired Skill's primary trigger plus a
+     hold-out scenario for the destination trigger. Treat a missing retained guardrail, resource,
+     disclosure, or verification step as a regression even if the new Skill's broad description
+     still selects.
    - Give each scenario at least one critical requirement and evaluate with a fresh executor.
    - Record unclear points, discretionary fill-ins, and repeated failure patterns.
    - Apply one related theme of fixes per iteration.

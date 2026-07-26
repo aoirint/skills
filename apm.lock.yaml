@@ -49,7 +49,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:eccf9236d430e2d89b7803b63b9f001d8232f363794815bd409888dde45bcf38
+  content_hash: sha256:82bfde7980c17b69f043b62cb5669a42b1e65386f4a8476a224617285f33653e
 - kind: project-relative
   target: agents
   value: .agents/skills/apm-usage/agents/openai.yaml
@@ -1102,7 +1102,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:9d80bc143db3e00b0e20f6dccc895c22024a5f45faa6510e540fc8436372fe8d
+  content_hash: sha256:167d772a549df2b5f146c8f776025197315afc219d7c52c8d459e717a5660d5d
 - kind: project-relative
   target: agents
   value: .agents/skills/skill-quality-check/agents/openai.yaml
@@ -1422,7 +1422,7 @@ local_deployed_files:
 - .agents/skills/unity-game-analyze/scripts/inventory_build.py.lock
 local_deployed_file_hashes:
   .agents/skills/apm-usage/README.md: sha256:70351aaebf54291433dfcff86280e87edc757ff4e93e506aa1e8f06a0b913f06
-  .agents/skills/apm-usage/SKILL.md: sha256:eccf9236d430e2d89b7803b63b9f001d8232f363794815bd409888dde45bcf38
+  .agents/skills/apm-usage/SKILL.md: sha256:82bfde7980c17b69f043b62cb5669a42b1e65386f4a8476a224617285f33653e
   .agents/skills/apm-usage/agents/openai.yaml: sha256:931ed250f3abe81dcad27da5b668d7546cd65f528cd37de754dee4c9df1905e0
   .agents/skills/apm-usage/assets/check-apm-project/action.yml: sha256:108bc5e9964026880fb49086728f8458b16174f33636dea79276bd286505bbd4
   .agents/skills/apm-usage/references/apm-bootstrap.json: sha256:f3b8921d2db8d6bfad9088657895b126ebd8d87b92133bd65331be4a8a0a515e
@@ -1523,7 +1523,7 @@ local_deployed_file_hashes:
   .agents/skills/security-check/references/artifact-inspection.md: sha256:9842555f4789e77e6cf3d22b000116497207ecf6fa5587f2b1fe0dc20e7dffda
   .agents/skills/security-check/references/external-code-execution.md: sha256:87ca817baa02ef6b955e5878f0cd79c875abdb0be6e0177cfce158968e628bc3
   .agents/skills/skill-quality-check/README.md: sha256:f4ec14bdc1b75a3b13be6e1048ae803910e180e49bbcb1f8347630fc920212c9
-  .agents/skills/skill-quality-check/SKILL.md: sha256:9d80bc143db3e00b0e20f6dccc895c22024a5f45faa6510e540fc8436372fe8d
+  .agents/skills/skill-quality-check/SKILL.md: sha256:167d772a549df2b5f146c8f776025197315afc219d7c52c8d459e717a5660d5d
   .agents/skills/skill-quality-check/agents/openai.yaml: sha256:dde624797ed750b9132f45378710cb6ea182a35705551b45d4b862bb6ce85805
   .agents/skills/skill-quality-check/references/authoring-best-practices.md: sha256:2d33bc3a032ebfbd3b2fa36e9160008a1ad256e22c6bb5a7d421ca1e04b2b5f3
   .agents/skills/software-documentation-maintenance/README.md: sha256:df6442dbefc58dab91b442b51f3ca4a0af5938f844542d35a3c18a721b631861
