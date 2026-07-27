@@ -832,7 +832,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:f2d523ae1129687d1b1a636d307bb7cbaa87ddd5c595c20a028f99461a039f6b
+  content_hash: sha256:0e027f7df896d7a89b5945b9de00e0a17d514e8f9afa1e2fa6771eef1bfec3bb
 - kind: project-relative
   target: agents
   value: .agents/skills/lethal-company-analyze/agents/openai.yaml
@@ -1629,7 +1629,7 @@ local_deployed_file_hashes:
   .agents/skills/gitignore-workflow/SKILL.md: sha256:2ef38f42e418c10e0ba7632e3ba37614df97044dfa8847ad1338e6c4c896c089
   .agents/skills/gitignore-workflow/agents/openai.yaml: sha256:f6a9b176003028588ff4c1d9ee4e23c625892d00b65086bf4b6b26a3f896030d
   .agents/skills/lethal-company-analyze/README.md: sha256:25274fc0d0155864c4e421d315a1b91d21cc203a4c75e25a740c17f04f9387d6
-  .agents/skills/lethal-company-analyze/SKILL.md: sha256:f2d523ae1129687d1b1a636d307bb7cbaa87ddd5c595c20a028f99461a039f6b
+  .agents/skills/lethal-company-analyze/SKILL.md: sha256:0e027f7df896d7a89b5945b9de00e0a17d514e8f9afa1e2fa6771eef1bfec3bb
   .agents/skills/lethal-company-analyze/agents/openai.yaml: sha256:fb80fc51dba972198601c2ec76805752f34a214bbd9a73d4bbdff7e8165ad0bf
   .agents/skills/lethal-company-analyze/references/efficient-full-enumeration.md: sha256:d63989945259eb66eb483fe979d51f795882a9d0c589bc06e59c7f0ce7e84bcb
   .agents/skills/lethal-company-analyze/references/evidence-policy.md: sha256:64af82c994a31ec2a9791342c85c53c44966af2b4ff6c9d8b779259604777b42
