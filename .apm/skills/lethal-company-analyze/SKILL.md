@@ -23,9 +23,6 @@ description:
    game version, Steam manifest/build identifier, managed-code inventory/hash, and exported-asset inventory/hash. Accept
    decompiled managed code and serialized assets only when they identify the same target build; otherwise mark the
    affected mechanic and compatibility claim `blocked`, rather than combining evidence across builds.
-5. Follow any workspace-local `AGENTS.md` for evidence access, output locations, retention, and redaction. Keep those
-   environment-specific facts out of this Skill; use this Skill only to determine the evidence and endpoint requirements
-   that apply after the local inputs are identified.
 
 ## Build the evidence model
 
