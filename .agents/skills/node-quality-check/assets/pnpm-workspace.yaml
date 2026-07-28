@@ -1,0 +1,19 @@
+# Baseline project policy for pnpm 11+. Add a `packages` section only for a workspace.
+
+# Enforce the runtime range declared in package.json.
+engineStrict: true
+
+# Require packages and transitive dependencies to be at least seven days old.
+minimumReleaseAge: 10080
+
+# Fail when registry metadata lacks a publication time instead of bypassing the age gate.
+minimumReleaseAgeIgnoreMissingTime: false
+
+# Reject a recently published release whose authentication evidence regresses.
+trustPolicy: no-downgrade
+
+# Stop requiring trust evidence for releases that have completed the same seven-day wait.
+trustPolicyIgnoreAfter: 10080
+
+# Permit lifecycle scripts only after package-specific review.
+allowBuilds: {}

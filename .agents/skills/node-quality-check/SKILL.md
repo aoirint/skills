@@ -1,53 +1,86 @@
 ---
 name: node-quality-check
 description: >-
-  Quality-check pnpm-managed Node.js application, package, and build-tool changes.
-  Use when creating, editing, or reviewing Node.js source, dependencies,
-  configuration, pnpm-lock.yaml, or pnpm-based validation workflows.
+  Quality-check pnpm-managed Node.js applications, packages, dependency updates,
+  runtime/toolchain configuration, and GitHub Actions. Use when creating,
+  editing, or reviewing Node.js source, package.json, pnpm-workspace.yaml,
+  pnpm-lock.yaml, Next.js, MUI, Node.js, or pnpm-based CI and validation workflows.
 ---
 
 # Node Quality Check
 
 ## When to Use
 
-- Use for Node.js or JavaScript/TypeScript source, package manifest, lockfile,
-  build-tool, framework, or validation-workflow changes.
+- Use for Node.js or JavaScript/TypeScript source, package manifests, pnpm
+  configuration and lockfiles, framework or UI-library upgrades, runtime/toolchain
+  changes, or GitHub Actions changes.
 - Use before committing or publishing a Node.js change.
 
 ## Goals
 
-- Install dependencies reproducibly with pnpm and the committed lockfile.
+- Use pnpm exclusively and install reproducibly from the committed lockfile.
+- Keep the Node.js runtime, `@types/node`, declared engines, local version files,
+  CI setup, and hosted build environment mutually compatible.
+- Upgrade frameworks and UI libraries as compatible sets, including intentional
+  major-version changes.
 - Run the smallest meaningful checks first, then expand validation when the change has
   wider production impact.
 - Review dependency and automation changes as supply-chain-sensitive work.
 
 ## Workflow
 
-1. Read the changed files, `package.json`, `pnpm-lock.yaml`, workspace and pnpm
-   configuration, and repository guidance. Use pnpm; do not substitute npm or another
-   package manager.
-2. For source-only validation, install dependencies with `pnpm install --frozen-lockfile`
-   when dependencies are missing or stale. Do not modify `pnpm-lock.yaml` during a
-   verification install. If the task changes dependencies, update the manifest and
-   lockfile together using the repository's documented pnpm command, review the lockfile
-   diff, then replay the result with `pnpm install --frozen-lockfile`.
-3. Run the repository's documented type checking, linting, tests, and build commands
-   with pnpm.
-   Start with checks closest to the changed code, then run a production build when the
-   change affects routing, bundling, rendering, application configuration, or another
-   cross-cutting behavior.
-4. For a dependency change, inspect the manifest and lockfile together. Confirm that
-   additions and updates are intentional, compatible with the supported runtime, and
-   do not introduce unexpected install or lifecycle-script behavior.
-5. For newly introduced or updated packages, GitHub Actions, or downloaded tools, use
-   `security-check` to assess provenance, release age, integrity pins, permissions, and
-   execution behavior. Pin GitHub Actions to full commit SHAs with accurate version
-   comments.
-6. If a check fails, isolate and correct the narrow cause, then rerun that same check
-   before widening validation. Record environmental blockers instead of claiming a
-   skipped check passed.
-7. Summarize the pnpm commands, checks run, results, supply-chain review
-   scope, and each skipped check with its reason.
+1. Read the changed files, repository guidance, `package.json`,
+   `pnpm-workspace.yaml`, `pnpm-lock.yaml`, Node-version files, deployment/build
+   configuration, and workflows. Use pnpm; do not substitute npm, Yarn, or another
+   package manager. Read [`assets/pnpm-workspace.yaml`](assets/pnpm-workspace.yaml)
+   before creating or repairing a project policy file.
+2. Establish the compatibility envelope before choosing versions:
+   - Identify the Node.js major supported by every deployment/build environment and
+     its current documented compatibility. Choose a supported LTS major; do not treat
+     an arbitrary newer runtime as an upgrade target.
+   - Keep `engines.node`, the local version file (such as `.node-version`), CI
+     `setup-node`, and the hosted builder's configured runtime aligned. Keep
+     `@types/node` on the matching runtime major unless the project documents a
+     deliberate reason not to.
+   - For Next.js, read its release notes and peer/runtime requirements, then update
+     linked `next` packages together. For MUI, update the relevant `@mui/*` packages
+     as a compatible family and verify React and styling peer requirements. Treat a
+     major bump as a migration: inspect breaking changes and update code/configuration
+     rather than accepting a lockfile-only change.
+3. Keep pnpm's supply-chain policy in `pnpm-workspace.yaml`. Start from the bundled
+   template and retain a seven-day gate (`minimumReleaseAge: 10080`), strict handling
+   of missing publication times, `trustPolicy: no-downgrade`, and pnpm 11's default
+   strict resolution and lockfile policy rechecking, plus an explicit `allowBuilds`
+   list. Add a build-script allowlist entry only after
+   reviewing that package's lifecycle behavior. Do not add registry credentials,
+   disable these controls, or use broad exclusions in the committed policy.
+4. For dependency updates, first inventory candidates, their release dates, provenance,
+   peer dependencies, runtime requirements, changelogs, and lockfile impact. Select a
+   stable, compatible release; do not blindly use a dist-tag or the highest version.
+   Update manifests and the lockfile together with pnpm, review the resolved graph and
+   lifecycle scripts, then replay the result using `pnpm install --frozen-lockfile`.
+5. Apply a cooldown exception only when explicitly authorized. Limit it to exact
+   `package@version` selectors in `minimumReleaseAgeExclude`, include any inseparable
+   companion packages, record why and when it can be removed in the change record, and
+   retain all other policy checks. Never replace the gate with a package-wide selector,
+   a wildcard, a lowered global threshold, or a disabled strict mode.
+6. Keep dependency remediation narrow and reviewable. Prefer an upstream compatible
+   release. Use a root-level pnpm `overrides` entry only after verifying affected
+   declared ranges, peer dependencies, release age, and runtime behavior; remove it
+   when no longer needed. Do not hide an unresolved compatibility issue with an override.
+7. For package, runtime, pnpm, or workflow changes, use `security-check` to assess
+   provenance, release age, lockfile integrity, lifecycle scripts, permissions, and
+   execution behavior. Pin GitHub Actions to full commit SHAs with accurate release
+   comments; verify the referenced action release satisfies the same cooldown before
+   adoption.
+8. Run the repository's documented type checking, linting, tests, and build commands
+   with pnpm. Start with checks closest to the changed code, then run a production build
+   for routing, bundling, rendering, deployment configuration, framework, UI-library,
+   or other cross-cutting changes. If a check fails, isolate the narrow cause and rerun
+   it before widening validation. Record blockers instead of claiming skipped checks
+   passed.
+9. Summarize the selected compatibility envelope, pnpm policy and exceptions, commands,
+   checks and results, supply-chain review scope, and every skipped check with its reason.
 
 ## Default Validation Shape
 
