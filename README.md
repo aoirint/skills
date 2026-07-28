@@ -38,6 +38,7 @@ apm update --global
 | [git-worktree-workflow](.apm/skills/git-worktree-workflow/README.md) | Set up and use isolated Git worktrees for repository work. |
 | [github-workflow](.apm/skills/github-workflow/README.md) | Create and review GitHub Actions workflows, issues, and pull requests. |
 | [gitignore-workflow](.apm/skills/gitignore-workflow/README.md) | Create and maintain repository `.gitignore` rules. |
+| [hugo-quality-check](.apm/skills/hugo-quality-check/README.md) | Review pnpm-managed Hugo sites, local build assets, and CI. |
 | [lethal-company-analyze](.apm/skills/lethal-company-analyze/README.md) | Investigate version-specific Lethal Company mechanics with reproducible evidence. |
 | [node-quality-check](.apm/skills/node-quality-check/README.md) | Review pnpm-managed Node.js source, dependencies, runtime, CI, configuration, and validation changes. |
 | [prose-quality-check](.apm/skills/prose-quality-check/README.md) | Review explanatory prose for readability, local structure, and preserved nuance. |
