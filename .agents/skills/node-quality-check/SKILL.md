@@ -88,9 +88,11 @@ description: >-
    The composite action accepts `package-directory` (default `.`); use it when those
    files live below the repository root. It reads `.node-version` and `packageManager`
    from that directory as the runtime and pnpm sources of truth, uses that directory's
-   lockfile for caching, and removes only its `node_modules` before returning. For
-   packages with different Node.js or pnpm versions, use one CI job per package and
-   pass each job's `package-directory`; do not try to switch runtimes within one job.
+   lockfile for caching by default, and removes only its `node_modules` before returning.
+   Set optional `lockfile-path` only when a workspace shares a different repository-
+   relative lockfile. For packages with different Node.js or pnpm versions, use one CI
+   job per package and pass each job's `package-directory` and, when needed,
+   `lockfile-path`; do not try to switch runtimes within one job.
    Omit `workflow_dispatch`, keep default-branch pushes uncancelled, and cancel only
    superseded pull-request or merge-queue runs.
    After installation, run `actionlint` against both workflows and `pinact run --check

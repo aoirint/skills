@@ -6,10 +6,25 @@ inputs:
     description: Directory containing package.json, .node-version, and pnpm-lock.yaml.
     required: false
     default: .
+  lockfile-path:
+    description: Optional repository-relative pnpm lockfile path for a shared workspace lockfile.
+    required: false
+    default: ''
 
 runs:
   using: composite
   steps:
+    - name: Resolve package paths
+      id: paths
+      shell: bash
+      run: |
+        lockfile_path='${{ inputs.lockfile-path }}'
+        if [ -z "$lockfile_path" ]; then
+          lockfile_path='${{ inputs.package-directory }}/pnpm-lock.yaml'
+        fi
+        test -f "$lockfile_path"
+        printf 'lockfile-path=%s\n' "$lockfile_path" >> "$GITHUB_OUTPUT"
+
     # Reads the exact pnpm version from the selected package.json before Node.js exists.
     - name: Read pnpm version
       id: pnpm-version
@@ -33,7 +48,7 @@ runs:
       with:
         node-version-file: ${{ inputs.package-directory }}/.node-version
         cache: pnpm
-        cache-dependency-path: ${{ inputs.package-directory }}/pnpm-lock.yaml
+        cache-dependency-path: ${{ steps.paths.outputs.lockfile-path }}
 
     - name: Install dependencies
       shell: bash
