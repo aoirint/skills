@@ -57,21 +57,29 @@ description: >-
    strict resolution and lockfile policy rechecking, plus an explicit `allowBuilds`
    list. Add a build-script allowlist entry only after
    reviewing that package's lifecycle behavior. Do not add registry credentials,
-   disable these controls, or use broad exclusions in the committed policy.
+   disable these controls, or use broad exclusions in the committed policy. Finalize
+   this policy before resolving the lockfile; do not create a lock under weaker rules
+   and enable the gate afterward.
 4. For dependency updates, first inventory candidates, their release dates, provenance,
    peer dependencies, runtime requirements, changelogs, and lockfile impact. Select a
    stable, compatible release; do not blindly use a dist-tag or the highest version.
+   Preserve the repository's direct-dependency range policy (for example,
+   major-fixed ranges) and let the lockfile record the exact reviewed resolution.
    Update manifests and the lockfile together with pnpm, review the resolved graph and
    lifecycle scripts, then replay the result using `pnpm install --frozen-lockfile`.
-5. Apply a cooldown exception only when explicitly authorized. Limit it to exact
-   `package@version` selectors in `minimumReleaseAgeExclude`, include any inseparable
-   companion packages, record why and when it can be removed in the change record, and
-   retain all other policy checks. Never replace the gate with a package-wide selector,
-   a wildcard, a lowered global threshold, or a disabled strict mode.
+5. Apply a cooldown exception only for an explicitly authorized, exact vulnerability
+   remediation that cannot wait. Limit it to an exact `package@version` selector in
+   `minimumReleaseAgeExclude`, record the advisory, affected path, patched version,
+   release date, and removal condition in the change record, and retain all other
+   policy checks. Never use it for ordinary feature, major, or tool updates, and never
+   replace the gate with a package-wide selector, a wildcard, a lowered global
+   threshold, or a disabled strict mode.
 6. Keep dependency remediation narrow and reviewable. Prefer an upstream compatible
    release. Use a root-level pnpm `overrides` entry only after verifying affected
    declared ranges, peer dependencies, release age, and runtime behavior; remove it
-   when no longer needed. Do not hide an unresolved compatibility issue with an override.
+   when no longer needed. Run `pnpm audit --json` across production and development
+   dependencies after each remediation. Do not hide an unresolved compatibility issue
+   with an override.
 7. For package, runtime, pnpm, or workflow changes, use `security-check` to assess
    provenance, release age, lockfile integrity, lifecycle scripts, permissions, and
    execution behavior. Pin GitHub Actions to full commit SHAs with accurate release

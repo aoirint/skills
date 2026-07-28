@@ -35,10 +35,12 @@ description: >-
    and hosted-builder runtime configuration. For a Git submodule theme, run
    `git submodule update --init --recursive` before validating the rendered site.
 3. Keep `packageManager` and `.node-version` as the pnpm and Node.js sources of
-   truth. Align `engines.node`, CI, and hosted builders. For Cloudflare Pages,
-   confirm the configured build image and use `.node-version` or `NODE_VERSION`;
-   read [`references/hugo-build-contract.md`](references/hugo-build-contract.md)
-   before choosing a runtime or build tool version.
+   truth. Align `engines.node`, CI, and hosted builders. Choose a supported LTS
+   runtime from official evidence and validate with `engineStrict` enabled. For
+   Cloudflare Pages, confirm the configured build image and use `.node-version` or
+   `NODE_VERSION`; Pages does not infer these contracts from `package.json`. Read
+   [`references/hugo-build-contract.md`](references/hugo-build-contract.md) and apply
+   `$node-quality-check` before choosing a runtime or build tool version.
 4. Treat a browser asset previously loaded from a CDN as a supply-chain change.
    Treat its URL and version as inventory evidence, not an approval to adopt that
    package release. Select an exact version only after registry/release-date,
@@ -49,9 +51,12 @@ description: >-
    Record source, exact version, integrity, license, and output path in
    `THIRD_PARTY_NOTICES.md`; use `security-check` for provenance, release age,
    integrity, and runtime behavior.
-5. When package dependencies change, update the manifest and lockfile together,
-   review the resolved graph, then replay it with `pnpm install --frozen-lockfile`.
-   Run every defined check, normally `pnpm run lint` and `pnpm run build`.
+5. When package dependencies change, finalize the pnpm workspace policy before
+   resolving the graph. Update the manifest and lockfile together, review direct and
+   transitive changes, then replay it with `pnpm install --frozen-lockfile` and run
+   the full `pnpm audit --json`. Keep a release-age exception only for an exact,
+   reviewed vulnerability fix; do not use one for ordinary dependency updates. Run
+   every defined check, normally `pnpm run lint` and `pnpm run build`.
    Inspect generated HTML for the intended local asset URLs and for absence of
    replaced CDN URLs; verify mounted CSS, JavaScript, and font files exist in
    the generated output.
