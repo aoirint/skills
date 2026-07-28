@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hugo Quality Check"
+  short_description: "Validate pnpm-managed Hugo sites and CI."
+  default_prompt: "Use $hugo-quality-check to review this Hugo site and its build workflow."
