@@ -14,6 +14,8 @@ inputs:
 runs:
   using: composite
   steps:
+    # Resolve the cache key before setup so an absent or wrong lockfile fails before
+    # dependency resolution can create an unreviewed graph.
     - name: Resolve package paths
       id: paths
       shell: bash
@@ -25,7 +27,8 @@ runs:
         test -f "$lockfile_path"
         printf 'lockfile-path=%s\n' "$lockfile_path" >> "$GITHUB_OUTPUT"
 
-    # Reads the exact pnpm version from the selected package.json before Node.js exists.
+    # Read the committed package-manager contract without relying on a runner Node.js
+    # version, so pnpm is established before the project runtime is selected.
     - name: Read pnpm version
       id: pnpm-version
       shell: bash
@@ -37,12 +40,14 @@ runs:
           *) echo "packageManager must specify pnpm@<version>" >&2; exit 1 ;;
         esac
 
+    # Install only the pnpm version declared by the selected package.
     - name: Install pnpm
       uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
       with:
         version: ${{ steps.pnpm-version.outputs.version }}
 
-    # Reads Node.js and the lockfile from the selected package directory.
+    # Align Node.js and the pnpm cache key with the selected package rather than with
+    # an unrelated repository root or runner default.
     - name: Install Node.js
       uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
       with:
@@ -50,11 +55,13 @@ runs:
         cache: pnpm
         cache-dependency-path: ${{ steps.paths.outputs.lockfile-path }}
 
+    # Replay the reviewed lockfile; do not let CI resolve a replacement dependency graph.
     - name: Install dependencies
       shell: bash
       working-directory: ${{ inputs.package-directory }}
       run: pnpm install --frozen-lockfile
 
+    # Keep the composite focused on the repository's declared lint contract.
     - name: Run lint
       shell: bash
       working-directory: ${{ inputs.package-directory }}
