@@ -931,7 +931,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:be2f0548c35ecf727ccbab3883722fa862cecfd484a28bebf91641853c7f140d
+  content_hash: sha256:5542d1870820e2b494bbb759227b365586ba6993928774f348e196d4f22c29f2
 - kind: project-relative
   target: agents
   value: .agents/skills/node-quality-check/assets/main.yml
@@ -940,7 +940,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:77da443d3fc1eb5705067650921284a0251ff150740bb8b56b31565832d37d42
+  content_hash: sha256:0e4f374e62b7f2db11f1cc8b213cc866d1030e7b879a6d6ba183390681af3c28
 - kind: project-relative
   target: agents
   value: .agents/skills/node-quality-check/assets/pnpm-workspace.yaml
@@ -958,7 +958,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:5ba2a41403beca496b5da3fd05da85513ebf9d12f2e5a8e374e53b67214b8d87
+  content_hash: sha256:ae9c06e3c2e5ecd449398c7443099c0e81c46c99fb32921815c16b841f1bb21c
 - kind: project-relative
   target: agents
   value: .agents/skills/prose-quality-check
@@ -1679,10 +1679,10 @@ local_deployed_file_hashes:
   .agents/skills/node-quality-check/README.md: sha256:f87def599866d3cf6d4102a1ca80f28dcb827b51be47803c448e041ae9a125da
   .agents/skills/node-quality-check/SKILL.md: sha256:8b7beb0c7e0eba1b139643b06f87fe4dc29825b2a26de681497f5bf37a301fd9
   .agents/skills/node-quality-check/agents/openai.yaml: sha256:81c5bd6e1b0fcb3d228bb7cef8c913a28d0849a02001d71ffd2edbc1f120e9e0
-  .agents/skills/node-quality-check/assets/lint-node/action.yml: sha256:be2f0548c35ecf727ccbab3883722fa862cecfd484a28bebf91641853c7f140d
-  .agents/skills/node-quality-check/assets/main.yml: sha256:77da443d3fc1eb5705067650921284a0251ff150740bb8b56b31565832d37d42
+  .agents/skills/node-quality-check/assets/lint-node/action.yml: sha256:5542d1870820e2b494bbb759227b365586ba6993928774f348e196d4f22c29f2
+  .agents/skills/node-quality-check/assets/main.yml: sha256:0e4f374e62b7f2db11f1cc8b213cc866d1030e7b879a6d6ba183390681af3c28
   .agents/skills/node-quality-check/assets/pnpm-workspace.yaml: sha256:32d5ee550f635e4ba03a7bb50805e4cd13e9025108e98a96963737fbb18e45da
-  .agents/skills/node-quality-check/assets/pull-request.yml: sha256:5ba2a41403beca496b5da3fd05da85513ebf9d12f2e5a8e374e53b67214b8d87
+  .agents/skills/node-quality-check/assets/pull-request.yml: sha256:ae9c06e3c2e5ecd449398c7443099c0e81c46c99fb32921815c16b841f1bb21c
   .agents/skills/prose-quality-check/README.md: sha256:8e4d9f8f8fdfba1cf7fe71fa88cac6baffa0d3c7616f744c0e3b1add102be5e7
   .agents/skills/prose-quality-check/SKILL.md: sha256:9ec45813d04382e04a3b504fd187e4151fc5198352564bd0bcb064f4eaf9a702
   .agents/skills/prose-quality-check/agents/openai.yaml: sha256:b83e0a5d151e6e20df6f7d97f268955c6abfd105d53820f6baad0de8403fc062
