@@ -39,7 +39,7 @@ apm update --global
 | [github-workflow](.apm/skills/github-workflow/README.md) | Create and review GitHub Actions workflows, issues, and pull requests. |
 | [gitignore-workflow](.apm/skills/gitignore-workflow/README.md) | Create and maintain repository `.gitignore` rules. |
 | [lethal-company-analyze](.apm/skills/lethal-company-analyze/README.md) | Investigate version-specific Lethal Company mechanics with reproducible evidence. |
-| [node-quality-check](.apm/skills/node-quality-check/README.md) | Review Node.js source, dependency, configuration, and validation changes. |
+| [node-quality-check](.apm/skills/node-quality-check/README.md) | Review pnpm-managed Node.js source, dependencies, runtime, CI, configuration, and validation changes. |
 | [prose-quality-check](.apm/skills/prose-quality-check/README.md) | Review explanatory prose for readability, local structure, and preserved nuance. |
 | [python-quality-check](.apm/skills/python-quality-check/README.md) | Create and review strict, reproducible uv-managed Python projects. |
 | [release-note-workflow](.apm/skills/release-note-workflow/README.md) | Create, update, and review channel-specific release notes, and assess publication readiness. |

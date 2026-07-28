@@ -3,4 +3,5 @@ interface:
   short_description: "Review Node.js changes and validation."
   default_prompt: >-
     Use $node-quality-check to review this Node.js change for package-manager
-    reproducibility, validation coverage, dependency safety, and runtime compatibility.
+    reproducibility, dependency safety, runtime and framework compatibility,
+    GitHub Actions pinning, and validation coverage.
