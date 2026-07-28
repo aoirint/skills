@@ -20,10 +20,12 @@ jobs:
     runs-on: ubuntu-slim
 
     steps:
+      # Check unmerged source with no persisted credentials or write capability.
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
+      # Keep proposed-change validation identical to integration-branch validation.
       - name: Run Node.js lint
         uses: ./.github/actions/lint-node
