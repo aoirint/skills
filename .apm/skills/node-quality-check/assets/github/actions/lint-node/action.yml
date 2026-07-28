@@ -10,13 +10,13 @@ inputs:
 runs:
   using: composite
   steps:
-    # Reads the exact pnpm version from the selected package.json.
+    # Reads the exact pnpm version from the selected package.json before Node.js exists.
     - name: Read pnpm version
       id: pnpm-version
       shell: bash
       working-directory: ${{ inputs.package-directory }}
       run: |
-        package_manager=$(node -p 'require("./package.json").packageManager')
+        package_manager=$(grep -oE '"packageManager"[[:space:]]*:[[:space:]]*"[^"]+"' package.json | head -n 1 | sed -E 's/.*"([^"]+)"$/\1/')
         case "$package_manager" in
           pnpm@*) printf 'version=%s\n' "${package_manager#pnpm@}" >> "$GITHUB_OUTPUT" ;;
           *) echo "packageManager must specify pnpm@<version>" >&2; exit 1 ;;
