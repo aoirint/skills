@@ -85,8 +85,11 @@ description: >-
    the smallest explicit substitution for its documented runtime source and validation
    command. Preserve read-only permissions, frozen install, immutable action pins, and
    branch filters; replace `main` only after confirming the repository's default branch.
-   Use `.node-version` and `packageManager` as the runtime and pnpm sources of truth,
-   omit `workflow_dispatch`, keep default-branch pushes uncancelled, and cancel only
+   The composite action accepts `package-directory` (default `.`); use it when those
+   files live below the repository root. It reads `.node-version` and `packageManager`
+   from that directory as the runtime and pnpm sources of truth, uses that directory's
+   lockfile for caching, and removes only its `node_modules` before returning. Omit
+   `workflow_dispatch`, keep default-branch pushes uncancelled, and cancel only
    superseded pull-request or merge-queue runs.
    After installation, run `actionlint` against both workflows and `pinact run --check
    --min-age 7` against the installed workflows and composite action. Treat a failure as
