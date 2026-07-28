@@ -81,6 +81,11 @@ description: >-
    - Include `scripts/` only for repeatable or fragile automation, and test representative scripts.
    - Include `assets/` only for files used in outputs.
    - Remove placeholder or auxiliary files that do not directly support the skill.
+   - Treat a `.template` extension as a semantic contract, not decoration. Keep it
+     only when a directly documented renderer, variable-substitution step, or
+     copy-and-transform contract consumes that file. Otherwise use the destination
+     extension and normalize equivalent assets together after inventorying callers,
+     deployed copies, and lock/deployment metadata.
    - For a visual or rendered artifact, identify the editable canonical source, each committed
      derivative, its consumer, and how the derivative is regenerated. Verify that every consumer
      links to the intended representation.

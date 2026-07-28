@@ -46,6 +46,15 @@ Use `security-check` for security- or supply-chain-sensitive content and
      exact pushed commit. Use a read-only `plan` job only for canonical version
      or publication state, and make build and publication use direct `needs`
      dependencies.
+   - For reusable source validation, use event-owned entry workflows: a
+     default-branch push workflow revalidates merged source, while a separate
+     pull-request workflow validates proposed source and merge-queue entries.
+     Reuse one local Composite Action for the same-runner validation sequence.
+     Do not combine those push and pull-request events into one validation
+     workflow: their cancellation policy and source-trust boundary differ.
+     Retire an older entry workflow only after confirming it duplicates that
+     responsibility; do not remove a workflow that owns a distinct release or
+     integration event.
    - Name jobs for visible responsibility: `lint`, optional `test`, optional
      `plan`, `build`, and `release`. Use a precisely named Composite Action
      only for a reusable same-runner sequence.
@@ -56,7 +65,10 @@ Use `security-check` for security- or supply-chain-sensitive content and
 3. Check workflow and job `permissions`. Start from `contents: read`, grant
    only required access, and document unusual write access. Check concurrency
    groups and cancellation rules for PRs, pushes, releases, merge queues, and
-   publishing.
+   publishing. Keep default-branch validation uncancelled; cancel superseded
+   pull-request and merge-queue runs with a group keyed by pull-request number
+   or ref. In read-only checkout jobs, set `persist-credentials: false` unless
+   a later step demonstrably needs repository credentials.
 4. Check runner labels, local composite actions, expressions, comments, cache
    paths, and suppressions. Read
    [runner-selection.md](references/runner-selection.md) when selecting or
@@ -70,6 +82,10 @@ Use `security-check` for security- or supply-chain-sensitive content and
    is enforced, allow an individual name with `@*` so new pinned versions do
    not require repository-setting changes. Do not wildcard an owner or all
    actions without an approved policy.
+   Give every `uses:` step a responsibility-revealing `name`. Keep version comments on
+   the same line as full-SHA external pins in pinact format, and add concise comments
+   before security- or lifecycle-sensitive steps explaining the design intent rather
+   than restating the step name.
 5. Pin third-party actions and reusable workflows to complete commit SHAs with
    accurate version comments. For external actions, downloaded tools, or
    containers, use `security-check` to review provenance, release age, pinning,
@@ -77,7 +93,9 @@ Use `security-check` for security- or supply-chain-sensitive content and
 6. Run documented `actionlint`, ShellCheck, and `pinact` checks. Use
    `pinact run --check --min-age 7` and `GITHUB_TOKEN` when available. Check
    standalone changed automation shell scripts with ShellCheck; record an empty
-   target scope when none exist.
+   target scope when none exist. Record each changed external action's full SHA,
+   release tag, publisher/provenance, release-age result, and validation results in
+   the pull request or equivalent change record.
 7. For publishing workflows, gate immutable publication on all required quality
    and build results for the exact source commit. Retain verified build
    artifacts, derive release identity from the canonical version source, make
