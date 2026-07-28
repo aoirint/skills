@@ -34,10 +34,10 @@ description: >-
    configuration, and workflows. Use pnpm; do not substitute npm, Yarn, or another
    package manager. Read [`assets/pnpm-workspace.yaml`](assets/pnpm-workspace.yaml)
    before creating or repairing a project policy file. Read
-   [`assets/lint-node/action.yml`](assets/lint-node/action.yml),
-   [`assets/main.yml`](assets/main.yml), and
-   [`assets/pull-request.yml`](assets/pull-request.yml) before creating or repairing
-   GitHub Actions lint automation.
+   [`assets/github/actions/lint-node/action.yml`](assets/github/actions/lint-node/action.yml),
+   [`assets/github/workflows/main.yml.template`](assets/github/workflows/main.yml.template), and
+   [`assets/github/workflows/pull-request.yml.template`](assets/github/workflows/pull-request.yml.template)
+   before creating or repairing GitHub Actions lint automation.
 2. Establish the compatibility envelope before choosing versions:
    - Identify the Node.js major supported by every deployment/build environment and
      its current documented compatibility. Choose a supported LTS major; do not treat
@@ -77,7 +77,7 @@ description: >-
    execution behavior. Pin GitHub Actions to full commit SHAs with accurate release
    comments; verify the referenced action release satisfies the same cooldown before
    adoption. For event-owned lint CI, install the bundled composite action at
-   `.github/actions/lint-node/action.yml` and the two workflow templates at
+   `.github/actions/lint-node/action.yml` and copy the two workflow templates to
    `.github/workflows/main.yml` and `.github/workflows/pull-request.yml`. Retire a
    superseded single lint workflow only after confirming it duplicates this lint job, so
    it cannot duplicate checks. Use this shape only
