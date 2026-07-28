@@ -2,7 +2,7 @@
 
 ## Overview
 
-Review pnpm-managed Node.js source, dependency, runtime, CI, configuration, and validation changes.
+Review pnpm-managed Node.js source, dependencies, runtime, CI, configuration, and validation changes.
 
 ## Install
 
