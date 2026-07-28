@@ -33,7 +33,11 @@ description: >-
    `pnpm-workspace.yaml`, `pnpm-lock.yaml`, Node-version files, deployment/build
    configuration, and workflows. Use pnpm; do not substitute npm, Yarn, or another
    package manager. Read [`assets/pnpm-workspace.yaml`](assets/pnpm-workspace.yaml)
-   before creating or repairing a project policy file.
+   before creating or repairing a project policy file. Read
+   [`assets/lint-node/action.yml`](assets/lint-node/action.yml),
+   [`assets/main.yml`](assets/main.yml), and
+   [`assets/pull-request.yml`](assets/pull-request.yml) before creating or repairing
+   GitHub Actions lint automation.
 2. Establish the compatibility envelope before choosing versions:
    - Identify the Node.js major supported by every deployment/build environment and
      its current documented compatibility. Choose a supported LTS major; do not treat
@@ -72,7 +76,23 @@ description: >-
    provenance, release age, lockfile integrity, lifecycle scripts, permissions, and
    execution behavior. Pin GitHub Actions to full commit SHAs with accurate release
    comments; verify the referenced action release satisfies the same cooldown before
-   adoption.
+   adoption. For event-owned lint CI, install the bundled composite action at
+   `.github/actions/lint-node/action.yml` and the two workflow templates at
+   `.github/workflows/main.yml` and `.github/workflows/pull-request.yml`. Retire a
+   superseded single lint workflow only after confirming it duplicates this lint job, so
+   it cannot duplicate checks. Use this shape only
+   when the repository has a `.node-version` file and a `lint` script; otherwise make
+   the smallest explicit substitution for its documented runtime source and validation
+   command. Preserve read-only permissions, frozen install, immutable action pins, and
+   branch filters; replace `main` only after confirming the repository's default branch.
+   Use `.node-version` and `packageManager` as the runtime and pnpm sources of truth,
+   omit `workflow_dispatch`, keep default-branch pushes uncancelled, and cancel only
+   superseded pull-request or merge-queue runs.
+   After installation, run `actionlint` against both workflows and `pinact run --check
+   --min-age 7` against the installed workflows and composite action. Treat a failure as
+   a blocker. Record each external action's full SHA, release tag, publisher/provenance,
+   release-age result, and the validation results in the pull request or equivalent
+   change record.
 8. Run the repository's documented type checking, linting, tests, and build commands
    with pnpm. Start with checks closest to the changed code, then run a production build
    for routing, bundling, rendering, deployment configuration, framework, UI-library,
