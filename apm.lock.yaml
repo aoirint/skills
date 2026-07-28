@@ -913,7 +913,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:5ec37529d775c08b1d9f3c16a9388fa47f4eade277f883ae67d52da4bdb84228
+  content_hash: sha256:0c416ce9ee2905548c09ec2fb8ad6f72d0f95e10b2c063d82227e814ece54793
 - kind: project-relative
   target: agents
   value: .agents/skills/node-quality-check/agents/openai.yaml
@@ -931,7 +931,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:45834d8a555e55266cf02dfd8e1bc2d6eb41fa28c83f653399ab65a0d4dd9698
+  content_hash: sha256:b9c01ea052878e1da594317f33a3af6f5d90e27873bf0c92c8932fde1593af07
 - kind: project-relative
   target: agents
   value: .agents/skills/node-quality-check/assets/github/workflows/main.yml.template
@@ -1677,9 +1677,9 @@ local_deployed_file_hashes:
   .agents/skills/lethal-company-analyze/references/reporting-and-review.md: sha256:b4b895fcec9c815489a8bba53b65cee02d3a58c51c8cc0670aa6ad7a41ff0582
   .agents/skills/lethal-company-analyze/references/rng-and-runtime-modeling.md: sha256:16bfd80e576715bf7a0248a095c412faea18cda034bc244189dcb729b7b7638b
   .agents/skills/node-quality-check/README.md: sha256:f87def599866d3cf6d4102a1ca80f28dcb827b51be47803c448e041ae9a125da
-  .agents/skills/node-quality-check/SKILL.md: sha256:5ec37529d775c08b1d9f3c16a9388fa47f4eade277f883ae67d52da4bdb84228
+  .agents/skills/node-quality-check/SKILL.md: sha256:0c416ce9ee2905548c09ec2fb8ad6f72d0f95e10b2c063d82227e814ece54793
   .agents/skills/node-quality-check/agents/openai.yaml: sha256:81c5bd6e1b0fcb3d228bb7cef8c913a28d0849a02001d71ffd2edbc1f120e9e0
-  .agents/skills/node-quality-check/assets/github/actions/lint-node/action.yml: sha256:45834d8a555e55266cf02dfd8e1bc2d6eb41fa28c83f653399ab65a0d4dd9698
+  .agents/skills/node-quality-check/assets/github/actions/lint-node/action.yml: sha256:b9c01ea052878e1da594317f33a3af6f5d90e27873bf0c92c8932fde1593af07
   .agents/skills/node-quality-check/assets/github/workflows/main.yml.template: sha256:5e2dcb1b1949e85ca0db24e5994e0a0d2ddc5f32f2359e49428bdfa21ec294df
   .agents/skills/node-quality-check/assets/github/workflows/pull-request.yml.template: sha256:7daf228399aa9d1e0d12ed33d7369d1bdc35bff6eba4464278effab0acf84dc1
   .agents/skills/node-quality-check/assets/pnpm-workspace.yaml: sha256:32d5ee550f635e4ba03a7bb50805e4cd13e9025108e98a96963737fbb18e45da
