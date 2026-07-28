@@ -5,11 +5,12 @@ Use this reference after identifying a pnpm-managed Hugo site.
 ## Runtime and builder
 
 - Treat `.node-version` and `packageManager` as the committed Node.js and pnpm
-  contracts. Keep `engines.node` compatible with them.
+  contracts. Keep `engines.node` compatible with them and validate with
+  `engineStrict` enabled.
 - Inspect the hosted builder rather than assuming its runner default. Cloudflare
-  Pages supports `.node-version` and `NODE_VERSION`; its current build-image
-  documentation lists the default Node.js version and supported Hugo and pnpm
-  overrides. Record the selected version and source in the change record.
+  Pages supports `.node-version` and `NODE_VERSION`, but does not infer Node.js or
+  package-manager versions from `package.json`. Use an officially supported LTS
+  runtime and record the selected version and source in the change record.
 - When Hugo comes from `hugo-extended` or another package, pin it in
   `package.json`, then invoke it through the repository script rather than a
   globally installed binary.

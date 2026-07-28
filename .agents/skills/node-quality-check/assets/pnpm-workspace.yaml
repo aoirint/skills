@@ -6,6 +6,8 @@ engineStrict: true
 # Require packages and transitive dependencies to be at least seven days old.
 minimumReleaseAge: 10080
 
+# Add minimumReleaseAgeExclude only for an exact, approved vulnerability remediation.
+
 # Fail when registry metadata lacks a publication time instead of bypassing the age gate.
 minimumReleaseAgeIgnoreMissingTime: false
 
