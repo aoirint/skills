@@ -3,9 +3,13 @@ description: Install locked pnpm dependencies and run the repository lint script
 
 inputs:
   package-directory:
-    description: Directory containing package.json, .node-version, and pnpm-lock.yaml.
+    description: Directory containing package.json and .node-version.
     required: false
     default: .
+  lockfile-path:
+    description: Repository-relative path to the pnpm lockfile used for cache invalidation.
+    required: false
+    default: pnpm-lock.yaml
 
 runs:
   using: composite
@@ -33,7 +37,7 @@ runs:
       with:
         node-version-file: ${{ inputs.package-directory }}/.node-version
         cache: pnpm
-        cache-dependency-path: ${{ inputs.package-directory }}/pnpm-lock.yaml
+        cache-dependency-path: ${{ inputs.lockfile-path }}
 
     - name: Install dependencies
       shell: bash
