@@ -931,7 +931,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e696a43e6e8b26b0d78b1b28830f60b441dbd2c7ec7f7316bf3e3b38c3233715
+  content_hash: sha256:a397d143fa19812eec98dd382cc7c1ef54f64d9216d4dab9d81a847b7ac3c39a
 - kind: project-relative
   target: agents
   value: .agents/skills/node-quality-check/assets/main.yml
@@ -1679,7 +1679,7 @@ local_deployed_file_hashes:
   .agents/skills/node-quality-check/README.md: sha256:f87def599866d3cf6d4102a1ca80f28dcb827b51be47803c448e041ae9a125da
   .agents/skills/node-quality-check/SKILL.md: sha256:8b7beb0c7e0eba1b139643b06f87fe4dc29825b2a26de681497f5bf37a301fd9
   .agents/skills/node-quality-check/agents/openai.yaml: sha256:81c5bd6e1b0fcb3d228bb7cef8c913a28d0849a02001d71ffd2edbc1f120e9e0
-  .agents/skills/node-quality-check/assets/lint-node/action.yml: sha256:e696a43e6e8b26b0d78b1b28830f60b441dbd2c7ec7f7316bf3e3b38c3233715
+  .agents/skills/node-quality-check/assets/lint-node/action.yml: sha256:a397d143fa19812eec98dd382cc7c1ef54f64d9216d4dab9d81a847b7ac3c39a
   .agents/skills/node-quality-check/assets/main.yml: sha256:5e2dcb1b1949e85ca0db24e5994e0a0d2ddc5f32f2359e49428bdfa21ec294df
   .agents/skills/node-quality-check/assets/pnpm-workspace.yaml: sha256:32d5ee550f635e4ba03a7bb50805e4cd13e9025108e98a96963737fbb18e45da
   .agents/skills/node-quality-check/assets/pull-request.yml: sha256:7daf228399aa9d1e0d12ed33d7369d1bdc35bff6eba4464278effab0acf84dc1

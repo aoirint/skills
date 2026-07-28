@@ -22,3 +22,9 @@ runs:
     - name: Run lint
       shell: bash
       run: pnpm run lint
+
+    # Keep the cache in pnpm's store, but remove the job-local dependency tree.
+    - name: Remove node_modules
+      if: always()
+      shell: bash
+      run: rm -rf node_modules
