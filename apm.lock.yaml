@@ -367,6 +367,60 @@ deployments:
   content_hash: sha256:15386224ed6d16041afb6008fc51a1735edc86dc4566aa3f573594392925ab70
 - kind: project-relative
   target: agents
+  value: .agents/skills/bws-workflow
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/bws-workflow/README.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:d879aa83e9288261149cd9e3d897693f1a8d44d442a408d9d298e1483e0ad3f7
+- kind: project-relative
+  target: agents
+  value: .agents/skills/bws-workflow/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:bced3bea5948389cc0e05efa9071e05add73be75c2416ed0b9368433c6031abe
+- kind: project-relative
+  target: agents
+  value: .agents/skills/bws-workflow/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:6d4db5588dd3353d9bcc622302bbf3f6a52ff184781162673932282e41456488
+- kind: project-relative
+  target: agents
+  value: .agents/skills/bws-workflow/references/credential-bridges.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:afeb7abc3d5e151b4aeefd07aa34591d2acbf23e9997d64771b6ad24e02a2e72
+- kind: project-relative
+  target: agents
+  value: .agents/skills/bws-workflow/references/operations.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:c2200cd0c2f947524d0a3de326d0befc34e01871daf9280367e290c27ad3b198
+- kind: project-relative
+  target: agents
   value: .agents/skills/changelog-workflow
   runtime: null
   scope: project
@@ -1547,6 +1601,12 @@ local_deployed_files:
 - .agents/skills/bepinex-mono-mod-quality-check/scripts/render_repository_files.ps1
 - .agents/skills/bepinex-mono-mod-quality-check/scripts/render_workflows.ps1
 - .agents/skills/bepinex-mono-mod-quality-check/scripts/sync_templates.ps1
+- .agents/skills/bws-workflow
+- .agents/skills/bws-workflow/README.md
+- .agents/skills/bws-workflow/SKILL.md
+- .agents/skills/bws-workflow/agents/openai.yaml
+- .agents/skills/bws-workflow/references/credential-bridges.md
+- .agents/skills/bws-workflow/references/operations.md
 - .agents/skills/changelog-workflow
 - .agents/skills/changelog-workflow/README.md
 - .agents/skills/changelog-workflow/SKILL.md
@@ -1707,6 +1767,11 @@ local_deployed_file_hashes:
   .agents/skills/bepinex-mono-mod-quality-check/scripts/render_repository_files.ps1: sha256:61c5ba3f6cdc0a53d2f293e9e0bf4621f274ae34c216d6c06a27a0b6ca6e6ca0
   .agents/skills/bepinex-mono-mod-quality-check/scripts/render_workflows.ps1: sha256:d9affc8359537e3fd691a8283cbaa39cc992044138018215e2713c39ebe53232
   .agents/skills/bepinex-mono-mod-quality-check/scripts/sync_templates.ps1: sha256:15386224ed6d16041afb6008fc51a1735edc86dc4566aa3f573594392925ab70
+  .agents/skills/bws-workflow/README.md: sha256:d879aa83e9288261149cd9e3d897693f1a8d44d442a408d9d298e1483e0ad3f7
+  .agents/skills/bws-workflow/SKILL.md: sha256:bced3bea5948389cc0e05efa9071e05add73be75c2416ed0b9368433c6031abe
+  .agents/skills/bws-workflow/agents/openai.yaml: sha256:6d4db5588dd3353d9bcc622302bbf3f6a52ff184781162673932282e41456488
+  .agents/skills/bws-workflow/references/credential-bridges.md: sha256:afeb7abc3d5e151b4aeefd07aa34591d2acbf23e9997d64771b6ad24e02a2e72
+  .agents/skills/bws-workflow/references/operations.md: sha256:c2200cd0c2f947524d0a3de326d0befc34e01871daf9280367e290c27ad3b198
   .agents/skills/changelog-workflow/README.md: sha256:7ef8167d26522d95f62b9f11d752487d62b6bfdae05850315189fbe2a19fed83
   .agents/skills/changelog-workflow/SKILL.md: sha256:8d9de8e0e3c31c4a2c176a0d14e3f1a45daf3db364ede7dd86983c8c3f571f54
   .agents/skills/changelog-workflow/agents/openai.yaml: sha256:6264e6dbd0433ab63370e15033ecb94da8dd131c4edcb1d3f2b9abdeb4f680f1

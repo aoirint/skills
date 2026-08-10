@@ -1,0 +1,4 @@
+interface:
+  display_name: "BWS Workflow"
+  short_description: "Use BWS safely with OS-backed access-token storage"
+  default_prompt: "Use $bws-workflow to bridge a BWS access token from an OS credential store and perform the requested Secrets Manager operation safely."

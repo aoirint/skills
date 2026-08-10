@@ -29,6 +29,7 @@ apm update --global
 | Skill | Purpose |
 | --- | --- |
 | [apm-usage](.apm/skills/apm-usage/README.md) | Safely set up, pin, deploy, audit, and update APM-managed agent dependencies. |
+| [bws-workflow](.apm/skills/bws-workflow/README.md) | Use the Bitwarden Secrets Manager CLI safely with OS-backed access-token storage. |
 | [bepinex-mono-mod-quality-check](.apm/skills/bepinex-mono-mod-quality-check/README.md) | Review BepInEx Mono repositories for structure, family alignment, dependencies, CI, package readiness, release, and Thunderstore quality. |
 | [changelog-workflow](.apm/skills/changelog-workflow/README.md) | Maintain canonical developer changelogs and release history. |
 | [code-quality-check](.apm/skills/code-quality-check/README.md) | Review implementation changes for readability, maintainability, and verification. |
