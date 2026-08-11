@@ -41,7 +41,6 @@ runs:
         uvx --from ruff==0.12.11 ruff format --check
         .apm/skills/apm-workflow/assets/check-apm-project/check_apm_project.py
         .apm/skills/apm-workflow/scripts/test_check_apm_project.py
-        .apm/skills/bepinex-mono-mod-quality-check/assets/github/actions/check-apm-project/check_apm_project.py
 
     - name: Lint Python helpers
       shell: bash
@@ -49,15 +48,12 @@ runs:
         uvx --from ruff==0.12.11 ruff check
         .apm/skills/apm-workflow/assets/check-apm-project/check_apm_project.py
         .apm/skills/apm-workflow/scripts/test_check_apm_project.py
-        .apm/skills/bepinex-mono-mod-quality-check/assets/github/actions/check-apm-project/check_apm_project.py
 
     - name: Type-check Python helpers
       shell: bash
       run: |
         uvx --from mypy==1.17.1 mypy --strict \
           .apm/skills/apm-workflow/assets/check-apm-project/check_apm_project.py
-        uvx --from mypy==1.17.1 mypy --strict \
-          .apm/skills/bepinex-mono-mod-quality-check/assets/github/actions/check-apm-project/check_apm_project.py
         uvx --from mypy==1.17.1 mypy --strict \
           .github/actions/check-apm-project/check_apm_project.py
 
