@@ -38,6 +38,10 @@ description: >-
    `content/**/*.md`. If `publishDir` or the content directory differs, replace
    the corresponding path. Add a theme or broader renderer exception only
    after repository evidence shows that the narrower exception is required.
+   Record every non-default content path, output path, theme exclusion, and
+   renderer exception in the repository's `AGENTS.md`, including its evidence
+   and ownership boundary. Keep a concise matching rationale beside the config
+   rule so future maintainers can reconcile policy and implementation.
 2. Inventory the build contract before editing it: content source and mount
    targets, theme source, build output, package scripts, local static assets,
    and hosted-builder runtime configuration. For a Git submodule theme, run
