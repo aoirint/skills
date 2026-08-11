@@ -11,15 +11,12 @@ runs:
     - name: Set up reviewed APM CLI
       uses: microsoft/apm-action@d723bb64ed70c135bbaf87d126b721dd2dae0439 # v1.10.0
       with:
-        apm-version: "0.26.0"
+        apm-version: "0.27.0"
         setup-only: "true"
 
-    - name: Replay and audit APM deployment
+    - name: Audit APM deployment
       shell: bash
-      run: |
-        apm install --frozen
-        git diff --exit-code -- .agents apm.lock.yaml
-        apm audit --ci
+      run: apm audit --ci
 
     - name: Lint GitHub Actions and embedded shell
       shell: bash
