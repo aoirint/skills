@@ -68,9 +68,7 @@ description: >-
    responsibility is duplicated. The composite reads `.node-version` and
    `packageManager`, replays the lockfile, runs `lint` then `build`, and removes
    only the package directory’s `node_modules`.
-7. Preserve `submodules: recursive` in every Hugo checkout. Use
-   `github-actions-quality-check` for event separation, permissions,
-   concurrency, runners, action pins, step names, and automated workflow checks.
+7. Preserve `submodules: recursive` in every Hugo checkout.
 8. Summarize the build contract, runtime compatibility evidence, external asset
    provenance, commands and results, and every skipped validation with its
    reason.
@@ -79,4 +77,5 @@ description: >-
 
 - [`references/hugo-build-contract.md`](references/hugo-build-contract.md): Hugo
   mounts, runtime sources, local asset checks, and hosted-builder evidence.
-- `assets/github/actions/lint-hugo/action.yml`: reusable Hugo validation action.
+- `assets/github/actions/lint-hugo/action.yml`: reusable Hugo validation action
+  used with the entry workflows from `github-actions-quality-check`.
