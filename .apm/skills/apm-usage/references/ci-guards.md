@@ -10,11 +10,11 @@ Markdown lint checks without adding an installer to the lint job.
 
 ## APM project metadata
 
-The Skill includes `assets/check-apm-project/action.yml` as the reviewed
-template for a small repository-owned Composite Action. Copy the action to
-`.github/actions/check-apm-project/action.yml`. Do not invoke the deployed Skill
-path from CI: that would make a consumer workflow depend on the Skill's
-internal directory structure.
+The Skill includes `assets/check-apm-project/` as the reviewed template for a
+small repository-owned Composite Action and its Python implementation. Copy
+the whole directory to `.github/actions/check-apm-project/`. Do not invoke the
+deployed Skill path from CI: that would make a consumer workflow depend on the
+Skill's internal directory structure.
 
 The copied guard checks two repository invariants:
 

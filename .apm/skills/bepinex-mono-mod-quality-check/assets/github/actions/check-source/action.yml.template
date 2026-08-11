@@ -1,4 +1,4 @@
-name: Lint BepInEx source
+name: Check BepInEx source
 description: Run the repository's workflow, C#, and Markdown source checks.
 
 runs:
@@ -9,12 +9,15 @@ runs:
       with:
         expected-apm-version: "0.26.0"
 
-    - name: Install workflow lint tools
+    - name: Install workflow validation tools
       uses: ./.github/actions/install-workflow-tools
 
     - name: Lint standalone shell
       shell: bash
-      run: shellcheck .github/actions/publish-thunderstore/publish-thunderstore.sh
+      run: >-
+        shellcheck
+        .github/actions/generate-version/resolve-version.sh
+        .github/actions/publish-thunderstore/publish-thunderstore.sh
 
     - name: Lint workflows and inline shell
       shell: bash

@@ -13,8 +13,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  checks:
-    name: Checks
+  check:
+    name: Check
     # Re-run the required source check on the exact merged commit.
     runs-on: ubuntu-slim
     timeout-minutes: 15
@@ -26,4 +26,4 @@ jobs:
           persist-credentials: false
 
       - name: Run source checks
-        uses: ./.github/actions/lint-source
+        uses: ./.github/actions/check-source

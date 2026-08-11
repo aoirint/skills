@@ -1,4 +1,4 @@
-name: Validate Hugo site
+name: Check Hugo site
 description: Install locked pnpm dependencies, lint content, and build the Hugo site.
 
 inputs:
@@ -14,35 +14,20 @@ inputs:
 runs:
   using: composite
   steps:
-    # Resolve the cache key before setup so a missing lockfile fails before package resolution.
-    - name: Resolve package paths
-      id: paths
+    # Resolve the committed package-manager contract before package execution.
+    - name: Resolve Node package contract
+      id: contract
       shell: bash
-      run: |
-        lockfile_path='${{ inputs.lockfile-path }}'
-        if [ -z "$lockfile_path" ]; then
-          lockfile_path='${{ inputs.package-directory }}/pnpm-lock.yaml'
-        fi
-        test -f "$lockfile_path"
-        printf 'lockfile-path=%s\n' "$lockfile_path" >> "$GITHUB_OUTPUT"
-
-    # Read the package-manager contract without depending on a runner Node.js version.
-    - name: Read pnpm version
-      id: pnpm-version
-      shell: bash
-      working-directory: ${{ inputs.package-directory }}
-      run: |
-        package_manager=$(grep -oE '"packageManager"[[:space:]]*:[[:space:]]*"[^"]+"' package.json | head -n 1 | sed -E 's/.*"([^"]+)"$/\1/')
-        case "$package_manager" in
-          pnpm@*) printf 'version=%s\n' "${package_manager#pnpm@}" >> "$GITHUB_OUTPUT" ;;
-          *) echo "packageManager must specify pnpm@<version>" >&2; exit 1 ;;
-        esac
+      env:
+        NODE_PACKAGE_DIRECTORY: ${{ inputs.package-directory }}
+        NODE_LOCKFILE_PATH: ${{ inputs.lockfile-path }}
+      run: bash "${{ github.action_path }}/resolve-node-contract.sh"
 
     # Install only the pnpm version declared by the selected package.
     - name: Install pnpm
       uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
       with:
-        version: ${{ steps.pnpm-version.outputs.version }}
+        version: ${{ steps.contract.outputs.pnpm-version }}
 
     # Use the committed runtime and lockfile as the Node.js and cache contracts.
     - name: Install Node.js
@@ -50,7 +35,7 @@ runs:
       with:
         node-version-file: ${{ inputs.package-directory }}/.node-version
         cache: pnpm
-        cache-dependency-path: ${{ steps.paths.outputs.lockfile-path }}
+        cache-dependency-path: ${{ steps.contract.outputs.lockfile-path }}
 
     # Replay the reviewed lockfile rather than resolving a new dependency graph.
     - name: Install dependencies

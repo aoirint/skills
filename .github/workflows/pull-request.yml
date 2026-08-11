@@ -16,8 +16,8 @@ permissions:
   contents: read
 
 jobs:
-  checks:
-    name: Checks
+  check:
+    name: Check
     # Markdown lint is lightweight, has no native compatibility contract, and
     # fits the slim runner's resource and duration limits.
     runs-on: ubuntu-slim
@@ -30,4 +30,4 @@ jobs:
           persist-credentials: false
 
       - name: Run source checks
-        uses: ./.github/actions/lint-source
+        uses: ./.github/actions/check-source
