@@ -1,0 +1,4 @@
+interface:
+  display_name: "WSL Workflow"
+  short_description: "Configure and troubleshoot reliable WSL workflows"
+  default_prompt: "Use $wsl-workflow to diagnose or configure this WSL environment safely, including persistent bindfs mounts when relevant."
