@@ -29,7 +29,15 @@ description: >-
 1. Read repository guidance, the Hugo configuration, content mounts, layouts,
    `package.json`, `pnpm-workspace.yaml`, `pnpm-lock.yaml`, Node-version files,
    theme declaration, submodule metadata, and workflows. Use pnpm; do not
-   substitute another package manager.
+   substitute another package manager. Copy `assets/markdownlint-cli2.yaml` to
+   `.markdownlint-cli2.yaml` for repository documentation and
+   `assets/markdownlint-cli2-content.yaml` to
+   `.markdownlint-cli2-content.yaml` for Hugo articles. The repository config
+   preserves the shared prose baseline while excluding `content/` and Hugo's
+   default `public/` output; the content config scopes renderer-owned HTML to
+   `content/**/*.md`. If `publishDir` or the content directory differs, replace
+   the corresponding path. Add a theme or broader renderer exception only
+   after repository evidence shows that the narrower exception is required.
 2. Inventory the build contract before editing it: content source and mount
    targets, theme source, build output, package scripts, local static assets,
    and hosted-builder runtime configuration. For a Git submodule theme, run
@@ -82,6 +90,13 @@ description: >-
 
 - [`references/hugo-build-contract.md`](references/hugo-build-contract.md): Hugo
   mounts, runtime sources, local asset checks, and hosted-builder evidence.
+- `assets/markdownlint-cli2.yaml` and
+  `assets/markdownlint-cli2-content.yaml`: separate prose-baseline validation
+  for repository documentation and Hugo articles. Regenerate both from the prose asset with
+  `scripts/render_markdownlint_config.py`; run the script with `--check` to
+  detect baseline drift.
+- `scripts/render_markdownlint_config.py`: deterministic renderer and drift
+  check for the Hugo Markdown configuration.
 - `assets/github/actions/check-hugo-site/action.yml`: reusable Hugo validation
   action used with the Node setup action from `node-quality-check` and the
   entry workflows from `github-actions-quality-check`.
