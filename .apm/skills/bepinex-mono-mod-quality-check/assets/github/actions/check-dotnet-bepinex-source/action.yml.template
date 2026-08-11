@@ -10,9 +10,12 @@ runs:
         apm-version: "0.26.0"
         setup-only: "true"
 
-    - name: Audit APM deployment
+    - name: Replay and audit APM deployment
       shell: bash
-      run: apm audit --ci
+      run: |
+        apm install --frozen
+        git diff --exit-code -- .agents apm.lock.yaml
+        apm audit --ci
 
     - name: Install workflow validation tools
       id: workflow-tools

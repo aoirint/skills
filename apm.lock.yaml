@@ -130,7 +130,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:80160ec49f6454d77c136696412836c42d7f278b8b97be782e00aba75460dc1c
+  content_hash: sha256:525672b38ef42922e7634c7fc4ad4a4e490bc9a54a8c83b497dca71b24d2027a
 - kind: project-relative
   target: agents
   value: .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/deploy-bepinex-thunderstore/action.yml
@@ -1990,7 +1990,7 @@ local_deployed_file_hashes:
   .agents/skills/bepinex-mono-mod-quality-check/README.md: sha256:f1cedde8c48a1aa4ebe4a57decff164fd845ba82a64ddcbe66e9fc9f349286f5
   .agents/skills/bepinex-mono-mod-quality-check/SKILL.md: sha256:04e705a02609eae4381990026cfac4c781507f685fa974894fd9c7a8c4e5510e
   .agents/skills/bepinex-mono-mod-quality-check/agents/openai.yaml: sha256:a4d486e33ec1ce652ec78ffbc6c783b8005bd30202716385aaf5b5b686451cf7
-  .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/check-dotnet-bepinex-source/action.yml.template: sha256:80160ec49f6454d77c136696412836c42d7f278b8b97be782e00aba75460dc1c
+  .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/check-dotnet-bepinex-source/action.yml.template: sha256:525672b38ef42922e7634c7fc4ad4a4e490bc9a54a8c83b497dca71b24d2027a
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/deploy-bepinex-thunderstore/action.yml: sha256:95eecbea6e59e7de9d3f36fc588938e08d8621fa8820e12ea6c8ea3828959a58
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/deploy-bepinex-thunderstore/publish-thunderstore.sh: sha256:1801d6c68370a3c0de36d3910f6e9cbc319654669974365f8f52df759ee16023
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/resolve-bepinex-version/action.yml: sha256:281bf9478a67321553b0387bd9a59c65504783ec04dfb517d6412a0695df8331
