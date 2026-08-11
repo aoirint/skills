@@ -15,6 +15,7 @@ runs:
       run: apm audit --ci
 
     - name: Install workflow validation tools
+      id: workflow-tools
       uses: ./.github/actions/install-workflow-tools
 
     - name: Lint GitHub Actions syntax
@@ -54,3 +55,10 @@ runs:
       if: always() && steps.setup.outputs.environment-owned == 'true'
       shell: bash
       run: rm -rf .venv
+
+    - name: Remove workflow validation tools
+      if: ${{ always() && steps.workflow-tools.outputs.installation-directory != '' }}
+      shell: bash
+      env:
+        WORKFLOW_TOOLS_DIRECTORY: ${{ steps.workflow-tools.outputs.installation-directory }}
+      run: rm -rf -- "$WORKFLOW_TOOLS_DIRECTORY"

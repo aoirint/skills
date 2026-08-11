@@ -30,3 +30,8 @@ runs:
       with:
         config: .markdownlint-cli2.yaml
         globs: "**/*.md"
+
+    - name: Remove hadolint
+      if: always()
+      shell: bash
+      run: rm -rf -- "${RUNNER_TEMP}/hadolint"
