@@ -1,20 +1,14 @@
 ---
-# Lint every committed Markdown document by default so docs, release notes, and
-# GitHub templates follow one repository-wide style.
+# Check Hugo article source separately from repository documentation so
+# renderer-specific exceptions cannot weaken README or operational prose.
 globs:
-  - "**/*.md"
+  - "content/**/*.md"
 
 # Exclude Agent-local work areas for the first Markdown lint rollout. Skill
 # Markdown can be included later with a narrower ignore that still excludes
 # transient .agents/worktrees content.
 ignores:
   - ".agents/**"
-
-  # Hugo article source is checked separately with its renderer-aware rules.
-  - "content/**"
-
-  # Hugo's default public directory is generated output, not site-owned prose.
-  - "public/**"
 
 # Respect .gitignore so generated, local, or tool cache Markdown files do not
 # affect CI when they are intentionally outside version control.
@@ -43,6 +37,10 @@ config:
   # suspicious.
   MD024:
     siblings_only: true
+
+  # Article source may use renderer-owned inline HTML. This exception is
+  # isolated from repository documentation by the content-only glob above.
+  MD033: false
 
   # PR-template guidance needs to appear before the first visible heading, so
   # do not require the first line to be an H1.

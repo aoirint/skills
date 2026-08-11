@@ -10,6 +10,9 @@ globs:
 ignores:
   - ".agents/**"
 
+  # Hugo article source is checked separately with its renderer-aware rules.
+  - "content/**"
+
   # Hugo's default public directory is generated output, not site-owned prose.
   - "public/**"
 
