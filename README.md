@@ -50,6 +50,7 @@ apm update --global
 | [security-check](.apm/skills/security-check/README.md) | Review repository changes for practical security and supply-chain risks. |
 | [skill-quality-check](.apm/skills/skill-quality-check/README.md) | Review Agent Skills for clear triggers, focused scope, and validation readiness. |
 | [software-documentation-maintenance](.apm/skills/software-documentation-maintenance/README.md) | Design and maintain coherent software documentation systems. |
+| [test-quality-check](.apm/skills/test-quality-check/README.md) | Design focused behavioral tests with complete coverage and controlled suite complexity. |
 | [unity-game-analyze](.apm/skills/unity-game-analyze/README.md) | Trace Unity game behavior through decompiled code and serialized assets. |
 | [wsl-workflow](.apm/skills/wsl-workflow/README.md) | Diagnose and configure reliable WSL environments, including persistent bindfs mounts. |
 

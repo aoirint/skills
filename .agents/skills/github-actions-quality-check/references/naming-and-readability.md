@@ -53,6 +53,9 @@ ownership, or operational lifecycle warrants a separate boundary.
 Place tests by measured cost, determinism, infrastructure, credentials, security exposure, and
 feedback value rather than by the labels `unit`, `integration`, or `end-to-end`. Cheap deterministic
 integration tests can belong on pull requests; expensive or credentialed tests may not.
+Use `test-quality-check` to classify test evidence and judge its behavioral
+value. This reference owns only the operational workflow/job boundary implied
+by cost, permissions, runners, credentials, and artifact lineage.
 
 Keep Composite Actions policy-neutral. Name them for reusable capabilities such as
 `check-python`, `test-package`, `build-container`, or `deploy-package`; do not encode `pull-request`,

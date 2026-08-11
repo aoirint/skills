@@ -50,6 +50,10 @@ or duplicate them. Install both Skills as adjacent siblings before running the
 Flet checker; a missing shared Python Skill is a blocked dependency, not a
 reason to copy or redefine its baseline here.
 
+Use `test-quality-check` for general test classification, behavioral value,
+coverage policy, determinism, and suite overengineering. This Skill retains only
+Flet-specific presentation, adapter, lifecycle, and packaged-runtime contracts.
+
 Use `github-actions-quality-check` for workflow triggers, permissions,
 concurrency, action pins, actionlint, ShellCheck, and pinact. Use `security-check`
 for package provenance and cooldown, lock changes, secrets, URL/file input,

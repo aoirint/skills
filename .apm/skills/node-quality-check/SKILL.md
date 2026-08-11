@@ -15,6 +15,8 @@ description: >-
   configuration and lockfiles, framework or UI-library upgrades, runtime/toolchain
   changes, or GitHub Actions changes.
 - Use before committing or publishing a Node.js change.
+- Pair with `test-quality-check` when designing tests, coverage gates, or
+  auditing a suite; this Skill retains Node.js and pnpm-specific commands.
 
 ## Goals
 

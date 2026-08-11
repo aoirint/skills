@@ -625,7 +625,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7c2b852f531ee6c3b66ace23d836a46b1486f8edcdd778b4452e275737e61300
+  content_hash: sha256:022f697ccb22585bc84c14e5b75a41fdcd45241f8be9d7b84cbd6d9254ca2cc6
 - kind: project-relative
   target: agents
   value: .agents/skills/flet-project-quality-check/agents/openai.yaml
@@ -715,7 +715,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a4eb775baa68d553d90cadd4d7466c00028880099356d486230691d0f97cd7d1
+  content_hash: sha256:92e8cc9a8c602dd443d9f06c243b0bcfbc2f31a6122329c29f9c2b022e3b24aa
 - kind: project-relative
   target: agents
   value: .agents/skills/flet-project-quality-check/references/tooling-and-testing.md
@@ -859,7 +859,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:67aadfaf88aecc7086f98476a627b9b3043120a1e433d53cc6991e6198b3ab95
+  content_hash: sha256:6bebb3f2551925b38791b6ff68e9c13747a6a7387d0d58840f86fd7ca7931821
 - kind: project-relative
   target: agents
   value: .agents/skills/github-actions-quality-check/references/repository-enforcement.md
@@ -1147,7 +1147,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:2e2f2282e17068d9f759e70a7c6b7ff0bda41c93c9d34813b83c051267310c22
+  content_hash: sha256:27479082e1d1183a94ef3ef67508e5cb437aa9275655da2bd18bc43c72969dff
 - kind: project-relative
   target: agents
   value: .agents/skills/node-quality-check/agents/openai.yaml
@@ -1237,7 +1237,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:cc724d4daf85f6038f603f968ccb44cef15ce43eb5da4e03e1e309474406004b
+  content_hash: sha256:8827207925dfe0648856628561433435a6c3bd3f27e8497a784b809e90c9441d
 - kind: project-relative
   target: agents
   value: .agents/skills/python-quality-check/agents/openai.yaml
@@ -1264,7 +1264,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:61ff7e27674d45949003576bef5bdb0c225172f69ba1d6c0a3129feabc42c23a
+  content_hash: sha256:8dd45ccbf2818d73c6497beec400567c294eec842199eaf329e856d40446e771
 - kind: project-relative
   target: agents
   value: .agents/skills/python-quality-check/scripts/check_project.py
@@ -1535,6 +1535,60 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:967e49ba1593e58753ff48c94394d0edcadfba55574151f91cf7679d6aa7b774
+- kind: project-relative
+  target: agents
+  value: .agents/skills/test-quality-check
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/test-quality-check/README.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:fdd89fb9033263dfbc3c8420e11c722f897c5d094bac1d545705e12604a4fa19
+- kind: project-relative
+  target: agents
+  value: .agents/skills/test-quality-check/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:92c658da6f89dd5e99aca4b15354ee86231f22e547765b16b03b5e0d91cad0c5
+- kind: project-relative
+  target: agents
+  value: .agents/skills/test-quality-check/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:1b97300ddad1b506c43c47ff8be43eca33e7fd73ee58ad179321a92848aa63f0
+- kind: project-relative
+  target: agents
+  value: .agents/skills/test-quality-check/references/classification-and-placement.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:31f5e95627e183789751b1b1942257c3aa253d5c0e2504c02b5e2391d5dad104
+- kind: project-relative
+  target: agents
+  value: .agents/skills/test-quality-check/references/coverage-and-suite-audit.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:040af3a01b78c20670ca37c1e62941b830c4b9a90f64e8853ffc0255db709277
 - kind: project-relative
   target: agents
   value: .agents/skills/unity-game-analyze
@@ -1866,6 +1920,12 @@ local_deployed_files:
 - .agents/skills/software-documentation-maintenance/SKILL.md
 - .agents/skills/software-documentation-maintenance/agents/openai.yaml
 - .agents/skills/software-documentation-maintenance/references/visual-documentation-assets.md
+- .agents/skills/test-quality-check
+- .agents/skills/test-quality-check/README.md
+- .agents/skills/test-quality-check/SKILL.md
+- .agents/skills/test-quality-check/agents/openai.yaml
+- .agents/skills/test-quality-check/references/classification-and-placement.md
+- .agents/skills/test-quality-check/references/coverage-and-suite-audit.md
 - .agents/skills/unity-game-analyze
 - .agents/skills/unity-game-analyze/README.md
 - .agents/skills/unity-game-analyze/SKILL.md
@@ -1939,7 +1999,7 @@ local_deployed_file_hashes:
   .agents/skills/docker-quality-check/assets/github/workflows/pull-request.yml: sha256:0ff5ebdc316889f7d295a22de2f24c2ad0307be5c8afb76cb1555d4ac3c05782
   .agents/skills/docker-quality-check/references/ci-template-contract.md: sha256:91931e9e0d6bb3bd2291fde1b4f6159a8005100b8d8ac7666b65aa0a65403dd8
   .agents/skills/flet-project-quality-check/README.md: sha256:5fdc047f0235d83c9bb30a668f96f7a6b54c930bb997fc661dc209312e46e278
-  .agents/skills/flet-project-quality-check/SKILL.md: sha256:7c2b852f531ee6c3b66ace23d836a46b1486f8edcdd778b4452e275737e61300
+  .agents/skills/flet-project-quality-check/SKILL.md: sha256:022f697ccb22585bc84c14e5b75a41fdcd45241f8be9d7b84cbd6d9254ca2cc6
   .agents/skills/flet-project-quality-check/agents/openai.yaml: sha256:6b8a81074e807de9c50c9a510d47a9e658dd4bbda440aa9937c38ba140992e7d
   .agents/skills/flet-project-quality-check/assets/github/actions/install-workflow-tools/action.yml: sha256:6c8035be477725a0a916233cae25bcc24ec3b5d3fc55639930bc2818f784861d
   .agents/skills/flet-project-quality-check/assets/github/actions/lint-source/action.yml: sha256:09818c477e14e98d279c70da4fd1dfe587ce49596686522b29287fed718d6ce3
@@ -1949,7 +2009,7 @@ local_deployed_file_hashes:
   .agents/skills/flet-project-quality-check/assets/github/workflows/pull-request.yml: sha256:d2ce42a62424a408e98257a7a4299cece92333b28e7c47ab64baacf5aca5e543
   .agents/skills/flet-project-quality-check/references/architecture-and-ui.md: sha256:4aff6599ccb6c8fd00e44d34e48cdc51b672de71199bca90d02511e18c357b27
   .agents/skills/flet-project-quality-check/references/ci-packaging-security.md: sha256:4a07dfb4465aa5bea5497658f94f4cfa1dee7dcd0214ceea5d87010cf64bb8c8
-  .agents/skills/flet-project-quality-check/references/implementation-runbook.md: sha256:a4eb775baa68d553d90cadd4d7466c00028880099356d486230691d0f97cd7d1
+  .agents/skills/flet-project-quality-check/references/implementation-runbook.md: sha256:92e8cc9a8c602dd443d9f06c243b0bcfbc2f31a6122329c29f9c2b022e3b24aa
   .agents/skills/flet-project-quality-check/references/tooling-and-testing.md: sha256:9974be10c0755f49280a47b8f3679dd2b3916ee8aa6fc115b91c738ae09d1dac
   .agents/skills/flet-project-quality-check/scripts/check_project.py: sha256:32e6c93215b1c397eae485e2d6920b4916ee2b6d01158dc400db03b723fb01e7
   .agents/skills/flet-project-quality-check/scripts/check_project.py.lock: sha256:76042d39ffdbb675188966b4fc41d312b0ec9374a7aa438d4f5e919adcf04c07
@@ -1963,7 +2023,7 @@ local_deployed_file_hashes:
   .agents/skills/github-actions-quality-check/assets/github/actions/install-workflow-tools/action.yml: sha256:8f881f57add1754f54fcdd59eed60a174f1cdcd240dfba708eafb4ec95cc6ecc
   .agents/skills/github-actions-quality-check/assets/github/workflows/main.yml: sha256:2ad5a01fbcceb748ea1a1f96b4a362aa9c4f6048e4e52eb6fae2234f007f3e3e
   .agents/skills/github-actions-quality-check/assets/github/workflows/pull-request.yml: sha256:8dcb30edb98ef1f108ead5579e49b3eb73aa1c2494f36b774aa836af2b267c80
-  .agents/skills/github-actions-quality-check/references/naming-and-readability.md: sha256:67aadfaf88aecc7086f98476a627b9b3043120a1e433d53cc6991e6198b3ab95
+  .agents/skills/github-actions-quality-check/references/naming-and-readability.md: sha256:6bebb3f2551925b38791b6ff68e9c13747a6a7387d0d58840f86fd7ca7931821
   .agents/skills/github-actions-quality-check/references/repository-enforcement.md: sha256:72f1ace12342293c036e7bf76d031f30845c99d60fb82ca7956c65866a630c9a
   .agents/skills/github-actions-quality-check/references/runner-selection.md: sha256:6e9929a316ba9efbf6171366de0d1a3c976aee73d22c26b2d1ec33017af6f164
   .agents/skills/github-actions-quality-check/references/template-contract.md: sha256:bb1c89c097aac9d294237532094d3f101f8ab9dd26fc49441b9bb5e79ee74135
@@ -1990,7 +2050,7 @@ local_deployed_file_hashes:
   .agents/skills/lethal-company-analyze/references/reporting-and-review.md: sha256:b4b895fcec9c815489a8bba53b65cee02d3a58c51c8cc0670aa6ad7a41ff0582
   .agents/skills/lethal-company-analyze/references/rng-and-runtime-modeling.md: sha256:16bfd80e576715bf7a0248a095c412faea18cda034bc244189dcb729b7b7638b
   .agents/skills/node-quality-check/README.md: sha256:f87def599866d3cf6d4102a1ca80f28dcb827b51be47803c448e041ae9a125da
-  .agents/skills/node-quality-check/SKILL.md: sha256:2e2f2282e17068d9f759e70a7c6b7ff0bda41c93c9d34813b83c051267310c22
+  .agents/skills/node-quality-check/SKILL.md: sha256:27479082e1d1183a94ef3ef67508e5cb437aa9275655da2bd18bc43c72969dff
   .agents/skills/node-quality-check/agents/openai.yaml: sha256:81c5bd6e1b0fcb3d228bb7cef8c913a28d0849a02001d71ffd2edbc1f120e9e0
   .agents/skills/node-quality-check/assets/github/actions/lint-node/action.yml: sha256:b377ffb0118b256a3dcaeebdc5ac5ed92b65ff096d95821eed6ac70a7b75c4ee
   .agents/skills/node-quality-check/assets/pnpm-workspace.yaml: sha256:c2e65b05e43b96b835f138ce1bd7a1cd0d3bb7205d103dc427d837d5d5a0224a
@@ -1998,10 +2058,10 @@ local_deployed_file_hashes:
   .agents/skills/prose-quality-check/SKILL.md: sha256:9ec45813d04382e04a3b504fd187e4151fc5198352564bd0bcb064f4eaf9a702
   .agents/skills/prose-quality-check/agents/openai.yaml: sha256:b83e0a5d151e6e20df6f7d97f268955c6abfd105d53820f6baad0de8403fc062
   .agents/skills/python-quality-check/README.md: sha256:20a23003a24a8caf2f03dd5a06bed99c81cf93ab53fe5a196c6a67ab59c53b0e
-  .agents/skills/python-quality-check/SKILL.md: sha256:cc724d4daf85f6038f603f968ccb44cef15ce43eb5da4e03e1e309474406004b
+  .agents/skills/python-quality-check/SKILL.md: sha256:8827207925dfe0648856628561433435a6c3bd3f27e8497a784b809e90c9441d
   .agents/skills/python-quality-check/agents/openai.yaml: sha256:f0b4ad3807e177becec02271314fb32c1ec8d5a7682725ddd4a611a5381084d1
   .agents/skills/python-quality-check/references/ci-and-distribution.md: sha256:e52aaf46c28816d6f6262a5421dba8de9f906d2b606987bedcda840d2e687281
-  .agents/skills/python-quality-check/references/tooling-and-testing.md: sha256:61ff7e27674d45949003576bef5bdb0c225172f69ba1d6c0a3129feabc42c23a
+  .agents/skills/python-quality-check/references/tooling-and-testing.md: sha256:8dd45ccbf2818d73c6497beec400567c294eec842199eaf329e856d40446e771
   .agents/skills/python-quality-check/scripts/check_project.py: sha256:8175b500198399a2ce8b79b4fc8d1902f791d163a0d6dfd35b5ce56b41c5ccc5
   .agents/skills/python-quality-check/scripts/check_project.py.lock: sha256:76042d39ffdbb675188966b4fc41d312b0ec9374a7aa438d4f5e919adcf04c07
   .agents/skills/python-quality-check/scripts/inspect_distribution.py: sha256:86cc60199cf85c6eab39f648c9892963fbfd2ec6d913106119b0eb679eca6849
@@ -2027,6 +2087,11 @@ local_deployed_file_hashes:
   .agents/skills/software-documentation-maintenance/SKILL.md: sha256:36d61f85d5f982e691c807a369ada22bbeb661ef13dca1891591e34c0662d890
   .agents/skills/software-documentation-maintenance/agents/openai.yaml: sha256:ee6ff516cfb6b9d7a76bacd166c461bc79cd012e0a7e7683aada95e1b5d1ff14
   .agents/skills/software-documentation-maintenance/references/visual-documentation-assets.md: sha256:967e49ba1593e58753ff48c94394d0edcadfba55574151f91cf7679d6aa7b774
+  .agents/skills/test-quality-check/README.md: sha256:fdd89fb9033263dfbc3c8420e11c722f897c5d094bac1d545705e12604a4fa19
+  .agents/skills/test-quality-check/SKILL.md: sha256:92c658da6f89dd5e99aca4b15354ee86231f22e547765b16b03b5e0d91cad0c5
+  .agents/skills/test-quality-check/agents/openai.yaml: sha256:1b97300ddad1b506c43c47ff8be43eca33e7fd73ee58ad179321a92848aa63f0
+  .agents/skills/test-quality-check/references/classification-and-placement.md: sha256:31f5e95627e183789751b1b1942257c3aa253d5c0e2504c02b5e2391d5dad104
+  .agents/skills/test-quality-check/references/coverage-and-suite-audit.md: sha256:040af3a01b78c20670ca37c1e62941b830c4b9a90f64e8853ffc0255db709277
   .agents/skills/unity-game-analyze/README.md: sha256:844d7294c5867870315e0a2d521d59654e9b0f4ee14885902ceca84ba7c70ec7
   .agents/skills/unity-game-analyze/SKILL.md: sha256:68481c536fbfbda49b8c6e1a74f55faf4ce48c14006efeb13b37a83509e4e7d9
   .agents/skills/unity-game-analyze/agents/openai.yaml: sha256:d6b6ee37197ee95d8a81bddeabc3ccc6a87b80dababa874ed5ab514e317f3088
