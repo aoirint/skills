@@ -1,4 +1,4 @@
-name: Lint Flet source
+name: Check Flet source
 description: Run workflow, Python, type, and Markdown source checks.
 
 runs:

@@ -13,8 +13,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  checks:
-    name: Checks
+  check:
+    name: Check
     # Keep the lightweight gate independent from Docker daemon requirements.
     runs-on: ubuntu-slim
     timeout-minutes: 5
@@ -31,7 +31,7 @@ jobs:
   build:
     name: Build
     needs:
-      - checks
+      - check
 
     # Build only integrated source; proposed-source validation stays lightweight.
     runs-on: ubuntu-24.04

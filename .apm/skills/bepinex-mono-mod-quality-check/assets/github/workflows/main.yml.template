@@ -19,8 +19,8 @@ defaults:
 jobs:
   # A merged commit is validated again in this workflow. This direct
   # dependency is the release gate; do not replace it with workflow polling.
-  checks:
-    name: Checks
+  check:
+    name: Check
     runs-on: ubuntu-slim
 
     steps:
@@ -30,7 +30,7 @@ jobs:
           persist-credentials: false
 
       - name: Run BepInEx source gate
-        uses: ./.github/actions/lint-source
+        uses: ./.github/actions/check-source
 
   # Resolve one release identity before build mutates package source files.
   # Keep planning read-only so edge metadata remains reusable by its consumers.
@@ -61,7 +61,7 @@ jobs:
   build:
     name: Build
     needs:
-      - checks
+      - check
       - plan
     # Build keeps ubuntu-latest because packaging currently relies on
     # runner-provided shell tools such as jq and 7z.
@@ -188,8 +188,8 @@ jobs:
             echo "| Artifact Digest | ${ARTIFACT_DIGEST_MARKDOWN} |"
           } >> "${GITHUB_STEP_SUMMARY}"
 
-  release:
-    name: Release
+  deploy:
+    name: Deploy
     needs:
       - build
       - plan

@@ -42,12 +42,12 @@ package-host publication; a stable project version alone is not authorization.
 exact-sync template IDs: project and package-host values are intentionally
 render variables. Render the paired `pull-request.yml.template`,
 `main.yml.template`, and the local `install-workflow-tools`, `setup-dotnet`,
-`check-apm-project`, `lint-source`, `generate-version`, and
+`check-apm-project`, `check-source`, `generate-version`, and
 `publish-thunderstore` Composite Actions, including the publisher script,
 together. A workflow change that adds or changes a local-action reference or
 input is incomplete until the renderer deploys the complete matching action in
 the same invocation. The small actions expose their
-individual toolchain, environment, and lint responsibilities; `lint-source`
+individual toolchain, environment, and check responsibilities; `check-source`
 validates source on the caller's runner;
 `Main` repeats that validation on the pushed integration commit, resolves
 read-only version and release state in `plan`, then gates build and publication
