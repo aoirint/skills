@@ -4,7 +4,7 @@ set -euo pipefail
 
 SKILL_ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 readonly SKILL_ROOT
-readonly SCRIPT_PATH="${SKILL_ROOT}/assets/github/actions/generate-version/resolve-version.sh"
+readonly SCRIPT_PATH="${SKILL_ROOT}/assets/github/actions/resolve-bepinex-version/resolve-version.sh"
 FIXTURE_ROOT=''
 
 fail() {

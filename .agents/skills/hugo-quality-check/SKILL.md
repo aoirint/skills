@@ -62,8 +62,11 @@ description: >-
    the generated output.
 6. For reusable CI, apply `github-actions-quality-check` and its event-owned
    workflow template contract. Read
-   [`assets/github/actions/check-hugo/action.yml`](assets/github/actions/check-hugo/action.yml)
-   and install it at `.github/actions/check-hugo/action.yml`. Retire a
+   [`assets/github/actions/check-hugo-site/action.yml`](assets/github/actions/check-hugo-site/action.yml),
+   copy the Node-owned setup action from `node-quality-check`, and install them
+   at `.github/actions/check-hugo-site/action.yml` and
+   `.github/actions/setup-node-locked/action.yml`. Do not copy the setup
+   implementation into this Skill. Retire a
    superseded workflow only after confirming its complete event and lifecycle
    responsibility is duplicated. The composite reads `.node-version` and
    `packageManager`, replays the lockfile, runs `lint` then `build`, and removes
@@ -77,5 +80,6 @@ description: >-
 
 - [`references/hugo-build-contract.md`](references/hugo-build-contract.md): Hugo
   mounts, runtime sources, local asset checks, and hosted-builder evidence.
-- `assets/github/actions/check-hugo/action.yml`: reusable Hugo validation action
-  used with the entry workflows from `github-actions-quality-check`.
+- `assets/github/actions/check-hugo-site/action.yml`: reusable Hugo validation
+  action used with the Node setup action from `node-quality-check` and the
+  entry workflows from `github-actions-quality-check`.

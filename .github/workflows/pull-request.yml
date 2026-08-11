@@ -30,4 +30,4 @@ jobs:
           persist-credentials: false
 
       - name: Run source checks
-        uses: ./.github/actions/check-source
+        uses: ./.github/actions/check-repository-source
