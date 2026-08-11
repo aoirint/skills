@@ -553,7 +553,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:26fabb1dc449c834912ae51cca7dc92213ba1a1dbe365e22fd75968049a5e666
+  content_hash: sha256:642f9fdb8d92170a51fdadd2c6fc98a154b1cfeda097c0c7b59bbb8307308069
 - kind: project-relative
   target: agents
   value: .agents/skills/docker-quality-check/agents/openai.yaml
@@ -563,6 +563,42 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:8abdaaa5a0458e86821080f50a2dfc34374c5c673a6c257fa351a2a96a16d064
+- kind: project-relative
+  target: agents
+  value: .agents/skills/docker-quality-check/assets/github/actions/lint-docker/action.yml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:9f9b507f64721d295ca96eabe440a73caed1d280ec42e7dd0f81ebc796a87ad3
+- kind: project-relative
+  target: agents
+  value: .agents/skills/docker-quality-check/assets/github/workflows/main.yml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:1dec6036f4848f22e139d46f7c29f338e67bea7e6538dbc1d1e6cb6541af3db2
+- kind: project-relative
+  target: agents
+  value: .agents/skills/docker-quality-check/assets/github/workflows/pull-request.yml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:179f2388ba525052b3a7fdccf02bc5217bb0a816baa8a6fa3f041fd75f13533e
+- kind: project-relative
+  target: agents
+  value: .agents/skills/docker-quality-check/references/ci-template-contract.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:b92ae0c565e4f57c693e726ea592c2656485035ee8ad27b75c1dc4a6eb7ccc57
 - kind: project-relative
   target: agents
   value: .agents/skills/flet-project-quality-check
@@ -1713,6 +1749,10 @@ local_deployed_files:
 - .agents/skills/docker-quality-check/README.md
 - .agents/skills/docker-quality-check/SKILL.md
 - .agents/skills/docker-quality-check/agents/openai.yaml
+- .agents/skills/docker-quality-check/assets/github/actions/lint-docker/action.yml
+- .agents/skills/docker-quality-check/assets/github/workflows/main.yml
+- .agents/skills/docker-quality-check/assets/github/workflows/pull-request.yml
+- .agents/skills/docker-quality-check/references/ci-template-contract.md
 - .agents/skills/flet-project-quality-check
 - .agents/skills/flet-project-quality-check/README.md
 - .agents/skills/flet-project-quality-check/SKILL.md
@@ -1882,8 +1922,12 @@ local_deployed_file_hashes:
   .agents/skills/commit-message-quality-check/SKILL.md: sha256:db272bb7467bcb6a6c3d837dec60a34f7081c135fcd40a9e00cf4a84e29ffabe
   .agents/skills/commit-message-quality-check/agents/openai.yaml: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
   .agents/skills/docker-quality-check/README.md: sha256:912a73d3de06babc6eed1ecdaf275139ae465797083dc5427affb54d00c57bf0
-  .agents/skills/docker-quality-check/SKILL.md: sha256:26fabb1dc449c834912ae51cca7dc92213ba1a1dbe365e22fd75968049a5e666
+  .agents/skills/docker-quality-check/SKILL.md: sha256:642f9fdb8d92170a51fdadd2c6fc98a154b1cfeda097c0c7b59bbb8307308069
   .agents/skills/docker-quality-check/agents/openai.yaml: sha256:8abdaaa5a0458e86821080f50a2dfc34374c5c673a6c257fa351a2a96a16d064
+  .agents/skills/docker-quality-check/assets/github/actions/lint-docker/action.yml: sha256:9f9b507f64721d295ca96eabe440a73caed1d280ec42e7dd0f81ebc796a87ad3
+  .agents/skills/docker-quality-check/assets/github/workflows/main.yml: sha256:1dec6036f4848f22e139d46f7c29f338e67bea7e6538dbc1d1e6cb6541af3db2
+  .agents/skills/docker-quality-check/assets/github/workflows/pull-request.yml: sha256:179f2388ba525052b3a7fdccf02bc5217bb0a816baa8a6fa3f041fd75f13533e
+  .agents/skills/docker-quality-check/references/ci-template-contract.md: sha256:b92ae0c565e4f57c693e726ea592c2656485035ee8ad27b75c1dc4a6eb7ccc57
   .agents/skills/flet-project-quality-check/README.md: sha256:5fdc047f0235d83c9bb30a668f96f7a6b54c930bb997fc661dc209312e46e278
   .agents/skills/flet-project-quality-check/SKILL.md: sha256:7c2b852f531ee6c3b66ace23d836a46b1486f8edcdd778b4452e275737e61300
   .agents/skills/flet-project-quality-check/agents/openai.yaml: sha256:6b8a81074e807de9c50c9a510d47a9e658dd4bbda440aa9937c38ba140992e7d
