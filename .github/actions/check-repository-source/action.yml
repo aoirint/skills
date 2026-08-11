@@ -41,6 +41,8 @@ runs:
         uvx --from ruff==0.12.11 ruff format --check
         .apm/skills/apm-workflow/assets/check-apm-project/check_apm_project.py
         .apm/skills/apm-workflow/scripts/test_check_apm_project.py
+        .apm/skills/github-actions-quality-check/scripts/check_composite_actions.py
+        .apm/skills/github-actions-quality-check/scripts/test_check_composite_actions.py
 
     - name: Lint Python helpers
       shell: bash
@@ -48,12 +50,16 @@ runs:
         uvx --from ruff==0.12.11 ruff check
         .apm/skills/apm-workflow/assets/check-apm-project/check_apm_project.py
         .apm/skills/apm-workflow/scripts/test_check_apm_project.py
+        .apm/skills/github-actions-quality-check/scripts/check_composite_actions.py
+        .apm/skills/github-actions-quality-check/scripts/test_check_composite_actions.py
 
     - name: Type-check Python helpers
       shell: bash
       run: |
         uvx --from mypy==1.17.1 mypy --strict \
           .apm/skills/apm-workflow/assets/check-apm-project/check_apm_project.py
+        uvx --from mypy==1.17.1 mypy --strict \
+          .apm/skills/github-actions-quality-check/scripts/check_composite_actions.py
         uvx --from mypy==1.17.1 mypy --strict \
           .github/actions/check-apm-project/check_apm_project.py
 
@@ -62,6 +68,24 @@ runs:
       env:
         PYTHONDONTWRITEBYTECODE: "1"
       run: python .apm/skills/apm-workflow/scripts/test_check_apm_project.py
+
+    - name: Test Composite Action contract checker
+      shell: bash
+      env:
+        PYTHONDONTWRITEBYTECODE: "1"
+      run: |
+        uvx --from coverage==7.10.4 coverage run --branch \
+          .apm/skills/github-actions-quality-check/scripts/test_check_composite_actions.py
+        uvx --from coverage==7.10.4 coverage report \
+          --include='*/check_composite_actions.py' \
+          --fail-under=100
+
+    - name: Check Composite Action contracts
+      shell: bash
+      run: >-
+        python
+        .apm/skills/github-actions-quality-check/scripts/check_composite_actions.py
+        .apm/skills
 
     - name: Test BepInEx version resolver
       shell: bash
