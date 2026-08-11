@@ -29,7 +29,6 @@ runs:
         .apm/skills/bepinex-mono-mod-quality-check/assets/github/actions/resolve-bepinex-version/resolve-version.sh
         .apm/skills/bepinex-mono-mod-quality-check/assets/github/actions/deploy-bepinex-thunderstore/publish-thunderstore.sh
         .apm/skills/bepinex-mono-mod-quality-check/scripts/test_resolve_version.sh
-        .apm/skills/docker-quality-check/assets/github/actions/check-docker-source/install-hadolint.sh
         .apm/skills/python-quality-check/assets/github/actions/setup-python-locked/resolve-python-contract.sh
         .apm/skills/github-actions-quality-check/assets/github/actions/install-workflow-tools/install-workflow-tools.sh
         .apm/skills/node-quality-check/assets/github/actions/setup-node-locked/resolve-node-contract.sh
