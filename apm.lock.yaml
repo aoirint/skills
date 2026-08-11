@@ -1273,7 +1273,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:706ca7c712a3ad83520324ea3f6df88b1793ed580d69e9e0f8de53925c80bb82
+  content_hash: sha256:fe8c80687def5eea23f9b49f2214cb7c1049813bb3af8b7c1b79da7a63f88e21
 - kind: project-relative
   target: agents
   value: .agents/skills/python-quality-check/assets/github/actions/setup-python-locked/resolve-python-contract.sh
@@ -2102,7 +2102,7 @@ local_deployed_file_hashes:
   .agents/skills/python-quality-check/README.md: sha256:20a23003a24a8caf2f03dd5a06bed99c81cf93ab53fe5a196c6a67ab59c53b0e
   .agents/skills/python-quality-check/SKILL.md: sha256:201e37035213c33daf2e469c757a66a0414d7df6ec0c3778ae669d90c3b9a76d
   .agents/skills/python-quality-check/agents/openai.yaml: sha256:f0b4ad3807e177becec02271314fb32c1ec8d5a7682725ddd4a611a5381084d1
-  .agents/skills/python-quality-check/assets/github/actions/setup-python-locked/action.yml: sha256:706ca7c712a3ad83520324ea3f6df88b1793ed580d69e9e0f8de53925c80bb82
+  .agents/skills/python-quality-check/assets/github/actions/setup-python-locked/action.yml: sha256:fe8c80687def5eea23f9b49f2214cb7c1049813bb3af8b7c1b79da7a63f88e21
   .agents/skills/python-quality-check/assets/github/actions/setup-python-locked/resolve-python-contract.sh: sha256:b766a0686b02370f4794d09b640b636e32d1f20b69fcb464b85134d2247dd068
   .agents/skills/python-quality-check/references/ci-and-distribution.md: sha256:e52aaf46c28816d6f6262a5421dba8de9f906d2b606987bedcda840d2e687281
   .agents/skills/python-quality-check/references/tooling-and-testing.md: sha256:8dd45ccbf2818d73c6497beec400567c294eec842199eaf329e856d40446e771
