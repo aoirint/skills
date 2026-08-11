@@ -9,7 +9,7 @@
 
 ## CI parity
 
-Use `github-workflow` and `security-check` while implementing CI.
+Use `github-actions-quality-check` and `security-check` while implementing CI.
 
 - Re-run lock verification, exact sync, Ruff lint, Ruff format, strict mypy,
   pytest, and coverage from a clean checkout.
@@ -31,16 +31,10 @@ Use `github-workflow` and `security-check` while implementing CI.
 
 ## Event and trust boundaries
 
-- Validate untrusted changes on `pull_request`, and `merge_group` when required.
-- Re-run the same required validation on the exact protected integration-branch
-  push; do not substitute a prior PR run or API polling.
-- Start permissions at `contents: read`. Do not use `pull_request_target` to
-  execute untrusted proposed source.
-- Keep publication/signing in protected jobs or environments after validation
-  and artifact creation for the same source commit.
-- Use direct `needs` dependencies so build and release consume the complete
-  lint/type/test result and the verified artifact.
-- Run actionlint, applicable ShellCheck, and pinact in addition to Python checks.
+Apply the event, trust, permission, concurrency, direct-job-graph, artifact,
+publication, and workflow-tooling rules from `github-actions-quality-check`.
+This reference owns only the Python gate and distribution contract layered on
+that shared Actions baseline.
 
 ## Distribution verification
 

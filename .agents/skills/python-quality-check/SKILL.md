@@ -32,7 +32,7 @@ description: >-
 
 Use `code-quality-check` for general readability and maintainability,
 `security-check` for dependency provenance, release age, build hooks, secrets,
-and external executables, and `github-workflow` for workflow triggers,
+and external executables, and `github-actions-quality-check` for workflow triggers,
 permissions, runners, action pins, and repository enforcement.
 
 This Skill owns the Python-specific baseline. Framework Skills should add only

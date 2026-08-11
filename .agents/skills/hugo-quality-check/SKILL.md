@@ -60,22 +60,17 @@ description: >-
    Inspect generated HTML for the intended local asset URLs and for absence of
    replaced CDN URLs; verify mounted CSS, JavaScript, and font files exist in
    the generated output.
-6. For reusable CI, read
-   [`assets/github/actions/lint-hugo/action.yml`](assets/github/actions/lint-hugo/action.yml),
-   [`assets/github/workflows/main.yml`](assets/github/workflows/main.yml), and
-   [`assets/github/workflows/pull-request.yml`](assets/github/workflows/pull-request.yml).
-   Install the composite action at `.github/actions/lint-hugo/action.yml` and
-   copy the two workflows unchanged except for the confirmed default branch or
-   package directory. Retire a superseded lint workflow only after confirming
-   it duplicates this job. The composite reads `.node-version` and
+6. For reusable CI, apply `github-actions-quality-check` and its event-owned
+   workflow template contract. Read
+   [`assets/github/actions/lint-hugo/action.yml`](assets/github/actions/lint-hugo/action.yml)
+   and install it at `.github/actions/lint-hugo/action.yml`. Retire a
+   superseded workflow only after confirming its complete event and lifecycle
+   responsibility is duplicated. The composite reads `.node-version` and
    `packageManager`, replays the lockfile, runs `lint` then `build`, and removes
    only the package directory’s `node_modules`.
-7. Keep default-branch pushes uncancelled. Cancel only superseded pull-request
-   and merge-queue runs. Use `contents: read`, checkout with persisted
-   credentials disabled and `submodules: recursive`, full-SHA Action pins with
-   release comments, named `uses:` steps, and no `workflow_dispatch` for normal
-   validation. Run `actionlint` and `pinact run --check --min-age 7` after
-   installing the templates.
+7. Preserve `submodules: recursive` in every Hugo checkout. Use
+   `github-actions-quality-check` for event separation, permissions,
+   concurrency, runners, action pins, step names, and automated workflow checks.
 8. Summarize the build contract, runtime compatibility evidence, external asset
    provenance, commands and results, and every skipped validation with its
    reason.
@@ -84,4 +79,4 @@ description: >-
 
 - [`references/hugo-build-contract.md`](references/hugo-build-contract.md): Hugo
   mounts, runtime sources, local asset checks, and hosted-builder evidence.
-- `assets/github/`: reusable event-owned Hugo validation action and workflows.
+- `assets/github/actions/lint-hugo/action.yml`: reusable Hugo validation action.

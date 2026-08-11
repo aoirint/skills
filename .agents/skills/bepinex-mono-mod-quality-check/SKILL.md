@@ -36,6 +36,10 @@ Apply `prose-quality-check` only after ownership and technical evidence are sett
 into reusable domain knowledge, and do not treat a well-structured document as proof that its game or release claim is
 correct.
 
+Use `github-actions-quality-check` for the shared event, trust, permission, concurrency, runner, action-pin,
+artifact-lineage, and repository-enforcement baseline. This Skill owns only the BepInEx/.NET/Thunderstore commands,
+release identity, package contract, and domain-specific templates layered on that baseline.
+
 Use `unity-game-analyze` to establish version-specific game-code and serialized-asset evidence: the concrete call path,
 effective prefab/scene values, object/load reachability, lifecycle timing, authority, and unresolved runtime inputs.
 This Skill consumes that evidence to select and verify hooks, adapters, identity mappings, compatibility claims, and
