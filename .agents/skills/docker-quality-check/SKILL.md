@@ -40,7 +40,9 @@ description: >-
 6. For newly introduced or updated external images, downloaded executables, or GitHub
    Actions, use `security-check` to assess provenance, version or digest pinning,
    release age, checksums, permissions, and runtime behavior. Pin GitHub Actions to
-   full commit SHAs with accurate version comments.
+   full commit SHAs with accurate version comments. Use
+   `github-actions-quality-check` for workflow structure, permissions, runners,
+   validation, and publication gates.
 7. Summarize commands run, build and smoke-test results, and every skipped check with a
    concrete reason.
 

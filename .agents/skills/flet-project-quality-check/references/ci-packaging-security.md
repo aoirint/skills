@@ -1,7 +1,7 @@
 # Flet CI, Packaging, and Security Extension
 
 Use `python-quality-check` for the canonical Python CI and ordinary
-wheel/sdist baseline. Use `github-workflow`
+wheel/sdist baseline. Use `github-actions-quality-check`
 for workflow mechanics and `security-check` for supply-chain decisions. This
 reference adds Flet target-build and packaged-runtime requirements.
 

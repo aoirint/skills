@@ -34,10 +34,10 @@ description: >-
    configuration, and workflows. Use pnpm; do not substitute npm, Yarn, or another
    package manager. Read [`assets/pnpm-workspace.yaml`](assets/pnpm-workspace.yaml)
    before creating or repairing a project policy file. Read
-   [`assets/github/actions/lint-node/action.yml`](assets/github/actions/lint-node/action.yml),
-   [`assets/github/workflows/main.yml`](assets/github/workflows/main.yml), and
-   [`assets/github/workflows/pull-request.yml`](assets/github/workflows/pull-request.yml)
-   before creating or repairing GitHub Actions lint automation.
+   [`assets/github/actions/lint-node/action.yml`](assets/github/actions/lint-node/action.yml)
+   before creating or repairing the Node-specific source gate. Use
+   `github-actions-quality-check` for entry-workflow structure, permissions,
+   concurrency, runners, pins, and workflow validation.
 2. Establish the compatibility envelope before choosing versions:
    - Identify the Node.js major supported by every deployment/build environment and
      its current documented compatibility. Choose a supported LTS major; do not treat
@@ -84,11 +84,11 @@ description: >-
    provenance, release age, lockfile integrity, lifecycle scripts, permissions, and
    execution behavior. Pin GitHub Actions to full commit SHAs with accurate release
    comments; verify the referenced action release satisfies the same cooldown before
-   adoption. For event-owned lint CI, install the bundled composite action at
-   `.github/actions/lint-node/action.yml` and copy the two workflows to
-   `.github/workflows/main.yml` and `.github/workflows/pull-request.yml`. Retire a
-   superseded single lint workflow only after confirming it duplicates this lint job, so
-   it cannot duplicate checks. Use this shape only
+   adoption. Apply `github-actions-quality-check` and its event-owned workflow
+   template contract, then install this Skill's composite action at
+   `.github/actions/lint-node/action.yml`. Retire a superseded lint workflow only
+   after confirming its complete event and lifecycle responsibility is duplicated.
+   Use this source gate only
    when the repository has a `.node-version` file and a `lint` script; otherwise make
    the smallest explicit substitution for its documented runtime source and validation
    command. Preserve read-only permissions, frozen install, immutable action pins, and
@@ -101,13 +101,9 @@ description: >-
    relative lockfile. For packages with different Node.js or pnpm versions, use one CI
    job per package and pass each job's `package-directory` and, when needed,
    `lockfile-path`; do not try to switch runtimes within one job.
-   Omit `workflow_dispatch`, keep default-branch pushes uncancelled, and cancel only
-   superseded pull-request or merge-queue runs.
-   After installation, run `actionlint` against both workflows and `pinact run --check
-   --min-age 7` against the installed workflows and composite action. Treat a failure as
-   a blocker. Record each external action's full SHA, release tag, publisher/provenance,
-   release-age result, and the validation results in the pull request or equivalent
-   change record.
+   Use `github-actions-quality-check` for event separation, cancellation,
+   validation tools, required-check compatibility, and the external-action
+   evidence recorded in the pull request or equivalent change record.
 8. Run the repository's documented type checking, linting, tests, and build commands
    with pnpm. Start with checks closest to the changed code, then run a production build
    for routing, bundling, rendering, deployment configuration, framework, UI-library,
