@@ -1,6 +1,6 @@
 lockfile_version: '1'
-generated_at: '2026-08-11T05:22:36.346422+00:00'
-apm_version: 0.27.0
+generated_at: '2026-08-11T06:45:52.698489+00:00'
+apm_version: 0.26.0
 dependencies:
 - repo_url: mizchi/skills
   name: empirical-prompt-tuning
@@ -787,7 +787,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:499e65b4cf6f77d1f09c8340840e9aa6dcf8d0102371d3a137fdc09c894e2c43
+  content_hash: sha256:df0b44a736720c98c29936b8ab67f8df67f1186cd8e431e26105a635d7319372
 - kind: project-relative
   target: agents
   value: .agents/skills/github-actions-quality-check/agents/openai.yaml
@@ -815,15 +815,6 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:767b5865c488f12e2488f55807e76d789e968f11ef6b1364be5f3b47542ea898
-- kind: project-relative
-  target: agents
-  value: .agents/skills/github-actions-quality-check/assets/github/markdownlint-cli2.yaml
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:50390308413d207ffb315795ce0ee4029f43e9e78e43249149942421c696e2ed
 - kind: project-relative
   target: agents
   value: .agents/skills/github-actions-quality-check/assets/github/workflows/main.yml
@@ -1228,7 +1219,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:9ec45813d04382e04a3b504fd187e4151fc5198352564bd0bcb064f4eaf9a702
+  content_hash: sha256:070361ffd2431b98b2d91c1456573380053ce38a20bf4be402d76ee3dbeb0c6a
 - kind: project-relative
   target: agents
   value: .agents/skills/prose-quality-check/agents/openai.yaml
@@ -1238,6 +1229,15 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:b83e0a5d151e6e20df6f7d97f268955c6abfd105d53820f6baad0de8403fc062
+- kind: project-relative
+  target: agents
+  value: .agents/skills/prose-quality-check/assets/markdownlint-cli2.yaml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:1044e29915fe15e9083f808d1170c84cfc0b848123c0da435cabb9512d39c203
 - kind: project-relative
   target: agents
   value: .agents/skills/python-quality-check
@@ -1885,7 +1885,6 @@ local_deployed_files:
 - .agents/skills/github-actions-quality-check/agents/openai.yaml
 - .agents/skills/github-actions-quality-check/assets/github/actions/install-workflow-tools/action.yml
 - .agents/skills/github-actions-quality-check/assets/github/actions/install-workflow-tools/install-workflow-tools.sh
-- .agents/skills/github-actions-quality-check/assets/github/markdownlint-cli2.yaml
 - .agents/skills/github-actions-quality-check/assets/github/workflows/main.yml
 - .agents/skills/github-actions-quality-check/assets/github/workflows/pull-request.yml
 - .agents/skills/github-actions-quality-check/references/composite-actions.md
@@ -1932,6 +1931,7 @@ local_deployed_files:
 - .agents/skills/prose-quality-check/README.md
 - .agents/skills/prose-quality-check/SKILL.md
 - .agents/skills/prose-quality-check/agents/openai.yaml
+- .agents/skills/prose-quality-check/assets/markdownlint-cli2.yaml
 - .agents/skills/python-quality-check
 - .agents/skills/python-quality-check/README.md
 - .agents/skills/python-quality-check/SKILL.md
@@ -2065,11 +2065,10 @@ local_deployed_file_hashes:
   .agents/skills/git-worktree-workflow/SKILL.md: sha256:67e2474b9878cc6cb209ae30b19c233f65969abe5b5d543f0c9a16e46f1d40d2
   .agents/skills/git-worktree-workflow/agents/openai.yaml: sha256:3eb9da73e7a041e77d82f0d5c3a8c67e914575cff8651b71d077db30fe3da99a
   .agents/skills/github-actions-quality-check/README.md: sha256:1c9cb3b29bb4c99e3a2e87b1b79a6eee30470c8762b2cdb5f82cb61387176d86
-  .agents/skills/github-actions-quality-check/SKILL.md: sha256:499e65b4cf6f77d1f09c8340840e9aa6dcf8d0102371d3a137fdc09c894e2c43
+  .agents/skills/github-actions-quality-check/SKILL.md: sha256:df0b44a736720c98c29936b8ab67f8df67f1186cd8e431e26105a635d7319372
   .agents/skills/github-actions-quality-check/agents/openai.yaml: sha256:505565c70b7441db1d8c17b5522b7f777acd748be441c55fdcc1f2093e185a5d
   .agents/skills/github-actions-quality-check/assets/github/actions/install-workflow-tools/action.yml: sha256:9a46e0ebabe3d4d2302e75e252a11b4639e88884feb2066665a9bcc099c2b0dd
   .agents/skills/github-actions-quality-check/assets/github/actions/install-workflow-tools/install-workflow-tools.sh: sha256:767b5865c488f12e2488f55807e76d789e968f11ef6b1364be5f3b47542ea898
-  .agents/skills/github-actions-quality-check/assets/github/markdownlint-cli2.yaml: sha256:50390308413d207ffb315795ce0ee4029f43e9e78e43249149942421c696e2ed
   .agents/skills/github-actions-quality-check/assets/github/workflows/main.yml: sha256:9c6fc9b8a12eda5300d526de709ab17456781179efa43ea9c911bde795204690
   .agents/skills/github-actions-quality-check/assets/github/workflows/pull-request.yml: sha256:825813d13866d67da9edf0420d9d8290d2ffe36c20ae4ae0f97a1c91992b818b
   .agents/skills/github-actions-quality-check/references/composite-actions.md: sha256:d914d0fe4495121c5fdf168681a6dac62b897c28771e67ffb30c04f8d7fe3298
@@ -2108,8 +2107,9 @@ local_deployed_file_hashes:
   .agents/skills/node-quality-check/assets/pnpm-workspace.yaml: sha256:c2e65b05e43b96b835f138ce1bd7a1cd0d3bb7205d103dc427d837d5d5a0224a
   .agents/skills/node-quality-check/scripts/test_resolve_node_contract.sh: sha256:87b48e1444c2d78ab0f2c02057976879fa61ebc3ec9025fb2aaa6f21154a2748
   .agents/skills/prose-quality-check/README.md: sha256:8e4d9f8f8fdfba1cf7fe71fa88cac6baffa0d3c7616f744c0e3b1add102be5e7
-  .agents/skills/prose-quality-check/SKILL.md: sha256:9ec45813d04382e04a3b504fd187e4151fc5198352564bd0bcb064f4eaf9a702
+  .agents/skills/prose-quality-check/SKILL.md: sha256:070361ffd2431b98b2d91c1456573380053ce38a20bf4be402d76ee3dbeb0c6a
   .agents/skills/prose-quality-check/agents/openai.yaml: sha256:b83e0a5d151e6e20df6f7d97f268955c6abfd105d53820f6baad0de8403fc062
+  .agents/skills/prose-quality-check/assets/markdownlint-cli2.yaml: sha256:1044e29915fe15e9083f808d1170c84cfc0b848123c0da435cabb9512d39c203
   .agents/skills/python-quality-check/README.md: sha256:20a23003a24a8caf2f03dd5a06bed99c81cf93ab53fe5a196c6a67ab59c53b0e
   .agents/skills/python-quality-check/SKILL.md: sha256:201e37035213c33daf2e469c757a66a0414d7df6ec0c3778ae669d90c3b9a76d
   .agents/skills/python-quality-check/agents/openai.yaml: sha256:f0b4ad3807e177becec02271314fb32c1ec8d5a7682725ddd4a611a5381084d1

@@ -77,6 +77,13 @@ use the applicable documentation-system or domain-specific skill.
    - Confirm each list or paragraph has one clear job.
    - Confirm the structure did not imply a stronger, weaker, broader, or narrower claim than the
      source material supports.
+9. When establishing repository-wide Markdown validation, copy
+   `assets/markdownlint-cli2.yaml` to `.markdownlint-cli2.yaml` without
+   deleting its rationale comments or changing its rule baseline. Add a local
+   ignore or exception only for an evidenced generated, vendored, submodule,
+   renderer, or document-format requirement, and document that reason beside
+   the narrow override. Use `github-actions-quality-check` to wire the
+   repository-owned configuration into CI.
 
 ## Output checklist
 
