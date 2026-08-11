@@ -17,8 +17,9 @@ defaults:
     shell: bash
 
 jobs:
-  lint:
-    # Re-run the required source checks on the exact integrated commit.
+  # Re-run the required source checks on the exact integrated commit.
+  checks:
+    name: Checks
     runs-on: ubuntu-slim
 
     steps:

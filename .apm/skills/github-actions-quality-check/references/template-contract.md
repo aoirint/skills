@@ -44,7 +44,9 @@ make consumer CI depend on an installed Skill path.
    lifecycle responsibility is duplicated by the new files.
 2. Copy the assets and add the repository-owned `lint-source` action.
 3. Name all `uses:` steps for their responsibility.
-4. Run ShellCheck for every standalone changed shell script, actionlint for all
+4. Apply the file, workflow, job, Composite Action, step, comment, and spacing
+   rules in [naming-and-readability.md](naming-and-readability.md).
+5. Run ShellCheck for every standalone changed shell script, actionlint for all
    workflows and local actions, and `pinact run --check --min-age 7`.
-5. Observe successful pull-request and integration-branch jobs before making
+6. Observe successful pull-request and integration-branch jobs before making
    their job names required status contexts.
