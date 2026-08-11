@@ -3,7 +3,8 @@ name: docker-quality-check
 description: >-
   Quality-check Dockerfiles, Compose configurations, container startup scripts,
   image CI, and container documentation. Use when creating, editing, or reviewing
-  container build, runtime, orchestration, or publication changes.
+  container build, runtime, orchestration, publication, or explicitly authorized
+  registry image deletion changes.
 ---
 
 # Docker Quality Check
@@ -11,7 +12,7 @@ description: >-
 ## When to Use
 
 - Use for changes to Dockerfiles, Compose files, container entrypoints, image build
-  automation, or container-facing documentation.
+  automation, registry publication or deletion, or container-facing documentation.
 - Use before committing or publishing container changes.
 
 ## Goals
@@ -63,6 +64,12 @@ description: >-
    changes cannot bypass the repository documentation gate.
 8. Summarize commands run, build and smoke-test results, and every skipped check with a
    concrete reason.
+9. For an explicitly authorized registry image deletion, follow
+   [registry-image-deletion.md](references/registry-image-deletion.md). Treat registry
+   state as the source of truth: resolve exact targets before mutation, account for
+   shared manifests and registry-specific deletion units, and verify retained and
+   removed references independently afterward. This procedure does not define a
+   retention policy or recommend when deletion should occur.
 
 ## Dockerfile Check Selection
 

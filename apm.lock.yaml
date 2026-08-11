@@ -535,7 +535,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:865aeaf8c361cc20d776768b38903cd16e6a63db24ba7da5dea740812be60785
+  content_hash: sha256:dd8ea471f8789bf7362f4990a95d38eee244483faab874507364f439e8414d3e
 - kind: project-relative
   target: agents
   value: .agents/skills/docker-quality-check/agents/openai.yaml
@@ -544,7 +544,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:8abdaaa5a0458e86821080f50a2dfc34374c5c673a6c257fa351a2a96a16d064
+  content_hash: sha256:56a5f1b83f050b12555bbf85d1fd66c206016b8f939b79370e250b4e661cafd7
 - kind: project-relative
   target: agents
   value: .agents/skills/docker-quality-check/assets/github/actions/check-docker-source/action.yml
@@ -581,6 +581,15 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:e9d1a4f0c2e472dbe18f062a968f79e10daf10a87fa54091edfaead7222749b9
+- kind: project-relative
+  target: agents
+  value: .agents/skills/docker-quality-check/references/registry-image-deletion.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a02688f52be5fccef96a2f25a70451eb8c579a46aa21ce27ee57ebc3a3f71a7e
 - kind: project-relative
   target: agents
   value: .agents/skills/flet-project-quality-check
@@ -1886,6 +1895,7 @@ local_deployed_files:
 - .agents/skills/docker-quality-check/assets/github/workflows/main.yml
 - .agents/skills/docker-quality-check/assets/github/workflows/pull-request.yml
 - .agents/skills/docker-quality-check/references/ci-template-contract.md
+- .agents/skills/docker-quality-check/references/registry-image-deletion.md
 - .agents/skills/flet-project-quality-check
 - .agents/skills/flet-project-quality-check/README.md
 - .agents/skills/flet-project-quality-check/SKILL.md
@@ -2070,12 +2080,13 @@ local_deployed_file_hashes:
   .agents/skills/commit-message-quality-check/SKILL.md: sha256:db272bb7467bcb6a6c3d837dec60a34f7081c135fcd40a9e00cf4a84e29ffabe
   .agents/skills/commit-message-quality-check/agents/openai.yaml: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
   .agents/skills/docker-quality-check/README.md: sha256:912a73d3de06babc6eed1ecdaf275139ae465797083dc5427affb54d00c57bf0
-  .agents/skills/docker-quality-check/SKILL.md: sha256:865aeaf8c361cc20d776768b38903cd16e6a63db24ba7da5dea740812be60785
-  .agents/skills/docker-quality-check/agents/openai.yaml: sha256:8abdaaa5a0458e86821080f50a2dfc34374c5c673a6c257fa351a2a96a16d064
+  .agents/skills/docker-quality-check/SKILL.md: sha256:dd8ea471f8789bf7362f4990a95d38eee244483faab874507364f439e8414d3e
+  .agents/skills/docker-quality-check/agents/openai.yaml: sha256:56a5f1b83f050b12555bbf85d1fd66c206016b8f939b79370e250b4e661cafd7
   .agents/skills/docker-quality-check/assets/github/actions/check-docker-source/action.yml: sha256:4b6cc86c0e91a8908d28b4f705c8122f299691d55e56a584cc56307dd4881690
   .agents/skills/docker-quality-check/assets/github/workflows/main.yml: sha256:7aaaecf2bc58c849c1877264f8c1363cd3376a158d25f948111f2adda7a1bf51
   .agents/skills/docker-quality-check/assets/github/workflows/pull-request.yml: sha256:f2571d65cf632f40ecdaca58334cb1ff793c7770aafffa0d691450216cf50a83
   .agents/skills/docker-quality-check/references/ci-template-contract.md: sha256:e9d1a4f0c2e472dbe18f062a968f79e10daf10a87fa54091edfaead7222749b9
+  .agents/skills/docker-quality-check/references/registry-image-deletion.md: sha256:a02688f52be5fccef96a2f25a70451eb8c579a46aa21ce27ee57ebc3a3f71a7e
   .agents/skills/flet-project-quality-check/README.md: sha256:5fdc047f0235d83c9bb30a668f96f7a6b54c930bb997fc661dc209312e46e278
   .agents/skills/flet-project-quality-check/SKILL.md: sha256:fc9088264dba0106afda58adfb2d067ce6e82836d4c8b96ee8a89436cfc7d746
   .agents/skills/flet-project-quality-check/agents/openai.yaml: sha256:6b8a81074e807de9c50c9a510d47a9e658dd4bbda440aa9937c38ba140992e7d
