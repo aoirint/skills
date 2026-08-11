@@ -5,12 +5,18 @@ runs:
   using: composite
   steps:
     - name: Install workflow validation tools
+      id: workflow-tools
       uses: ./.github/actions/install-workflow-tools
 
-    - name: Check APM project metadata
-      uses: ./.github/actions/check-apm-project
+    - name: Set up reviewed APM CLI
+      uses: microsoft/apm-action@d723bb64ed70c135bbaf87d126b721dd2dae0439 # v1.10.0
       with:
-        expected-apm-version: "0.26.0"
+        apm-version: "0.26.0"
+        setup-only: "true"
+
+    - name: Audit APM deployment
+      shell: bash
+      run: apm audit --ci
 
     - name: Lint GitHub Actions and embedded shell
       shell: bash
@@ -29,64 +35,6 @@ runs:
         .apm/skills/node-quality-check/assets/github/actions/setup-node-locked/resolve-node-contract.sh
         .apm/skills/node-quality-check/scripts/test_resolve_node_contract.sh
 
-    - name: Set up reviewed uv
-      uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39 # v8.2.0
-      with:
-        enable-cache: false
-        version: 0.11.21
-
-    - name: Check Python helper formatting
-      shell: bash
-      run: >-
-        uvx --from ruff==0.12.11 ruff format --check
-        .apm/skills/apm-workflow/assets/check-apm-project/check_apm_project.py
-        .apm/skills/apm-workflow/scripts/test_check_apm_project.py
-        .apm/skills/github-actions-quality-check/scripts/check_composite_actions.py
-        .apm/skills/github-actions-quality-check/scripts/test_check_composite_actions.py
-
-    - name: Lint Python helpers
-      shell: bash
-      run: >-
-        uvx --from ruff==0.12.11 ruff check
-        .apm/skills/apm-workflow/assets/check-apm-project/check_apm_project.py
-        .apm/skills/apm-workflow/scripts/test_check_apm_project.py
-        .apm/skills/github-actions-quality-check/scripts/check_composite_actions.py
-        .apm/skills/github-actions-quality-check/scripts/test_check_composite_actions.py
-
-    - name: Type-check Python helpers
-      shell: bash
-      run: |
-        uvx --from mypy==1.17.1 mypy --strict \
-          .apm/skills/apm-workflow/assets/check-apm-project/check_apm_project.py
-        uvx --from mypy==1.17.1 mypy --strict \
-          .apm/skills/github-actions-quality-check/scripts/check_composite_actions.py
-        uvx --from mypy==1.17.1 mypy --strict \
-          .github/actions/check-apm-project/check_apm_project.py
-
-    - name: Test Python helpers
-      shell: bash
-      env:
-        PYTHONDONTWRITEBYTECODE: "1"
-      run: python .apm/skills/apm-workflow/scripts/test_check_apm_project.py
-
-    - name: Test Composite Action contract checker
-      shell: bash
-      env:
-        PYTHONDONTWRITEBYTECODE: "1"
-      run: |
-        uvx --from coverage==7.10.4 coverage run --branch \
-          .apm/skills/github-actions-quality-check/scripts/test_check_composite_actions.py
-        uvx --from coverage==7.10.4 coverage report \
-          --include='*/check_composite_actions.py' \
-          --fail-under=100
-
-    - name: Check Composite Action contracts
-      shell: bash
-      run: >-
-        python
-        .apm/skills/github-actions-quality-check/scripts/check_composite_actions.py
-        .apm/skills
-
     - name: Test BepInEx version resolver
       shell: bash
       run: bash .apm/skills/bepinex-mono-mod-quality-check/scripts/test_resolve_version.sh
@@ -102,3 +50,10 @@ runs:
       with:
         config: .markdownlint-cli2.yaml
         globs: "**/*.md"
+
+    - name: Remove workflow validation tools
+      if: ${{ always() && steps.workflow-tools.outputs.installation-directory != '' }}
+      shell: bash
+      env:
+        WORKFLOW_TOOLS_DIRECTORY: ${{ steps.workflow-tools.outputs.installation-directory }}
+      run: rm -rf -- "$WORKFLOW_TOOLS_DIRECTORY"
