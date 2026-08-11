@@ -14,7 +14,7 @@ context or integration path until its consumers and repository rules are migrate
 | Workflow `name` | Use concise Title Case that identifies the lifecycle responsibility and is unique in the repository. Add a domain qualifier only when multiple workflows would otherwise collide. | `Pull Request`, `Main`, `Docker Release` |
 | Job ID | Use lowercase kebab-case for one visible responsibility. Prefer stable outcome names over tool names. Qualify only to distinguish parallel responsibilities. | `checks`, `unit-tests`, `build-container` |
 | Job `name` | Set an explicit concise Title Case display name. Prefer singular responsibility names, including for required-check contexts. Keep a required-check name stable; for a matrix, include only the dimension needed to distinguish instances. | `Check`, `Unit Test`, `Test (${{ matrix.python-version }})` |
-| Composite Action path | Put each action at `.github/actions/<verb-object>/action.yml`. Use `action.yml`, not an arbitrary filename; let the directory carry the responsibility. | `.github/actions/check-docker/action.yml` |
+| Composite Action path | Use `.github/actions/<verb>-<domain>-<scope>/action.yml`. Omit the scope only while the remaining name is unique and unambiguous across every language in the repository. Use `action.yml`; let the directory carry the responsibility. | `.github/actions/check-python-api/action.yml`, `.github/actions/build-docker-worker/action.yml` |
 | Composite Action `name` | Use a concise responsibility phrase that distinguishes the domain and result. Avoid `CI`, `Check`, `Setup`, or `Build` alone. | `Check Docker source`, `Set up locked Python` |
 | Step `name` | Use a responsibility-revealing verb phrase. Distinguish repeated checkout, upload, download, login, and publication steps by source or destination. | `Check out proposed source`, `Upload Linux package` |
 
@@ -57,10 +57,13 @@ Use `test-quality-check` to classify test evidence and judge its behavioral
 value. This reference owns only the operational workflow/job boundary implied
 by cost, permissions, runners, credentials, and artifact lineage.
 
-Keep Composite Actions policy-neutral. Name them for reusable capabilities such as
-`check-python`, `test-package`, `build-container`, or `deploy-package`; do not encode `pull-request`,
-`main`, or `release` policy in the action. Workflows own lifecycle policy and jobs own concrete
-execution units.
+Keep Composite Actions policy-neutral. Name them for reusable capabilities such
+as `check-python-api`, `test-node-web`, `build-docker-worker`, or
+`deploy-python-package`; do not encode `pull-request`, `main`, or `release`
+policy in the action. Treat every repository as though another language or
+package may be added later: domain identifies the ecosystem or artifact and
+scope identifies the package, service, or deliverable when needed. Workflows
+own lifecycle policy and jobs own concrete execution units.
 
 For releases, build once after release identity is locked, test that exact artifact, and deploy the
 same artifact. A distinct Release concept does not require a distinct workflow: use a dedicated
