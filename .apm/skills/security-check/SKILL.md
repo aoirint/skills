@@ -5,8 +5,9 @@ description: >-
   when work touches secrets, permissions, untrusted input, dependencies,
   executable or downloaded artifacts, CI or deployment configuration,
   containers, vendored/generated files, or compiled and bundled software whose
-  redistribution terms depend on build features or linked libraries; skip
-  documentation-only changes with no security-sensitive surface.
+  redistribution terms depend on build features or linked libraries, including
+  GitHub content that could expose private repositories; skip documentation-only
+  changes with no security-sensitive surface.
 ---
 
 # Security Check
@@ -101,6 +102,31 @@ description: >-
      reported privately when applicable.
    - Follow-up issues for ecosystem-specific controls that exceed this
      general security skill.
+
+## GitHub Private Repository Disclosure Boundary
+
+- Do not mention or link to a private repository in content stored on GitHub when
+  the destination repository is public or could be made public later. Treat
+  uncertain future visibility as public for this check.
+- Protected identifiers include the private repository's owner/name, URL, issue or
+  pull-request references, branch names, private-only paths, code names, and wording
+  that reveals or makes its existence reasonably inferable. The prohibition applies
+  to commits, pull requests, issues, comments, reviews, release notes, documentation,
+  workflow output, badges, configuration, fixtures, screenshots, and generated files.
+- Do not copy access failures, policy-discovery warnings, API responses, or command
+  output into GitHub artifacts when they identify a private repository. Sanitize the
+  complete artifact, not only the surrounding prose.
+- When work depends on private evidence, describe only the non-identifying constraint
+  or outcome, such as `an internal policy source was unavailable`. Keep the exact
+  source and evidence in an approved non-GitHub private channel or system.
+- Do not add a private-repository reference merely because both repositories are
+  currently private. If the destination could later be published, the reference is
+  prohibited. When destination visibility or publication plans are unclear, omit the
+  reference and report the evidence boundary without identifying the source.
+- Before publishing or updating GitHub content, inspect the rendered body and every
+  attached or generated artifact for private-repository identifiers. If useful context
+  cannot be preserved without disclosure, stop the GitHub write and request a secure
+  handoff channel instead.
 
 ## Supply-Chain Baseline
 
@@ -219,6 +245,9 @@ description: >-
   treated as examples, not exemptions.
 - Secrets, permissions, unsafe defaults, and untrusted input paths were checked
   when relevant.
+- Public or potentially public GitHub content and attached artifacts contain no
+  private-repository identifiers or existence disclosures; private evidence was
+  reduced to non-identifying outcomes and kept in an approved non-GitHub channel.
 - Example hostnames and URLs name the intentional real service or use an
   RFC-reserved example domain without introducing accidental live traffic.
 - Suspected vulnerabilities were kept out of public channels when sensitive
