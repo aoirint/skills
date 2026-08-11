@@ -1507,7 +1507,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:b9420af929d363985850812ad85d0c7583f63062784ba954de0179a0e113170c
+  content_hash: sha256:5ce12b1d7b0518cfaed87c8d3974b40d730b292ef1254735544ef228096d0d92
 - kind: project-relative
   target: agents
   value: .agents/skills/skill-quality-check/agents/openai.yaml
@@ -2124,7 +2124,7 @@ local_deployed_file_hashes:
   .agents/skills/security-check/references/artifact-inspection.md: sha256:9842555f4789e77e6cf3d22b000116497207ecf6fa5587f2b1fe0dc20e7dffda
   .agents/skills/security-check/references/external-code-execution.md: sha256:87ca817baa02ef6b955e5878f0cd79c875abdb0be6e0177cfce158968e628bc3
   .agents/skills/skill-quality-check/README.md: sha256:f4ec14bdc1b75a3b13be6e1048ae803910e180e49bbcb1f8347630fc920212c9
-  .agents/skills/skill-quality-check/SKILL.md: sha256:b9420af929d363985850812ad85d0c7583f63062784ba954de0179a0e113170c
+  .agents/skills/skill-quality-check/SKILL.md: sha256:5ce12b1d7b0518cfaed87c8d3974b40d730b292ef1254735544ef228096d0d92
   .agents/skills/skill-quality-check/agents/openai.yaml: sha256:dde624797ed750b9132f45378710cb6ea182a35705551b45d4b862bb6ce85805
   .agents/skills/skill-quality-check/references/authoring-best-practices.md: sha256:864d804be8a8ae8fa95adbfacd28a00e203d8f6e8940a0fbee3a73fe27dbde9c
   .agents/skills/software-documentation-maintenance/README.md: sha256:df6442dbefc58dab91b442b51f3ca4a0af5938f844542d35a3c18a721b631861
