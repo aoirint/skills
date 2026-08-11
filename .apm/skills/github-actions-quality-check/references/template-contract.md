@@ -23,6 +23,12 @@ equal to documented clean-clone validation.
 - Replace `main` only with the confirmed protected integration branch.
 - Replace `ubuntu-slim` only after applying `runner-selection.md` and proving
   the job needs a different image or platform.
+- Replace the local `lint-source` action path with the ecosystem Skill's
+  repository-owned source gate when that Skill uses a more specific name.
+- Pass only the ecosystem action inputs documented by that source gate, such
+  as a package directory or shared lockfile path.
+- Add checkout inputs such as `submodules: recursive` only when the repository's
+  source contract requires them.
 - Add a `test` job when tests require a distinct runner or responsibility.
 - Add direct `needs` edges from later jobs to every required source gate.
 - Update tool versions and SHA-256 values together only after `security-check`

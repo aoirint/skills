@@ -82,17 +82,15 @@ description: >-
    with an override.
 7. For package, runtime, pnpm, or workflow changes, use `security-check` to assess
    provenance, release age, lockfile integrity, lifecycle scripts, permissions, and
-   execution behavior. Pin GitHub Actions to full commit SHAs with accurate release
-   comments; verify the referenced action release satisfies the same cooldown before
-   adoption. Apply `github-actions-quality-check` and its event-owned workflow
-   template contract, then install this Skill's composite action at
+   execution behavior. Apply `github-actions-quality-check` and its event-owned
+   workflow template contract, then install this Skill's composite action at
    `.github/actions/lint-node/action.yml`. Retire a superseded lint workflow only
    after confirming its complete event and lifecycle responsibility is duplicated.
    Use this source gate only
    when the repository has a `.node-version` file and a `lint` script; otherwise make
    the smallest explicit substitution for its documented runtime source and validation
-   command. Preserve read-only permissions, frozen install, immutable action pins, and
-   branch filters; replace `main` only after confirming the repository's default branch.
+   command. Preserve frozen installation and replace the template's `main` only
+   after confirming the repository's default branch.
    The composite action accepts `package-directory` (default `.`); use it when those
    files live below the repository root. It reads `.node-version` and `packageManager`
    from that directory as the runtime and pnpm sources of truth, uses that directory's
@@ -101,9 +99,6 @@ description: >-
    relative lockfile. For packages with different Node.js or pnpm versions, use one CI
    job per package and pass each job's `package-directory` and, when needed,
    `lockfile-path`; do not try to switch runtimes within one job.
-   Use `github-actions-quality-check` for event separation, cancellation,
-   validation tools, required-check compatibility, and the external-action
-   evidence recorded in the pull request or equivalent change record.
 8. Run the repository's documented type checking, linting, tests, and build commands
    with pnpm. Start with checks closest to the changed code, then run a production build
    for routing, bundling, rendering, deployment configuration, framework, UI-library,

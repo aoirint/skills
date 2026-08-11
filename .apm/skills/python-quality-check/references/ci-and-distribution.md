@@ -3,7 +3,6 @@
 ## Contents
 
 - [CI parity](#ci-parity)
-- [Event and trust boundaries](#event-and-trust-boundaries)
 - [Distribution verification](#distribution-verification)
 - [Completion evidence](#completion-evidence)
 
@@ -22,19 +21,9 @@ Use `github-actions-quality-check` and `security-check` while implementing CI.
   local-only shortcuts are findings.
 - Install/select Python from `.python-version` or an explicit matrix consistent
   with `requires-python`.
-- Pin uv and every external action to reviewed immutable versions. Validate
-  action inputs against the exact pinned version.
+- Pin uv to a reviewed immutable version.
 - Bind dependency caches to `uv.lock`, runner, and Python identity. Do not cache
   `.venv`, secrets, credentials, or signing material.
-- Use repository-owned Composite Actions only for stable same-runner sequences.
-  Keep job runners, permissions, matrices, artifacts, and release gates in workflows.
-
-## Event and trust boundaries
-
-Apply the event, trust, permission, concurrency, direct-job-graph, artifact,
-publication, and workflow-tooling rules from `github-actions-quality-check`.
-This reference owns only the Python gate and distribution contract layered on
-that shared Actions baseline.
 
 ## Distribution verification
 

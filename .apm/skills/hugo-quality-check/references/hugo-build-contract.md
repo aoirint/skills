@@ -33,7 +33,8 @@ Use this reference after identifying a pnpm-managed Hugo site.
 
 ## CI adoption
 
-Before copying the bundled workflows, ensure the project has a `.node-version`,
+Before copying the bundled entry workflows from
+`github-actions-quality-check`, ensure the project has a `.node-version`,
 `packageManager`, `pnpm-lock.yaml`, `lint` script, and `build` script. Keep a
 submodule checkout only when the configured theme uses one. Pass
 `package-directory` and optional `lockfile-path` to the composite action for a
