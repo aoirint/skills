@@ -24,6 +24,7 @@ Use `github-actions-quality-check` and `security-check` while implementing CI.
 - Pin uv to a reviewed immutable version.
 - Bind dependency caches to `uv.lock`, runner, and Python identity. Do not cache
   `.venv`, secrets, credentials, or signing material.
+
 ## Distribution verification
 
 For installable applications, libraries, or CLIs:

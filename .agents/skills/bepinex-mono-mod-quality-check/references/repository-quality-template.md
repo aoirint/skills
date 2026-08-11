@@ -179,6 +179,7 @@ See `$apm-usage` for installation, cooldown, license, and update details.
 - Install the `global.json` SDK explicitly in CI with a full-SHA-pinned setup
   action or pinned verified equivalent, then assert `dotnet --version` before
   locked restore.
+
 ## Composite actions
 
 - Prefer an exact bundled action from this Skill when its documented contract

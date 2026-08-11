@@ -337,7 +337,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7cb155d86456a868e5eb2ddfe82ac042359cc09e786d67982fd320ac1c5af387
+  content_hash: sha256:8f3819694edf327962e62d9edabe1ccfdf7aa02dd9b268ed4f28191f9828308d
 - kind: project-relative
   target: agents
   value: .agents/skills/bepinex-mono-mod-quality-check/scripts/render_repository_files.ps1
@@ -1210,7 +1210,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:370142b95998a5c666f5e9763d1dbb16644edda12adff7c4d5876833bba8efd2
+  content_hash: sha256:e52aaf46c28816d6f6262a5421dba8de9f906d2b606987bedcda840d2e687281
 - kind: project-relative
   target: agents
   value: .agents/skills/python-quality-check/references/tooling-and-testing.md
@@ -1813,7 +1813,7 @@ local_deployed_file_hashes:
   .agents/skills/bepinex-mono-mod-quality-check/references/implementation-runbook.md: sha256:9ddfa8cd61174b4347bcbb62eac75f8f88dad9c3e8fdfc8f2e784284f913b55b
   .agents/skills/bepinex-mono-mod-quality-check/references/repository-derived-baseline.md: sha256:17c479c44e7075c9be57325f6c608a596664265d85ea81b89b81c887dca2e350
   .agents/skills/bepinex-mono-mod-quality-check/references/repository-family-alignment.md: sha256:8d88dfe1267a2aec93ad71d7b1ba4d5148c7d5ef148ee35d3cb90568f8ce6ba7
-  .agents/skills/bepinex-mono-mod-quality-check/references/repository-quality-template.md: sha256:7cb155d86456a868e5eb2ddfe82ac042359cc09e786d67982fd320ac1c5af387
+  .agents/skills/bepinex-mono-mod-quality-check/references/repository-quality-template.md: sha256:8f3819694edf327962e62d9edabe1ccfdf7aa02dd9b268ed4f28191f9828308d
   .agents/skills/bepinex-mono-mod-quality-check/scripts/render_repository_files.ps1: sha256:61c5ba3f6cdc0a53d2f293e9e0bf4621f274ae34c216d6c06a27a0b6ca6e6ca0
   .agents/skills/bepinex-mono-mod-quality-check/scripts/render_workflows.ps1: sha256:d9affc8359537e3fd691a8283cbaa39cc992044138018215e2713c39ebe53232
   .agents/skills/bepinex-mono-mod-quality-check/scripts/sync_templates.ps1: sha256:15386224ed6d16041afb6008fc51a1735edc86dc4566aa3f573594392925ab70
@@ -1895,7 +1895,7 @@ local_deployed_file_hashes:
   .agents/skills/python-quality-check/README.md: sha256:20a23003a24a8caf2f03dd5a06bed99c81cf93ab53fe5a196c6a67ab59c53b0e
   .agents/skills/python-quality-check/SKILL.md: sha256:cc724d4daf85f6038f603f968ccb44cef15ce43eb5da4e03e1e309474406004b
   .agents/skills/python-quality-check/agents/openai.yaml: sha256:f0b4ad3807e177becec02271314fb32c1ec8d5a7682725ddd4a611a5381084d1
-  .agents/skills/python-quality-check/references/ci-and-distribution.md: sha256:370142b95998a5c666f5e9763d1dbb16644edda12adff7c4d5876833bba8efd2
+  .agents/skills/python-quality-check/references/ci-and-distribution.md: sha256:e52aaf46c28816d6f6262a5421dba8de9f906d2b606987bedcda840d2e687281
   .agents/skills/python-quality-check/references/tooling-and-testing.md: sha256:61ff7e27674d45949003576bef5bdb0c225172f69ba1d6c0a3129feabc42c23a
   .agents/skills/python-quality-check/scripts/check_project.py: sha256:8175b500198399a2ce8b79b4fc8d1902f791d163a0d6dfd35b5ce56b41c5ccc5
   .agents/skills/python-quality-check/scripts/check_project.py.lock: sha256:76042d39ffdbb675188966b4fc41d312b0ec9374a7aa438d4f5e919adcf04c07
