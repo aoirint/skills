@@ -192,7 +192,8 @@ The mechanical checker cannot decide these. Review them explicitly:
 - no monolithic view/controller coordinating unrelated lifetimes;
 - correct async cancellation, stale-result, retry, failure, and shutdown behavior;
 - user-facing error/actionability, responsive/accessibility behavior, and semantic UI tests;
-- no blanket lint/type/coverage suppressions or tests written only to execute lines;
+- no blanket lint/type/coverage suppressions, with general test-value and suite
+  overengineering findings owned by `test-quality-check`;
 - safe inputs, secrets, persistence, logging, dependency graph, workflow, and artifacts;
 - current/proposed documentation accuracy and complete operational reproduction.
 
