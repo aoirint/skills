@@ -19,6 +19,8 @@ description: >-
 - Keep container builds reproducible, minimal, and suitable for the intended runtime.
 - Validate both Dockerfile syntax and the changed build or Compose behavior.
 - Make third-party images, downloaded tools, and CI actions traceable and reviewable.
+- Keep notices for software distributed in the image visible and distinct from
+  development-only dependency notices.
 
 ## Workflow
 
@@ -37,7 +39,16 @@ description: >-
 5. Inspect image and runtime safety: use a non-root user where feasible, keep the final
    image free of build-only tooling and secrets, define a clear entrypoint, and avoid
    mutable base-image tags when an immutable digest is practical.
-6. For newly introduced or updated external images, downloaded executables, or GitHub
+6. Inventory third-party software copied, installed, linked, or otherwise distributed in
+   the final image. Put notices for the primary bundled application and other shipped
+   runtime content at the top of `THIRD_PARTY_NOTICES.md`, before build tools, CI Actions,
+   Agent Skills, or other development-only dependencies. For each primary bundled
+   application, record its source, bundled location, version source, and license. Verify
+   that required upstream license and notice files remain in the final image. Add a
+   README disclosure that names the application, version source, and license and links to
+   both `THIRD_PARTY_NOTICES.md` and upstream license information. Mark unavailable
+   version, license, or final-image evidence as unverified rather than inferring a pass.
+7. For newly introduced or updated external images, downloaded executables, or GitHub
    Actions, use `security-check` to assess provenance, version or digest pinning,
    release age, checksums, permissions, and runtime behavior. Pin GitHub Actions to
    full commit SHAs with accurate version comments. Use
@@ -46,7 +57,7 @@ description: >-
    `apm-workflow` and keep `apm audit --ci` in the outer source-check action.
    Keep Markdown source validation in that same action so container-only
    changes cannot bypass the repository documentation gate.
-7. Summarize commands run, build and smoke-test results, and every skipped check with a
+8. Summarize commands run, build and smoke-test results, and every skipped check with a
    concrete reason.
 
 ## CI Tool Pinning
