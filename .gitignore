@@ -2,5 +2,9 @@
 # APM dependencies
 apm_modules/
 
+# Python bytecode generated while validating bundled helper scripts
+__pycache__/
+*.py[cod]
+
 # Local Git worktrees used by coding agents
 /.agents/worktrees/

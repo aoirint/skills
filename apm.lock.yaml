@@ -1,6 +1,6 @@
 lockfile_version: '1'
-generated_at: '2026-08-11T06:45:52.698489+00:00'
-apm_version: 0.26.0
+generated_at: '2026-08-11T06:57:31.745264+00:00'
+apm_version: 0.27.0
 dependencies:
 - repo_url: mizchi/skills
   name: empirical-prompt-tuning
@@ -787,7 +787,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:df0b44a736720c98c29936b8ab67f8df67f1186cd8e431e26105a635d7319372
+  content_hash: sha256:1a87ddc803a005060d2db30782e1fdd0518f34a157fb9d754f2d0fd1de270ae4
 - kind: project-relative
   target: agents
   value: .agents/skills/github-actions-quality-check/agents/openai.yaml
@@ -1003,7 +1003,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:913733a95ff01dc9e88d8bd20484a2a3ea0b41fcaa1ce8c086b72a3eb998c00b
+  content_hash: sha256:aeb3ffdad3aa733f04f0e2cbf26503e6b98fc99142e0b3bb4a2ce1bec2b53c0d
 - kind: project-relative
   target: agents
   value: .agents/skills/hugo-quality-check/agents/openai.yaml
@@ -1024,6 +1024,15 @@ deployments:
   content_hash: sha256:bb18d58561cd0ca8d3ac7765c5155dfcedc9e3210fde6e89256901c9498ef9b7
 - kind: project-relative
   target: agents
+  value: .agents/skills/hugo-quality-check/assets/markdownlint-cli2.yaml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:c1e24f31be7c023d0300ad14c4c9d933e7d09274e1eed159d39129d416447f39
+- kind: project-relative
+  target: agents
   value: .agents/skills/hugo-quality-check/references/hugo-build-contract.md
   runtime: null
   scope: project
@@ -1031,6 +1040,15 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:93900a1e1aab04f7b41aeb4b0a080b82068ed19786fc6c687049f52bdd90b45b
+- kind: project-relative
+  target: agents
+  value: .agents/skills/hugo-quality-check/scripts/render_markdownlint_config.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:7b022a9a4aa08abd587275388fbab4dede4db48e27bd05314fd2e612c1c6fa9e
 - kind: project-relative
   target: agents
   value: .agents/skills/lethal-company-analyze
@@ -1219,7 +1237,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:070361ffd2431b98b2d91c1456573380053ce38a20bf4be402d76ee3dbeb0c6a
+  content_hash: sha256:9509e1ec536631841ae6e2395a8305e853ed68c0231332ac4923699c32a98c1f
 - kind: project-relative
   target: agents
   value: .agents/skills/prose-quality-check/agents/openai.yaml
@@ -1908,7 +1926,9 @@ local_deployed_files:
 - .agents/skills/hugo-quality-check/SKILL.md
 - .agents/skills/hugo-quality-check/agents/openai.yaml
 - .agents/skills/hugo-quality-check/assets/github/actions/check-hugo-site/action.yml
+- .agents/skills/hugo-quality-check/assets/markdownlint-cli2.yaml
 - .agents/skills/hugo-quality-check/references/hugo-build-contract.md
+- .agents/skills/hugo-quality-check/scripts/render_markdownlint_config.py
 - .agents/skills/lethal-company-analyze
 - .agents/skills/lethal-company-analyze/README.md
 - .agents/skills/lethal-company-analyze/SKILL.md
@@ -2065,7 +2085,7 @@ local_deployed_file_hashes:
   .agents/skills/git-worktree-workflow/SKILL.md: sha256:67e2474b9878cc6cb209ae30b19c233f65969abe5b5d543f0c9a16e46f1d40d2
   .agents/skills/git-worktree-workflow/agents/openai.yaml: sha256:3eb9da73e7a041e77d82f0d5c3a8c67e914575cff8651b71d077db30fe3da99a
   .agents/skills/github-actions-quality-check/README.md: sha256:1c9cb3b29bb4c99e3a2e87b1b79a6eee30470c8762b2cdb5f82cb61387176d86
-  .agents/skills/github-actions-quality-check/SKILL.md: sha256:df0b44a736720c98c29936b8ab67f8df67f1186cd8e431e26105a635d7319372
+  .agents/skills/github-actions-quality-check/SKILL.md: sha256:1a87ddc803a005060d2db30782e1fdd0518f34a157fb9d754f2d0fd1de270ae4
   .agents/skills/github-actions-quality-check/agents/openai.yaml: sha256:505565c70b7441db1d8c17b5522b7f777acd748be441c55fdcc1f2093e185a5d
   .agents/skills/github-actions-quality-check/assets/github/actions/install-workflow-tools/action.yml: sha256:9a46e0ebabe3d4d2302e75e252a11b4639e88884feb2066665a9bcc099c2b0dd
   .agents/skills/github-actions-quality-check/assets/github/actions/install-workflow-tools/install-workflow-tools.sh: sha256:767b5865c488f12e2488f55807e76d789e968f11ef6b1364be5f3b47542ea898
@@ -2086,10 +2106,12 @@ local_deployed_file_hashes:
   .agents/skills/gitignore-workflow/SKILL.md: sha256:2ef38f42e418c10e0ba7632e3ba37614df97044dfa8847ad1338e6c4c896c089
   .agents/skills/gitignore-workflow/agents/openai.yaml: sha256:f6a9b176003028588ff4c1d9ee4e23c625892d00b65086bf4b6b26a3f896030d
   .agents/skills/hugo-quality-check/README.md: sha256:23f5c71358d96a859ad1329c09aa505fcd2636c63dd0682c839d7676c510c837
-  .agents/skills/hugo-quality-check/SKILL.md: sha256:913733a95ff01dc9e88d8bd20484a2a3ea0b41fcaa1ce8c086b72a3eb998c00b
+  .agents/skills/hugo-quality-check/SKILL.md: sha256:aeb3ffdad3aa733f04f0e2cbf26503e6b98fc99142e0b3bb4a2ce1bec2b53c0d
   .agents/skills/hugo-quality-check/agents/openai.yaml: sha256:d2657904dab491e06f399aa01b1d23014082bb1cbeaa07a69b74b75b749efd91
   .agents/skills/hugo-quality-check/assets/github/actions/check-hugo-site/action.yml: sha256:bb18d58561cd0ca8d3ac7765c5155dfcedc9e3210fde6e89256901c9498ef9b7
+  .agents/skills/hugo-quality-check/assets/markdownlint-cli2.yaml: sha256:c1e24f31be7c023d0300ad14c4c9d933e7d09274e1eed159d39129d416447f39
   .agents/skills/hugo-quality-check/references/hugo-build-contract.md: sha256:93900a1e1aab04f7b41aeb4b0a080b82068ed19786fc6c687049f52bdd90b45b
+  .agents/skills/hugo-quality-check/scripts/render_markdownlint_config.py: sha256:7b022a9a4aa08abd587275388fbab4dede4db48e27bd05314fd2e612c1c6fa9e
   .agents/skills/lethal-company-analyze/README.md: sha256:25274fc0d0155864c4e421d315a1b91d21cc203a4c75e25a740c17f04f9387d6
   .agents/skills/lethal-company-analyze/SKILL.md: sha256:0e027f7df896d7a89b5945b9de00e0a17d514e8f9afa1e2fa6771eef1bfec3bb
   .agents/skills/lethal-company-analyze/agents/openai.yaml: sha256:fb80fc51dba972198601c2ec76805752f34a214bbd9a73d4bbdff7e8165ad0bf
@@ -2107,7 +2129,7 @@ local_deployed_file_hashes:
   .agents/skills/node-quality-check/assets/pnpm-workspace.yaml: sha256:c2e65b05e43b96b835f138ce1bd7a1cd0d3bb7205d103dc427d837d5d5a0224a
   .agents/skills/node-quality-check/scripts/test_resolve_node_contract.sh: sha256:87b48e1444c2d78ab0f2c02057976879fa61ebc3ec9025fb2aaa6f21154a2748
   .agents/skills/prose-quality-check/README.md: sha256:8e4d9f8f8fdfba1cf7fe71fa88cac6baffa0d3c7616f744c0e3b1add102be5e7
-  .agents/skills/prose-quality-check/SKILL.md: sha256:070361ffd2431b98b2d91c1456573380053ce38a20bf4be402d76ee3dbeb0c6a
+  .agents/skills/prose-quality-check/SKILL.md: sha256:9509e1ec536631841ae6e2395a8305e853ed68c0231332ac4923699c32a98c1f
   .agents/skills/prose-quality-check/agents/openai.yaml: sha256:b83e0a5d151e6e20df6f7d97f268955c6abfd105d53820f6baad0de8403fc062
   .agents/skills/prose-quality-check/assets/markdownlint-cli2.yaml: sha256:1044e29915fe15e9083f808d1170c84cfc0b848123c0da435cabb9512d39c203
   .agents/skills/python-quality-check/README.md: sha256:20a23003a24a8caf2f03dd5a06bed99c81cf93ab53fe5a196c6a67ab59c53b0e

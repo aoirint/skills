@@ -82,8 +82,10 @@ use the applicable documentation-system or domain-specific skill.
    deleting its rationale comments or changing its rule baseline. Add a local
    ignore or exception only for an evidenced generated, vendored, submodule,
    renderer, or document-format requirement, and document that reason beside
-   the narrow override. Use `github-actions-quality-check` to wire the
-   repository-owned configuration into CI.
+   the narrow override. When an applicable domain Skill owns a reviewed derived
+   configuration, such as `hugo-quality-check`, use that asset instead of
+   recreating its exceptions in the consumer. Use `github-actions-quality-check`
+   to wire the repository-owned configuration into CI.
 
 ## Output checklist
 
