@@ -4,8 +4,9 @@ description: >-
   Review repository changes for practical security and supply-chain risks. Use
   when work touches secrets, permissions, untrusted input, dependencies,
   executable or downloaded artifacts, CI or deployment configuration,
-  containers, or vendored/generated files; skip documentation-only changes with
-  no security-sensitive surface.
+  containers, vendored/generated files, or compiled and bundled software whose
+  redistribution terms depend on build features or linked libraries; skip
+  documentation-only changes with no security-sensitive surface.
 ---
 
 # Security Check
@@ -109,6 +110,12 @@ description: >-
 - For archives, installers, bundles, release assets, or packaged applications,
   apply [artifact-inspection.md](references/artifact-inspection.md) to the final
   artifact rather than trusting the staging directory or build log.
+- For compiled or bundled software distributed in an image, installer, archive,
+  or release asset, apply
+  [distributed-software-licensing.md](references/distributed-software-licensing.md).
+  Review the final feature and dependency combination rather than inferring
+  redistributability from the upstream project's headline license. Use its FFmpeg
+  section whenever FFmpeg is built or redistributed.
 - Treat new or updated third-party packages, package-runner invocations,
   downloaded CLI tools, GitHub Actions, containers, vendored artifacts,
   generated code from external tools, copied files, and dependency lockfile
@@ -203,6 +210,10 @@ description: >-
 - Distributed artifacts were inspected as final containers, with unsafe member
   types and paths rejected and payload/provenance checked against an explicit
   contract, or the unverified scope was recorded.
+- Compiled or bundled software was checked for build-time license combinations,
+  final-artifact license evidence, required notices, and variant differences;
+  FFmpeg builds additionally passed the FFmpeg-specific checks, or the unverified
+  or non-redistributable scope was recorded.
 - Every third-party resolution, download, build, load, or execution path passed
   the mechanism-neutral execution gate; tool names and delivery channels were
   treated as examples, not exemptions.

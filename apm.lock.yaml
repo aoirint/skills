@@ -1498,7 +1498,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:b343a0f82623298ec8499b44859f80029fdf97ea0367b96da88ff9dcd5bd3297
+  content_hash: sha256:a2dac4eeafdc9330979ee3d51f83a0bb506da1a7a6731610fe62aa9b878a0ae5
 - kind: project-relative
   target: agents
   value: .agents/skills/security-check/agents/openai.yaml
@@ -1507,7 +1507,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:87edf0cc1e8717194d0c536f2d5ac0cc1ac9ec04402311d34e953d2e2b23fa19
+  content_hash: sha256:490bcaf8586b0ed5bfd008a807690fc4b5695fd4d2140b90d1e669847554134a
 - kind: project-relative
   target: agents
   value: .agents/skills/security-check/references/artifact-inspection.md
@@ -1517,6 +1517,15 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:9842555f4789e77e6cf3d22b000116497207ecf6fa5587f2b1fe0dc20e7dffda
+- kind: project-relative
+  target: agents
+  value: .agents/skills/security-check/references/distributed-software-licensing.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:dce7c9fbfe665eb875388ab732b63b0226a5fd4592b12a62c42b6d1372c0d025
 - kind: project-relative
   target: agents
   value: .agents/skills/security-check/references/external-code-execution.md
@@ -1999,6 +2008,7 @@ local_deployed_files:
 - .agents/skills/security-check/SKILL.md
 - .agents/skills/security-check/agents/openai.yaml
 - .agents/skills/security-check/references/artifact-inspection.md
+- .agents/skills/security-check/references/distributed-software-licensing.md
 - .agents/skills/security-check/references/external-code-execution.md
 - .agents/skills/skill-quality-check
 - .agents/skills/skill-quality-check/README.md
@@ -2174,9 +2184,10 @@ local_deployed_file_hashes:
   .agents/skills/rollout-workflow/SKILL.md: sha256:a87f837b9234cf7629609fa3a76b415cfc15eafea44064976221e9efbdafe643
   .agents/skills/rollout-workflow/agents/openai.yaml: sha256:543a7befd986c51540ef35603fe63830f5032dc02b31f89e7f2179df3b3ca5dc
   .agents/skills/security-check/README.md: sha256:d321689b998388180ac852fdb6374ab3b79bec508a53d00461a9db79fb246d2e
-  .agents/skills/security-check/SKILL.md: sha256:b343a0f82623298ec8499b44859f80029fdf97ea0367b96da88ff9dcd5bd3297
-  .agents/skills/security-check/agents/openai.yaml: sha256:87edf0cc1e8717194d0c536f2d5ac0cc1ac9ec04402311d34e953d2e2b23fa19
+  .agents/skills/security-check/SKILL.md: sha256:a2dac4eeafdc9330979ee3d51f83a0bb506da1a7a6731610fe62aa9b878a0ae5
+  .agents/skills/security-check/agents/openai.yaml: sha256:490bcaf8586b0ed5bfd008a807690fc4b5695fd4d2140b90d1e669847554134a
   .agents/skills/security-check/references/artifact-inspection.md: sha256:9842555f4789e77e6cf3d22b000116497207ecf6fa5587f2b1fe0dc20e7dffda
+  .agents/skills/security-check/references/distributed-software-licensing.md: sha256:dce7c9fbfe665eb875388ab732b63b0226a5fd4592b12a62c42b6d1372c0d025
   .agents/skills/security-check/references/external-code-execution.md: sha256:87ca817baa02ef6b955e5878f0cd79c875abdb0be6e0177cfce158968e628bc3
   .agents/skills/skill-quality-check/README.md: sha256:f4ec14bdc1b75a3b13be6e1048ae803910e180e49bbcb1f8347630fc920212c9
   .agents/skills/skill-quality-check/SKILL.md: sha256:5ce12b1d7b0518cfaed87c8d3974b40d730b292ef1254735544ef228096d0d92
