@@ -14,7 +14,7 @@ build, package, or release commands.
 | `assets/github/workflows/main.yml` | `.github/workflows/main.yml` | Revalidate the exact integrated commit; never cancel it. |
 | `assets/github/actions/install-workflow-tools/action.yml` | `.github/actions/install-workflow-tools/action.yml` | Install checksum-verified ShellCheck, actionlint, and pinact in runner-temporary paths. |
 
-Both workflows call `.github/actions/check-source`. Supply that action from the
+Both workflows call `.github/actions/check-repository-source`. Supply that action from the
 ecosystem Skill or repository contract. Keep its name narrow and its commands
 equal to documented clean-clone validation.
 

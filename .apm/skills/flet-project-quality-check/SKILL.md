@@ -124,6 +124,12 @@ informal list.
      `flet build`, assets, identifiers, storage, logging, secrets, caches, or releases.
    - Start from the Python CI gate required by `python-quality-check`, then add
      repository-specific documentation, Flet target build, artifact, and runtime checks.
+   - Copy `setup-python-locked` from `python-quality-check` beside the Flet
+     check and test actions. Keep dependency setup inside each outer action by
+     composition; do not copy the setup implementation into this Skill.
+   - Copy `install-workflow-tools` from `github-actions-quality-check` beside
+     the Flet actions when workflow validation is part of the source gate. Do
+     not keep a Flet-owned copy of that shared installer.
    - Verify every selected Flet target on a compatible runner. Keep packaging/release jobs separate
      from untrusted pull-request validation and inspect the final artifact, not only source tests.
 6. Align documentation.

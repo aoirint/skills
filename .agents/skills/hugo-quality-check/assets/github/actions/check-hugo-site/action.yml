@@ -1,0 +1,41 @@
+name: Check Hugo web site
+description: Set up the locked Node environment, validate the Hugo site, and remove action-owned dependencies.
+
+inputs:
+  package-directory:
+    description: Directory containing package.json, .node-version, and pnpm-lock.yaml.
+    required: false
+    default: .
+  lockfile-path:
+    description: Optional repository-relative pnpm lockfile path for a shared workspace lockfile.
+    required: false
+    default: ''
+
+runs:
+  using: composite
+  steps:
+    - name: Set up locked Node environment
+      id: setup
+      uses: ./.github/actions/setup-node-locked
+      with:
+        package-directory: ${{ inputs.package-directory }}
+        lockfile-path: ${{ inputs.lockfile-path }}
+
+    # Validate content and configuration before the broader rendered-site build.
+    - name: Check Hugo source
+      shell: bash
+      working-directory: ${{ inputs.package-directory }}
+      run: pnpm run lint
+
+    # Exercise Hugo mounts, themes, layouts, and the production output together.
+    - name: Build Hugo site
+      shell: bash
+      working-directory: ${{ inputs.package-directory }}
+      run: pnpm run build
+
+    # The pnpm store remains runner-cache-managed; remove only the action-created dependency tree.
+    - name: Remove Node dependencies
+      if: always() && steps.setup.outputs.dependency-tree-owned == 'true'
+      shell: bash
+      working-directory: ${{ inputs.package-directory }}
+      run: rm -rf node_modules

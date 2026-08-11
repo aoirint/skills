@@ -1,0 +1,53 @@
+name: Set up locked Node environment
+description: Install committed Node and pnpm versions, restore the cache, and replay the lockfile.
+
+inputs:
+  package-directory:
+    description: Directory containing package.json and .node-version.
+    required: false
+    default: .
+  lockfile-path:
+    description: Optional repository-relative pnpm lockfile path for a shared workspace lockfile.
+    required: false
+    default: ''
+
+outputs:
+  dependency-tree-owned:
+    description: Whether this action established ownership of the package dependency tree.
+    value: ${{ steps.ownership.outputs.dependency-tree-owned }}
+
+runs:
+  using: composite
+  steps:
+    - name: Reserve the Node dependency tree
+      id: ownership
+      shell: bash
+      working-directory: ${{ inputs.package-directory }}
+      run: |
+        test ! -e node_modules
+        echo 'dependency-tree-owned=true' >>"$GITHUB_OUTPUT"
+
+    - name: Resolve Node package contract
+      id: contract
+      shell: bash
+      env:
+        NODE_PACKAGE_DIRECTORY: ${{ inputs.package-directory }}
+        NODE_LOCKFILE_PATH: ${{ inputs.lockfile-path }}
+      run: bash "${{ github.action_path }}/resolve-node-contract.sh"
+
+    - name: Install committed pnpm
+      uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+      with:
+        version: ${{ steps.contract.outputs.pnpm-version }}
+
+    - name: Install committed Node.js
+      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      with:
+        node-version-file: ${{ inputs.package-directory }}/.node-version
+        cache: pnpm
+        cache-dependency-path: ${{ steps.contract.outputs.lockfile-path }}
+
+    - name: Install locked dependencies
+      shell: bash
+      working-directory: ${{ inputs.package-directory }}
+      run: pnpm install --frozen-lockfile

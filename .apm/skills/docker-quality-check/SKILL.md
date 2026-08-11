@@ -52,7 +52,7 @@ When a workflow installs hadolint, pin both the release version and the SHA-256 
 exact platform asset. Download over HTTPS, verify the hash before making the file
 executable, and install it only into the runner's temporary directory. Before changing
 a pin, verify the official release provenance and the repository's required adoption
-cooldown. Use the bundled `lint-docker` action when its single-Dockerfile contract fits.
+cooldown. Use the bundled `check-docker-source` action when its single-Dockerfile contract fits.
 
 Replace the version and checksum together only after independently verifying the
 official release asset. Do not use a floating download URL or skip hash verification.
