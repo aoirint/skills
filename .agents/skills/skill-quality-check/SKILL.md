@@ -42,7 +42,7 @@ description: >-
    - `name` uses lowercase letters, digits, and hyphens.
    - When the skill has a clear target, put that target before the action or
      workflow in `name` (for example, `lethal-company-analyze` or
-     `apm-usage`).
+     `apm-workflow`).
    - `description` uses the smallest capability-and-trigger statement that
      reliably selects the skill.
    - Move workflow details, supported variants, and boundaries that do not

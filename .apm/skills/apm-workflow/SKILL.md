@@ -1,9 +1,9 @@
 ---
-name: apm-usage
+name: apm-workflow
 description: Select a reviewed APM CLI version, then set up, pin, deploy, audit, and update APM-managed agent dependencies safely. Use when creating or editing apm.yml or apm.lock.yaml, choosing or installing APM, adding an Agent Skill, plugin, or MCP dependency, validating a pinned deployment, or preparing a cooldown-aware update proposal.
 ---
 
-# APM Usage
+# APM Workflow
 
 Keep agent context reproducible and reviewable. Select the newest reviewed APM
 release that has completed the seven-day cooldown or has a manifest-recorded
@@ -118,7 +118,7 @@ Do not change the bootstrap manifest automatically. Use this proposal flow:
    release notes, installer and artifact integrity, and compatibility from the
    current official sources. Require explicit maintainer approval.
 3. Run
-   `uv run --no-project --no-config --locked --script <apm-usage-skill>/scripts/propose_bootstrap_update.py`
+   `uv run --no-project --no-config --locked --script <apm-workflow-skill>/scripts/propose_bootstrap_update.py`
    to isolate the locked helper from the consumer repository's uv configuration
    and collect an eligible candidate without changing files. Attach its JSON
    output to the proposal.
