@@ -20,8 +20,9 @@ defaults:
     shell: bash
 
 jobs:
-  lint:
-    # Keep proposed source validation separate from publishing privileges.
+  # Keep proposed source validation separate from publishing privileges.
+  checks:
+    name: Checks
     runs-on: ubuntu-slim
 
     steps:

@@ -16,7 +16,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:
+  checks:
+    name: Checks
+    # Avoid a network-intensive image build for proposed source.
     runs-on: ubuntu-slim
     timeout-minutes: 5
 

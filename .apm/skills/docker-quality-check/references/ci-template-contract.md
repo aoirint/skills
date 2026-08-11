@@ -43,5 +43,5 @@ release before the published image passes its required tests.
 3. Run hadolint locally against every selected Dockerfile.
 4. Run actionlint across workflows and actions, ShellCheck against changed standalone shell
    scripts, and `pinact run --check --min-age 7`.
-5. Observe the lint job on a pull request and both lint and build jobs on the integrated commit
+5. Observe the Checks job on a pull request and both Checks and Build jobs on the integrated commit
    before making their contexts required.

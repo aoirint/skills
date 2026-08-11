@@ -57,8 +57,11 @@ its ecosystem Skill do not establish.
      Use `workflow_run` only for a separately reviewed trust boundary. Never
      emulate a direct dependency with polling or an `await-quality` job.
 3. Build a direct job graph.
-   - Name jobs by visible responsibility: `lint`, optional `test`, optional
-     read-only `plan`, `build`, and `release`.
+   - Read [naming-and-readability.md](references/naming-and-readability.md)
+     before naming or renaming workflow files, workflows, jobs, steps, or local
+     actions. Use `checks`, `tests`, `builds`, and `deploys` as a small
+     conceptual vocabulary when it fits, but split jobs and workflows only
+     when their operational boundaries justify the cost.
    - Make build depend directly on every required validation and plan job.
      Make release consume the verified build artifact and required plan output.
    - Keep planning read-only: it may resolve canonical release state, but must
@@ -66,6 +69,9 @@ its ecosystem Skill do not establish.
    - Reuse a local Composite Action for a stable same-runner sequence. Use a
      reusable workflow only when job-level matrices, outputs, runners, or
      permission boundaries require one, and document that reason.
+   - Keep one blank line between sibling jobs and between sibling steps. Add a
+     concise adjacent comment only when it preserves non-obvious design intent,
+     such as a trust boundary, cancellation exception, or artifact handoff.
 4. Minimize authority and cancellation.
    - Start workflow permissions at `contents: read`. Grant writes only on the
      job that demonstrably needs them; document every unusual permission.

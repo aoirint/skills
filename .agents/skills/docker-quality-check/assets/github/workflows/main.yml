@@ -13,7 +13,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  lint:
+  checks:
+    name: Checks
+    # Keep the lightweight gate independent from Docker daemon requirements.
     runs-on: ubuntu-slim
     timeout-minutes: 5
 
@@ -27,8 +29,11 @@ jobs:
         uses: ./.github/actions/lint-docker
 
   build:
+    name: Build
     needs:
-      - lint
+      - checks
+
+    # Build only integrated source; proposed-source validation stays lightweight.
     runs-on: ubuntu-24.04
 
     steps:
