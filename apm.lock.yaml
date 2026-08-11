@@ -922,7 +922,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:80069c3b7ac624e4755e244350b63ffcfb20b5c397ddaa58afc4945173635766
+  content_hash: sha256:d48216b0fb3656228d1af7689cd538303a3114bcc7e0b74f1404258b836f7412
 - kind: project-relative
   target: agents
   value: .agents/skills/github-workflow/agents/openai.yaml
@@ -2029,7 +2029,7 @@ local_deployed_file_hashes:
   .agents/skills/github-actions-quality-check/references/template-contract.md: sha256:bb1c89c097aac9d294237532094d3f101f8ab9dd26fc49441b9bb5e79ee74135
   .agents/skills/github-actions-quality-check/references/validation-and-reporting.md: sha256:6b3093c39d7884f4a030977f12887ddc7dba43d69a25267177d6259a4f5d4ee2
   .agents/skills/github-workflow/README.md: sha256:381a6c5fee202282fe66b35070b605c2b344f718aa63cf9b91abeca1936ab2d2
-  .agents/skills/github-workflow/SKILL.md: sha256:80069c3b7ac624e4755e244350b63ffcfb20b5c397ddaa58afc4945173635766
+  .agents/skills/github-workflow/SKILL.md: sha256:d48216b0fb3656228d1af7689cd538303a3114bcc7e0b74f1404258b836f7412
   .agents/skills/github-workflow/agents/openai.yaml: sha256:1d8dfa53b85500f8d112c039d1c522dde129d140208c65d7145aa55e70eae329
   .agents/skills/github-workflow/references/fallback-pr-body.md: sha256:b98239e7d4cdddd8e267ab155f4e4c38fcc514526d9a32f13fcd5b21a1c07eb2
   .agents/skills/github-workflow/scripts/check_llm_disclosure.py: sha256:bc9c5cbd8efa77095eac42e53da714ed8dff86fa3b0e7870fc3e7eca1ca36e20
