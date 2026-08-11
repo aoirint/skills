@@ -1572,6 +1572,51 @@ deployments:
   active_owner: .
   content_hash: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
 - kind: project-relative
+  target: agents
+  value: .agents/skills/wsl-workflow
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/wsl-workflow/README.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0cd3b816ff56b64c10481a38fb710c45606dc86502f34910ac8d4a6369b8bb85
+- kind: project-relative
+  target: agents
+  value: .agents/skills/wsl-workflow/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2354b9094096a983c13d060e984bb43c2ae82311438366f441174b57a9ade2f9
+- kind: project-relative
+  target: agents
+  value: .agents/skills/wsl-workflow/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:4e0d03a048d813dc699dbeca1303a0f30ad0fe8028f3c493ff75dbb3bd7bbe4f
+- kind: project-relative
+  target: agents
+  value: .agents/skills/wsl-workflow/references/bindfs-persistence.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:445dc197316cd89af887d250744d5b58e8f0e6d2b6fbc172c46bba4367a0e270
+- kind: project-relative
   target: codex
   value: .agents/skills/empirical-prompt-tuning
   runtime: null
@@ -1780,6 +1825,11 @@ local_deployed_files:
 - .agents/skills/unity-game-analyze/references/serialized-assets.md
 - .agents/skills/unity-game-analyze/scripts/inventory_build.py
 - .agents/skills/unity-game-analyze/scripts/inventory_build.py.lock
+- .agents/skills/wsl-workflow
+- .agents/skills/wsl-workflow/README.md
+- .agents/skills/wsl-workflow/SKILL.md
+- .agents/skills/wsl-workflow/agents/openai.yaml
+- .agents/skills/wsl-workflow/references/bindfs-persistence.md
 local_deployed_file_hashes:
   .agents/skills/apm-usage/README.md: sha256:70351aaebf54291433dfcff86280e87edc757ff4e93e506aa1e8f06a0b913f06
   .agents/skills/apm-usage/SKILL.md: sha256:82bfde7980c17b69f043b62cb5669a42b1e65386f4a8476a224617285f33653e
@@ -1930,3 +1980,7 @@ local_deployed_file_hashes:
   .agents/skills/unity-game-analyze/references/serialized-assets.md: sha256:19401734d5381193b5cd38c2bace359d95018848b83b7f69cade906908b7a735
   .agents/skills/unity-game-analyze/scripts/inventory_build.py: sha256:8b93aa49165b8f0f406321336fbe08c7383677b13d0049af76fc64ec2313bddd
   .agents/skills/unity-game-analyze/scripts/inventory_build.py.lock: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
+  .agents/skills/wsl-workflow/README.md: sha256:0cd3b816ff56b64c10481a38fb710c45606dc86502f34910ac8d4a6369b8bb85
+  .agents/skills/wsl-workflow/SKILL.md: sha256:2354b9094096a983c13d060e984bb43c2ae82311438366f441174b57a9ade2f9
+  .agents/skills/wsl-workflow/agents/openai.yaml: sha256:4e0d03a048d813dc699dbeca1303a0f30ad0fe8028f3c493ff75dbb3bd7bbe4f
+  .agents/skills/wsl-workflow/references/bindfs-persistence.md: sha256:445dc197316cd89af887d250744d5b58e8f0e6d2b6fbc172c46bba4367a0e270
