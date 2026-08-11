@@ -5,6 +5,12 @@ outputs:
   environment-owned:
     description: Whether this action established ownership of the project environment.
     value: ${{ steps.ownership.outputs.environment-owned }}
+  python_version:
+    description: Python version selected from .python-version.
+    value: ${{ steps.toolchain.outputs.python_version }}
+  uv_version:
+    description: Reviewed uv version used for the locked environment.
+    value: ${{ steps.toolchain.outputs.uv_version }}
 
 runs:
   using: composite
