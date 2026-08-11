@@ -102,6 +102,21 @@ description: >-
    - Update or remove metadata that no longer directly supports the skill.
 9. Validate and iterate:
    - Run the available skill validator, if the project has one.
+   - If the validator cannot start because a runtime dependency is unavailable,
+     do not skip it or modify the repository or user environment merely to
+     satisfy the check. Prefer an existing reviewed lockfile-backed environment.
+     Otherwise confirm the exact package that supplies the missing import and
+     run the validator in an isolated one-off uv environment with the seven-day
+     cutoff, for example:
+
+     ```shell
+     uv run --no-project --no-config --exclude-newer=P7D \
+       --with pyyaml -- python <validator-path> <skill-path>
+     ```
+
+     Apply `security-check` to any newly selected package, record the resolved
+     package version and command, and report a blocker only when the dependency
+     cannot pass the provenance, cooldown, or execution review.
    - Run spelling, formatting, or project checks appropriate to Markdown-only changes.
    - When the skill produces visual or rendered artifacts, validate them in every declared
      consumer or renderer. Source syntax, file dimensions, and a local preview alone do not
