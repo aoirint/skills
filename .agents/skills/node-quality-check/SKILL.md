@@ -40,7 +40,9 @@ description: >-
    and [`assets/github/actions/setup-node-locked/action.yml`](assets/github/actions/setup-node-locked/action.yml)
    before creating or repairing the Node-specific source gate. Use
    `github-actions-quality-check` for entry-workflow structure, permissions,
-   concurrency, runners, pins, and workflow validation.
+   concurrency, runners, pins, and workflow validation. For an APM-managed
+   repository, also apply `apm-workflow`; the outer Node source-check action
+   must run `apm audit --ci` and Markdown lint beside the locked Node checks.
 2. Establish the compatibility envelope before choosing versions:
    - Identify the Node.js major supported by every deployment/build environment and
      its current documented compatibility. Choose a supported LTS major; do not treat

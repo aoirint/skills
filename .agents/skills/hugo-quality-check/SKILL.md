@@ -61,7 +61,9 @@ description: >-
    replaced CDN URLs; verify mounted CSS, JavaScript, and font files exist in
    the generated output.
 6. For reusable CI, apply `github-actions-quality-check` and its event-owned
-   workflow template contract. Read
+   workflow template contract. For an APM-managed repository, also apply
+   `apm-workflow`; the outer Hugo source-check action must run `apm audit --ci`
+   and Markdown lint alongside the site checks. Read
    [`assets/github/actions/check-hugo-site/action.yml`](assets/github/actions/check-hugo-site/action.yml),
    copy the Node-owned setup action from `node-quality-check`, and install them
    at `.github/actions/check-hugo-site/action.yml` and

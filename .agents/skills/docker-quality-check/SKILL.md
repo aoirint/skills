@@ -42,7 +42,10 @@ description: >-
    release age, checksums, permissions, and runtime behavior. Pin GitHub Actions to
    full commit SHAs with accurate version comments. Use
    `github-actions-quality-check` for workflow structure, permissions, runners,
-   validation, and publication gates.
+   validation, and publication gates. For an APM-managed repository, apply
+   `apm-workflow` and keep `apm audit --ci` in the outer source-check action.
+   Keep Markdown source validation in that same action so container-only
+   changes cannot bypass the repository documentation gate.
 7. Summarize commands run, build and smoke-test results, and every skipped check with a
    concrete reason.
 
