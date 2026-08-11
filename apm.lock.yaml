@@ -49,7 +49,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:4191b0fbc4ea9e832ecaede048693f280d36bead7c98276a2cdd0966edc3b88e
+  content_hash: sha256:bbddd9935373713999b78e5390b3c38e0886299beeb410d6eb338d13e25154fa
 - kind: project-relative
   target: agents
   value: .agents/skills/apm-workflow/agents/openai.yaml
@@ -2042,7 +2042,7 @@ local_deployed_files:
 - .agents/skills/wsl-workflow/references/bindfs-persistence.md
 local_deployed_file_hashes:
   .agents/skills/apm-workflow/README.md: sha256:e346edab06f5ec792cdb77edcaa8042f523af67753dc4fe72498ae1899b87c89
-  .agents/skills/apm-workflow/SKILL.md: sha256:4191b0fbc4ea9e832ecaede048693f280d36bead7c98276a2cdd0966edc3b88e
+  .agents/skills/apm-workflow/SKILL.md: sha256:bbddd9935373713999b78e5390b3c38e0886299beeb410d6eb338d13e25154fa
   .agents/skills/apm-workflow/agents/openai.yaml: sha256:f3c083196472ec9253886b369202ddeb8eb2534fd2da9799798bae2eb33b2e55
   .agents/skills/apm-workflow/references/apm-bootstrap.json: sha256:e0ebfd624fc79e35c5a5a305d77476860ff87019edc3afc0b37b5cd2884276b1
   .agents/skills/apm-workflow/scripts/propose_bootstrap_update.py: sha256:5c8d079ff9caa4175a971c5d231bc24d8143d47d238496cace60b1d91d8d00d8
