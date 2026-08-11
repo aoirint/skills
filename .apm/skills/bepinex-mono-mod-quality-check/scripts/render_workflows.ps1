@@ -58,8 +58,6 @@ try {
         @{ Source = 'resolve-bepinex-version/resolve-version.sh'; Destination = '.github/actions/resolve-bepinex-version/resolve-version.sh' },
         @{ Source = 'deploy-bepinex-thunderstore/action.yml'; Destination = '.github/actions/deploy-bepinex-thunderstore/action.yml' },
         @{ Source = 'deploy-bepinex-thunderstore/publish-thunderstore.sh'; Destination = '.github/actions/deploy-bepinex-thunderstore/publish-thunderstore.sh' },
-        @{ Source = 'check-apm-project/action.yml'; Destination = '.github/actions/check-apm-project/action.yml' },
-        @{ Source = 'check-apm-project/check_apm_project.py'; Destination = '.github/actions/check-apm-project/check_apm_project.py' },
         @{ Source = 'install-workflow-tools/action.yml'; Destination = '.github/actions/install-workflow-tools/action.yml' },
         @{ Source = 'install-workflow-tools/install-workflow-tools.sh'; Destination = '.github/actions/install-workflow-tools/install-workflow-tools.sh' },
         @{ Source = 'setup-dotnet-locked/action.yml.template'; Destination = '.github/actions/setup-dotnet-locked/action.yml' },
@@ -70,9 +68,6 @@ try {
     foreach ($entry in $templates) {
         $templateRoot = if ($entry.Source -in @('.gitignore.template', '.markdownlint-cli2.yaml')) {
             Join-Path $skillRoot 'assets/repository'
-        }
-        elseif ($entry.Source -match '^check-apm-project/') {
-            Join-Path $skillsRoot 'apm-workflow/assets'
         }
         elseif ($entry.Source -match '^install-workflow-tools/') {
             Join-Path $skillsRoot 'github-actions-quality-check/assets/github/actions'

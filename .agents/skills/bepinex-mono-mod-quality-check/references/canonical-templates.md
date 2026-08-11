@@ -42,15 +42,14 @@ package-host publication; a stable project version alone is not authorization.
 exact-sync template IDs: project and package-host values are intentionally
 render variables. Render the paired `pull-request.yml.template`,
 `main.yml.template`, and the local `install-workflow-tools`,
-`setup-dotnet-locked`, `check-apm-project`, `check-dotnet-bepinex-source`,
+`setup-dotnet-locked`, `check-dotnet-bepinex-source`,
 `resolve-bepinex-version`, and `deploy-bepinex-thunderstore` Composite
 Actions, including the publisher script,
 together. A workflow change that adds or changes a local-action reference or
 input is incomplete until the renderer deploys the complete matching action in
-the same invocation. The renderer sources `check-apm-project` only from
-`apm-workflow` and `install-workflow-tools` only from
-`github-actions-quality-check`; this Skill must not retain editable copies.
-The generated consumer repository still receives both complete local actions
+the same invocation. The renderer sources `install-workflow-tools` only from
+`github-actions-quality-check`; this Skill must not retain an editable copy.
+The generated consumer repository still receives the complete local action
 and never reads an installed Skill at workflow runtime. The small actions expose their
 individual toolchain, environment, and check responsibilities;
 `check-dotnet-bepinex-source`

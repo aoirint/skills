@@ -5,8 +5,8 @@ set -euo pipefail
 install_archive() {
   local name=$1 version=$2 archive=$3 url=$4 sha256=$5
   shift 5
-  local archive_path="${RUNNER_TEMP}/${archive}"
-  local tool_dir="${RUNNER_TEMP}/${name}-${version}"
+  local archive_path="${workflow_tools_directory}/${archive}"
+  local tool_dir="${workflow_tools_directory}/${name}-${version}"
 
   curl \
     --fail \
@@ -25,6 +25,9 @@ install_archive() {
 }
 
 main() {
+  workflow_tools_directory=$(mktemp -d "${RUNNER_TEMP}/workflow-tools.XXXXXX")
+  trap 'rm -rf -- "$workflow_tools_directory"' ERR
+
   install_archive \
     shellcheck 0.11.0 \
     shellcheck-v0.11.0.linux.x86_64.tar.gz \
@@ -43,6 +46,9 @@ main() {
     https://github.com/suzuki-shunsuke/pinact/releases/download/v4.1.0/pinact_linux_amd64.tar.gz \
     8fcbf1b3e95551c82fd995535e3c1defa70e23299ce36eb3afd6c98778de6ca0 \
     pinact
+
+  printf 'installation-directory=%s\n' "$workflow_tools_directory" >>"$GITHUB_OUTPUT"
+  trap - ERR
 }
 
 main "$@"

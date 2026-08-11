@@ -4,12 +4,21 @@ description: Run the repository's workflow, C#, and Markdown source checks.
 runs:
   using: composite
   steps:
-    - name: Check APM project metadata
-      uses: ./.github/actions/check-apm-project
+    - name: Set up reviewed APM CLI
+      uses: microsoft/apm-action@d723bb64ed70c135bbaf87d126b721dd2dae0439 # v1.10.0
       with:
-        expected-apm-version: "0.26.0"
+        apm-version: "0.26.0"
+        setup-only: "true"
+
+    - name: Replay and audit APM deployment
+      shell: bash
+      run: |
+        apm install --frozen
+        git diff --exit-code -- .agents apm.lock.yaml
+        apm audit --ci
 
     - name: Install workflow validation tools
+      id: workflow-tools
       uses: ./.github/actions/install-workflow-tools
 
     - name: Lint standalone shell
@@ -52,3 +61,10 @@ runs:
       if: always() && steps.setup.outputs.build-state-owned == 'true'
       shell: bash
       run: dotnet clean --no-restore
+
+    - name: Remove workflow validation tools
+      if: ${{ always() && steps.workflow-tools.outputs.installation-directory != '' }}
+      shell: bash
+      env:
+        WORKFLOW_TOOLS_DIRECTORY: ${{ steps.workflow-tools.outputs.installation-directory }}
+      run: rm -rf -- "$WORKFLOW_TOOLS_DIRECTORY"
