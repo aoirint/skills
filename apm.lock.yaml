@@ -1003,7 +1003,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:b5d4ddc8e7a4f51b8c066ba5f3dfac600bdf27ec82dbf5a3e69aee787bcc04e9
+  content_hash: sha256:fd1e5c3923be755e843d98db3e5d10a3e5236702d546305aa7df7aa8272287fc
 - kind: project-relative
   target: agents
   value: .agents/skills/hugo-quality-check/agents/openai.yaml
@@ -2116,7 +2116,7 @@ local_deployed_file_hashes:
   .agents/skills/gitignore-workflow/SKILL.md: sha256:2ef38f42e418c10e0ba7632e3ba37614df97044dfa8847ad1338e6c4c896c089
   .agents/skills/gitignore-workflow/agents/openai.yaml: sha256:f6a9b176003028588ff4c1d9ee4e23c625892d00b65086bf4b6b26a3f896030d
   .agents/skills/hugo-quality-check/README.md: sha256:23f5c71358d96a859ad1329c09aa505fcd2636c63dd0682c839d7676c510c837
-  .agents/skills/hugo-quality-check/SKILL.md: sha256:b5d4ddc8e7a4f51b8c066ba5f3dfac600bdf27ec82dbf5a3e69aee787bcc04e9
+  .agents/skills/hugo-quality-check/SKILL.md: sha256:fd1e5c3923be755e843d98db3e5d10a3e5236702d546305aa7df7aa8272287fc
   .agents/skills/hugo-quality-check/agents/openai.yaml: sha256:d2657904dab491e06f399aa01b1d23014082bb1cbeaa07a69b74b75b749efd91
   .agents/skills/hugo-quality-check/assets/github/actions/check-hugo-site/action.yml: sha256:6e9c3dc75714749e8986bc36c1cbaabe3df72405ec546e19abdf08c966eab0f4
   .agents/skills/hugo-quality-check/assets/markdownlint-cli2-content.yaml: sha256:6f08d9d37534c90303aaec67418e2b1764e892d45bf954897b73d099a247293a
