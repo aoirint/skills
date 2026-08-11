@@ -126,6 +126,10 @@ its ecosystem Skill do not establish.
      pins, lint failures, and unreviewed suppressions as findings.
    - Use [validation-and-reporting.md](references/validation-and-reporting.md)
      for evidence categories, tool scope, and the completion report.
+   - For a Skill collection that publishes Composite Action assets, run
+     `scripts/check_composite_actions.py <canonical-skills-root>` to reject
+     cross-Skill path collisions, duplicate editable assets, retired local
+     paths, and setup composition without ownership-gated cleanup.
 8. Review repository enforcement when it is in scope.
    - Read [repository-enforcement.md](references/repository-enforcement.md)
      before auditing or changing Actions policy, required checks, merge rules,

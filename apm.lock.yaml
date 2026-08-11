@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-08-11T04:51:57.783168+00:00'
+generated_at: '2026-08-11T04:59:43.010329+00:00'
 apm_version: 0.26.0
 dependencies:
 - repo_url: mizchi/skills
@@ -823,7 +823,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:5dd037fffe2e287c5cfbfb02d2c8eeb94bb28ae192f9c5878fd8370db49f5cd8
+  content_hash: sha256:ecc91ea67ddcd03bbe30bc318124f5d35e458245a00cbc9fe58b2a8fc9cfc9f8
 - kind: project-relative
   target: agents
   value: .agents/skills/github-actions-quality-check/agents/openai.yaml
@@ -923,6 +923,24 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:6b3093c39d7884f4a030977f12887ddc7dba43d69a25267177d6259a4f5d4ee2
+- kind: project-relative
+  target: agents
+  value: .agents/skills/github-actions-quality-check/scripts/check_composite_actions.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a9627dc26a288bd98c84f05b1c00cbf583d9ecdef881a674fa599b12e580d0d5
+- kind: project-relative
+  target: agents
+  value: .agents/skills/github-actions-quality-check/scripts/test_check_composite_actions.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e1e1fb3387524d10a47bb7fc88030f5af5d0b811526b878204034c1963ebc8eb
 - kind: project-relative
   target: agents
   value: .agents/skills/github-workflow
@@ -1924,6 +1942,8 @@ local_deployed_files:
 - .agents/skills/github-actions-quality-check/references/runner-selection.md
 - .agents/skills/github-actions-quality-check/references/template-contract.md
 - .agents/skills/github-actions-quality-check/references/validation-and-reporting.md
+- .agents/skills/github-actions-quality-check/scripts/check_composite_actions.py
+- .agents/skills/github-actions-quality-check/scripts/test_check_composite_actions.py
 - .agents/skills/github-workflow
 - .agents/skills/github-workflow/README.md
 - .agents/skills/github-workflow/SKILL.md
@@ -2099,7 +2119,7 @@ local_deployed_file_hashes:
   .agents/skills/git-worktree-workflow/SKILL.md: sha256:67e2474b9878cc6cb209ae30b19c233f65969abe5b5d543f0c9a16e46f1d40d2
   .agents/skills/git-worktree-workflow/agents/openai.yaml: sha256:3eb9da73e7a041e77d82f0d5c3a8c67e914575cff8651b71d077db30fe3da99a
   .agents/skills/github-actions-quality-check/README.md: sha256:1c9cb3b29bb4c99e3a2e87b1b79a6eee30470c8762b2cdb5f82cb61387176d86
-  .agents/skills/github-actions-quality-check/SKILL.md: sha256:5dd037fffe2e287c5cfbfb02d2c8eeb94bb28ae192f9c5878fd8370db49f5cd8
+  .agents/skills/github-actions-quality-check/SKILL.md: sha256:ecc91ea67ddcd03bbe30bc318124f5d35e458245a00cbc9fe58b2a8fc9cfc9f8
   .agents/skills/github-actions-quality-check/agents/openai.yaml: sha256:505565c70b7441db1d8c17b5522b7f777acd748be441c55fdcc1f2093e185a5d
   .agents/skills/github-actions-quality-check/assets/github/actions/install-workflow-tools/action.yml: sha256:282ce78b788dd571f48ae65471d6dd8d13c0870a4a44c891cd433b2c398ab5f4
   .agents/skills/github-actions-quality-check/assets/github/actions/install-workflow-tools/install-workflow-tools.sh: sha256:3d54c6a58ea8c5a7a226e636d3d0546a2c78c583bf01670304c3f90185e5a83b
@@ -2111,6 +2131,8 @@ local_deployed_file_hashes:
   .agents/skills/github-actions-quality-check/references/runner-selection.md: sha256:6e9929a316ba9efbf6171366de0d1a3c976aee73d22c26b2d1ec33017af6f164
   .agents/skills/github-actions-quality-check/references/template-contract.md: sha256:daf97ae3248bcd3e4300199e62369898e4827c9abfa749a7051bac82fd8b79bd
   .agents/skills/github-actions-quality-check/references/validation-and-reporting.md: sha256:6b3093c39d7884f4a030977f12887ddc7dba43d69a25267177d6259a4f5d4ee2
+  .agents/skills/github-actions-quality-check/scripts/check_composite_actions.py: sha256:a9627dc26a288bd98c84f05b1c00cbf583d9ecdef881a674fa599b12e580d0d5
+  .agents/skills/github-actions-quality-check/scripts/test_check_composite_actions.py: sha256:e1e1fb3387524d10a47bb7fc88030f5af5d0b811526b878204034c1963ebc8eb
   .agents/skills/github-workflow/README.md: sha256:381a6c5fee202282fe66b35070b605c2b344f718aa63cf9b91abeca1936ab2d2
   .agents/skills/github-workflow/SKILL.md: sha256:d48216b0fb3656228d1af7689cd538303a3114bcc7e0b74f1404258b836f7412
   .agents/skills/github-workflow/agents/openai.yaml: sha256:1d8dfa53b85500f8d112c039d1c522dde129d140208c65d7145aa55e70eae329
