@@ -60,6 +60,10 @@ for package provenance and cooldown, lock changes, secrets, URL/file input,
 downloaded tools, caches, build artifacts, and release credentials. Do not
 duplicate weaker substitutes here.
 
+For an APM-managed repository, apply `apm-workflow` and keep `apm audit --ci`
+in the outer Flet source-check action. Keep Markdown lint in that action beside
+the Python checks so every entry workflow enforces the same repository baseline.
+
 ## Non-Negotiable Baseline
 
 - Use a `src/` package layout, a thin Flet entry point, and one composition root.

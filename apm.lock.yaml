@@ -112,7 +112,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:04e705a02609eae4381990026cfac4c781507f685fa974894fd9c7a8c4e5510e
+  content_hash: sha256:5c70a2f7e16c39bd17dd90fd43b90fbec62cff54585cb641dce28b8dda79287c
 - kind: project-relative
   target: agents
   value: .agents/skills/bepinex-mono-mod-quality-check/agents/openai.yaml
@@ -535,7 +535,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:4e2c3fb76afba2f7551c7d2f9c9d10a17d298834e6e497f4a2b26767472c5650
+  content_hash: sha256:1f63030c08c7c12ce586b5c759789da36f7cdc0957a5697545796dc7889c0edf
 - kind: project-relative
   target: agents
   value: .agents/skills/docker-quality-check/agents/openai.yaml
@@ -553,7 +553,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:ace8813374c0e62834e35b55b122d6442b6a58d368a6bf80980622fb4eb6a2a6
+  content_hash: sha256:a2ce77f87461b28585cf06164eb1630967606c80d06d62b7e8e46be7950bb256
 - kind: project-relative
   target: agents
   value: .agents/skills/docker-quality-check/assets/github/actions/check-docker-source/install-hadolint.sh
@@ -616,7 +616,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:8915c239b396e7dfaac7e64c5de8a513ffa4e798b6be74f9b5cde4de14f6d08e
+  content_hash: sha256:fc9088264dba0106afda58adfb2d067ce6e82836d4c8b96ee8a89436cfc7d746
 - kind: project-relative
   target: agents
   value: .agents/skills/flet-project-quality-check/agents/openai.yaml
@@ -634,7 +634,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:cc29aa28c2629de7dd9134965ab28b727ecdc6a7873d634fc0c16ad21cbe86e7
+  content_hash: sha256:235645c32e3c8880d5d6393de2adc89b2da41d9ac6f98e25607750b533f2f0e9
 - kind: project-relative
   target: agents
   value: .agents/skills/flet-project-quality-check/assets/github/actions/test-python-flet-source/action.yml
@@ -1003,7 +1003,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7cf55a0bb82129d37424c718394c7bb2ae9a365040bb636c1146397273f84154
+  content_hash: sha256:913733a95ff01dc9e88d8bd20484a2a3ea0b41fcaa1ce8c086b72a3eb998c00b
 - kind: project-relative
   target: agents
   value: .agents/skills/hugo-quality-check/agents/openai.yaml
@@ -1021,7 +1021,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:46ab9858865a04ecc89c5d01c8aa6270c45522aa473e9a4b03981a8f32ee5a17
+  content_hash: sha256:bb18d58561cd0ca8d3ac7765c5155dfcedc9e3210fde6e89256901c9498ef9b7
 - kind: project-relative
   target: agents
   value: .agents/skills/hugo-quality-check/references/hugo-build-contract.md
@@ -1138,7 +1138,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:89c96df738df2f29c996d0a8c9572426c63398acc30532702e622c04a5df9d57
+  content_hash: sha256:b69ec039e933ca8b3aa1c304df7fb4e5d343343a85bd117f2d76432a1da29058
 - kind: project-relative
   target: agents
   value: .agents/skills/node-quality-check/agents/openai.yaml
@@ -1156,7 +1156,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:5dfcdc43186b6dfd6b25711389682bd2212026fc204a0911d14479a0ddda058a
+  content_hash: sha256:cd4745a26040bbd88aed37331cfe6e0ee4cc091d3de413d41e4532a5949e2260
 - kind: project-relative
   target: agents
   value: .agents/skills/node-quality-check/assets/github/actions/setup-node-locked/action.yml
@@ -1988,7 +1988,7 @@ local_deployed_file_hashes:
   .agents/skills/apm-workflow/scripts/propose_bootstrap_update.py: sha256:5c8d079ff9caa4175a971c5d231bc24d8143d47d238496cace60b1d91d8d00d8
   .agents/skills/apm-workflow/scripts/propose_bootstrap_update.py.lock: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
   .agents/skills/bepinex-mono-mod-quality-check/README.md: sha256:f1cedde8c48a1aa4ebe4a57decff164fd845ba82a64ddcbe66e9fc9f349286f5
-  .agents/skills/bepinex-mono-mod-quality-check/SKILL.md: sha256:04e705a02609eae4381990026cfac4c781507f685fa974894fd9c7a8c4e5510e
+  .agents/skills/bepinex-mono-mod-quality-check/SKILL.md: sha256:5c70a2f7e16c39bd17dd90fd43b90fbec62cff54585cb641dce28b8dda79287c
   .agents/skills/bepinex-mono-mod-quality-check/agents/openai.yaml: sha256:a4d486e33ec1ce652ec78ffbc6c783b8005bd30202716385aaf5b5b686451cf7
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/check-dotnet-bepinex-source/action.yml.template: sha256:ee69729f8346df3466e8950c2e3c88b060a9a9b2da042819b3b71d52955363ce
   .agents/skills/bepinex-mono-mod-quality-check/assets/github/actions/deploy-bepinex-thunderstore/action.yml: sha256:95eecbea6e59e7de9d3f36fc588938e08d8621fa8820e12ea6c8ea3828959a58
@@ -2030,17 +2030,17 @@ local_deployed_file_hashes:
   .agents/skills/commit-message-quality-check/SKILL.md: sha256:db272bb7467bcb6a6c3d837dec60a34f7081c135fcd40a9e00cf4a84e29ffabe
   .agents/skills/commit-message-quality-check/agents/openai.yaml: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
   .agents/skills/docker-quality-check/README.md: sha256:912a73d3de06babc6eed1ecdaf275139ae465797083dc5427affb54d00c57bf0
-  .agents/skills/docker-quality-check/SKILL.md: sha256:4e2c3fb76afba2f7551c7d2f9c9d10a17d298834e6e497f4a2b26767472c5650
+  .agents/skills/docker-quality-check/SKILL.md: sha256:1f63030c08c7c12ce586b5c759789da36f7cdc0957a5697545796dc7889c0edf
   .agents/skills/docker-quality-check/agents/openai.yaml: sha256:8abdaaa5a0458e86821080f50a2dfc34374c5c673a6c257fa351a2a96a16d064
-  .agents/skills/docker-quality-check/assets/github/actions/check-docker-source/action.yml: sha256:ace8813374c0e62834e35b55b122d6442b6a58d368a6bf80980622fb4eb6a2a6
+  .agents/skills/docker-quality-check/assets/github/actions/check-docker-source/action.yml: sha256:a2ce77f87461b28585cf06164eb1630967606c80d06d62b7e8e46be7950bb256
   .agents/skills/docker-quality-check/assets/github/actions/check-docker-source/install-hadolint.sh: sha256:1a2e0159029597ed5fc8c51759bfd784447cd5e1ffc3db17d3be36b9a11c2f74
   .agents/skills/docker-quality-check/assets/github/workflows/main.yml: sha256:92ef7f067110e0403652b5096fe65b5ade523fa0c10fbe56bb555b0b2fb89f1a
   .agents/skills/docker-quality-check/assets/github/workflows/pull-request.yml: sha256:78486f8ba5ca32f5e298cda33d2f553e3f7ec36b688929d01ba5369461f23ecb
   .agents/skills/docker-quality-check/references/ci-template-contract.md: sha256:af78ac12c756d4901cf664bd1edf69c2425b56968ee477492b7ec5f5abe826ae
   .agents/skills/flet-project-quality-check/README.md: sha256:5fdc047f0235d83c9bb30a668f96f7a6b54c930bb997fc661dc209312e46e278
-  .agents/skills/flet-project-quality-check/SKILL.md: sha256:8915c239b396e7dfaac7e64c5de8a513ffa4e798b6be74f9b5cde4de14f6d08e
+  .agents/skills/flet-project-quality-check/SKILL.md: sha256:fc9088264dba0106afda58adfb2d067ce6e82836d4c8b96ee8a89436cfc7d746
   .agents/skills/flet-project-quality-check/agents/openai.yaml: sha256:6b8a81074e807de9c50c9a510d47a9e658dd4bbda440aa9937c38ba140992e7d
-  .agents/skills/flet-project-quality-check/assets/github/actions/check-python-flet-source/action.yml: sha256:cc29aa28c2629de7dd9134965ab28b727ecdc6a7873d634fc0c16ad21cbe86e7
+  .agents/skills/flet-project-quality-check/assets/github/actions/check-python-flet-source/action.yml: sha256:235645c32e3c8880d5d6393de2adc89b2da41d9ac6f98e25607750b533f2f0e9
   .agents/skills/flet-project-quality-check/assets/github/actions/test-python-flet-source/action.yml: sha256:166d0c6e0024ff19aea9bbb882873f87fa0326bae16737b0b1a72f6eb01df9a4
   .agents/skills/flet-project-quality-check/assets/github/workflows/main.yml: sha256:e2cda7f124aac7227127970274b13b25646aea112f5e7454ed0dd7602bbc6ee6
   .agents/skills/flet-project-quality-check/assets/github/workflows/pull-request.yml: sha256:06ef51578eaa11bfa473d7f656e9aad6d7cec34720eabd2e22c34ca056b1c4ba
@@ -2076,9 +2076,9 @@ local_deployed_file_hashes:
   .agents/skills/gitignore-workflow/SKILL.md: sha256:2ef38f42e418c10e0ba7632e3ba37614df97044dfa8847ad1338e6c4c896c089
   .agents/skills/gitignore-workflow/agents/openai.yaml: sha256:f6a9b176003028588ff4c1d9ee4e23c625892d00b65086bf4b6b26a3f896030d
   .agents/skills/hugo-quality-check/README.md: sha256:23f5c71358d96a859ad1329c09aa505fcd2636c63dd0682c839d7676c510c837
-  .agents/skills/hugo-quality-check/SKILL.md: sha256:7cf55a0bb82129d37424c718394c7bb2ae9a365040bb636c1146397273f84154
+  .agents/skills/hugo-quality-check/SKILL.md: sha256:913733a95ff01dc9e88d8bd20484a2a3ea0b41fcaa1ce8c086b72a3eb998c00b
   .agents/skills/hugo-quality-check/agents/openai.yaml: sha256:d2657904dab491e06f399aa01b1d23014082bb1cbeaa07a69b74b75b749efd91
-  .agents/skills/hugo-quality-check/assets/github/actions/check-hugo-site/action.yml: sha256:46ab9858865a04ecc89c5d01c8aa6270c45522aa473e9a4b03981a8f32ee5a17
+  .agents/skills/hugo-quality-check/assets/github/actions/check-hugo-site/action.yml: sha256:bb18d58561cd0ca8d3ac7765c5155dfcedc9e3210fde6e89256901c9498ef9b7
   .agents/skills/hugo-quality-check/references/hugo-build-contract.md: sha256:93900a1e1aab04f7b41aeb4b0a080b82068ed19786fc6c687049f52bdd90b45b
   .agents/skills/lethal-company-analyze/README.md: sha256:25274fc0d0155864c4e421d315a1b91d21cc203a4c75e25a740c17f04f9387d6
   .agents/skills/lethal-company-analyze/SKILL.md: sha256:0e027f7df896d7a89b5945b9de00e0a17d514e8f9afa1e2fa6771eef1bfec3bb
@@ -2089,9 +2089,9 @@ local_deployed_file_hashes:
   .agents/skills/lethal-company-analyze/references/reporting-and-review.md: sha256:b4b895fcec9c815489a8bba53b65cee02d3a58c51c8cc0670aa6ad7a41ff0582
   .agents/skills/lethal-company-analyze/references/rng-and-runtime-modeling.md: sha256:16bfd80e576715bf7a0248a095c412faea18cda034bc244189dcb729b7b7638b
   .agents/skills/node-quality-check/README.md: sha256:f87def599866d3cf6d4102a1ca80f28dcb827b51be47803c448e041ae9a125da
-  .agents/skills/node-quality-check/SKILL.md: sha256:89c96df738df2f29c996d0a8c9572426c63398acc30532702e622c04a5df9d57
+  .agents/skills/node-quality-check/SKILL.md: sha256:b69ec039e933ca8b3aa1c304df7fb4e5d343343a85bd117f2d76432a1da29058
   .agents/skills/node-quality-check/agents/openai.yaml: sha256:81c5bd6e1b0fcb3d228bb7cef8c913a28d0849a02001d71ffd2edbc1f120e9e0
-  .agents/skills/node-quality-check/assets/github/actions/check-node-source/action.yml: sha256:5dfcdc43186b6dfd6b25711389682bd2212026fc204a0911d14479a0ddda058a
+  .agents/skills/node-quality-check/assets/github/actions/check-node-source/action.yml: sha256:cd4745a26040bbd88aed37331cfe6e0ee4cc091d3de413d41e4532a5949e2260
   .agents/skills/node-quality-check/assets/github/actions/setup-node-locked/action.yml: sha256:d9ae2d064b199dec1e1de128d65bd1d88c371637351e8e417b82927894ee8679
   .agents/skills/node-quality-check/assets/github/actions/setup-node-locked/resolve-node-contract.sh: sha256:f26633b24172eb3708143804badcf0537569c9db591755cbf0ac4419285f2d27
   .agents/skills/node-quality-check/assets/pnpm-workspace.yaml: sha256:c2e65b05e43b96b835f138ce1bd7a1cd0d3bb7205d103dc427d837d5d5a0224a

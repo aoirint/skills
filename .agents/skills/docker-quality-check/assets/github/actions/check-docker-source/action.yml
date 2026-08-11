@@ -1,9 +1,19 @@
 name: Check Docker source
-description: Install a verified hadolint binary and lint the repository Dockerfile.
+description: Audit APM, lint Docker and Markdown source, and remove action-owned tools.
 
 runs:
   using: composite
   steps:
+    - name: Set up reviewed APM CLI
+      uses: microsoft/apm-action@d723bb64ed70c135bbaf87d126b721dd2dae0439 # v1.10.0
+      with:
+        apm-version: "0.27.0"
+        setup-only: "true"
+
+    - name: Audit APM deployment
+      shell: bash
+      run: apm audit --ci
+
     - name: Install checksum-verified hadolint
       shell: bash
       env:
@@ -14,3 +24,9 @@ runs:
     - name: Lint Dockerfile
       shell: bash
       run: hadolint Dockerfile
+
+    - name: Lint Markdown source
+      uses: DavidAnson/markdownlint-cli2-action@ce4853d43830c74c1753b39f3cf40f71c2031eb9 # v23.0.0
+      with:
+        config: .markdownlint-cli2.yaml
+        globs: "**/*.md"

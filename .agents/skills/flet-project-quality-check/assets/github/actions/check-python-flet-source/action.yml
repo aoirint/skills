@@ -4,6 +4,16 @@ description: Run workflow, Python, type, and Markdown source checks.
 runs:
   using: composite
   steps:
+    - name: Set up reviewed APM CLI
+      uses: microsoft/apm-action@d723bb64ed70c135bbaf87d126b721dd2dae0439 # v1.10.0
+      with:
+        apm-version: "0.27.0"
+        setup-only: "true"
+
+    - name: Audit APM deployment
+      shell: bash
+      run: apm audit --ci
+
     - name: Install workflow validation tools
       uses: ./.github/actions/install-workflow-tools
 
