@@ -1138,7 +1138,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:f3f43e8934cedb855e8785a8a5672fa67d1959b67299eaa836b2e2a6ddc859a8
+  content_hash: sha256:25620b984f3adf55d23777c86a4069e262096a7861d244a833995bf55e3c322c
 - kind: project-relative
   target: agents
   value: .agents/skills/kopia-workflow/agents/openai.yaml
@@ -1148,6 +1148,15 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:6f6a89a65e53ebea97b2731ff0098b4a04cb083522cae6503823cd09075009f2
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kopia-workflow/references/credential-storage.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:5c5c7a04ff4fcd1bdc1083aebfef724c654507da461f16c0588ba832d85287ef
 - kind: project-relative
   target: agents
   value: .agents/skills/kopia-workflow/references/repository-lifecycle.md
@@ -1165,7 +1174,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:70fea11d932fc9ed4f12fef6ff1bcc7e96519ada139cdf8d51d1d6c341ae77ce
+  content_hash: sha256:98d4d5151f363f669fd0f348617ecc225d8e888c319d8d2872515e57d8fb8860
 - kind: project-relative
   target: agents
   value: .agents/skills/lethal-company-analyze
@@ -2066,6 +2075,7 @@ local_deployed_files:
 - .agents/skills/kopia-workflow/README.md
 - .agents/skills/kopia-workflow/SKILL.md
 - .agents/skills/kopia-workflow/agents/openai.yaml
+- .agents/skills/kopia-workflow/references/credential-storage.md
 - .agents/skills/kopia-workflow/references/repository-lifecycle.md
 - .agents/skills/kopia-workflow/references/s3-storage.md
 - .agents/skills/lethal-company-analyze
@@ -2259,10 +2269,11 @@ local_deployed_file_hashes:
   .agents/skills/hugo-quality-check/references/hugo-build-contract.md: sha256:1ceb29b22d428be697d1be8d05c3ced4a22de96e5258253958d4f7adad3ef11e
   .agents/skills/hugo-quality-check/scripts/render_markdownlint_config.py: sha256:c19dfb6d8fb47ff3e5849778b230c828de7b488c0021a5d2a384ce351ac4e965
   .agents/skills/kopia-workflow/README.md: sha256:4b76a6e43f7d3a1a87c93e66d23b84ed4b4f1fde558ffd1b505e3b7b61d3a55f
-  .agents/skills/kopia-workflow/SKILL.md: sha256:f3f43e8934cedb855e8785a8a5672fa67d1959b67299eaa836b2e2a6ddc859a8
+  .agents/skills/kopia-workflow/SKILL.md: sha256:25620b984f3adf55d23777c86a4069e262096a7861d244a833995bf55e3c322c
   .agents/skills/kopia-workflow/agents/openai.yaml: sha256:6f6a89a65e53ebea97b2731ff0098b4a04cb083522cae6503823cd09075009f2
+  .agents/skills/kopia-workflow/references/credential-storage.md: sha256:5c5c7a04ff4fcd1bdc1083aebfef724c654507da461f16c0588ba832d85287ef
   .agents/skills/kopia-workflow/references/repository-lifecycle.md: sha256:7d4195e918d55b6c55b080470d9f73f1bc6ac02de40b3699c1a7912f5ff6c72f
-  .agents/skills/kopia-workflow/references/s3-storage.md: sha256:70fea11d932fc9ed4f12fef6ff1bcc7e96519ada139cdf8d51d1d6c341ae77ce
+  .agents/skills/kopia-workflow/references/s3-storage.md: sha256:98d4d5151f363f669fd0f348617ecc225d8e888c319d8d2872515e57d8fb8860
   .agents/skills/lethal-company-analyze/README.md: sha256:25274fc0d0155864c4e421d315a1b91d21cc203a4c75e25a740c17f04f9387d6
   .agents/skills/lethal-company-analyze/SKILL.md: sha256:0e027f7df896d7a89b5945b9de00e0a17d514e8f9afa1e2fa6771eef1bfec3bb
   .agents/skills/lethal-company-analyze/agents/openai.yaml: sha256:fb80fc51dba972198601c2ec76805752f34a214bbd9a73d4bbdff7e8165ad0bf

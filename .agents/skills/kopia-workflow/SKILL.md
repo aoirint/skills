@@ -56,9 +56,18 @@ remote storage, or verification cost an invisible operational dependency.
      disaster-recovery copy.
 
 3. **Protect credentials.**
-   - Inject repository and storage credentials at process scope from an
-     approved secret store. Do not print environment values or put passwords
-     in command arguments, scripts, workspace documents, or shell history.
+   - Before changing repository-password persistence or designing a
+     secret-manager bridge, read
+     [credential storage](references/credential-storage.md). Prefer Kopia's
+     built-in persistence for local reconnect and unattended operation; do not
+     recreate it with a custom secret-manager-to-OS-vault mirror.
+   - Keep a separately recoverable copy of the repository password in an
+     approved secret or password manager. Treat it as the disaster-recovery
+     source of truth, not as proof that each local Kopia process can reconnect.
+   - When local persistence is intentionally disabled, inject the repository
+     password at process startup. Do not print environment values or put
+     passwords in command arguments, scripts, workspace documents, or shell
+     history.
    - Treat Kopia connection configuration as sensitive because it can contain
      storage credentials even when the repository password is held elsewhere.
    - Verify the resulting connection and source list directly. Wrapper success
@@ -126,7 +135,8 @@ remote storage, or verification cost an invisible operational dependency.
 ## Completion Checklist
 
 - Source, repository, replica, retention, and restore responsibilities are named.
-- Credentials are process-scoped or stored in an approved protected config.
+- The repository password has a recoverable source of truth, and local
+  persistence or per-startup injection is explicit.
 - Snapshot IDs and errors were inspected after state-changing operations.
 - Replication direction and deletion behavior are explicit.
 - Verification depth is documented, including intentionally omitted remote reads.
