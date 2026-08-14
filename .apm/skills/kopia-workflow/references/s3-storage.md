@@ -13,9 +13,12 @@ tolerate partial unavailability during retrieval.
 
 Kopia connection configuration may persist the S3 endpoint, bucket, prefix,
 access-key identifier, and secret. Protect the config as a credential-bearing
-file. Prefer a secret store and process-scoped environment injection where the
-operating mode supports it. When a desktop UI requires persistent connection
-state, restrict filesystem access and document rotation and disconnect steps.
+file. These storage-provider credentials are separate from the repository
+password that Kopia can persist in the operating-system credential store. Prefer
+a secret store and process-scoped environment injection where the storage
+provider and operating mode support it. When a desktop UI requires persistent
+connection state, restrict filesystem access and document rotation and
+disconnect steps.
 
 Routine snapshot verification should inspect repository metadata and errors.
 Remote file-content reads and sample restores are separate, opt-in evidence
