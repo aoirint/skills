@@ -1,0 +1,4 @@
+interface:
+  display_name: "AWS Workflow"
+  short_description: "Provision and verify least-privilege AWS resources safely"
+  default_prompt: "Use $aws-workflow to plan, apply, and verify the requested AWS change with least privilege and redacted evidence."
