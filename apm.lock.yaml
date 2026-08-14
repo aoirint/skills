@@ -1012,7 +1012,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:fd1e5c3923be755e843d98db3e5d10a3e5236702d546305aa7df7aa8272287fc
+  content_hash: sha256:e5f41a561cac0231275d8a5ac4042a70464362f2dee04a2df3ae3d2f5fd9b3ea
 - kind: project-relative
   target: agents
   value: .agents/skills/hugo-quality-check/agents/openai.yaml
@@ -1057,7 +1057,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:93900a1e1aab04f7b41aeb4b0a080b82068ed19786fc6c687049f52bdd90b45b
+  content_hash: sha256:1ceb29b22d428be697d1be8d05c3ced4a22de96e5258253958d4f7adad3ef11e
 - kind: project-relative
   target: agents
   value: .agents/skills/hugo-quality-check/scripts/render_markdownlint_config.py
@@ -2137,12 +2137,12 @@ local_deployed_file_hashes:
   .agents/skills/gitignore-workflow/SKILL.md: sha256:2ef38f42e418c10e0ba7632e3ba37614df97044dfa8847ad1338e6c4c896c089
   .agents/skills/gitignore-workflow/agents/openai.yaml: sha256:f6a9b176003028588ff4c1d9ee4e23c625892d00b65086bf4b6b26a3f896030d
   .agents/skills/hugo-quality-check/README.md: sha256:23f5c71358d96a859ad1329c09aa505fcd2636c63dd0682c839d7676c510c837
-  .agents/skills/hugo-quality-check/SKILL.md: sha256:fd1e5c3923be755e843d98db3e5d10a3e5236702d546305aa7df7aa8272287fc
+  .agents/skills/hugo-quality-check/SKILL.md: sha256:e5f41a561cac0231275d8a5ac4042a70464362f2dee04a2df3ae3d2f5fd9b3ea
   .agents/skills/hugo-quality-check/agents/openai.yaml: sha256:d2657904dab491e06f399aa01b1d23014082bb1cbeaa07a69b74b75b749efd91
   .agents/skills/hugo-quality-check/assets/github/actions/check-hugo-site/action.yml: sha256:6e9c3dc75714749e8986bc36c1cbaabe3df72405ec546e19abdf08c966eab0f4
   .agents/skills/hugo-quality-check/assets/markdownlint-cli2-content.yaml: sha256:6f08d9d37534c90303aaec67418e2b1764e892d45bf954897b73d099a247293a
   .agents/skills/hugo-quality-check/assets/markdownlint-cli2.yaml: sha256:27c1231af6e3b3bcbf3f67c0e19c8723a5f538b52af50c3c23433e81da650168
-  .agents/skills/hugo-quality-check/references/hugo-build-contract.md: sha256:93900a1e1aab04f7b41aeb4b0a080b82068ed19786fc6c687049f52bdd90b45b
+  .agents/skills/hugo-quality-check/references/hugo-build-contract.md: sha256:1ceb29b22d428be697d1be8d05c3ced4a22de96e5258253958d4f7adad3ef11e
   .agents/skills/hugo-quality-check/scripts/render_markdownlint_config.py: sha256:c19dfb6d8fb47ff3e5849778b230c828de7b488c0021a5d2a384ce351ac4e965
   .agents/skills/lethal-company-analyze/README.md: sha256:25274fc0d0155864c4e421d315a1b91d21cc203a4c75e25a740c17f04f9387d6
   .agents/skills/lethal-company-analyze/SKILL.md: sha256:0e027f7df896d7a89b5945b9de00e0a17d514e8f9afa1e2fa6771eef1bfec3bb
