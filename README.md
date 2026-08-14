@@ -29,6 +29,7 @@ apm update --global
 | Skill | Purpose |
 | --- | --- |
 | [apm-workflow](.apm/skills/apm-workflow/README.md) | Safely set up, pin, deploy, audit, and update APM-managed agent dependencies. |
+| [aws-workflow](.apm/skills/aws-workflow/README.md) | Apply and verify least-privilege AWS CLI changes without exposing credentials. |
 | [bws-workflow](.apm/skills/bws-workflow/README.md) | Use the Bitwarden Secrets Manager CLI safely with OS-backed access-token storage. |
 | [bepinex-mono-mod-quality-check](.apm/skills/bepinex-mono-mod-quality-check/README.md) | Review BepInEx Mono repositories for structure, family alignment, dependencies, CI, package readiness, release, and Thunderstore quality. |
 | [changelog-workflow](.apm/skills/changelog-workflow/README.md) | Maintain canonical developer changelogs and release history. |
@@ -41,6 +42,7 @@ apm update --global
 | [github-workflow](.apm/skills/github-workflow/README.md) | Create and review GitHub issues, pull requests, and their comments. |
 | [gitignore-workflow](.apm/skills/gitignore-workflow/README.md) | Create and maintain repository `.gitignore` rules. |
 | [hugo-quality-check](.apm/skills/hugo-quality-check/README.md) | Review pnpm-managed Hugo sites, local build assets, and CI. |
+| [kopia-workflow](.apm/skills/kopia-workflow/README.md) | Design and operate verifiable Kopia backup repositories and replicas. |
 | [lethal-company-analyze](.apm/skills/lethal-company-analyze/README.md) | Investigate version-specific Lethal Company mechanics with reproducible evidence. |
 | [node-quality-check](.apm/skills/node-quality-check/README.md) | Review pnpm-managed Node.js source, dependencies, runtime, CI, configuration, and validation changes. |
 | [prose-quality-check](.apm/skills/prose-quality-check/README.md) | Review explanatory prose for readability, local structure, and preserved nuance. |

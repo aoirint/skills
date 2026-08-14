@@ -88,6 +88,51 @@ deployments:
   content_hash: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
 - kind: project-relative
   target: agents
+  value: .agents/skills/aws-workflow
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/aws-workflow/README.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:53c7156e45193d9ba57570cbc50f294c621d827b807fe30b02be589e9bbed4ea
+- kind: project-relative
+  target: agents
+  value: .agents/skills/aws-workflow/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:062b8d1da1c4ed787d3053b5334ab349d25b85a4943c2e8e7b362e4c57b11c22
+- kind: project-relative
+  target: agents
+  value: .agents/skills/aws-workflow/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0407db88ee631a280cbd8b9fd23b12668397e7efb4bb8b4eb5b67d21b849a6f7
+- kind: project-relative
+  target: agents
+  value: .agents/skills/aws-workflow/references/s3-backup-repositories.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:2288c14f6b6747f7f6ba507d43010ac1441ebefc14dd246e0ec714d42ab5dbd7
+- kind: project-relative
+  target: agents
   value: .agents/skills/bepinex-mono-mod-quality-check
   runtime: null
   scope: project
@@ -1069,6 +1114,60 @@ deployments:
   content_hash: sha256:c19dfb6d8fb47ff3e5849778b230c828de7b488c0021a5d2a384ce351ac4e965
 - kind: project-relative
   target: agents
+  value: .agents/skills/kopia-workflow
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kopia-workflow/README.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:4b76a6e43f7d3a1a87c93e66d23b84ed4b4f1fde558ffd1b505e3b7b61d3a55f
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kopia-workflow/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:f3f43e8934cedb855e8785a8a5672fa67d1959b67299eaa836b2e2a6ddc859a8
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kopia-workflow/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:6f6a89a65e53ebea97b2731ff0098b4a04cb083522cae6503823cd09075009f2
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kopia-workflow/references/repository-lifecycle.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:7d4195e918d55b6c55b080470d9f73f1bc6ac02de40b3699c1a7912f5ff6c72f
+- kind: project-relative
+  target: agents
+  value: .agents/skills/kopia-workflow/references/s3-storage.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:70fea11d932fc9ed4f12fef6ff1bcc7e96519ada139cdf8d51d1d6c341ae77ce
+- kind: project-relative
+  target: agents
   value: .agents/skills/lethal-company-analyze
   runtime: null
   scope: project
@@ -1849,6 +1948,11 @@ local_deployed_files:
 - .agents/skills/apm-workflow/references/apm-bootstrap.json
 - .agents/skills/apm-workflow/scripts/propose_bootstrap_update.py
 - .agents/skills/apm-workflow/scripts/propose_bootstrap_update.py.lock
+- .agents/skills/aws-workflow
+- .agents/skills/aws-workflow/README.md
+- .agents/skills/aws-workflow/SKILL.md
+- .agents/skills/aws-workflow/agents/openai.yaml
+- .agents/skills/aws-workflow/references/s3-backup-repositories.md
 - .agents/skills/bepinex-mono-mod-quality-check
 - .agents/skills/bepinex-mono-mod-quality-check/README.md
 - .agents/skills/bepinex-mono-mod-quality-check/SKILL.md
@@ -1958,6 +2062,12 @@ local_deployed_files:
 - .agents/skills/hugo-quality-check/assets/markdownlint-cli2.yaml
 - .agents/skills/hugo-quality-check/references/hugo-build-contract.md
 - .agents/skills/hugo-quality-check/scripts/render_markdownlint_config.py
+- .agents/skills/kopia-workflow
+- .agents/skills/kopia-workflow/README.md
+- .agents/skills/kopia-workflow/SKILL.md
+- .agents/skills/kopia-workflow/agents/openai.yaml
+- .agents/skills/kopia-workflow/references/repository-lifecycle.md
+- .agents/skills/kopia-workflow/references/s3-storage.md
 - .agents/skills/lethal-company-analyze
 - .agents/skills/lethal-company-analyze/README.md
 - .agents/skills/lethal-company-analyze/SKILL.md
@@ -2047,6 +2157,10 @@ local_deployed_file_hashes:
   .agents/skills/apm-workflow/references/apm-bootstrap.json: sha256:e0ebfd624fc79e35c5a5a305d77476860ff87019edc3afc0b37b5cd2884276b1
   .agents/skills/apm-workflow/scripts/propose_bootstrap_update.py: sha256:5c8d079ff9caa4175a971c5d231bc24d8143d47d238496cace60b1d91d8d00d8
   .agents/skills/apm-workflow/scripts/propose_bootstrap_update.py.lock: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
+  .agents/skills/aws-workflow/README.md: sha256:53c7156e45193d9ba57570cbc50f294c621d827b807fe30b02be589e9bbed4ea
+  .agents/skills/aws-workflow/SKILL.md: sha256:062b8d1da1c4ed787d3053b5334ab349d25b85a4943c2e8e7b362e4c57b11c22
+  .agents/skills/aws-workflow/agents/openai.yaml: sha256:0407db88ee631a280cbd8b9fd23b12668397e7efb4bb8b4eb5b67d21b849a6f7
+  .agents/skills/aws-workflow/references/s3-backup-repositories.md: sha256:2288c14f6b6747f7f6ba507d43010ac1441ebefc14dd246e0ec714d42ab5dbd7
   .agents/skills/bepinex-mono-mod-quality-check/README.md: sha256:f1cedde8c48a1aa4ebe4a57decff164fd845ba82a64ddcbe66e9fc9f349286f5
   .agents/skills/bepinex-mono-mod-quality-check/SKILL.md: sha256:c0a4782db7a9f6455e6139bc42095822d87c95a5af536cdabfc839a6af8c6654
   .agents/skills/bepinex-mono-mod-quality-check/agents/openai.yaml: sha256:a4d486e33ec1ce652ec78ffbc6c783b8005bd30202716385aaf5b5b686451cf7
@@ -2144,6 +2258,11 @@ local_deployed_file_hashes:
   .agents/skills/hugo-quality-check/assets/markdownlint-cli2.yaml: sha256:27c1231af6e3b3bcbf3f67c0e19c8723a5f538b52af50c3c23433e81da650168
   .agents/skills/hugo-quality-check/references/hugo-build-contract.md: sha256:1ceb29b22d428be697d1be8d05c3ced4a22de96e5258253958d4f7adad3ef11e
   .agents/skills/hugo-quality-check/scripts/render_markdownlint_config.py: sha256:c19dfb6d8fb47ff3e5849778b230c828de7b488c0021a5d2a384ce351ac4e965
+  .agents/skills/kopia-workflow/README.md: sha256:4b76a6e43f7d3a1a87c93e66d23b84ed4b4f1fde558ffd1b505e3b7b61d3a55f
+  .agents/skills/kopia-workflow/SKILL.md: sha256:f3f43e8934cedb855e8785a8a5672fa67d1959b67299eaa836b2e2a6ddc859a8
+  .agents/skills/kopia-workflow/agents/openai.yaml: sha256:6f6a89a65e53ebea97b2731ff0098b4a04cb083522cae6503823cd09075009f2
+  .agents/skills/kopia-workflow/references/repository-lifecycle.md: sha256:7d4195e918d55b6c55b080470d9f73f1bc6ac02de40b3699c1a7912f5ff6c72f
+  .agents/skills/kopia-workflow/references/s3-storage.md: sha256:70fea11d932fc9ed4f12fef6ff1bcc7e96519ada139cdf8d51d1d6c341ae77ce
   .agents/skills/lethal-company-analyze/README.md: sha256:25274fc0d0155864c4e421d315a1b91d21cc203a4c75e25a740c17f04f9387d6
   .agents/skills/lethal-company-analyze/SKILL.md: sha256:0e027f7df896d7a89b5945b9de00e0a17d514e8f9afa1e2fa6771eef1bfec3bb
   .agents/skills/lethal-company-analyze/agents/openai.yaml: sha256:fb80fc51dba972198601c2ec76805752f34a214bbd9a73d4bbdff7e8165ad0bf

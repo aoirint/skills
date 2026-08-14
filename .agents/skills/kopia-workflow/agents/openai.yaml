@@ -1,0 +1,4 @@
+interface:
+  display_name: "Kopia Workflow"
+  short_description: "Design and operate verifiable Kopia backup repositories"
+  default_prompt: "Use $kopia-workflow to design or operate the requested Kopia backup workflow with bounded verification and recovery evidence."
