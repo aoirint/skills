@@ -63,7 +63,17 @@ description: >-
    Record source, exact version, integrity, license, and output path in
    `THIRD_PARTY_NOTICES.md`; use `security-check` for provenance, release age,
    integrity, and runtime behavior.
-5. When package dependencies change, finalize the pnpm workspace policy before
+5. When custom mounts exist or mount behavior changes, inspect the effective
+   mount graph with the repository's pinned Hugo, normally
+   `pnpm exec hugo config mounts`. Do not assume that component defaults remain
+   active because their directories still exist. Compare every project-owned
+   component directory the site uses with the effective mounts, and explicitly
+   restore any required default source and target pair that is absent. Build to
+   a clean destination and verify project-owned sentinel files in the output;
+   theme or module files can otherwise make an incomplete static mount look
+   successful. Follow the mount checklist in
+   [`references/hugo-build-contract.md`](references/hugo-build-contract.md).
+6. When package dependencies change, finalize the pnpm workspace policy before
    resolving the graph. Update the manifest and lockfile together, review direct and
    transitive changes, then replay it with `pnpm install --frozen-lockfile` and run
    the full `pnpm audit --json`. Keep a release-age exception only for an exact,
@@ -72,7 +82,7 @@ description: >-
    Inspect generated HTML for the intended local asset URLs and for absence of
    replaced CDN URLs; verify mounted CSS, JavaScript, and font files exist in
    the generated output.
-6. For reusable CI, apply `github-actions-quality-check` and its event-owned
+7. For reusable CI, apply `github-actions-quality-check` and its event-owned
    workflow template contract. For an APM-managed repository, also apply
    `apm-workflow`; the outer Hugo source-check action must run `apm audit --ci`
    and Markdown lint alongside the site checks. Read
@@ -85,8 +95,8 @@ description: >-
    responsibility is duplicated. The composite reads `.node-version` and
    `packageManager`, replays the lockfile, runs `lint` then `build`, and removes
    only the package directory’s `node_modules`.
-7. Preserve `submodules: recursive` in every Hugo checkout.
-8. Summarize the build contract, runtime compatibility evidence, external asset
+8. Preserve `submodules: recursive` in every Hugo checkout.
+9. Summarize the build contract, runtime compatibility evidence, external asset
    provenance, commands and results, and every skipped validation with its
    reason.
 
