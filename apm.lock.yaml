@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-08-15T09:56:18.883026+00:00'
+generated_at: '2026-08-16T11:45:34.281055+00:00'
 apm_version: 0.28.0
 dependencies:
 - repo_url: mizchi/skills
@@ -112,7 +112,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:062b8d1da1c4ed787d3053b5334ab349d25b85a4943c2e8e7b362e4c57b11c22
+  content_hash: sha256:b4a836a19de356da825cce0bc6d8bd3f21f28131a79655af7d4355b578f19e7b
 - kind: project-relative
   target: agents
   value: .agents/skills/aws-workflow/agents/openai.yaml
@@ -121,7 +121,25 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:0407db88ee631a280cbd8b9fd23b12668397e7efb4bb8b4eb5b67d21b849a6f7
+  content_hash: sha256:7d85ec6750693bd03704a80c680b00f74adafaa731dfb611709fb8a22e898585
+- kind: project-relative
+  target: agents
+  value: .agents/skills/aws-workflow/references/existing-resource-cdk-migration.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:42a0de59747feb0f670dcf966b94e3929513b349b23ad8c0f7392d88e2fa48f1
+- kind: project-relative
+  target: agents
+  value: .agents/skills/aws-workflow/references/python-cdk-project-template.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:1de19597e7322b384a2f0853519400bb681b153888f622e40346eb54f4f3cf38
 - kind: project-relative
   target: agents
   value: .agents/skills/aws-workflow/references/s3-backup-repositories.md
@@ -1961,6 +1979,8 @@ local_deployed_files:
 - .agents/skills/aws-workflow/README.md
 - .agents/skills/aws-workflow/SKILL.md
 - .agents/skills/aws-workflow/agents/openai.yaml
+- .agents/skills/aws-workflow/references/existing-resource-cdk-migration.md
+- .agents/skills/aws-workflow/references/python-cdk-project-template.md
 - .agents/skills/aws-workflow/references/s3-backup-repositories.md
 - .agents/skills/bepinex-mono-mod-quality-check
 - .agents/skills/bepinex-mono-mod-quality-check/README.md
@@ -2168,8 +2188,10 @@ local_deployed_file_hashes:
   .agents/skills/apm-workflow/scripts/propose_bootstrap_update.py: sha256:5c8d079ff9caa4175a971c5d231bc24d8143d47d238496cace60b1d91d8d00d8
   .agents/skills/apm-workflow/scripts/propose_bootstrap_update.py.lock: sha256:016afc221516f1724533f1623ec77ef8a9a80c06a1ffae431f32f5e063e59986
   .agents/skills/aws-workflow/README.md: sha256:53c7156e45193d9ba57570cbc50f294c621d827b807fe30b02be589e9bbed4ea
-  .agents/skills/aws-workflow/SKILL.md: sha256:062b8d1da1c4ed787d3053b5334ab349d25b85a4943c2e8e7b362e4c57b11c22
-  .agents/skills/aws-workflow/agents/openai.yaml: sha256:0407db88ee631a280cbd8b9fd23b12668397e7efb4bb8b4eb5b67d21b849a6f7
+  .agents/skills/aws-workflow/SKILL.md: sha256:b4a836a19de356da825cce0bc6d8bd3f21f28131a79655af7d4355b578f19e7b
+  .agents/skills/aws-workflow/agents/openai.yaml: sha256:7d85ec6750693bd03704a80c680b00f74adafaa731dfb611709fb8a22e898585
+  .agents/skills/aws-workflow/references/existing-resource-cdk-migration.md: sha256:42a0de59747feb0f670dcf966b94e3929513b349b23ad8c0f7392d88e2fa48f1
+  .agents/skills/aws-workflow/references/python-cdk-project-template.md: sha256:1de19597e7322b384a2f0853519400bb681b153888f622e40346eb54f4f3cf38
   .agents/skills/aws-workflow/references/s3-backup-repositories.md: sha256:2288c14f6b6747f7f6ba507d43010ac1441ebefc14dd246e0ec714d42ab5dbd7
   .agents/skills/bepinex-mono-mod-quality-check/README.md: sha256:f1cedde8c48a1aa4ebe4a57decff164fd845ba82a64ddcbe66e9fc9f349286f5
   .agents/skills/bepinex-mono-mod-quality-check/SKILL.md: sha256:cab0b75d91f93a2ed8266010fbd222b1a1042fcec87e9e39ded4aff3d6344ea6
