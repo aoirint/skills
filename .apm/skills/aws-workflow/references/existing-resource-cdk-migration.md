@@ -1,8 +1,8 @@
-# CloudFormation Resource Retirement
+# Existing Resource CDK Migration
 
-Use this reference when existing AWS resources must enter CloudFormation or CDK ownership before a
-destructive retirement, or when a short-lived application stack depends on a retained CDK bootstrap
-foundation.
+Use this reference when existing AWS resources must enter CloudFormation or CDK ownership without
+replacement. It also covers a later update or retirement when the imported resources are intentionally
+short-lived.
 
 ## Establish the boundary
 
@@ -12,13 +12,13 @@ foundation.
 - Read the current CloudFormation import support and identifier schema for every resource type.
 - Keep account IDs, ARNs, physical IDs, private addresses, import mappings, and raw responses in an
   approved private evidence location, not reusable source or Skill text.
-- Treat root-volume deletion, policy-version deletion, and stack deletion as separate destructive
-  effects requiring exact-target evidence.
+- Decide the post-import lifecycle separately. Import does not itself authorize an update,
+  replacement, or deletion.
 
 ## Separate bootstrap from the application
 
-CDK bootstrap creates account-region infrastructure used by deployments. A short-lived application
-stack does not imply that the bootstrap stack is short-lived.
+CDK bootstrap creates account-region infrastructure used by deployments. An imported or short-lived
+application stack does not imply that the bootstrap stack is short-lived.
 
 - Obtain explicit authority before the first bootstrap because it creates persistent IAM, S3, ECR,
   SSM, and CloudFormation resources according to the selected template version.
@@ -46,33 +46,32 @@ stack does not imply that the bootstrap stack is short-lived.
 IAM Identity Center owns permission sets and the generated `AWSReservedSSO_*` roles. Do not attach
 or detach policies on those roles through IAM or a CloudFormation managed policy `Roles` property.
 
-When retiring a customer-managed policy referenced by a permission set:
+When migrating a customer-managed policy referenced by a permission set:
 
 1. Preserve unrelated permission-set references.
-2. Remove the retiring reference through Identity Center and provision the permission set to the
-   target account.
-3. Wait for provisioning success and verify the generated role's live attachment is absent.
-4. Import the now-unattached managed policy with no `Roles` property, then delete it through the
-   stack.
+2. When the migration requires an attachment change, make it through Identity Center and provision
+   the permission set to the target account.
+3. Wait for provisioning success and verify the generated role's live attachment state.
+4. Import the managed policy using only attachment properties owned by CloudFormation. Keep the
+   service-managed role outside the template.
 
-This order prevents CloudFormation from attempting a protected-role mutation. For future creation,
-deploy the unattached policies first, then add their names to the permission set and provision it
-through Identity Center.
+For future creation, deploy the unattached policies first, then add their names to the permission
+set and provision it through Identity Center.
 
-## Destroy and recover safely
+## Continue after import safely
 
-- Reconfirm the exact stack, owned physical resources, external dependencies, deletion policies,
-  and irrecoverable data boundary immediately before destruction.
+- Treat the successful import as a checkpoint. Review a separate change set before any property
+  update, replacement, or deletion.
+- Reconfirm exact owned resources, external dependencies, deletion policies, and irrecoverable data
+  boundaries immediately before an authorized retirement.
 - IAM managed policies can have multiple versions. Before an authorized direct-policy deletion,
   delete every non-default version; deleting the policy removes its default version.
-- If a legacy imported template contains `Roles` and stack deletion fails on a protected generated
-  role, stop. Prove that the permission-set reference and live attachment are absent. Only then may
-  an explicitly authorized recovery delete the exact policy versions and policy out of band before
+- If a legacy imported template contains `Roles` and deletion fails on a protected generated role,
+  stop. Prove that the permission-set reference and live attachment are absent. Only then may an
+  explicitly authorized recovery delete the exact policy versions and policy out of band before
   retrying stack deletion. Record the divergence.
-- Do not treat stack deletion as sufficient evidence. Verify each owned resource is absent or in its
-  terminal state, including deletion-generated storage, and read back every retained shared or
-  service-managed dependency.
+- Do not treat stack operations as sufficient evidence. Verify each changed or deleted resource and
+  read back every retained shared or service-managed dependency.
 
-The handoff must distinguish recoverable retained prerequisites from irrecoverable deleted data and
-state any stale descriptions, assignments, or access metadata that remain but do not grant the
-retired permissions.
+The handoff must distinguish imported ownership, follow-up changes, recoverable retained
+prerequisites, irrecoverable deleted data, and stale metadata that does not grant access.
