@@ -29,7 +29,7 @@ apm update --global
 | Skill | Purpose |
 | --- | --- |
 | [apm-workflow](.apm/skills/apm-workflow/README.md) | Safely set up, pin, deploy, audit, and update APM-managed agent dependencies. |
-| [aws-workflow](.apm/skills/aws-workflow/README.md) | Apply and verify least-privilege AWS CLI changes without exposing credentials. |
+| [aws-workflow](.apm/skills/aws-workflow/README.md) | Apply, import, retire, and verify AWS resources without exposing credentials. |
 | [bws-workflow](.apm/skills/bws-workflow/README.md) | Use the Bitwarden Secrets Manager CLI safely with OS-backed access-token storage. |
 | [bepinex-mono-mod-quality-check](.apm/skills/bepinex-mono-mod-quality-check/README.md) | Review BepInEx Mono repositories for structure, family alignment, dependencies, CI, package readiness, release, and Thunderstore quality. |
 | [changelog-workflow](.apm/skills/changelog-workflow/README.md) | Maintain canonical developer changelogs and release history. |

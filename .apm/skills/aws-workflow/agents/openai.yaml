@@ -1,4 +1,4 @@
 interface:
   display_name: "AWS Workflow"
-  short_description: "Provision and verify least-privilege AWS resources safely"
-  default_prompt: "Use $aws-workflow to plan, apply, and verify the requested AWS change with least privilege and redacted evidence."
+  short_description: "Change, import, retire, and verify AWS resources safely"
+  default_prompt: "Use $aws-workflow to plan, apply, and verify the requested AWS change or retirement with least privilege, explicit ownership, and redacted evidence."

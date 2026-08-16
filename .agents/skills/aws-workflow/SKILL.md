@@ -3,9 +3,10 @@ name: aws-workflow
 description: >-
   Plan, apply, audit, and document AWS CLI changes with explicit authorization,
   least privilege, secret-safe execution, and post-change evidence. Use when
-  provisioning or changing AWS resources, IAM identities or policies, S3
-  backup storage, lifecycle rules, encryption, public-access controls, or
-  long-lived credentials for a tool that cannot use renewable credentials.
+  provisioning, importing, or retiring AWS resources, bootstrapping AWS CDK,
+  changing IAM identities or policies, configuring S3 backup storage,
+  lifecycle rules, encryption, public-access controls, or long-lived
+  credentials for a tool that cannot use renewable credentials.
 ---
 
 # AWS Workflow
@@ -58,6 +59,8 @@ to distinguish the intended state from an apparently successful command.
      and revocation ownership before creating it.
    - For S3 backup storage, read
      [S3 backup repositories](references/s3-backup-repositories.md).
+   - For CloudFormation/CDK import, bootstrap, or destructive retirement, read
+     [CloudFormation resource retirement](references/cloudformation-resource-retirement.md).
    - Do not enable bucket versioning, Object Lock, or delayed-retrieval lifecycle
      transitions unless the environment explicitly selects them with a tested
      recovery, deletion, compatibility, and cost model.
