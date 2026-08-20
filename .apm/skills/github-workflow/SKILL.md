@@ -97,12 +97,22 @@ create, update, upload, push, or release operation.
    merge. For titles, enforce
    `<type>[optional scope][optional !]: <description>` and use
    `commit-message-quality-check` for type and breaking-change notation.
-2. Before drafting or replacing a body, read the current PR template and
+2. Before diagnosing an automated dependency or update pull request, compare
+   its proposed state with the current integration branch's authoritative
+   manifests, lock graph, and relevant published artifact. Treat the bot branch
+   and displayed diff as a proposal that may be stale after another merge or a
+   disabled rebase. Keep pull-request currency, resolved dependency state, and
+   vulnerability-alert state distinct; an alert count does not prove the
+   installed version. When the requested change is already integrated and
+   shipped, do not create a redundant release. Propose closing the pull request
+   as superseded only with authorization, then apply the normal candidate
+   preflight and read back both any stored explanation and the final PR state.
+3. Before drafting or replacing a body, read the current PR template and
    contributor guidance. Follow only visible headings, required checkboxes,
    and applicable sections. If no template exists, use
    [fallback-pr-body.md](references/fallback-pr-body.md). Never infer a CLA,
    contributor agreement, checklist, sign-off, or policy from the fallback.
-3. For significant AI assistance, put this alert at the absolute top of PR
+4. For significant AI assistance, put this alert at the absolute top of PR
    bodies:
 
    ```markdown
@@ -113,7 +123,7 @@ create, update, upload, push, or release operation.
    Use `This comment was created with assistance from LLMs.` for reviews,
    replies, and thread notes. Preserve any existing alert after a blank line;
    the LLM alert must appear exactly once and first.
-4. Keep automated commands, CI results, non-AI manual checks, screenshots or
+5. Keep automated commands, CI results, non-AI manual checks, screenshots or
    videos, and AI-assisted inspections distinct. Under `## Testing`, put
    AI-assisted work in `### AI-assisted inspections` after automated checks
    with `Request: ...` and nested `AI-assisted result: ...`. State skipped
@@ -124,22 +134,22 @@ create, update, upload, push, or release operation.
    `owner/repo#123`, a short SHA, or prose that makes the reviewer search for
    the referenced artifact. An exact identity may remain in inline code when
    the same item is linked beside it.
-5. Use `Update Note`, `Discussion Note`, or `Review Note` only when requested.
+6. Use `Update Note`, `Discussion Note`, or `Review Note` only when requested.
    Put `Request addressed: ...` after the required alert; group retrospective
    notes by meaningful theme, label inferences, and omit secrets, private
    paths, and hidden reasoning.
-6. Before writing an AI-assisted body or comment, run
+7. Before writing an AI-assisted body or comment, run
    `scripts/check_llm_disclosure.py` against the candidate. For a
    disclosure-only repair, pass the exact prior body. After writing, fetch the
    complete JSON response and run the helper against that response and the
    candidate. For multi-artifact work, preflight every candidate, verify each
    write immediately, audit all targets at the end, and report success only
    when every target has exactly one required top alert and a matching body.
-7. With `gh`, use `--body-file`. Verify the complete JSON `body` as one string
+8. With `gh`, use `--body-file`. Verify the complete JSON `body` as one string
    against the candidate, allowing only terminal-newline normalization. In
    PowerShell, do not assign line-oriented `--jq` output when verifying
    multiline bodies. Remove temporary files.
-8. Before `gh pr merge` creates a squash or merge commit, resolve and pass the
+9. Before `gh pr merge` creates a squash or merge commit, resolve and pass the
    exact head SHA with `--match-head-commit`. Build and validate the exact
    multiline candidate commit message in a file with
    `git interpret-trailers --parse`, require each expected trailer exactly

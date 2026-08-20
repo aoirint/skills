@@ -598,7 +598,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:dd8ea471f8789bf7362f4990a95d38eee244483faab874507364f439e8414d3e
+  content_hash: sha256:06a0a7c13cc0153f740a729b78c7c7e5ddb7b057b380d16f43771b1bd5621dff
 - kind: project-relative
   target: agents
   value: .agents/skills/docker-quality-check/agents/openai.yaml
@@ -635,6 +635,15 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:f2571d65cf632f40ecdaca58334cb1ff793c7770aafffa0d691450216cf50a83
+- kind: project-relative
+  target: agents
+  value: .agents/skills/docker-quality-check/references/accelerator-runtime-validation.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:36394cc7b2ec6cfee0e1c173157fb3fd4c6c535702890a17e6df0b7f956c01e0
 - kind: project-relative
   target: agents
   value: .agents/skills/docker-quality-check/references/ci-template-contract.md
@@ -1030,7 +1039,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:797c679a0198155c8dd67b0ddbde02a8653715ee4cf30c10e29e606eabac3e17
+  content_hash: sha256:c8f1d17c1abc2b5219ce9f380d372264b5efd1bd55c3660c124f639e6f2cf8e1
 - kind: project-relative
   target: agents
   value: .agents/skills/github-workflow/agents/openai.yaml
@@ -2036,6 +2045,7 @@ local_deployed_files:
 - .agents/skills/docker-quality-check/assets/github/actions/check-docker-source/action.yml
 - .agents/skills/docker-quality-check/assets/github/workflows/main.yml
 - .agents/skills/docker-quality-check/assets/github/workflows/pull-request.yml
+- .agents/skills/docker-quality-check/references/accelerator-runtime-validation.md
 - .agents/skills/docker-quality-check/references/ci-template-contract.md
 - .agents/skills/docker-quality-check/references/registry-image-deletion.md
 - .agents/skills/domain-architecture-docs-workflow
@@ -2236,11 +2246,12 @@ local_deployed_file_hashes:
   .agents/skills/commit-message-quality-check/SKILL.md: sha256:db272bb7467bcb6a6c3d837dec60a34f7081c135fcd40a9e00cf4a84e29ffabe
   .agents/skills/commit-message-quality-check/agents/openai.yaml: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
   .agents/skills/docker-quality-check/README.md: sha256:912a73d3de06babc6eed1ecdaf275139ae465797083dc5427affb54d00c57bf0
-  .agents/skills/docker-quality-check/SKILL.md: sha256:dd8ea471f8789bf7362f4990a95d38eee244483faab874507364f439e8414d3e
+  .agents/skills/docker-quality-check/SKILL.md: sha256:06a0a7c13cc0153f740a729b78c7c7e5ddb7b057b380d16f43771b1bd5621dff
   .agents/skills/docker-quality-check/agents/openai.yaml: sha256:56a5f1b83f050b12555bbf85d1fd66c206016b8f939b79370e250b4e661cafd7
   .agents/skills/docker-quality-check/assets/github/actions/check-docker-source/action.yml: sha256:d3d30f80b163e6e60e6a47c46b79fc6f1afc6047ba093aacd5459432a069872e
   .agents/skills/docker-quality-check/assets/github/workflows/main.yml: sha256:7aaaecf2bc58c849c1877264f8c1363cd3376a158d25f948111f2adda7a1bf51
   .agents/skills/docker-quality-check/assets/github/workflows/pull-request.yml: sha256:f2571d65cf632f40ecdaca58334cb1ff793c7770aafffa0d691450216cf50a83
+  .agents/skills/docker-quality-check/references/accelerator-runtime-validation.md: sha256:36394cc7b2ec6cfee0e1c173157fb3fd4c6c535702890a17e6df0b7f956c01e0
   .agents/skills/docker-quality-check/references/ci-template-contract.md: sha256:e9d1a4f0c2e472dbe18f062a968f79e10daf10a87fa54091edfaead7222749b9
   .agents/skills/docker-quality-check/references/registry-image-deletion.md: sha256:a02688f52be5fccef96a2f25a70451eb8c579a46aa21ce27ee57ebc3a3f71a7e
   .agents/skills/domain-architecture-docs-workflow/README.md: sha256:25cbfeff60f18fdafd54ae64ae1c62fd70632a07bade9362e156c82987dac30b
@@ -2279,7 +2290,7 @@ local_deployed_file_hashes:
   .agents/skills/github-actions-quality-check/references/validation-and-reporting.md: sha256:6b3093c39d7884f4a030977f12887ddc7dba43d69a25267177d6259a4f5d4ee2
   .agents/skills/github-actions-quality-check/references/version-file-releases.md: sha256:351a695ed8e81e33271a4697030f1905776fa6512b271b5693785e48329123c4
   .agents/skills/github-workflow/README.md: sha256:381a6c5fee202282fe66b35070b605c2b344f718aa63cf9b91abeca1936ab2d2
-  .agents/skills/github-workflow/SKILL.md: sha256:797c679a0198155c8dd67b0ddbde02a8653715ee4cf30c10e29e606eabac3e17
+  .agents/skills/github-workflow/SKILL.md: sha256:c8f1d17c1abc2b5219ce9f380d372264b5efd1bd55c3660c124f639e6f2cf8e1
   .agents/skills/github-workflow/agents/openai.yaml: sha256:4d769a54de16656654a451b99a68289d2cd1efc65c86f58904f3445339bd2b22
   .agents/skills/github-workflow/references/fallback-pr-body.md: sha256:b98239e7d4cdddd8e267ab155f4e4c38fcc514526d9a32f13fcd5b21a1c07eb2
   .agents/skills/github-workflow/scripts/check_llm_disclosure.py: sha256:bc9c5cbd8efa77095eac42e53da714ed8dff86fa3b0e7870fc3e7eca1ca36e20
