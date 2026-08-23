@@ -52,8 +52,8 @@ transformers.__version__ = "test"
 transformers.AutoModelForMultimodalLM = object()
 transformers.AutoProcessor = object()
 runner = load_module(
-    "run_local_assistant",
-    "run_local_assistant.py",
+    "run_reference_inference",
+    "run_reference_inference.py",
     {"torch": torch, "PIL": pillow, "transformers": transformers},
 )
 

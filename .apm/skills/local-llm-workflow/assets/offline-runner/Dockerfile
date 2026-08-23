@@ -9,12 +9,12 @@ ENV PATH="/opt/venv/bin:${PATH}" \
 
 WORKDIR /opt/skill
 
-COPY scripts/run_local_assistant.py scripts/run_local_assistant.py.lock ./scripts/
+COPY scripts/run_reference_inference.py scripts/run_reference_inference.py.lock ./scripts/
 COPY scripts/profiles/ ./scripts/profiles/
 
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv venv /opt/venv \
-    && uv export --locked --script scripts/run_local_assistant.py \
+    && uv export --locked --script scripts/run_reference_inference.py \
         --output-file /tmp/requirements.txt \
     && uv pip install --python /opt/venv/bin/python \
         --require-hashes --requirements /tmp/requirements.txt \
@@ -24,5 +24,5 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin worker
 USER 10001:10001
 
-ENTRYPOINT ["python", "/opt/skill/scripts/run_local_assistant.py"]
+ENTRYPOINT ["python", "/opt/skill/scripts/run_reference_inference.py"]
 CMD ["--help"]

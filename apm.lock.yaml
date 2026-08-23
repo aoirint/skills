@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-08-23T10:40:43.268125+00:00'
+generated_at: '2026-08-23T11:52:35.920878+00:00'
 apm_version: 0.28.0
 dependencies:
 - repo_url: mizchi/skills
@@ -1390,7 +1390,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:2fb05224d192c1d4158cdcea6e64c49d15c1603bd10ad179f7bd759c6dc54182
+  content_hash: sha256:4dbf26a7daf902e964f184e3dde5b0f26e8ec8ececf03328c7babb4d10e01766
 - kind: project-relative
   target: agents
   value: .agents/skills/local-llm-workflow/references/adoption-and-calibration.md
@@ -1456,7 +1456,7 @@ deployments:
   content_hash: sha256:f54a51f5f748451e2679d46973d689b4597e8d619547d05b71030cb39c5d7e40
 - kind: project-relative
   target: agents
-  value: .agents/skills/local-llm-workflow/scripts/run_local_assistant.py
+  value: .agents/skills/local-llm-workflow/scripts/run_reference_inference.py
   runtime: null
   scope: project
   owners:
@@ -1465,7 +1465,7 @@ deployments:
   content_hash: sha256:127a3b213f6a584124b3771b3d3463b52d242a7f3242e805cfd283851cc16f62
 - kind: project-relative
   target: agents
-  value: .agents/skills/local-llm-workflow/scripts/run_local_assistant.py.lock
+  value: .agents/skills/local-llm-workflow/scripts/run_reference_inference.py.lock
   runtime: null
   scope: project
   owners:
@@ -1480,7 +1480,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7c9577e1263ec2e163a9e923c1a8accfc7036f7abf3ae72506bb2e65e4c2eba4
+  content_hash: sha256:184d39fe71eabc66c261294041b2593b62d89e650e625b8e4caaa8eb36be2486
 - kind: project-relative
   target: agents
   value: .agents/skills/node-quality-check
@@ -2289,8 +2289,8 @@ local_deployed_files:
 - .agents/skills/local-llm-workflow/scripts/prepare_model_bundle.py
 - .agents/skills/local-llm-workflow/scripts/prepare_model_bundle.py.lock
 - .agents/skills/local-llm-workflow/scripts/profiles/qwen35-4b.json
-- .agents/skills/local-llm-workflow/scripts/run_local_assistant.py
-- .agents/skills/local-llm-workflow/scripts/run_local_assistant.py.lock
+- .agents/skills/local-llm-workflow/scripts/run_reference_inference.py
+- .agents/skills/local-llm-workflow/scripts/run_reference_inference.py.lock
 - .agents/skills/local-llm-workflow/scripts/test_helpers.py
 - .agents/skills/node-quality-check
 - .agents/skills/node-quality-check/README.md
@@ -2494,7 +2494,7 @@ local_deployed_file_hashes:
   .agents/skills/local-llm-workflow/SKILL.md: sha256:8543fb7e91ea8f4066601a27354533f68832ab8de728df610ebc403a08a9a1df
   .agents/skills/local-llm-workflow/agents/openai.yaml: sha256:c00234acb35b3fd7255721108b57f22db2db574ca58fd3942bce0ca31b88c579
   .agents/skills/local-llm-workflow/assets/migration-record.json: sha256:0565a7a71b8269186d91b086a12ae452819c83cc88e43dd6f0398dd9f29dbb03
-  .agents/skills/local-llm-workflow/assets/offline-runner/Dockerfile: sha256:2fb05224d192c1d4158cdcea6e64c49d15c1603bd10ad179f7bd759c6dc54182
+  .agents/skills/local-llm-workflow/assets/offline-runner/Dockerfile: sha256:4dbf26a7daf902e964f184e3dde5b0f26e8ec8ececf03328c7babb4d10e01766
   .agents/skills/local-llm-workflow/references/adoption-and-calibration.md: sha256:34b2a377d5adc00fbe8bd80108bdb3acced456eb912b8c79fcb47ceed20960da
   .agents/skills/local-llm-workflow/references/model-selection.md: sha256:53c488b76ebbd1a07dc7d9d7536330b9c9e2795bb61cdd010f0d68cf64de4859
   .agents/skills/local-llm-workflow/references/offline-container.md: sha256:a7e07ba10adab2a20c62467869abd362dcdaf380a49c67a728039d1411d19ebf
@@ -2502,9 +2502,9 @@ local_deployed_file_hashes:
   .agents/skills/local-llm-workflow/scripts/prepare_model_bundle.py: sha256:6a8a00688eea23c013978e92c944a16ed68a0cce9fc307405c11dbe1696b46c5
   .agents/skills/local-llm-workflow/scripts/prepare_model_bundle.py.lock: sha256:e5161b0e8f2ab88a24156672c891f519b3338dcac3a7c0618f5fb60b97790a41
   .agents/skills/local-llm-workflow/scripts/profiles/qwen35-4b.json: sha256:f54a51f5f748451e2679d46973d689b4597e8d619547d05b71030cb39c5d7e40
-  .agents/skills/local-llm-workflow/scripts/run_local_assistant.py: sha256:127a3b213f6a584124b3771b3d3463b52d242a7f3242e805cfd283851cc16f62
-  .agents/skills/local-llm-workflow/scripts/run_local_assistant.py.lock: sha256:ead6fd1c9e442cf986e8570dcaa1613a5fbfbacec875393ee2c763d89fe56ea3
-  .agents/skills/local-llm-workflow/scripts/test_helpers.py: sha256:7c9577e1263ec2e163a9e923c1a8accfc7036f7abf3ae72506bb2e65e4c2eba4
+  .agents/skills/local-llm-workflow/scripts/run_reference_inference.py: sha256:127a3b213f6a584124b3771b3d3463b52d242a7f3242e805cfd283851cc16f62
+  .agents/skills/local-llm-workflow/scripts/run_reference_inference.py.lock: sha256:ead6fd1c9e442cf986e8570dcaa1613a5fbfbacec875393ee2c763d89fe56ea3
+  .agents/skills/local-llm-workflow/scripts/test_helpers.py: sha256:184d39fe71eabc66c261294041b2593b62d89e650e625b8e4caaa8eb36be2486
   .agents/skills/node-quality-check/README.md: sha256:f87def599866d3cf6d4102a1ca80f28dcb827b51be47803c448e041ae9a125da
   .agents/skills/node-quality-check/SKILL.md: sha256:b69ec039e933ca8b3aa1c304df7fb4e5d343343a85bd117f2d76432a1da29058
   .agents/skills/node-quality-check/agents/openai.yaml: sha256:81c5bd6e1b0fcb3d228bb7cef8c913a28d0849a02001d71ffd2edbc1f120e9e0
