@@ -1048,7 +1048,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:8497c0441552608d6fab7aafd9f6b5ab019e14812e6de637d6ee519e2f59d595
+  content_hash: sha256:5ed5c82019adbb4c5ab819613d774791aca22b74454ef1506d827fff11754a67
 - kind: project-relative
   target: agents
   value: .agents/skills/github-workflow/agents/openai.yaml
@@ -1075,7 +1075,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a6f9401f49a9de36f460298d72de2eea8031e1dcb990e0c41e02075619e6a194
+  content_hash: sha256:f3f0fe6b9811e0604e3febc97ccd60204a3f491499821a417b923222b94ac791
 - kind: project-relative
   target: agents
   value: .agents/skills/github-workflow/scripts/check_llm_disclosure.py
@@ -2471,10 +2471,10 @@ local_deployed_file_hashes:
   .agents/skills/github-actions-quality-check/references/validation-and-reporting.md: sha256:6b3093c39d7884f4a030977f12887ddc7dba43d69a25267177d6259a4f5d4ee2
   .agents/skills/github-actions-quality-check/references/version-file-releases.md: sha256:351a695ed8e81e33271a4697030f1905776fa6512b271b5693785e48329123c4
   .agents/skills/github-workflow/README.md: sha256:b2043f027baae3fdf579e7cbd64a5d83b46b2ad5efe64c56acd1a6df3cd58828
-  .agents/skills/github-workflow/SKILL.md: sha256:8497c0441552608d6fab7aafd9f6b5ab019e14812e6de637d6ee519e2f59d595
+  .agents/skills/github-workflow/SKILL.md: sha256:5ed5c82019adbb4c5ab819613d774791aca22b74454ef1506d827fff11754a67
   .agents/skills/github-workflow/agents/openai.yaml: sha256:3c8c6a5392c7aca0da9917585601f3887ca81c8fd19bf025f57192cdfd2d880a
   .agents/skills/github-workflow/references/fallback-pr-body.md: sha256:b98239e7d4cdddd8e267ab155f4e4c38fcc514526d9a32f13fcd5b21a1c07eb2
-  .agents/skills/github-workflow/references/repository-settings.md: sha256:a6f9401f49a9de36f460298d72de2eea8031e1dcb990e0c41e02075619e6a194
+  .agents/skills/github-workflow/references/repository-settings.md: sha256:f3f0fe6b9811e0604e3febc97ccd60204a3f491499821a417b923222b94ac791
   .agents/skills/github-workflow/scripts/check_llm_disclosure.py: sha256:bc9c5cbd8efa77095eac42e53da714ed8dff86fa3b0e7870fc3e7eca1ca36e20
   .agents/skills/gitignore-workflow/README.md: sha256:0de188ebcdd40ea1aec701410e1c2182049b66bc4ec4d83a3bf55685b4267d47
   .agents/skills/gitignore-workflow/SKILL.md: sha256:2ef38f42e418c10e0ba7632e3ba37614df97044dfa8847ad1338e6c4c896c089

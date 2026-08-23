@@ -19,6 +19,23 @@ version `2026-03-10`, and record the requested payload as
 ```powershell
 $repo = 'OWNER/REPO'
 
+$repository = gh api --method GET `
+  -H 'Accept: application/vnd.github+json' `
+  -H 'X-GitHub-Api-Version: 2026-03-10' `
+  "repos/$repo" `
+  --jq '{full_name,visibility,admin:.permissions.admin}' |
+  ConvertFrom-Json
+
+if ($repository.full_name -ne $repo) {
+  throw "Target mismatch: expected $repo, got $($repository.full_name)"
+}
+if ($repository.visibility -ne 'public') {
+  throw "Pull-request creation cap is not applicable to $repo"
+}
+if ($repository.admin -ne $true) {
+  throw "Administrator access is not verified for $repo"
+}
+
 gh api --method GET `
   -H 'Accept: application/vnd.github+json' `
   -H 'X-GitHub-Api-Version: 2026-03-10' `
@@ -32,6 +49,10 @@ gh api --method PATCH `
   -F enabled=true -F max_open_pull_requests=1 `
   --jq '{enabled,max_open_pull_requests}'
 ```
+
+Run the PATCH only when the user explicitly requests an apply and every
+preflight check succeeds. Stop on a target, visibility, or authority mismatch;
+do not reinterpret it as permission to select a different repository.
 
 Immediately repeat the GET and require both stored values to match the
 requested payload. For a non-public repository, record the setting as not

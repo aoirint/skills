@@ -77,9 +77,10 @@ create, update, upload, push, or release operation.
 2. Confirm the target repository, current visibility, administrator authority,
    and setting applicability before a mutation. Pair with `security-check` for
    permission or visibility changes.
-3. For an apply request, record the exact requested payload, send only the
-   reviewed fields, and immediately read back the same endpoint. For an
-   audit-only request, leave unavailable values unverified.
+3. Mutate settings only when the user explicitly requests an apply. Record the
+   exact requested payload, send only the reviewed fields, and immediately read
+   back the same endpoint. For an audit-only request, leave unavailable values
+   unverified.
 4. Use `github-actions-quality-check` for Actions permissions, workflow token
    policy, selected-action allowlists, and required-check design.
 
