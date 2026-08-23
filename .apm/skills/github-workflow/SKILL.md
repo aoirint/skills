@@ -3,10 +3,10 @@ name: github-workflow
 description: >-
   Quality-check GitHub repository settings, issues, pull requests, reviews,
   replies, comments, and squash merges. Use when auditing or changing
-  repository-wide settings outside GitHub Actions, or when creating, editing,
-  reviewing, or publishing GitHub collaboration artifacts; use
-  github-actions-quality-check for workflows, local actions, Actions policy,
-  and required-check design.
+  repository-wide settings, including Actions permissions, required checks,
+  rulesets, and merge policy, or when creating, editing, reviewing, or
+  publishing GitHub collaboration artifacts; use github-actions-quality-check
+  for workflow and local-action implementation quality.
 ---
 
 # GitHub Workflow
@@ -15,14 +15,15 @@ description: >-
 
 Use this Skill for GitHub repository settings and collaboration artifacts:
 
-- Repository-wide settings outside GitHub Actions: use **Repository settings**.
+- Repository-wide settings, including Actions permissions and required-check
+  enforcement: use **Repository settings**.
 - Issue title, body, comment, or thread note: use **Issues**.
 - Pull-request title, body, review, reply, thread note, or squash merge: use
   **Pull requests**.
 
-Use `github-actions-quality-check` for workflows, local actions, Actions
-repository settings, and required-check contexts. Use `security-check` for
-security-sensitive content and `prose-quality-check` for nuanced prose.
+Use `github-actions-quality-check` for workflow and local-action implementation
+quality. Use `security-check` for security-sensitive content and
+`prose-quality-check` for nuanced prose.
 
 ## Goals
 
@@ -73,7 +74,8 @@ create, update, upload, push, or release operation.
 ### Repository settings
 
 1. Read [repository-settings.md](references/repository-settings.md) before
-   auditing or changing repository-wide settings outside GitHub Actions.
+   auditing or changing repository-wide settings, including Actions policy,
+   workflow token permissions, environments, required checks, and rulesets.
 2. Confirm the target repository, current visibility, administrator authority,
    and setting applicability before a mutation. Pair with `security-check` for
    permission or visibility changes.
@@ -81,8 +83,10 @@ create, update, upload, push, or release operation.
    exact requested payload, send only the reviewed fields, and immediately read
    back the same endpoint. For an audit-only request, leave unavailable values
    unverified.
-4. Use `github-actions-quality-check` for Actions permissions, workflow token
-   policy, selected-action allowlists, and required-check design.
+4. Use `github-actions-quality-check` when a setting depends on workflow-side
+   evidence or a workflow change, such as inventorying reachable `uses:` or
+   making a job run under `pull_request` and `merge_group`. Keep the setting
+   payload, mutation, and read-back in this Skill.
 
 ### Issues
 
@@ -180,7 +184,7 @@ create, update, upload, push, or release operation.
 
 - [fallback-pr-body.md](references/fallback-pr-body.md): fallback PR template
   when no repository template applies.
-- [repository-settings.md](references/repository-settings.md): non-Actions
-  repository setting defaults and evidence requirements.
+- [repository-settings.md](references/repository-settings.md): repository
+  setting defaults, enforcement recovery, and evidence requirements.
 - `scripts/check_llm_disclosure.py`: validate required LLM disclosure,
   disclosure-only repairs, and stored-body preservation.
