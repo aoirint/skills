@@ -1,32 +1,37 @@
 ---
 name: github-workflow
 description: >-
-  Quality-check GitHub repository issues, pull requests, reviews, replies,
-  comments, and squash merges. Use when creating, editing, reviewing, or
-  publishing GitHub collaboration artifacts, including preflight checks that
-  prevent private-repository disclosure; use github-actions-quality-check for
-  workflows, local actions, Actions policy, and required-check design.
+  Quality-check GitHub repository settings, issues, pull requests, reviews,
+  replies, comments, and squash merges. Use when auditing or changing
+  repository-wide settings, including Actions permissions, required checks,
+  rulesets, and merge policy, or when creating, editing, reviewing, or
+  publishing GitHub collaboration artifacts; use github-actions-quality-check
+  for workflow and local-action implementation quality.
 ---
 
 # GitHub Workflow
 
 ## When to Use
 
-Use this Skill for GitHub issue and pull-request text or operations:
+Use this Skill for GitHub repository settings and collaboration artifacts:
 
+- Repository-wide settings, including Actions permissions and required-check
+  enforcement: use **Repository settings**.
 - Issue title, body, comment, or thread note: use **Issues**.
 - Pull-request title, body, review, reply, thread note, or squash merge: use
   **Pull requests**.
 
-Use `github-actions-quality-check` for workflows, local actions, Actions
-repository settings, and required-check contexts. Use `security-check` for
-security-sensitive content and `prose-quality-check` for nuanced prose.
+Use `github-actions-quality-check` for workflow and local-action implementation
+quality. Use `security-check` for security-sensitive content and
+`prose-quality-check` for nuanced prose.
 
 ## Goals
 
 - Keep issue and pull-request artifacts concise and accurate.
 - Disclose significant AI assistance consistently.
 - Preserve repository templates and policies without inventing requirements.
+- Apply repository setting defaults from explicit payloads and read back the
+  stored values.
 - Validate exact stored text and squash-merge commit payloads.
 - Prevent private-repository identifiers from reaching public or potentially public
   GitHub content by validating complete candidates before every write.
@@ -65,6 +70,23 @@ create, update, upload, push, or release operation.
    substitute for preflight. For an existing disclosure, stop further publication,
    inventory history, logs, artifacts, caches, notifications, and mirrors as
    unverified exposure, and use a maintainer-approved cleanup process.
+
+### Repository settings
+
+1. Read [repository-settings.md](references/repository-settings.md) before
+   auditing or changing repository-wide settings, including Actions policy,
+   workflow token permissions, environments, required checks, and rulesets.
+2. Confirm the target repository, current visibility, administrator authority,
+   and setting applicability before a mutation. Pair with `security-check` for
+   permission or visibility changes.
+3. Mutate settings only when the user explicitly requests an apply. Record the
+   exact requested payload, send only the reviewed fields, and immediately read
+   back the same endpoint. For an audit-only request, leave unavailable values
+   unverified.
+4. Use `github-actions-quality-check` when a setting depends on workflow-side
+   evidence or a workflow change, such as inventorying reachable `uses:` or
+   making a job run under `pull_request` and `merge_group`. Keep the setting
+   payload, mutation, and read-back in this Skill.
 
 ### Issues
 
@@ -162,5 +184,7 @@ create, update, upload, push, or release operation.
 
 - [fallback-pr-body.md](references/fallback-pr-body.md): fallback PR template
   when no repository template applies.
+- [repository-settings.md](references/repository-settings.md): repository
+  setting defaults, enforcement recovery, and evidence requirements.
 - `scripts/check_llm_disclosure.py`: validate required LLM disclosure,
   disclosure-only repairs, and stored-body preservation.

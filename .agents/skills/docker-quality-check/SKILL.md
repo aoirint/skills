@@ -114,7 +114,7 @@ repairing Docker CI. The bundled files under `assets/github/` keep pull-request 
 limited to source and BuildKit validation and reserve image builds for the exact integrated
 main-branch commit.
 Apply `github-actions-quality-check` for shared event, permission, runner, pinning, and
-repository-enforcement policy.
+workflow behavior. Apply `github-workflow` for repository settings and enforcement.
 
 ## Resources
 
