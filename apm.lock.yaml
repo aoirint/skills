@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-08-16T11:45:34.281055+00:00'
+generated_at: '2026-08-23T11:52:35.920878+00:00'
 apm_version: 0.28.0
 dependencies:
 - repo_url: mizchi/skills
@@ -49,7 +49,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:bbddd9935373713999b78e5390b3c38e0886299beeb410d6eb338d13e25154fa
+  content_hash: sha256:f4d7a88ce5919909fb68bc77d6c95723ce8f2d9bffe309aa0e25abef4a8997fa
 - kind: project-relative
   target: agents
   value: .agents/skills/apm-workflow/agents/openai.yaml
@@ -598,7 +598,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:06a0a7c13cc0153f740a729b78c7c7e5ddb7b057b380d16f43771b1bd5621dff
+  content_hash: sha256:7f925cfc67ca135ffbf5ffe592b0aa3f9663628e786dfac60fe34d28e6d37a98
 - kind: project-relative
   target: agents
   value: .agents/skills/docker-quality-check/agents/openai.yaml
@@ -643,7 +643,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:36394cc7b2ec6cfee0e1c173157fb3fd4c6c535702890a17e6df0b7f956c01e0
+  content_hash: sha256:0a37c8eebe89a3d293603145708b6876a49ace3d856edf848ac74be07c596f45
 - kind: project-relative
   target: agents
   value: .agents/skills/docker-quality-check/references/ci-template-contract.md
@@ -662,6 +662,15 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:a02688f52be5fccef96a2f25a70451eb8c579a46aa21ce27ee57ebc3a3f71a7e
+- kind: project-relative
+  target: agents
+  value: .agents/skills/docker-quality-check/references/runtime-isolation-validation.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:7eaadd59b0db06e156e52013e1beafaef8eb04ea47954a8db6e577a224cd8e02
 - kind: project-relative
   target: agents
   value: .agents/skills/domain-architecture-docs-workflow
@@ -1328,6 +1337,150 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:16bfd80e576715bf7a0248a095c412faea18cda034bc244189dcb729b7b7638b
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow/README.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:487bbc159417f5371b02ddf69c6b9875f72749144aed7f230d4ae785be0c83ce
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:8543fb7e91ea8f4066601a27354533f68832ab8de728df610ebc403a08a9a1df
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:c00234acb35b3fd7255721108b57f22db2db574ca58fd3942bce0ca31b88c579
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow/assets/migration-record.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0565a7a71b8269186d91b086a12ae452819c83cc88e43dd6f0398dd9f29dbb03
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow/assets/offline-runner/Dockerfile
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:4dbf26a7daf902e964f184e3dde5b0f26e8ec8ececf03328c7babb4d10e01766
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow/references/adoption-and-calibration.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:34b2a377d5adc00fbe8bd80108bdb3acced456eb912b8c79fcb47ceed20960da
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow/references/model-selection.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:53c488b76ebbd1a07dc7d9d7536330b9c9e2795bb61cdd010f0d68cf64de4859
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow/references/offline-container.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:a7e07ba10adab2a20c62467869abd362dcdaf380a49c67a728039d1411d19ebf
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow/references/task-recipes.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:8364abbd663dc4b8188c53cf3dcf25d7de06d1c8029a5fc6ffa139934ad53bb4
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow/scripts/prepare_model_bundle.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:6a8a00688eea23c013978e92c944a16ed68a0cce9fc307405c11dbe1696b46c5
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow/scripts/prepare_model_bundle.py.lock
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:e5161b0e8f2ab88a24156672c891f519b3338dcac3a7c0618f5fb60b97790a41
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow/scripts/profiles/qwen35-4b.json
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:f54a51f5f748451e2679d46973d689b4597e8d619547d05b71030cb39c5d7e40
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow/scripts/run_reference_inference.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:127a3b213f6a584124b3771b3d3463b52d242a7f3242e805cfd283851cc16f62
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow/scripts/run_reference_inference.py.lock
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:ead6fd1c9e442cf986e8570dcaa1613a5fbfbacec875393ee2c763d89fe56ea3
+- kind: project-relative
+  target: agents
+  value: .agents/skills/local-llm-workflow/scripts/test_helpers.py
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:184d39fe71eabc66c261294041b2593b62d89e650e625b8e4caaa8eb36be2486
 - kind: project-relative
   target: agents
   value: .agents/skills/node-quality-check
@@ -2048,6 +2201,7 @@ local_deployed_files:
 - .agents/skills/docker-quality-check/references/accelerator-runtime-validation.md
 - .agents/skills/docker-quality-check/references/ci-template-contract.md
 - .agents/skills/docker-quality-check/references/registry-image-deletion.md
+- .agents/skills/docker-quality-check/references/runtime-isolation-validation.md
 - .agents/skills/domain-architecture-docs-workflow
 - .agents/skills/domain-architecture-docs-workflow/README.md
 - .agents/skills/domain-architecture-docs-workflow/SKILL.md
@@ -2122,6 +2276,22 @@ local_deployed_files:
 - .agents/skills/lethal-company-analyze/references/exhaustive-seeds-and-lineage.md
 - .agents/skills/lethal-company-analyze/references/reporting-and-review.md
 - .agents/skills/lethal-company-analyze/references/rng-and-runtime-modeling.md
+- .agents/skills/local-llm-workflow
+- .agents/skills/local-llm-workflow/README.md
+- .agents/skills/local-llm-workflow/SKILL.md
+- .agents/skills/local-llm-workflow/agents/openai.yaml
+- .agents/skills/local-llm-workflow/assets/migration-record.json
+- .agents/skills/local-llm-workflow/assets/offline-runner/Dockerfile
+- .agents/skills/local-llm-workflow/references/adoption-and-calibration.md
+- .agents/skills/local-llm-workflow/references/model-selection.md
+- .agents/skills/local-llm-workflow/references/offline-container.md
+- .agents/skills/local-llm-workflow/references/task-recipes.md
+- .agents/skills/local-llm-workflow/scripts/prepare_model_bundle.py
+- .agents/skills/local-llm-workflow/scripts/prepare_model_bundle.py.lock
+- .agents/skills/local-llm-workflow/scripts/profiles/qwen35-4b.json
+- .agents/skills/local-llm-workflow/scripts/run_reference_inference.py
+- .agents/skills/local-llm-workflow/scripts/run_reference_inference.py.lock
+- .agents/skills/local-llm-workflow/scripts/test_helpers.py
 - .agents/skills/node-quality-check
 - .agents/skills/node-quality-check/README.md
 - .agents/skills/node-quality-check/SKILL.md
@@ -2192,7 +2362,7 @@ local_deployed_files:
 - .agents/skills/wsl-workflow/references/bindfs-persistence.md
 local_deployed_file_hashes:
   .agents/skills/apm-workflow/README.md: sha256:e346edab06f5ec792cdb77edcaa8042f523af67753dc4fe72498ae1899b87c89
-  .agents/skills/apm-workflow/SKILL.md: sha256:bbddd9935373713999b78e5390b3c38e0886299beeb410d6eb338d13e25154fa
+  .agents/skills/apm-workflow/SKILL.md: sha256:f4d7a88ce5919909fb68bc77d6c95723ce8f2d9bffe309aa0e25abef4a8997fa
   .agents/skills/apm-workflow/agents/openai.yaml: sha256:f3c083196472ec9253886b369202ddeb8eb2534fd2da9799798bae2eb33b2e55
   .agents/skills/apm-workflow/references/apm-bootstrap.json: sha256:ae425dc00b981c195e0664ad77b9fed8c4667a45efcdadd382e79fb572d7fc22
   .agents/skills/apm-workflow/scripts/propose_bootstrap_update.py: sha256:878feade115442de0c9c0f23856b1fca0b79cad117a1c1de75467cfd5ac9013c
@@ -2246,14 +2416,15 @@ local_deployed_file_hashes:
   .agents/skills/commit-message-quality-check/SKILL.md: sha256:db272bb7467bcb6a6c3d837dec60a34f7081c135fcd40a9e00cf4a84e29ffabe
   .agents/skills/commit-message-quality-check/agents/openai.yaml: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
   .agents/skills/docker-quality-check/README.md: sha256:912a73d3de06babc6eed1ecdaf275139ae465797083dc5427affb54d00c57bf0
-  .agents/skills/docker-quality-check/SKILL.md: sha256:06a0a7c13cc0153f740a729b78c7c7e5ddb7b057b380d16f43771b1bd5621dff
+  .agents/skills/docker-quality-check/SKILL.md: sha256:7f925cfc67ca135ffbf5ffe592b0aa3f9663628e786dfac60fe34d28e6d37a98
   .agents/skills/docker-quality-check/agents/openai.yaml: sha256:56a5f1b83f050b12555bbf85d1fd66c206016b8f939b79370e250b4e661cafd7
   .agents/skills/docker-quality-check/assets/github/actions/check-docker-source/action.yml: sha256:d3d30f80b163e6e60e6a47c46b79fc6f1afc6047ba093aacd5459432a069872e
   .agents/skills/docker-quality-check/assets/github/workflows/main.yml: sha256:7aaaecf2bc58c849c1877264f8c1363cd3376a158d25f948111f2adda7a1bf51
   .agents/skills/docker-quality-check/assets/github/workflows/pull-request.yml: sha256:f2571d65cf632f40ecdaca58334cb1ff793c7770aafffa0d691450216cf50a83
-  .agents/skills/docker-quality-check/references/accelerator-runtime-validation.md: sha256:36394cc7b2ec6cfee0e1c173157fb3fd4c6c535702890a17e6df0b7f956c01e0
+  .agents/skills/docker-quality-check/references/accelerator-runtime-validation.md: sha256:0a37c8eebe89a3d293603145708b6876a49ace3d856edf848ac74be07c596f45
   .agents/skills/docker-quality-check/references/ci-template-contract.md: sha256:e9d1a4f0c2e472dbe18f062a968f79e10daf10a87fa54091edfaead7222749b9
   .agents/skills/docker-quality-check/references/registry-image-deletion.md: sha256:a02688f52be5fccef96a2f25a70451eb8c579a46aa21ce27ee57ebc3a3f71a7e
+  .agents/skills/docker-quality-check/references/runtime-isolation-validation.md: sha256:7eaadd59b0db06e156e52013e1beafaef8eb04ea47954a8db6e577a224cd8e02
   .agents/skills/domain-architecture-docs-workflow/README.md: sha256:25cbfeff60f18fdafd54ae64ae1c62fd70632a07bade9362e156c82987dac30b
   .agents/skills/domain-architecture-docs-workflow/SKILL.md: sha256:7f57b8223059bcb06e444d73437d14cf03ceea117ef2a4a32dec99d73b51de78
   .agents/skills/domain-architecture-docs-workflow/agents/openai.yaml: sha256:92810bc64095da4048cb1dd60630a03ec4eec9397aa88dcfcb4bd50ccbd14ee9
@@ -2319,6 +2490,21 @@ local_deployed_file_hashes:
   .agents/skills/lethal-company-analyze/references/exhaustive-seeds-and-lineage.md: sha256:f3a702cf78e86d0fd1ed872b0845404ef291be143d82229213ec7bb55a443d28
   .agents/skills/lethal-company-analyze/references/reporting-and-review.md: sha256:b4b895fcec9c815489a8bba53b65cee02d3a58c51c8cc0670aa6ad7a41ff0582
   .agents/skills/lethal-company-analyze/references/rng-and-runtime-modeling.md: sha256:16bfd80e576715bf7a0248a095c412faea18cda034bc244189dcb729b7b7638b
+  .agents/skills/local-llm-workflow/README.md: sha256:487bbc159417f5371b02ddf69c6b9875f72749144aed7f230d4ae785be0c83ce
+  .agents/skills/local-llm-workflow/SKILL.md: sha256:8543fb7e91ea8f4066601a27354533f68832ab8de728df610ebc403a08a9a1df
+  .agents/skills/local-llm-workflow/agents/openai.yaml: sha256:c00234acb35b3fd7255721108b57f22db2db574ca58fd3942bce0ca31b88c579
+  .agents/skills/local-llm-workflow/assets/migration-record.json: sha256:0565a7a71b8269186d91b086a12ae452819c83cc88e43dd6f0398dd9f29dbb03
+  .agents/skills/local-llm-workflow/assets/offline-runner/Dockerfile: sha256:4dbf26a7daf902e964f184e3dde5b0f26e8ec8ececf03328c7babb4d10e01766
+  .agents/skills/local-llm-workflow/references/adoption-and-calibration.md: sha256:34b2a377d5adc00fbe8bd80108bdb3acced456eb912b8c79fcb47ceed20960da
+  .agents/skills/local-llm-workflow/references/model-selection.md: sha256:53c488b76ebbd1a07dc7d9d7536330b9c9e2795bb61cdd010f0d68cf64de4859
+  .agents/skills/local-llm-workflow/references/offline-container.md: sha256:a7e07ba10adab2a20c62467869abd362dcdaf380a49c67a728039d1411d19ebf
+  .agents/skills/local-llm-workflow/references/task-recipes.md: sha256:8364abbd663dc4b8188c53cf3dcf25d7de06d1c8029a5fc6ffa139934ad53bb4
+  .agents/skills/local-llm-workflow/scripts/prepare_model_bundle.py: sha256:6a8a00688eea23c013978e92c944a16ed68a0cce9fc307405c11dbe1696b46c5
+  .agents/skills/local-llm-workflow/scripts/prepare_model_bundle.py.lock: sha256:e5161b0e8f2ab88a24156672c891f519b3338dcac3a7c0618f5fb60b97790a41
+  .agents/skills/local-llm-workflow/scripts/profiles/qwen35-4b.json: sha256:f54a51f5f748451e2679d46973d689b4597e8d619547d05b71030cb39c5d7e40
+  .agents/skills/local-llm-workflow/scripts/run_reference_inference.py: sha256:127a3b213f6a584124b3771b3d3463b52d242a7f3242e805cfd283851cc16f62
+  .agents/skills/local-llm-workflow/scripts/run_reference_inference.py.lock: sha256:ead6fd1c9e442cf986e8570dcaa1613a5fbfbacec875393ee2c763d89fe56ea3
+  .agents/skills/local-llm-workflow/scripts/test_helpers.py: sha256:184d39fe71eabc66c261294041b2593b62d89e650e625b8e4caaa8eb36be2486
   .agents/skills/node-quality-check/README.md: sha256:f87def599866d3cf6d4102a1ca80f28dcb827b51be47803c448e041ae9a125da
   .agents/skills/node-quality-check/SKILL.md: sha256:b69ec039e933ca8b3aa1c304df7fb4e5d343343a85bd117f2d76432a1da29058
   .agents/skills/node-quality-check/agents/openai.yaml: sha256:81c5bd6e1b0fcb3d228bb7cef8c913a28d0849a02001d71ffd2edbc1f120e9e0

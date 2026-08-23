@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "status": "draft",
+  "accepted_at": null,
+  "acceptance_authority": null,
+  "previous": {
+    "profile_id": null,
+    "profile_sha256": null,
+    "model_manifest_sha256": null,
+    "adapter_id": null,
+    "adapter_revision": null,
+    "dependency_lock_sha256": null,
+    "runner_image_id_or_digest": null,
+    "hardware_path": null,
+    "generation_settings": null,
+    "calibration_record": null
+  },
+  "candidate": {
+    "profile_id": null,
+    "profile_sha256": null,
+    "model_manifest_sha256": null,
+    "adapter_id": null,
+    "adapter_revision": null,
+    "dependency_lock_sha256": null,
+    "runner_image_id_or_digest": null,
+    "hardware_path": null,
+    "generation_settings": null,
+    "calibration_record": null
+  },
+  "compatibility_checks": [],
+  "rollback_steps": []
+}

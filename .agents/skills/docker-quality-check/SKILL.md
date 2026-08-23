@@ -50,7 +50,10 @@ description: >-
    version string, or device-visibility check.
 6. Inspect image and runtime safety: use a non-root user where feasible, keep the final
    image free of build-only tooling and secrets, define a clear entrypoint, and avoid
-   mutable base-image tags when an immutable digest is practical.
+   mutable base-image tags when an immutable digest is practical. When filesystem,
+   identity, capability, or daemon isolation is part of the runtime contract, follow
+   [runtime-isolation-validation.md](references/runtime-isolation-validation.md) and
+   smoke-test the exact documented container arguments.
 7. Inventory third-party software copied, installed, linked, or otherwise distributed in
    the final image. Put notices for the primary bundled application and other shipped
    runtime content at the top of `THIRD_PARTY_NOTICES.md`, before build tools, CI Actions,
@@ -117,5 +120,7 @@ repository-enforcement policy.
 
 - [accelerator-runtime-validation.md](references/accelerator-runtime-validation.md): final-image
   runtime, linkage, provider, and application-path gates for GPU dependency changes.
+- [runtime-isolation-validation.md](references/runtime-isolation-validation.md): read-only
+  filesystems, writable surfaces, runtime identity, and daemon-boundary checks.
 - [registry-image-deletion.md](references/registry-image-deletion.md): authorized registry
   deletion planning and verification.
