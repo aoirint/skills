@@ -42,6 +42,9 @@ intended libraries and every affected consumer executes successfully.
 
 Imports, builds, version output, driver utilities, and device-visibility checks remain useful
 diagnostics, but establish neither kernel execution nor cross-library ABI compatibility.
+A driver utility missing from `PATH` proves only that command resolution failed; inspect the
+platform's device and integration paths before declaring the accelerator unavailable, then retain
+the actual-operation requirement above.
 
 ## Handle unavailable evidence
 

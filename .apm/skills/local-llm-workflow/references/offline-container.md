@@ -139,26 +139,11 @@ that choice on the intended workload. A product that deliberately enables JIT
 kernels needs a separately reviewed compiler, bounded executable cache, and
 updated threat and performance evaluation.
 
-### Runtime identity and the Docker daemon boundary
-
-For stronger subject separation, keep the image's fixed unprivileged UID/GID
-and provision a dedicated volume or import/export boundary with ownership set
-once for that identity. Prefer user namespaces or rootless Docker where they
-fit the platform. Avoid recursively changing ownership on every invocation:
-large model trees and high-file-count datasets make that both expensive and
-failure-prone.
-
-The host-UID override above is the practical direct-bind alternative. It keeps
-host file ownership stable and remains non-root after the explicit UID 0 check,
-but it weakens the distinction between the container worker and invoking host
-user. Choose and record the identity strategy as part of the isolation design.
-
-On a conventional rootful Linux Docker installation, treat access to the
-Docker daemon or socket as host-root-equivalent authority. A non-root process
-inside the container, capability drops, and `no-new-privileges` limit the
-workload but do not turn rootful daemon access into an unprivileged host
-boundary. Evaluate the daemon and user-namespace model separately when using
-rootless Docker.
+Apply `docker-quality-check` for the general read-only filesystem, writable
+surface, runtime identity, and Docker daemon boundary. The example above chooses
+its documented direct-bind alternative; a stronger product boundary can retain
+the image's fixed unprivileged identity and use provisioned storage or an explicit
+import/export handoff.
 
 The runner also sets library offline flags and uses `local_files_only=True`.
 Those controls reduce accidental downloads, but `--network none` is the actual
@@ -174,11 +159,9 @@ on the intended device, followed by output validation and representative
 calibration. If that execution cannot be performed, report accelerator status as
 unavailable rather than passing it by inference.
 
-Do not equate `nvidia-smi` being absent from `PATH` with a missing GPU. On WSL,
-also inspect `/dev/dxg` and the documented integration location, commonly
-`/usr/lib/wsl/lib/nvidia-smi`, then verify CUDA from inside the intended image.
-Treat these checks as discovery only; the successful inference requirement
-still applies.
+Apply `docker-quality-check` for accelerator discovery, linkage, fallback, and
+final-image execution evidence. In particular, a driver utility absent from
+`PATH` is not evidence that the accelerator is absent.
 
 ## Replace the model at runtime
 
