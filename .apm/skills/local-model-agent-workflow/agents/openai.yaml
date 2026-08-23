@@ -1,4 +1,4 @@
 interface:
   display_name: "Local Model Agent Workflow"
-  short_description: "Use local models as bounded, verifiable agent assistants"
-  default_prompt: "Use $local-model-agent-workflow to select and operate a local model as a bounded agent assistant with reproducible preparation, isolated execution, and calibrated validation."
+  short_description: "Govern exceptional, bounded local-model use"
+  default_prompt: "Use $local-model-agent-workflow to determine whether local inference is justified, prefer direct agent work or simpler tools by default, and operate any necessary local model with reproducible preparation, isolated execution, and calibrated validation."

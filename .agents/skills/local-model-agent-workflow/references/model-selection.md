@@ -2,18 +2,27 @@
 
 ## Selection order
 
-1. Fix the task, modality, maximum input, output contract, and acceptance test.
-2. Inventory RAM, accelerator memory, supported numeric formats and kernels,
+1. Establish a direct-agent or deterministic/classical baseline and record why
+   it is unsuitable or inadequate. If it meets the requirement, stop without
+   adding local inference.
+2. Fix the task, modality, maximum input, output contract, and acceptance test.
+3. Inventory RAM, accelerator memory, supported numeric formats and kernels,
    storage, startup time, throughput, and acceptable latency.
-3. Shortlist models whose licenses and runtime support fit the environment.
-4. Measure the real model, quantization, runtime, and hardware path on a
+4. Shortlist models whose licenses and runtime support fit the environment.
+5. Measure the real model, quantization, runtime, and hardware path on a
    representative calibration set.
-5. Choose the smallest candidate that clears the quality and reliability gates.
+6. Choose the smallest candidate that clears the quality and reliability gates
+   and improves the end-to-end workflow enough to justify its added dependency.
 
 Parameter count is only an initial sizing clue. Context length, image tokens,
 KV cache, precision, quantization, runtime overhead, and fallback to CPU can
 change feasibility materially. Record peak memory and latency from actual
 execution instead of inferring them from a model card.
+
+Measure total workflow cost, including model acquisition, startup, context
+handoff, validation, retries, and result reintegration. A faster isolated model
+call is not an improvement if the overall agent becomes slower, less accurate,
+less reproducible, or more resource-intensive.
 
 ## Practical tiers
 
@@ -52,8 +61,8 @@ pinning, compatibility, isolation, or recalibration requirement.
 A profile can select only an adapter contract and model class already
 allowlisted by the runner. The adapter ID binds processor inputs, chat-template
 use, device placement, generation, and decoding behavior to reviewed runner
-code. When
-a replacement needs a different class or runtime, review these together:
+code. When a replacement needs a different class or runtime, review these
+together:
 
 - the explicit class allowlist and continued `trust_remote_code=False` policy;
 - processor and chat-template inputs for both text and image cases;
@@ -66,6 +75,7 @@ Do not treat nominal Transformers compatibility as proof that message formats,
 image preprocessing, generation output, or device placement are compatible.
 
 For rollback, retain the old profile and its SHA, bundle manifest SHA, immutable
-runner image ID or registry digest, dependency lock, adapter ID and implementation revision, hardware
-path, generation settings, and calibration record until migration is accepted.
+runner image ID or registry digest, dependency lock, adapter ID and
+implementation revision, hardware path, generation settings, and calibration
+record until migration is accepted.
 Use `assets/migration-record.json` as the minimum record shape.

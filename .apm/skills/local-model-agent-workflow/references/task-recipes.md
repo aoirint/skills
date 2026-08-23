@@ -1,5 +1,9 @@
 # Task Recipes
 
+Use these recipes only after the delegation gate establishes that direct agent
+work and suitable deterministic or classical methods are not the better path,
+or when exercising local inference is itself an application requirement.
+
 The runner supplies reusable commands for common bounded tasks. Each emits one
 JSON record with provenance and either a validated `result` or an error status.
 

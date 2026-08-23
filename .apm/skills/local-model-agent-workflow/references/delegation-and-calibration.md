@@ -1,5 +1,29 @@
 # Delegation and Calibration
 
+## Delegation gate
+
+Routine agent work stays with the agent's normal model. Local inference is not a
+default optimization and must not be introduced opportunistically merely because
+a model is available. Before delegating, test these alternatives in order:
+
+1. direct completion by the normal agent model, preserving the current context;
+2. deterministic parsing, search, validation, or transformation;
+3. a well-established statistical, machine-learning, or conventional CV method;
+4. a local LLM or VLM only when an earlier option is unsuitable or has failed on
+   representative inputs, or when local inference is itself a product requirement.
+
+Document the specific exception: an established reason online inference is
+unsuitable, evidence that simpler methods are inadequate, or an application
+requirement to develop and exercise local inference.
+
+Evaluate the whole harness, not just the model call. Frequent local delegation
+can reduce accuracy and speed, consume memory, storage, network bandwidth, and
+local compute, split context and cause forgetting, and add unstable differences
+in prompting or inference behavior. Include prompt construction, serialization,
+model loading, handoff, validation, retries, and reintegration in the comparison.
+If the net benefit is not demonstrated, do the task directly or use the simpler
+tool.
+
 ## Delegation contract
 
 Before invoking a local model, record:
@@ -13,6 +37,9 @@ Before invoking a local model, record:
 - the final decision-maker that retains authority.
 
 Prefer tasks where false output is mechanically detectable or cheap to sample.
+Keep inputs self-contained and return enough evidence for the parent agent to
+reconstruct why the result applies. Do not use chained local-model calls as a
+substitute for preserving the agent's working context.
 Do not let a model expand its own permissions, choose destructive targets,
 approve releases, suppress contradictory evidence, or declare its output safe.
 Any later destructive operation is a separate workflow requiring fresh explicit

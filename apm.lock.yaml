@@ -1345,7 +1345,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:d274f4c314d3091fa03ccb369442a31d0c6521aabd09000e51bfb2bf9702dfd5
+  content_hash: sha256:35e7cbbe2450d0a5be52fc446dc735b7d1197a768c157c453605062d0cc303c5
 - kind: project-relative
   target: agents
   value: .agents/skills/local-model-agent-workflow/SKILL.md
@@ -1354,7 +1354,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:fc42dccf371fdaf23b28a46f38555cbbb1700c9b8ac7fc5a2621de58cbd6785f
+  content_hash: sha256:258f7eb18d82d38171f28cb1b7263d14259bf8e80885124b2ca9f18b2a21c2b3
 - kind: project-relative
   target: agents
   value: .agents/skills/local-model-agent-workflow/agents/openai.yaml
@@ -1363,7 +1363,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a7e2374c5924344c8e2813b3c7947e5a19a970be8608558e94cdd955ba9261b0
+  content_hash: sha256:12e8f72d362e760b1b3d4fd3e0ec25a09817186cdab123a33e6d49bb868fb8de
 - kind: project-relative
   target: agents
   value: .agents/skills/local-model-agent-workflow/assets/migration-record.json
@@ -1390,7 +1390,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e0234e7894b541c20a17cfff669aba3e9d2f22aa035690fd3bd0fb5ed17afe00
+  content_hash: sha256:b7d57fb482b553885dc09618104bb0affa52998bd10c4dab7a66ee1a4ba00f0f
 - kind: project-relative
   target: agents
   value: .agents/skills/local-model-agent-workflow/references/model-selection.md
@@ -1399,7 +1399,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:8e9213c8265d7c8371526fef62753398ba5294f24e2f74e91ea60d1c8b3153b8
+  content_hash: sha256:53c488b76ebbd1a07dc7d9d7536330b9c9e2795bb61cdd010f0d68cf64de4859
 - kind: project-relative
   target: agents
   value: .agents/skills/local-model-agent-workflow/references/offline-container.md
@@ -1417,7 +1417,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:4fafc07a51e77868f3e76b578a0e32db456d95a84e9a10e40d3ce94b1e675550
+  content_hash: sha256:37a3c689e7cb9b55f4e33b6eeb81d91ae2f31c05c97d428bd633e8b487acd778
 - kind: project-relative
   target: agents
   value: .agents/skills/local-model-agent-workflow/scripts/prepare_model_bundle.py
@@ -2479,15 +2479,15 @@ local_deployed_file_hashes:
   .agents/skills/lethal-company-analyze/references/exhaustive-seeds-and-lineage.md: sha256:f3a702cf78e86d0fd1ed872b0845404ef291be143d82229213ec7bb55a443d28
   .agents/skills/lethal-company-analyze/references/reporting-and-review.md: sha256:b4b895fcec9c815489a8bba53b65cee02d3a58c51c8cc0670aa6ad7a41ff0582
   .agents/skills/lethal-company-analyze/references/rng-and-runtime-modeling.md: sha256:16bfd80e576715bf7a0248a095c412faea18cda034bc244189dcb729b7b7638b
-  .agents/skills/local-model-agent-workflow/README.md: sha256:d274f4c314d3091fa03ccb369442a31d0c6521aabd09000e51bfb2bf9702dfd5
-  .agents/skills/local-model-agent-workflow/SKILL.md: sha256:fc42dccf371fdaf23b28a46f38555cbbb1700c9b8ac7fc5a2621de58cbd6785f
-  .agents/skills/local-model-agent-workflow/agents/openai.yaml: sha256:a7e2374c5924344c8e2813b3c7947e5a19a970be8608558e94cdd955ba9261b0
+  .agents/skills/local-model-agent-workflow/README.md: sha256:35e7cbbe2450d0a5be52fc446dc735b7d1197a768c157c453605062d0cc303c5
+  .agents/skills/local-model-agent-workflow/SKILL.md: sha256:258f7eb18d82d38171f28cb1b7263d14259bf8e80885124b2ca9f18b2a21c2b3
+  .agents/skills/local-model-agent-workflow/agents/openai.yaml: sha256:12e8f72d362e760b1b3d4fd3e0ec25a09817186cdab123a33e6d49bb868fb8de
   .agents/skills/local-model-agent-workflow/assets/migration-record.json: sha256:0565a7a71b8269186d91b086a12ae452819c83cc88e43dd6f0398dd9f29dbb03
   .agents/skills/local-model-agent-workflow/assets/offline-runner/Dockerfile: sha256:2fb05224d192c1d4158cdcea6e64c49d15c1603bd10ad179f7bd759c6dc54182
-  .agents/skills/local-model-agent-workflow/references/delegation-and-calibration.md: sha256:e0234e7894b541c20a17cfff669aba3e9d2f22aa035690fd3bd0fb5ed17afe00
-  .agents/skills/local-model-agent-workflow/references/model-selection.md: sha256:8e9213c8265d7c8371526fef62753398ba5294f24e2f74e91ea60d1c8b3153b8
+  .agents/skills/local-model-agent-workflow/references/delegation-and-calibration.md: sha256:b7d57fb482b553885dc09618104bb0affa52998bd10c4dab7a66ee1a4ba00f0f
+  .agents/skills/local-model-agent-workflow/references/model-selection.md: sha256:53c488b76ebbd1a07dc7d9d7536330b9c9e2795bb61cdd010f0d68cf64de4859
   .agents/skills/local-model-agent-workflow/references/offline-container.md: sha256:c919275fcf2b4f9fa438e9c1b1e3356e9672b3c77a6b13153b6898f4537290d2
-  .agents/skills/local-model-agent-workflow/references/task-recipes.md: sha256:4fafc07a51e77868f3e76b578a0e32db456d95a84e9a10e40d3ce94b1e675550
+  .agents/skills/local-model-agent-workflow/references/task-recipes.md: sha256:37a3c689e7cb9b55f4e33b6eeb81d91ae2f31c05c97d428bd633e8b487acd778
   .agents/skills/local-model-agent-workflow/scripts/prepare_model_bundle.py: sha256:a6f28a18f1028a1733b38d94b55a8e6d9aa246f8b2eabb1b950d71641730084c
   .agents/skills/local-model-agent-workflow/scripts/prepare_model_bundle.py.lock: sha256:e5161b0e8f2ab88a24156672c891f519b3338dcac3a7c0618f5fb60b97790a41
   .agents/skills/local-model-agent-workflow/scripts/profiles/qwen35-4b.json: sha256:f54a51f5f748451e2679d46973d689b4597e8d619547d05b71030cb39c5d7e40
