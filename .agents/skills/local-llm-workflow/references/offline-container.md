@@ -3,6 +3,39 @@
 Preparation and inference are separate trust phases. Network access is expected
 during dependency and model acquisition; it is denied during task execution.
 
+## Contents
+
+- [Plan storage before acquisition](#plan-storage-before-acquisition)
+- [Prepare the model bundle](#prepare-the-model-bundle)
+- [Build the locked runner](#build-the-locked-runner)
+- [Run with networking disabled](#run-with-networking-disabled)
+- [Accelerator use](#accelerator-use)
+- [Replace the model at runtime](#replace-the-model-at-runtime)
+
+## Plan storage before acquisition
+
+Use one durable model store and one shared download cache for all evaluations on
+the host. Do not place either under a task directory, Git worktree, or disposable
+container layer. Key bundle directories by the reviewed profile ID so repeated
+runs resolve the same destination.
+
+Before downloading, inventory the store and cache, check free space, and account
+for peak acquisition space. The reference preparer retains the shared Hub cache
+and materializes one independently verified bundle, so the same model data may
+temporarily or permanently occupy both locations. Atomic staging also needs
+space for the bundle until its final rename.
+
+The preparer returns `status: reused` when the requested destination already
+contains the exact verified profile and artifacts. It rejects altered or extra
+files instead of creating another destination. Pass the same `--cache-dir` and
+`--destination` on every run; do not generate either path from a run ID.
+
+Track which profiles, evaluations, applications, and rollback records still
+reference each cache or bundle. Cleanup is a separate destructive operation:
+resolve exact unreferenced paths, review the inventory, and obtain authorization
+before deletion. Never let an evaluation agent delete a broad cache or model
+store automatically.
+
 The commands below assume the skill directory is the current directory. The
 included example profile has SHA-256:
 
@@ -17,13 +50,16 @@ value as approval. A changed profile requires review and new calibration.
 
 ## Prepare the model bundle
 
-This phase needs network access and writes a new destination atomically. The
-script refuses to overwrite an existing bundle.
+This phase needs network access when artifacts are absent. It writes a new
+destination atomically or returns `status: reused` for an existing bundle only
+after the profile, manifest, complete file set, and artifact hashes match. It
+rejects a mismatched destination without downloading or overwriting it.
 
 ```shell
 uv run --no-config --locked --script scripts/prepare_model_bundle.py -- \
   --profile scripts/profiles/qwen35-4b.json \
   --profile-sha256 f54a51f5f748451e2679d46973d689b4597e8d619547d05b71030cb39c5d7e40 \
+  --cache-dir /srv/local-model-cache \
   --destination /srv/local-models/qwen35-4b
 ```
 
@@ -41,14 +77,14 @@ virtual environment. The uv base image is pinned by multi-platform digest.
 ```shell
 docker build \
   --file assets/offline-runner/Dockerfile \
-  --tag local-model-agent-runner:2026-08-23 \
+  --tag local-llm-reference-runner:2026-08-23 \
   .
 ```
 
 After building, record the immutable local image ID, not only the mutable tag:
 
 ```shell
-docker image inspect local-model-agent-runner:2026-08-23 \
+docker image inspect local-llm-reference-runner:2026-08-23 \
   --format '{{.Id}}'
 ```
 
@@ -69,7 +105,7 @@ docker run --rm \
   --tmpfs /tmp:rw,noexec,nosuid,size=1g \
   --mount type=bind,src=/srv/local-models/qwen35-4b,dst=/models,readonly \
   --mount type=bind,src=/absolute/input,dst=/input,readonly \
-  local-model-agent-runner:2026-08-23 \
+  local-llm-reference-runner:2026-08-23 \
   --profile /opt/skill/scripts/profiles/qwen35-4b.json \
   --profile-sha256 f54a51f5f748451e2679d46973d689b4597e8d619547d05b71030cb39c5d7e40 \
   --model-directory /models \

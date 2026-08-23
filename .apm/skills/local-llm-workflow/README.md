@@ -2,11 +2,10 @@
 
 ## Overview
 
-Provide decision criteria and operational practices for using locally
-executable LLMs, including vision-language and other multimodal variants,
-safely, efficiently, reproducibly, and with independent verification. Keep
-routine work on the normal agent path or simpler tools. The included scripts
-and profiles are reference baselines, not a turnkey product runtime.
+Decide, evaluate, and prototype locally executable LLM dependencies, including
+multimodal variants, with calibrated evidence and optional reproducible
+reference implementations. The included runner and profiles are learning and
+prototyping baselines, not a prescribed product architecture.
 
 ## Install
 

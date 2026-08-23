@@ -112,6 +112,49 @@ class HelperTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "file set"):
                 runner.verify_model_bundle(model, loaded, profile_digest)
 
+    def test_existing_verified_bundle_is_reusable(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            model = root / "model"
+            model.mkdir()
+            weights = model / "weights.bin"
+            weights.write_bytes(b"weights")
+            profile = self.profile(hashlib.sha256(b"weights").hexdigest())
+            _, profile_digest = self.write_profile(root, profile)
+            manifest = prepare.manifest_bytes(profile, profile_digest)
+            (model / "model-manifest.json").write_bytes(manifest)
+            self.assertEqual(
+                prepare.verify_existing_bundle(model, profile, profile_digest),
+                hashlib.sha256(manifest).hexdigest(),
+            )
+            output = io.StringIO()
+            with (
+                patch.object(
+                    sys,
+                    "argv",
+                    [
+                        "prepare_model_bundle.py",
+                        "--profile",
+                        str(root / "profile.json"),
+                        "--profile-sha256",
+                        profile_digest,
+                        "--destination",
+                        str(model),
+                    ],
+                ),
+                patch.object(
+                    prepare,
+                    "snapshot_download",
+                    side_effect=AssertionError("reused bundle must not download"),
+                ),
+                redirect_stdout(output),
+            ):
+                self.assertEqual(prepare.main(), 0)
+            self.assertEqual(json.loads(output.getvalue())["status"], "reused")
+            (model / "unexpected").write_text("extra", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "file set"):
+                prepare.verify_existing_bundle(model, profile, profile_digest)
+
     def test_classification_rejects_unknown_labels_and_false_evidence(self) -> None:
         args = Namespace(
             command="classify",

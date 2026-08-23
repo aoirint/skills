@@ -1,4 +1,4 @@
-# Delegation and Calibration
+# Adoption and Calibration
 
 ## Delegation gate
 
@@ -32,7 +32,8 @@ Before invoking a local model, record:
 - the exact output schema or allowed labels;
 - how absence and uncertainty are represented;
 - the independent validation method;
-- which failures are retried, escalated, or rejected;
+- which transient failures are retryable, their maximum attempts, backoff, and
+  resource budget, and which failures are escalated or rejected without retry;
 - whether any sensitive input may enter the model process; and
 - the final decision-maker that retains authority.
 
@@ -40,6 +41,9 @@ Prefer tasks where false output is mechanically detectable or cheap to sample.
 Keep inputs self-contained and return enough evidence for the parent agent to
 reconstruct why the result applies. Do not use chained local-model calls as a
 substitute for preserving the agent's working context.
+Do not regenerate invalid schema, unsupported evidence, or a semantic failure
+until an answer happens to pass. Record the failed attempt, then abstain or use
+the predeclared escalation path.
 Do not let a model expand its own permissions, choose destructive targets,
 approve releases, suppress contradictory evidence, or declare its output safe.
 Any later destructive operation is a separate workflow requiring fresh explicit

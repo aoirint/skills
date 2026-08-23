@@ -1,159 +1,125 @@
 ---
 name: local-llm-workflow
 description: >-
-  Use locally executable LLMs, including vision-language and other multimodal
-  variants, safely and efficiently: decide whether local execution is justified,
-  then select, prepare, run, validate, calibrate, or replace a model as a bounded
-  component. Use when online model use is unsuitable for an established
-  requirement, deterministic or classical methods have failed on a bounded
-  analysis, a local-LLM application is being developed or tested, a pinned
-  offline model bundle is required, or an existing local-LLM workflow must be
-  calibrated or migrated. Do not use for routine delegation that the agent's
-  normal model or a simpler tool can perform directly.
+  Guides decisions and reproducible reference implementations for locally
+  executable LLMs, including multimodal variants. Use when evaluating or
+  developing a local-LLM dependency, enforcing an offline or data-local
+  boundary, calibrating a bounded task, or migrating models; not for routine
+  agent delegation or analyses better handled by deterministic or statistical
+  methods.
 ---
 
 # Local LLM Workflow
 
-Default to the agent's normal model for ordinary agent work and to deterministic
-or classical tools for problems they solve well. Use a local model only as an
-untrusted, purpose-built component with a measured advantage for the specific
-task. Treat it like selecting a computer-vision or statistical library, not like
-adding a general-purpose subordinate agent.
+Treat a local LLM as a bounded software dependency whose value must be measured,
+not as a default subordinate agent. This Skill supplies decision criteria,
+evaluation practice, and an optional reproducible runner for learning and
+prototyping. It does not prescribe a production architecture.
 
 ## When to Use
 
-- Use when a concrete constraint makes online model execution unsuitable, such
-  as a required offline boundary or a deployment target whose application must
-  run a local model.
-- Use as a measured fallback for bounded extraction, classification, OCR,
-  visual inspection, or candidate generation only after suitable deterministic,
-  rule-based, statistical, or conventional CV methods are inadequate.
-- Use when developing, testing, calibrating, or migrating an application whose
-  product requirement explicitly includes local LLM or VLM inference.
-- Do not introduce local inference merely to offload routine agent work. Keep
-  the work in the normal agent context unless the delegation gate below passes.
-- Do not delegate authorization, destructive decisions, security conclusions,
-  release approval, or other judgments whose mistakes are difficult to detect
-  or reverse.
-- Pair with `security-check` when handling downloaded artifacts, untrusted
-  inputs, container permissions, or supply-chain changes.
-- Pair with `docker-quality-check` when changing the offline runner image or
-  claiming accelerator compatibility.
+- Evaluate whether an application should depend on a locally executable LLM.
+- Prototype or test a text, vision-language, or other multimodal LLM task on
+  local hardware.
+- Establish an offline or data-local execution boundary and reproducible model
+  acquisition process.
+- Calibrate a bounded local-LLM task or evaluate a model, runtime, quantization,
+  prompt, preprocessing, or hardware change.
+- Do not invoke this Skill merely to offload ordinary agent work. Use the
+  agent's normal model unless a concrete requirement makes that unsuitable.
+- Do not use an LLM for a problem adequately handled by parsing, search, rules,
+  statistics, conventional machine learning, or computer vision.
 
-## Scope Boundary
+## Goals
 
-- For product development, this Skill covers the inference component: adoption
-  criteria, model and runtime selection, reproducible bundles, isolation,
-  validation, calibration, and replacement. Treat its scripts and profiles as
-  reference baselines and reproducible examples, not as a turnkey product
-  runtime. Complex products require independent design and measurement for
-  their requirements, hardware, load, deployment topology, distribution, and
-  threat model. This Skill does not replace application architecture for APIs,
-  concurrency, persistence, observability, packaging, licensing, or user
-  experience.
-- For statistical analysis, this Skill does not replace statistical methodology
-  or make ordinary numerical analysis faster. Its primary contribution is to
-  keep established statistical methods ahead of LLM or VLM use, then bound and
-  verify local-model fallback for unstructured inputs when those methods are
-  inadequate.
+- Reach an evidence-backed adopt, reject, or investigate decision.
+- Minimize total workflow cost, including handoff, startup, validation, retries,
+  memory, storage, network transfer, local compute, and reintegration.
+- Keep inputs, outputs, authority, failure handling, and acceptance tests
+  explicit and bounded.
+- Make only claims supported by the execution path and evaluation actually run.
+- Preserve enough provenance to reproduce results and invalidate them after a
+  relevant change.
 
 ## Workflow
 
-1. **Justify local inference.**
-   - First ask whether the agent's normal model should perform the task directly.
-     For a narrow computable problem, try an established parser, rule, search,
-     CV routine, statistical method, or other deterministic tool before an LLM.
-   - Name the requirement that makes local inference preferable and compare
-     end-to-end quality, latency, memory, storage, network transfer, local
-     compute, operational complexity, and verification cost against the simpler
-     baseline.
-   - Reject delegation when its model handoff fragments relevant context,
-     duplicates reasoning, or introduces an uncalibrated inference boundary
-     without a compensating task-specific benefit.
+1. **Classify the request before choosing a model.**
+   - For ordinary agent work, keep the task in the normal agent context.
+   - For analysis, establish a direct, deterministic, statistical, ML, or CV
+     baseline first. Continue only if it is inadequate on representative input
+     or local LLM execution is itself a requirement.
+   - For product work, define the local-execution requirement and the inference
+     component boundary. Treat this Skill's code and profiles as reference
+     baselines, not as a product runtime.
 
-2. **Bound the task and failure cost.**
-   - Define the input limit, output schema, allowed labels or coordinates,
-     uncertainty representation, and independent acceptance check.
-   - Keep final authority with the parent agent. If verification would cost as
-     much as doing the task directly, do not delegate it.
-   - Read [delegation and calibration](references/delegation-and-calibration.md)
-     before designing a new task or relying on model quality.
+2. **Write the decision and evaluation contract.**
+   - Record the use case, rejected simpler alternatives, input and output
+     bounds, acceptance metrics and thresholds, uncertainty representation,
+     independent verifier, failure handling, and final decision-maker. Classify
+     retryable transient failures and fix the maximum attempts, backoff, and
+     resource budget before execution; schema, evidence, and semantic failures
+     must abstain or escalate instead of being resampled until they pass.
+   - Include privacy, licensing, hardware, latency, throughput, memory, storage,
+     deployment, and operational constraints that affect adoption.
+   - Define one durable model store and download cache outside per-task,
+     per-worktree, and temporary directories. Inventory existing bundles and
+     estimate peak acquisition space before downloading another model.
+   - Read [adoption and calibration](references/adoption-and-calibration.md) for
+     the delegation gate, validation layers, representative sets, and metrics.
 
-3. **Select a locally executable model.**
-   - Measure the available memory, runtime, accelerator support, input size,
-     modality, and required latency. Do not use parameter count alone as a
-     fit test.
-   - Start with the smallest candidate that passes a representative calibration
-     set. Escalate individual uncertain or invalid cases before enlarging the
-     default model.
-   - Read [model selection](references/model-selection.md). The supplied Qwen
-     profile is a dated, practical example, not a requirement or permanent
-     recommendation.
+3. **Select a candidate from evidence.**
+   - Read [model selection](references/model-selection.md) when comparing model,
+     quantization, runtime, or hardware options.
+   - Benchmark the complete intended execution path. Parameter count, model-card
+     claims, imports, device discovery, and successful startup are not evidence
+     of usable quality, latency, accelerator execution, or memory fit.
+   - Prefer the least costly candidate that clears the predeclared acceptance
+     thresholds. Record an explicit reject or investigate result when none does.
 
-4. **Prepare a pinned bundle while networking is allowed.**
-   - Use a reviewed profile under `scripts/profiles/`, or create a new profile
-     that pins the repository revision and SHA-256 of every required artifact.
-   - Run `scripts/prepare_model_bundle.py` with the profile's independently
-     checked SHA-256. Never replace a profile while retaining old calibration
-     evidence.
-   - Keep acquisition separate from inference. Do not place access tokens in
-     profiles, arguments, logs, model bundles, or tracked files.
+4. **Choose only the implementation guidance the request needs.**
+   - For common bounded task shapes, read [task recipes](references/task-recipes.md).
+     The supplied Python runner is an inspectable reference implementation of
+     strict schemas, provenance, batching, and abstention; adapt or replace it
+     for the actual application.
+   - For a pinned bundle or enforced offline run, read
+     [offline container operation](references/offline-container.md). Network
+     isolation must be enforced outside uv and model-library offline flags.
+   - For model replacement, follow the migration procedure in
+     [model selection](references/model-selection.md) and use
+     `assets/migration-record.json` as a minimum evidence record.
+   - For a complex product, design and measure its API, concurrency, persistence,
+     observability, packaging, distribution, threat model, and user experience
+     independently. These concerns are outside the reference runner.
 
-5. **Build and run the isolated worker.**
-   - Follow [offline container operation](references/offline-container.md).
-   - Build the locked runner while networking is allowed. At inference time use
-     `--network none`, a read-only root filesystem, read-only model and input
-     mounts, a non-root user, and an explicit writable output or temporary area.
-   - Treat `uv --offline`, `HF_HUB_OFFLINE`, `TRANSFORMERS_OFFLINE`, and
-     `local_files_only=True` as defense in depth. They are not the network
-     isolation boundary.
+5. **Validate the result and calibrate the claim.**
+   - Reject malformed output, unsupported evidence, invalid coordinates or
+     labels, inconsistent uncertainty, and inputs outside calibrated bounds.
+   - Evaluate a representative calibration set and an untouched holdout. Report
+     invalid-output and abstention rates alongside task-specific quality.
+   - Escalate uncertain or high-impact cases to an appropriate stronger method
+     or authorized reviewer. Do not let model output grant permissions, approve
+     releases, choose destructive targets, or become its own verifier.
+   - Recalibrate after changes to the model, revision, quantization, runtime,
+     adapter, prompt, preprocessing, generation settings, or effective hardware
+     path.
 
-6. **Use a prepared recipe and validate every result.**
-   - Read [task recipes](references/task-recipes.md) for extraction,
-     classification, summarization, image inspection, OCR, and localization.
-   - Reject malformed JSON, extra fields, disallowed labels, invalid
-     coordinates, unsupported evidence spans, or inconsistent uncertainty.
-   - Record the profile, revision, manifest, input, and prompt hashes with the
-     result. Treat valid syntax as necessary but not sufficient evidence.
-
-7. **Calibrate and escalate.**
-   - Evaluate a representative labeled set before enabling automated use.
-     Measure task-specific accuracy and uncertainty coverage, not anecdotes.
-   - Escalate invalid output, low confidence, contradictory evidence, or
-     out-of-distribution input to a stronger model or human review. A stronger
-     model remains advisory; high-impact cases require an authorized reviewer.
-   - Recalibrate after any model, revision, quantization, runtime, prompt,
-     preprocessing, generation setting, or hardware execution-path change.
-
-## Core Invariants
-
-- Local does not mean trusted, private by construction, or accurate.
-- Local inference is an exceptional dependency, not the default agent execution
-  path. Repeated ad hoc delegation is a harness regression unless measurements
-  show a task-specific net benefit over direct agent work and simpler tools.
-- Delegation must preserve enough source context and provenance for the parent
-  agent to verify and integrate the result; a local model does not become an
-  independent memory or authority boundary.
-- A model profile is accepted only when its expected SHA-256 is supplied and
-  all bundle artifacts match the profile.
-- Offline inference is evidenced by an enforced network boundary, not by a
-  package-manager flag or successful imports.
-- Import checks do not prove inference, accelerator execution, output quality,
-  or isolation. Make only the claims supported by the executed checks.
-- Model replacement preserves the workflow only after compatibility checks and
-  fresh calibration; it never inherits the previous model's acceptance record.
-- Any destructive follow-up is outside this advisory workflow. It requires
-  separate authorization and an independently resolved, exact target list.
+6. **Conclude with evidence and limits.**
+   - State the decision: adopt, reject, or investigate.
+   - Record the tested configuration, measurements, provenance, known failure
+     modes, escalation path, and unverified claims.
+   - Do not describe a reference example, dependency check, container build, or
+     synthetic test as production readiness or real-model validation.
 
 ## Completion Checklist
 
-- The local-inference requirement and rejected simpler alternatives are named.
-- End-to-end benefit was measured against direct agent work or the appropriate
-  deterministic, statistical, or conventional CV baseline.
-- Task boundaries, schema, uncertainty, verifier, and escalation path are named.
-- Model fit was measured on the intended execution path.
-- Revision and artifact hashes are pinned in a reviewed profile.
-- The prepared bundle passed complete file-set and hash verification.
-- Runtime networking was disabled independently of uv and model-library flags.
-- Representative calibration passed, and recalibration triggers are recorded.
-- No output received authority beyond its independently verified evidence.
+- The reason to consider local execution and the simpler baseline are recorded.
+- The task boundary, verifier, metrics, and thresholds were fixed before the
+  final holdout evaluation.
+- The model and runtime fit were measured on the intended execution path.
+- Artifact, configuration, input, prompt, and result provenance is sufficient
+  for the claimed reproducibility level.
+- Repeated runs reuse a verified bundle and shared cache; temporary, retained,
+  and removable storage have explicit owners and lifecycles.
+- Offline, privacy, quality, accelerator, and product-readiness claims do not
+  exceed the evidence obtained.
+- The final decision and its remaining unknowns are explicit.

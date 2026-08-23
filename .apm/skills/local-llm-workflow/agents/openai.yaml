@@ -1,4 +1,4 @@
 interface:
   display_name: "Local LLM Workflow"
-  short_description: "Use local LLMs safely and efficiently"
-  default_prompt: "Use $local-llm-workflow to determine whether a local LLM, including a vision-language model, is justified; prefer direct agent work or simpler tools by default, and operate any necessary model with reproducible preparation, isolated execution, and calibrated validation."
+  short_description: "Evaluate local LLM dependencies with evidence"
+  default_prompt: "Use $local-llm-workflow to decide whether a local LLM dependency is justified and produce a bounded, evidence-backed evaluation or reference prototype without treating it as production-ready."

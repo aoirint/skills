@@ -89,8 +89,12 @@ def manifest_bytes(profile: dict[str, Any], profile_sha256: str) -> bytes:
     ).encode()
 
 
-def verify_files(directory: Path, files: dict[str, str]) -> None:
-    expected = set(files)
+def verify_files(
+    directory: Path,
+    files: dict[str, str],
+    allowed_extra: frozenset[str] = frozenset(),
+) -> None:
+    expected = set(files) | allowed_extra
     actual = {
         item.relative_to(directory).as_posix()
         for item in directory.rglob("*")
@@ -109,10 +113,30 @@ def verify_files(directory: Path, files: dict[str, str]) -> None:
             raise ValueError(f"SHA-256 mismatch for {name}")
 
 
+def verify_existing_bundle(
+    directory: Path, profile: dict[str, Any], profile_sha256: str
+) -> str:
+    if directory.is_symlink() or not directory.is_dir():
+        raise ValueError(f"destination exists but is not a safe directory: {directory}")
+    verify_files(
+        directory,
+        profile["files"],
+        allowed_extra=frozenset({"model-manifest.json"}),
+    )
+    manifest = manifest_bytes(profile, profile_sha256)
+    manifest_path = directory / "model-manifest.json"
+    if manifest_path.is_symlink() or not manifest_path.is_file():
+        raise ValueError("existing bundle has no safe model manifest")
+    if manifest_path.read_bytes() != manifest:
+        raise ValueError("existing bundle manifest does not match the reviewed profile")
+    return hashlib.sha256(manifest).hexdigest()
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
     parser.add_argument("--profile", type=Path, required=True)
     parser.add_argument("--profile-sha256", required=True)
+    parser.add_argument("--cache-dir", type=Path)
     parser.add_argument("--destination", type=Path, required=True)
     return parser
 
@@ -125,8 +149,32 @@ def main() -> int:
     if not destination.name:
         raise ValueError("destination must be a named directory")
     if destination.exists():
-        raise ValueError(f"destination already exists: {destination}")
+        manifest_sha256 = verify_existing_bundle(
+            destination, profile, args.profile_sha256
+        )
+        print(
+            json.dumps(
+                {
+                    "status": "reused",
+                    "profile_id": profile["profile_id"],
+                    "profile_sha256": args.profile_sha256,
+                    "model_id": profile["model_id"],
+                    "revision": profile["revision"],
+                    "manifest_sha256": manifest_sha256,
+                    "destination": str(destination),
+                },
+                ensure_ascii=False,
+            )
+        )
+        return 0
     destination.parent.mkdir(parents=True, exist_ok=True)
+
+    cache_dir = None
+    if args.cache_dir is not None:
+        cache_dir = args.cache_dir.expanduser().resolve(strict=False)
+        if cache_dir.exists() and (cache_dir.is_symlink() or not cache_dir.is_dir()):
+            raise ValueError(f"cache directory is unsafe: {cache_dir}")
+        cache_dir.mkdir(parents=True, exist_ok=True)
 
     snapshot = Path(
         snapshot_download(
@@ -134,6 +182,7 @@ def main() -> int:
             revision=profile["revision"],
             allow_patterns=sorted(profile["files"]),
             token=False,
+            cache_dir=str(cache_dir) if cache_dir is not None else None,
         )
     )
     staging = Path(
