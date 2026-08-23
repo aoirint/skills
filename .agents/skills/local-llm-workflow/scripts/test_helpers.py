@@ -6,12 +6,13 @@ import hashlib
 import importlib.util
 import io
 import json
+import stat
 import sys
 import tempfile
 import types
 import unittest
 from argparse import Namespace
-from contextlib import redirect_stdout
+from contextlib import nullcontext, redirect_stdout
 from pathlib import Path
 from typing import Any
 from unittest.mock import patch
@@ -151,6 +152,12 @@ class HelperTests(unittest.TestCase):
             ):
                 self.assertEqual(prepare.main(), 0)
             self.assertEqual(json.loads(output.getvalue())["status"], "reused")
+            self.assertEqual(stat.S_IMODE(model.stat().st_mode), 0o700)
+            self.assertEqual(stat.S_IMODE(weights.stat().st_mode), 0o600)
+            self.assertEqual(
+                stat.S_IMODE((model / "model-manifest.json").stat().st_mode),
+                0o600,
+            )
             (model / "unexpected").write_text("extra", encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "file set"):
                 prepare.verify_existing_bundle(model, profile, profile_digest)
@@ -181,6 +188,27 @@ class HelperTests(unittest.TestCase):
                 args,
                 {"label": "keep", "evidence": ["invented"], "uncertain": False},
             )
+
+    def test_label_definitions_require_exact_nonempty_label_map(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "labels.json"
+            path.write_text(
+                json.dumps({"keep": "Retain it", "drop": "Discard it"}),
+                encoding="utf-8",
+            )
+            self.assertEqual(
+                runner.load_label_definitions(path, ["keep", "drop"], 1000),
+                {"keep": "Retain it", "drop": "Discard it"},
+            )
+            path.write_text(json.dumps({"keep": "Retain it"}), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "exactly match"):
+                runner.load_label_definitions(path, ["keep", "drop"], 1000)
+            path.write_text(
+                json.dumps({"keep": "Retain it", "drop": " "}),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(ValueError, "non-empty"):
+                runner.load_label_definitions(path, ["keep", "drop"], 1000)
 
     def test_localization_rejects_invalid_coordinates(self) -> None:
         args = Namespace(command="locate")
@@ -285,6 +313,53 @@ class HelperTests(unittest.TestCase):
             self.assertEqual(record["status"], "error")
             self.assertEqual(len(record["prompt_sha256"]), 64)
             self.assertEqual(record["generation"]["max_new_tokens"], 32)
+
+    def test_generation_disables_thinking_for_structured_output(self) -> None:
+        class Inputs(dict[str, Any]):
+            def to(self, _device: str) -> "Inputs":
+                return self
+
+        class Processor:
+            template_options: dict[str, Any]
+
+            def apply_chat_template(
+                self, _messages: list[dict[str, Any]], **kwargs: Any
+            ) -> Inputs:
+                self.template_options = kwargs
+                return Inputs(input_ids=types.SimpleNamespace(shape=(1, 2)))
+
+            def decode(self, token_ids: list[int], **_kwargs: Any) -> str:
+                self.decoded_ids = token_ids
+                return '{"status":"ok"}'
+
+        processor = Processor()
+        model = types.SimpleNamespace(
+            device="cuda:0",
+            generate=lambda **_kwargs: [[10, 20, 30]],
+        )
+        with patch.object(
+            runner.torch, "inference_mode", return_value=nullcontext(), create=True
+        ):
+            result = runner.generate(processor, model, "prompt", None, 8)
+        self.assertFalse(processor.template_options["enable_thinking"])
+        self.assertEqual(processor.decoded_ids, [30])
+        self.assertEqual(result, '{"status":"ok"}')
+
+    def test_runtime_disables_pytorch_triton_override(self) -> None:
+        disabled: list[str] = []
+        native = types.ModuleType("torch._native")
+        registry = types.ModuleType("torch._native.registry")
+        registry.deregister_op_overrides = lambda **kwargs: disabled.append(
+            kwargs["disable_dsl_names"]
+        )
+        with patch.dict(
+            sys.modules,
+            {"torch._native": native, "torch._native.registry": registry},
+        ):
+            self.assertEqual(
+                runner.configure_torch_native_overrides(), "triton-disabled"
+            )
+        self.assertEqual(disabled, ["triton"])
 
 
 if __name__ == "__main__":

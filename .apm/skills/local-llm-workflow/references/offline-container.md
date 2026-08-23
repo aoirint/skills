@@ -56,7 +56,7 @@ after the profile, manifest, complete file set, and artifact hashes match. It
 rejects a mismatched destination without downloading or overwriting it.
 
 ```shell
-uv run --no-config --locked --script scripts/prepare_model_bundle.py -- \
+uv run --no-config --locked --script scripts/prepare_model_bundle.py \
   --profile scripts/profiles/qwen35-4b.json \
   --profile-sha256 f54a51f5f748451e2679d46973d689b4597e8d619547d05b71030cb39c5d7e40 \
   --cache-dir /srv/local-model-cache \
@@ -68,6 +68,12 @@ retained artifact. The output manifest binds the bundle to that profile.
 Authentication is intentionally absent from the example. If a reviewed model
 requires credentials, inject them through an approved process-scoped mechanism
 and do not record them in arguments or the bundle.
+
+The preparer keeps the bundle private to its owner with directory mode `0700`
+and file mode `0600`. Run the container as that same non-root host UID/GID so it
+can read the bundle and so any host-visible outputs retain the invoking user's
+ownership. Do not weaken bundle permissions merely to accommodate the image's
+default UID.
 
 ## Build the locked runner
 
@@ -97,7 +103,13 @@ inference, accelerator use, or runtime isolation.
 ## Run with networking disabled
 
 ```shell
+runner_uid="$(id -u)"
+runner_gid="$(id -g)"
+test "$runner_uid" -ne 0
+
 docker run --rm \
+  --user "$runner_uid:$runner_gid" \
+  --env HOME=/tmp \
   --network none \
   --read-only \
   --cap-drop ALL \
@@ -113,8 +125,40 @@ docker run --rm \
 ```
 
 Resolve the host paths before running the command. Keep model and input mounts
-read-only. Add a narrowly scoped writable output mount only if shell redirection
-outside the container is unsuitable.
+read-only. Run from the intended non-root host account; the explicit UID/GID
+override gives the container access to owner-only mounts and preserves that
+account's ownership on any host-visible output. `HOME=/tmp` gives libraries a
+writable ephemeral home under the existing tmpfs. Add a narrowly scoped
+writable output mount only if shell redirection outside the container is
+unsuitable.
+
+The pinned reference runner disables PyTorch's optional Triton native override
+and records `torch_native_overrides: triton-disabled`, retaining the standard
+ATen fallback without a runtime compiler or executable cache mount. Benchmark
+that choice on the intended workload. A product that deliberately enables JIT
+kernels needs a separately reviewed compiler, bounded executable cache, and
+updated threat and performance evaluation.
+
+### Runtime identity and the Docker daemon boundary
+
+For stronger subject separation, keep the image's fixed unprivileged UID/GID
+and provision a dedicated volume or import/export boundary with ownership set
+once for that identity. Prefer user namespaces or rootless Docker where they
+fit the platform. Avoid recursively changing ownership on every invocation:
+large model trees and high-file-count datasets make that both expensive and
+failure-prone.
+
+The host-UID override above is the practical direct-bind alternative. It keeps
+host file ownership stable and remains non-root after the explicit UID 0 check,
+but it weakens the distinction between the container worker and invoking host
+user. Choose and record the identity strategy as part of the isolation design.
+
+On a conventional rootful Linux Docker installation, treat access to the
+Docker daemon or socket as host-root-equivalent authority. A non-root process
+inside the container, capability drops, and `no-new-privileges` limit the
+workload but do not turn rootful daemon access into an unprivileged host
+boundary. Evaluate the daemon and user-namespace model separately when using
+rootless Docker.
 
 The runner also sets library offline flags and uses `local_files_only=True`.
 Those controls reduce accidental downloads, but `--network none` is the actual
@@ -129,6 +173,12 @@ device discovery, or a requested flag. Evidence requires actual model inference
 on the intended device, followed by output validation and representative
 calibration. If that execution cannot be performed, report accelerator status as
 unavailable rather than passing it by inference.
+
+Do not equate `nvidia-smi` being absent from `PATH` with a missing GPU. On WSL,
+also inspect `/dev/dxg` and the documented integration location, commonly
+`/usr/lib/wsl/lib/nvidia-smi`, then verify CUDA from inside the intended image.
+Treat these checks as discovery only; the successful inference requirement
+still applies.
 
 ## Replace the model at runtime
 

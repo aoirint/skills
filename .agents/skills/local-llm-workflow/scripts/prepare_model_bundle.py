@@ -20,6 +20,9 @@ from typing import Any
 
 from huggingface_hub import snapshot_download
 
+BUNDLE_DIRECTORY_MODE = 0o700
+BUNDLE_FILE_MODE = 0o600
+
 
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
@@ -101,9 +104,8 @@ def verify_files(
         if item.is_file() or item.is_symlink()
     }
     if actual != expected:
-        raise ValueError(
-            f"bundle file set mismatch: expected {sorted(expected)}, got {sorted(actual)}"
-        )
+        mismatch = f"expected {sorted(expected)}, got {sorted(actual)}"
+        raise ValueError(f"bundle file set mismatch: {mismatch}")
     for name, expected_digest in files.items():
         path = directory / name
         if path.is_symlink() or not path.is_file():
@@ -132,6 +134,16 @@ def verify_existing_bundle(
     return hashlib.sha256(manifest).hexdigest()
 
 
+def normalize_bundle_permissions(directory: Path) -> None:
+    """Keep a model bundle private to its owning host user."""
+    for item in directory.rglob("*"):
+        if item.is_dir():
+            item.chmod(BUNDLE_DIRECTORY_MODE)
+        elif item.is_file():
+            item.chmod(BUNDLE_FILE_MODE)
+    directory.chmod(BUNDLE_DIRECTORY_MODE)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
     parser.add_argument("--profile", type=Path, required=True)
@@ -152,6 +164,7 @@ def main() -> int:
         manifest_sha256 = verify_existing_bundle(
             destination, profile, args.profile_sha256
         )
+        normalize_bundle_permissions(destination)
         print(
             json.dumps(
                 {
@@ -198,6 +211,7 @@ def main() -> int:
         manifest = manifest_bytes(profile, args.profile_sha256)
         manifest_sha256 = hashlib.sha256(manifest).hexdigest()
         (staging / "model-manifest.json").write_bytes(manifest)
+        normalize_bundle_permissions(staging)
         staging.replace(destination)
     finally:
         if staging.exists():

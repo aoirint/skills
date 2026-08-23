@@ -4,6 +4,7 @@
 #   "accelerate>=1.14,<2",
 #   "pillow>=12.3,<13",
 #   "torch>=2.10,<3",
+#   "torchvision>=0.25,<1",
 #   "transformers>=5.14,<6",
 # ]
 # [tool.uv]
@@ -155,13 +156,25 @@ def verify_image(path: Path) -> None:
     if path.suffix.lower() not in {".jpg", ".jpeg", ".png", ".webp"}:
         raise ValueError("image must be JPEG, PNG, or WebP")
     with Image.open(path) as image:
+        if image.width * image.height > MAX_IMAGE_PIXELS:
+            raise ValueError(f"image exceeds the {MAX_IMAGE_PIXELS} pixel limit")
         image.verify()
+
+
+def configure_torch_native_overrides() -> str:
+    try:
+        from torch._native.registry import deregister_op_overrides
+    except ImportError:
+        return "unavailable"
+    deregister_op_overrides(disable_dsl_names="triton")
+    return "triton-disabled"
 
 
 def load_runtime(
     model_directory: Path,
     profile: dict[str, Any],
 ) -> tuple[Any, Any, dict[str, Any]]:
+    native_override_status = configure_torch_native_overrides()
     processor = AutoProcessor.from_pretrained(
         str(model_directory), local_files_only=True, trust_remote_code=False
     )
@@ -182,6 +195,7 @@ def load_runtime(
         "torch_version": torch.__version__,
         "transformers_version": transformers.__version__,
         "device_map": device_map,
+        "torch_native_overrides": native_override_status,
     }
     return processor, model, runtime
 
@@ -193,13 +207,16 @@ def generate(
     image_path: Path | None,
     max_new_tokens: int,
 ) -> str:
-    content: list[dict[str, str]] = []
+    content: list[dict[str, Any]] = []
     if image_path is not None:
-        content.append({"type": "image", "path": str(image_path)})
+        with Image.open(image_path) as source_image:
+            normalized_image = source_image.convert("RGB").copy()
+        content.append({"type": "image", "image": normalized_image})
     content.append({"type": "text", "text": prompt})
     inputs = processor.apply_chat_template(
         [{"role": "user", "content": content}],
         add_generation_prompt=True,
+        enable_thinking=False,
         tokenize=True,
         return_dict=True,
         return_tensors="pt",
@@ -233,6 +250,20 @@ def require_exact_keys(value: dict[str, Any], keys: set[str]) -> None:
         )
 
 
+def load_label_definitions(
+    path: Path, allowed_labels: list[str], max_chars: int
+) -> dict[str, str]:
+    raw = read_text(path, max_chars)
+    parsed = json.loads(raw)
+    if not isinstance(parsed, dict) or set(parsed) != set(allowed_labels):
+        raise ValueError("label definition keys must exactly match --labels")
+    if any(
+        not isinstance(value, str) or not value.strip() for value in parsed.values()
+    ):
+        raise ValueError("every label definition must be a non-empty string")
+    return {label: parsed[label].strip() for label in allowed_labels}
+
+
 def build_prompt(args: argparse.Namespace) -> tuple[str, Path | None]:
     if args.command in {"extract", "classify", "summarize"}:
         source = read_text(args.input, args.max_input_chars)
@@ -248,23 +279,38 @@ def build_prompt(args: argparse.Namespace) -> tuple[str, Path | None]:
             schema = {field: "string|null" for field in fields}
             return (
                 "Extract only explicitly stated values from SOURCE. Return one JSON "
-                f"object with exactly these fields: {json.dumps(schema)}. Use null when "
+                f"object with exactly these fields: {json.dumps(schema)}. "
+                "Use null when "
                 f"absent or uncertain. Do not infer.\n{source_block}",
                 None,
             )
         if args.command == "classify":
             args.allowed_labels = list(dict.fromkeys(args.labels))
+            definitions = None
+            if getattr(args, "label_definitions", None) is not None:
+                definitions = load_label_definitions(
+                    args.label_definitions,
+                    args.allowed_labels,
+                    args.max_input_chars,
+                )
+            policy = (
+                f" Label definitions: {json.dumps(definitions)}."
+                if definitions is not None
+                else ""
+            )
             return (
                 "Classify SOURCE into exactly one allowed label. Return JSON only as "
                 '{"label": string|null, "evidence": [string], "uncertain": boolean}. '
-                f"Allowed labels: {json.dumps(args.allowed_labels)}. Evidence must quote "
+                f"Allowed labels: {json.dumps(args.allowed_labels)}.{policy} "
+                "Evidence must quote "
                 f"short exact spans. Abstain when insufficient.\n{source_block}",
                 None,
             )
         return (
             "Summarize SOURCE without adding facts. Return JSON only as "
             '{"summary": string, "evidence": [string], "uncertain": boolean}. '
-            f"Keep summary within {args.summary_chars} characters and quote exact evidence.\n"
+            f"Keep summary within {args.summary_chars} characters and quote exact "
+            "evidence.\n"
             f"{source_block}",
             None,
         )
@@ -272,7 +318,8 @@ def build_prompt(args: argparse.Namespace) -> tuple[str, Path | None]:
     verify_image(args.image)
     if args.command == "inspect":
         return (
-            f"Question: {args.question}\nAnswer only from visible image evidence. Return "
+            f"Question: {args.question}\nAnswer only from visible image evidence. "
+            "Return "
             'JSON only as {"answer": string|null, "evidence": [string], '
             '"uncertain": boolean}. Abstain when insufficient.',
             args.image,
@@ -280,7 +327,8 @@ def build_prompt(args: argparse.Namespace) -> tuple[str, Path | None]:
     if args.command == "ocr":
         return (
             "Transcribe only visible text in reading order. Return JSON only as "
-            '{"text": string, "uncertain": boolean}. Do not reconstruct unreadable text.',
+            '{"text": string, "uncertain": boolean}. Do not reconstruct '
+            "unreadable text.",
             args.image,
         )
     if args.command == "locate":
@@ -376,6 +424,9 @@ def build_parser() -> argparse.ArgumentParser:
         )
     subparsers.choices["extract"].add_argument("--fields", required=True)
     subparsers.choices["classify"].add_argument("--labels", nargs="+", required=True)
+    subparsers.choices["classify"].add_argument(
+        "--label-definitions", type=existing_file
+    )
     subparsers.choices["summarize"].add_argument(
         "--summary-chars", type=int, default=800
     )
@@ -384,6 +435,7 @@ def build_parser() -> argparse.ArgumentParser:
     batch.add_argument("--glob", default="*.txt")
     batch.add_argument("--max-files", type=int, default=10_000)
     batch.add_argument("--labels", nargs="+", required=True)
+    batch.add_argument("--label-definitions", type=existing_file)
     batch.add_argument("--max-input-chars", type=int, default=DEFAULT_MAX_INPUT_CHARS)
     for name in ("inspect", "ocr", "locate"):
         subparsers.add_parser(name).add_argument(
@@ -444,6 +496,8 @@ def run_task(
         "prompt_sha256": hashlib.sha256(prompt.encode()).hexdigest(),
         "generation": {"do_sample": False, "max_new_tokens": args.max_new_tokens},
     }
+    if getattr(args, "label_definitions", None) is not None:
+        metadata["label_definitions_sha256"] = sha256_file(args.label_definitions)
     try:
         raw = generate(processor, model, prompt, image_path, args.max_new_tokens)
     except (OSError, RuntimeError, ValueError) as error:

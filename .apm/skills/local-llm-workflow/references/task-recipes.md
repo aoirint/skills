@@ -24,8 +24,14 @@ keys.
 
 ```shell
 --model-directory /models classify --input /input/source.txt \
+  --label-definitions /input/label-definitions.json \
   --labels relevant irrelevant uncertain
 ```
+
+Define every label in the referenced JSON object; its keys must exactly match
+`--labels`. Definitions should state observable decision criteria and precedence,
+not merely restate label names. Treat an unlabeled or label-name-only run as an
+exploratory baseline, not a calibrated classifier.
 
 The validator rejects labels outside the supplied set and requires quoted
 evidence spans from the source. `label: null` is an abstention and requires
@@ -37,7 +43,8 @@ For multiple files, load the model once with the batch command:
 
 ```shell
 --model-directory /models classify-batch --input-directory /input \
-  --glob '*.txt' --labels keep drop review
+  --glob '*.txt' --label-definitions /input/label-definitions.json \
+  --labels keep drop review
 ```
 
 The runner accepts a non-recursive filename pattern, stops discovery after the
@@ -67,6 +74,11 @@ without calibration.
 
 Image evidence is not mechanically grounded by the runner. Independently inspect
 high-impact answers.
+
+The runner verifies the source image and normalizes it to 8-bit RGB in memory
+before processor input. The mounted source remains unchanged. Keep image-mode
+normalization inside the calibrated execution path; visually identical 16-bit
+or alpha-channel inputs can otherwise produce materially different results.
 
 ## OCR visible text
 
