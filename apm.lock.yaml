@@ -1420,42 +1420,6 @@ deployments:
   content_hash: sha256:4fafc07a51e77868f3e76b578a0e32db456d95a84e9a10e40d3ce94b1e675550
 - kind: project-relative
   target: agents
-  value: .agents/skills/local-model-agent-workflow/scripts/__pycache__/prepare_model_bundle.cpython-312.pyc
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:b40046916994a47991e04bf1fe3db8e76632e743b7176ff6173968a1178a2810
-- kind: project-relative
-  target: agents
-  value: .agents/skills/local-model-agent-workflow/scripts/__pycache__/prepare_model_bundle.cpython-314.pyc
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:2c775b1667c59a60f6031f554625b3fbc702a5c952dbd8d0bd46f4847ff63f51
-- kind: project-relative
-  target: agents
-  value: .agents/skills/local-model-agent-workflow/scripts/__pycache__/run_local_assistant.cpython-312.pyc
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:28877b6804edf7ca8cc1d9efa868435c28f04eec989b866157c914b335c36db5
-- kind: project-relative
-  target: agents
-  value: .agents/skills/local-model-agent-workflow/scripts/__pycache__/run_local_assistant.cpython-314.pyc
-  runtime: null
-  scope: project
-  owners:
-  - .
-  active_owner: .
-  content_hash: sha256:e446f0eb1665c69e4c587b6d410dbd49b5895ac71bb3dde65b6ccc2f039946be
-- kind: project-relative
-  target: agents
   value: .agents/skills/local-model-agent-workflow/scripts/prepare_model_bundle.py
   runtime: null
   scope: project
@@ -2312,10 +2276,6 @@ local_deployed_files:
 - .agents/skills/local-model-agent-workflow/references/model-selection.md
 - .agents/skills/local-model-agent-workflow/references/offline-container.md
 - .agents/skills/local-model-agent-workflow/references/task-recipes.md
-- .agents/skills/local-model-agent-workflow/scripts/__pycache__/prepare_model_bundle.cpython-312.pyc
-- .agents/skills/local-model-agent-workflow/scripts/__pycache__/prepare_model_bundle.cpython-314.pyc
-- .agents/skills/local-model-agent-workflow/scripts/__pycache__/run_local_assistant.cpython-312.pyc
-- .agents/skills/local-model-agent-workflow/scripts/__pycache__/run_local_assistant.cpython-314.pyc
 - .agents/skills/local-model-agent-workflow/scripts/prepare_model_bundle.py
 - .agents/skills/local-model-agent-workflow/scripts/prepare_model_bundle.py.lock
 - .agents/skills/local-model-agent-workflow/scripts/profiles/qwen35-4b.json
@@ -2528,10 +2488,6 @@ local_deployed_file_hashes:
   .agents/skills/local-model-agent-workflow/references/model-selection.md: sha256:8e9213c8265d7c8371526fef62753398ba5294f24e2f74e91ea60d1c8b3153b8
   .agents/skills/local-model-agent-workflow/references/offline-container.md: sha256:c919275fcf2b4f9fa438e9c1b1e3356e9672b3c77a6b13153b6898f4537290d2
   .agents/skills/local-model-agent-workflow/references/task-recipes.md: sha256:4fafc07a51e77868f3e76b578a0e32db456d95a84e9a10e40d3ce94b1e675550
-  .agents/skills/local-model-agent-workflow/scripts/__pycache__/prepare_model_bundle.cpython-312.pyc: sha256:b40046916994a47991e04bf1fe3db8e76632e743b7176ff6173968a1178a2810
-  .agents/skills/local-model-agent-workflow/scripts/__pycache__/prepare_model_bundle.cpython-314.pyc: sha256:2c775b1667c59a60f6031f554625b3fbc702a5c952dbd8d0bd46f4847ff63f51
-  .agents/skills/local-model-agent-workflow/scripts/__pycache__/run_local_assistant.cpython-312.pyc: sha256:28877b6804edf7ca8cc1d9efa868435c28f04eec989b866157c914b335c36db5
-  .agents/skills/local-model-agent-workflow/scripts/__pycache__/run_local_assistant.cpython-314.pyc: sha256:e446f0eb1665c69e4c587b6d410dbd49b5895ac71bb3dde65b6ccc2f039946be
   .agents/skills/local-model-agent-workflow/scripts/prepare_model_bundle.py: sha256:a6f28a18f1028a1733b38d94b55a8e6d9aa246f8b2eabb1b950d71641730084c
   .agents/skills/local-model-agent-workflow/scripts/prepare_model_bundle.py.lock: sha256:e5161b0e8f2ab88a24156672c891f519b3338dcac3a7c0618f5fb60b97790a41
   .agents/skills/local-model-agent-workflow/scripts/profiles/qwen35-4b.json: sha256:f54a51f5f748451e2679d46973d689b4597e8d619547d05b71030cb39c5d7e40
