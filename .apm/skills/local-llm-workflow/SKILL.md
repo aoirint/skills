@@ -44,9 +44,13 @@ adding a general-purpose subordinate agent.
 
 - For product development, this Skill covers the inference component: adoption
   criteria, model and runtime selection, reproducible bundles, isolation,
-  validation, calibration, and replacement. It does not replace application
-  architecture for APIs, concurrency, persistence, observability, packaging,
-  distribution, licensing, or user experience.
+  validation, calibration, and replacement. Treat its scripts and profiles as
+  reference baselines and reproducible examples, not as a turnkey product
+  runtime. Complex products require independent design and measurement for
+  their requirements, hardware, load, deployment topology, distribution, and
+  threat model. This Skill does not replace application architecture for APIs,
+  concurrency, persistence, observability, packaging, licensing, or user
+  experience.
 - For statistical analysis, this Skill does not replace statistical methodology
   or make ordinary numerical analysis faster. Its primary contribution is to
   keep established statistical methods ahead of LLM or VLM use, then bound and

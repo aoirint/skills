@@ -1345,7 +1345,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:86a92d974e9293d720bd8025e60df492e15d15ea864a17039e6d51790438af52
+  content_hash: sha256:632cdbe7c2746553f54d587aa2a2003211cafd70f70018ce63a3e4c865d4b468
 - kind: project-relative
   target: agents
   value: .agents/skills/local-llm-workflow/SKILL.md
@@ -1354,7 +1354,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:ec6498a9b9415129e4113355a92cb006c630626d3264e1f1f5aad1a593ceb1fd
+  content_hash: sha256:c0f3c6218726a12710b37d8c32baeee3b26f9a713de1b41b0fabaf29e1e52c66
 - kind: project-relative
   target: agents
   value: .agents/skills/local-llm-workflow/agents/openai.yaml
@@ -2479,8 +2479,8 @@ local_deployed_file_hashes:
   .agents/skills/lethal-company-analyze/references/exhaustive-seeds-and-lineage.md: sha256:f3a702cf78e86d0fd1ed872b0845404ef291be143d82229213ec7bb55a443d28
   .agents/skills/lethal-company-analyze/references/reporting-and-review.md: sha256:b4b895fcec9c815489a8bba53b65cee02d3a58c51c8cc0670aa6ad7a41ff0582
   .agents/skills/lethal-company-analyze/references/rng-and-runtime-modeling.md: sha256:16bfd80e576715bf7a0248a095c412faea18cda034bc244189dcb729b7b7638b
-  .agents/skills/local-llm-workflow/README.md: sha256:86a92d974e9293d720bd8025e60df492e15d15ea864a17039e6d51790438af52
-  .agents/skills/local-llm-workflow/SKILL.md: sha256:ec6498a9b9415129e4113355a92cb006c630626d3264e1f1f5aad1a593ceb1fd
+  .agents/skills/local-llm-workflow/README.md: sha256:632cdbe7c2746553f54d587aa2a2003211cafd70f70018ce63a3e4c865d4b468
+  .agents/skills/local-llm-workflow/SKILL.md: sha256:c0f3c6218726a12710b37d8c32baeee3b26f9a713de1b41b0fabaf29e1e52c66
   .agents/skills/local-llm-workflow/agents/openai.yaml: sha256:1d9185d6c812696871bf59ddda661f8cd0e71b577b8c2515c8c29b0bdf315fc6
   .agents/skills/local-llm-workflow/assets/migration-record.json: sha256:0565a7a71b8269186d91b086a12ae452819c83cc88e43dd6f0398dd9f29dbb03
   .agents/skills/local-llm-workflow/assets/offline-runner/Dockerfile: sha256:2fb05224d192c1d4158cdcea6e64c49d15c1603bd10ad179f7bd759c6dc54182
