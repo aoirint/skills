@@ -39,7 +39,7 @@ apm update --global
 | [flet-project-quality-check](.apm/skills/flet-project-quality-check/README.md) | Create and review production-quality Python Flet projects. |
 | [git-worktree-workflow](.apm/skills/git-worktree-workflow/README.md) | Set up and use isolated Git worktrees for repository work. |
 | [github-actions-quality-check](.apm/skills/github-actions-quality-check/README.md) | Review and design secure, reliable GitHub Actions automation and enforcement. |
-| [github-workflow](.apm/skills/github-workflow/README.md) | Create and review GitHub issues, pull requests, and their comments. |
+| [github-workflow](.apm/skills/github-workflow/README.md) | Manage non-Actions repository settings and GitHub collaboration artifacts. |
 | [gitignore-workflow](.apm/skills/gitignore-workflow/README.md) | Create and maintain repository `.gitignore` rules. |
 | [hugo-quality-check](.apm/skills/hugo-quality-check/README.md) | Review pnpm-managed Hugo sites, local build assets, and CI. |
 | [kopia-workflow](.apm/skills/kopia-workflow/README.md) | Design and operate verifiable Kopia backup repositories and replicas. |
