@@ -44,7 +44,7 @@ apm update --global
 | [hugo-quality-check](.apm/skills/hugo-quality-check/README.md) | Review pnpm-managed Hugo sites, local build assets, and CI. |
 | [kopia-workflow](.apm/skills/kopia-workflow/README.md) | Design and operate verifiable Kopia backup repositories and replicas. |
 | [lethal-company-analyze](.apm/skills/lethal-company-analyze/README.md) | Investigate version-specific Lethal Company mechanics with reproducible evidence. |
-| [local-model-agent-workflow](.apm/skills/local-model-agent-workflow/README.md) | Govern exceptional, bounded local-model use while preferring direct agent work and simpler tools. |
+| [local-llm-workflow](.apm/skills/local-llm-workflow/README.md) | Use local LLMs, including multimodal variants, safely and efficiently while preferring direct agent work and simpler tools. |
 | [node-quality-check](.apm/skills/node-quality-check/README.md) | Review pnpm-managed Node.js source, dependencies, runtime, CI, configuration, and validation changes. |
 | [prose-quality-check](.apm/skills/prose-quality-check/README.md) | Review explanatory prose for readability, local structure, and preserved nuance. |
 | [python-quality-check](.apm/skills/python-quality-check/README.md) | Create and review strict, reproducible uv-managed Python projects. |

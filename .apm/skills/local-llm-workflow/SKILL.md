@@ -1,17 +1,18 @@
 ---
-name: local-model-agent-workflow
+name: local-llm-workflow
 description: >-
-  Select, prepare, run, and calibrate locally executable language or
-  vision-language models as exceptional, bounded components for agent work.
-  Use when online model use is unsuitable for an established requirement,
-  deterministic or classical methods have failed on a bounded analysis, a
-  local-model application is being developed or tested, a pinned offline model
-  bundle is required, or an existing local inference workflow must be calibrated
-  or migrated. Do not use for routine delegation that the agent's normal model
-  or a simpler tool can perform directly.
+  Use locally executable LLMs, including vision-language and other multimodal
+  variants, safely and efficiently: decide whether local execution is justified,
+  then select, prepare, run, validate, calibrate, or replace a model as a bounded
+  component. Use when online model use is unsuitable for an established
+  requirement, deterministic or classical methods have failed on a bounded
+  analysis, a local-LLM application is being developed or tested, a pinned
+  offline model bundle is required, or an existing local-LLM workflow must be
+  calibrated or migrated. Do not use for routine delegation that the agent's
+  normal model or a simpler tool can perform directly.
 ---
 
-# Local Model Agent Workflow
+# Local LLM Workflow
 
 Default to the agent's normal model for ordinary agent work and to deterministic
 or classical tools for problems they solve well. Use a local model only as an
@@ -38,6 +39,19 @@ adding a general-purpose subordinate agent.
   inputs, container permissions, or supply-chain changes.
 - Pair with `docker-quality-check` when changing the offline runner image or
   claiming accelerator compatibility.
+
+## Scope Boundary
+
+- For product development, this Skill covers the inference component: adoption
+  criteria, model and runtime selection, reproducible bundles, isolation,
+  validation, calibration, and replacement. It does not replace application
+  architecture for APIs, concurrency, persistence, observability, packaging,
+  distribution, licensing, or user experience.
+- For statistical analysis, this Skill does not replace statistical methodology
+  or make ordinary numerical analysis faster. Its primary contribution is to
+  keep established statistical methods ahead of LLM or VLM use, then bound and
+  verify local-model fallback for unstructured inputs when those methods are
+  inadequate.
 
 ## Workflow
 
