@@ -526,7 +526,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:30d64d4b25d9be96567f3e5f7106609e1a4d9a32b3c3d520d4b3aca459631990
+  content_hash: sha256:562defdddf73d23ddffd0beed4f52e2a42c83185b30c8d46f686814078c57fdd
 - kind: project-relative
   target: agents
   value: .agents/skills/code-quality-check/agents/openai.yaml
@@ -536,6 +536,15 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:69a8a75579e3b47dc69a176417b97441adf81bc54984d3f6bc114e47a68bc9b3
+- kind: project-relative
+  target: agents
+  value: .agents/skills/code-quality-check/references/avoiding-overengineering.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:69c65cab2bc19a8eb925bf01d4117ea4227c25e9cd61e51d6d01c16e2f81b353
 - kind: project-relative
   target: agents
   value: .agents/skills/commit-message-quality-check
@@ -2187,6 +2196,7 @@ local_deployed_files:
 - .agents/skills/code-quality-check/README.md
 - .agents/skills/code-quality-check/SKILL.md
 - .agents/skills/code-quality-check/agents/openai.yaml
+- .agents/skills/code-quality-check/references/avoiding-overengineering.md
 - .agents/skills/commit-message-quality-check
 - .agents/skills/commit-message-quality-check/README.md
 - .agents/skills/commit-message-quality-check/SKILL.md
@@ -2410,8 +2420,9 @@ local_deployed_file_hashes:
   .agents/skills/changelog-workflow/SKILL.md: sha256:8d9de8e0e3c31c4a2c176a0d14e3f1a45daf3db364ede7dd86983c8c3f571f54
   .agents/skills/changelog-workflow/agents/openai.yaml: sha256:6264e6dbd0433ab63370e15033ecb94da8dd131c4edcb1d3f2b9abdeb4f680f1
   .agents/skills/code-quality-check/README.md: sha256:b2cfd8bf9c3c7bd16cf86718877fa025396d15a380de88045122c4d162682cc2
-  .agents/skills/code-quality-check/SKILL.md: sha256:30d64d4b25d9be96567f3e5f7106609e1a4d9a32b3c3d520d4b3aca459631990
+  .agents/skills/code-quality-check/SKILL.md: sha256:562defdddf73d23ddffd0beed4f52e2a42c83185b30c8d46f686814078c57fdd
   .agents/skills/code-quality-check/agents/openai.yaml: sha256:69a8a75579e3b47dc69a176417b97441adf81bc54984d3f6bc114e47a68bc9b3
+  .agents/skills/code-quality-check/references/avoiding-overengineering.md: sha256:69c65cab2bc19a8eb925bf01d4117ea4227c25e9cd61e51d6d01c16e2f81b353
   .agents/skills/commit-message-quality-check/README.md: sha256:c23949080d05f47cce728410ca3190225397aa41ac2015c6f02ee478ec412a24
   .agents/skills/commit-message-quality-check/SKILL.md: sha256:db272bb7467bcb6a6c3d837dec60a34f7081c135fcd40a9e00cf4a84e29ffabe
   .agents/skills/commit-message-quality-check/agents/openai.yaml: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
