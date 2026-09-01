@@ -8,6 +8,20 @@ preserving correctness, security, and maintainability.
 
 ## Decision rule
 
+Establish ownership before comparing implementation and maintenance cost. Identify the current
+repository requirement that makes a proposed capability belong in the repository at all. A helper's
+own tests, coverage contribution, or general usefulness do not create a consumer, contract, failure
+mode, or evidenced risk. Without one of those justifications, remove or defer the capability instead
+of making its implementation cheaper.
+
+Before implementing a validator or its tests, ask whether the asserted facts belong to the project's
+contract. For example, archive member counts, generic file-mode rules, and digest shape in a
+distribution produced by a reviewed packaging tool are that tool's implementation details unless
+this project has an explicit reproducibility, publication, or threat-model requirement for them.
+Test that the project builds, installs, and exposes its public entry points. Do not implement the
+tool-owned validation; if it already exists, remove the validation behavior and its dedicated tests
+instead of refactoring its assertions.
+
 Keep an addition when at least one concrete justification exists:
 
 - A current caller, user, or operator needs it.
@@ -46,6 +60,7 @@ Investigate high-impact correctness and security uncertainty before removing a s
 | Tests are needed | Assert observable behavior, contracts, effects, or security outcomes | Assert naming patterns, internal categories, or the current object graph |
 | A transient failure is expected | Retry that failure with an explicit limit and observable outcome | Catch every exception and add multiple speculative fallback paths |
 | A small standard feature is sufficient | Use the language or platform facility directly | Add a dependency or framework for a few straightforward operations |
+| A reviewed packaging tool produces a distribution | Verify the project contract: build it, install it cleanly, and exercise public entry points | Test generic archive internals or build a repository-owned inspector without an explicit project policy or evidenced threat |
 | A rare manual procedure is adequate | Document the bounded procedure and its risks | Build automation before repetition, error rate, or operational cost justifies it |
 | Configuration has one current mode | Expose only values that users must choose now | Add flags for imagined modes with no current consumer |
 | A non-obvious choice must survive | Record the reason, rejected practical alternative, and revisit condition | Document a detailed roadmap for unapproved future architecture |
