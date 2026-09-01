@@ -14,13 +14,23 @@ own tests, coverage contribution, or general usefulness do not create a consumer
 mode, or evidenced risk. Without one of those justifications, remove or defer the capability instead
 of making its implementation cheaper.
 
-Before implementing a validator or its tests, ask whether the asserted facts belong to the project's
-contract. For example, archive member counts, generic file-mode rules, and digest shape in a
-distribution produced by a reviewed packaging tool are that tool's implementation details unless
-this project has an explicit reproducibility, publication, or threat-model requirement for them.
-Test that the project builds, installs, and exposes its public entry points. Do not implement the
-tool-owned validation; if it already exists, remove the validation behavior and its dedicated tests
-instead of refactoring its assertions.
+Before implementing packaging verification, ask whether a distribution is part of the project's
+current contract. An installable source layout or configured build backend does not create a
+distribution consumer. For a local application operated through its locked project environment,
+verify locked setup and actual application or CLI behavior. Do not build a wheel, create a second
+environment, reinstall the wheel, and run an import-only smoke check without a current publication,
+deployment, or external-install requirement.
+
+When a distribution is a current deliverable, a reviewed packaging tool still owns wheel-format
+validity and ordinary installer compatibility. Installation is test setup, not a meaningful oracle
+by itself. Use the exact artifact only when project-owned packaging configuration or an evidenced
+failure can change consumer behavior, then exercise that behavior, such as loading required package
+data or starting the deployed service. A successful install or import-only smoke check provides no
+distinct evidence without such a contract. Archive member counts, generic file-mode rules, and
+digest shape likewise remain tool implementation details unless this project has an explicit
+reproducibility, publication, or threat-model requirement for them. Do not implement tool-owned
+validation; if it already exists, remove the validation behavior and its dedicated tests instead of
+refactoring its assertions.
 
 Keep an addition when at least one concrete justification exists:
 
@@ -60,7 +70,8 @@ Investigate high-impact correctness and security uncertainty before removing a s
 | Tests are needed | Assert observable behavior, contracts, effects, or security outcomes | Assert naming patterns, internal categories, or the current object graph |
 | A transient failure is expected | Retry that failure with an explicit limit and observable outcome | Catch every exception and add multiple speculative fallback paths |
 | A small standard feature is sufficient | Use the language or platform facility directly | Add a dependency or framework for a few straightforward operations |
-| A reviewed packaging tool produces a distribution | Verify the project contract: build it, install it cleanly, and exercise public entry points | Test generic archive internals or build a repository-owned inspector without an explicit project policy or evidenced threat |
+| A local application uses an installable source layout | Replay its locked environment and exercise actual application or CLI behavior | Build a wheel, install it into a second environment, and run import-only smoke checks without a distribution consumer |
+| A delivered artifact has an evidenced project-packaging failure | Use the exact artifact as test setup and exercise the affected user or deployment behavior | Treat successful installation or import alone as evidence, or inspect generic archive internals |
 | A rare manual procedure is adequate | Document the bounded procedure and its risks | Build automation before repetition, error rate, or operational cost justifies it |
 | Configuration has one current mode | Expose only values that users must choose now | Add flags for imagined modes with no current consumer |
 | A non-obvious choice must survive | Record the reason, rejected practical alternative, and revisit condition | Document a detailed roadmap for unapproved future architecture |
