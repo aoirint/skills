@@ -68,6 +68,13 @@ use the applicable documentation-system or domain-specific skill.
    - Timing and sequence.
    - Exception or limitation status.
    - Dependency or compatibility relationships.
+   - Attribution and upstream relationships. Avoid a bare "official" when it
+     could transfer authority from one project to another. For example,
+     [uv documents](https://docs.astral.sh/uv/guides/install-python/) that it
+     uses Astral's `python-build-standalone` distributions because Python does
+     not publish official distributable binaries. Describe those artifacts as
+     "Astral-published Python distributions used by uv," not as "official
+     Python distributions" or "uv's official Python distributions."
    - Whether a statement is original, backfilled, inferred, superseded, withdrawn, or still
      unconfirmed.
 7. Use as many short sentences or nested bullets as needed. Do not force a fixed sentence count
