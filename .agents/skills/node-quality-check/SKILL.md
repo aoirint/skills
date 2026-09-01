@@ -17,6 +17,9 @@ description: >-
 - Use before committing or publishing a Node.js change.
 - Pair with `test-quality-check` when designing tests, coverage gates, or
   auditing a suite; this Skill retains Node.js and pnpm-specific commands.
+- When the repository uses mise, use `mise-workflow` for mise's version, tool
+  pins, lockfile, and task composition. This Skill retains Node.js compatibility,
+  pnpm policy, package dependencies, and the commands behind those tasks.
 
 ## Goals
 

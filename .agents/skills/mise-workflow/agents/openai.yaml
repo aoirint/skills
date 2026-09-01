@@ -1,0 +1,4 @@
+interface:
+  display_name: "mise Workflow"
+  short_description: "Manage locked tools and consistent repository tasks."
+  default_prompt: "Use $mise-workflow to configure reviewed mise tool pins, lockfiles, and repository task conventions."

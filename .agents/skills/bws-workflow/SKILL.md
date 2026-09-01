@@ -21,6 +21,9 @@ access token or retrieved values into new plaintext secrets.
   Password Manager CLI commands or authentication rules to it.
 - Pair with `security-check` when creating a credential bridge, changing token
   storage, adding a dependency, or scripting secret injection.
+- Pair with `mise-workflow` when a mise task retrieves or injects BWS values;
+  this Skill owns BWS identity and credential handling while `mise-workflow`
+  owns task composition and the child-process environment boundary.
 - Treat CI and service runners as a separate environment: use their native
   secret store, then apply the same process-scoped injection and cleanup rules.
 - Install or update BWS only when requested. Verify the current official
