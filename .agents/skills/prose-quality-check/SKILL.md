@@ -104,6 +104,12 @@ use the applicable documentation-system or domain-specific skill.
    recreating its exceptions in the consumer. Use `github-actions-quality-check`
    to wire the repository-owned configuration into CI.
 
+## Optional handoff notes
+
+For a requested resumable handoff, use [handoff-notes.md](references/handoff-notes.md) to select the
+decisions and open questions the next reader needs. Keep the existing factual-ownership boundary
+and preserve the user's choice of destination and level of detail.
+
 ## Output checklist
 
 - Audience and document type were considered before rewriting.
