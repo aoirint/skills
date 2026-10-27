@@ -33,6 +33,8 @@ description: >-
 1. Read the changed skill files, nearby related skills, and
    [authoring best practices](references/authoring-best-practices.md) when the change affects
    triggers, structure, resources, domain separation, or scenario validation.
+   For a collection audit or a review informed by historical usage, use the optional
+   [audit checklist](references/audit-checklist.md) to bound evidence and findings.
 2. Check description/body consistency before scenario validation:
    - Compare the `description` trigger promise with the scope actually covered by `SKILL.md`.
    - Reconcile any mismatch before treating scenario results as reliable.
