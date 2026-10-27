@@ -643,7 +643,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:562defdddf73d23ddffd0beed4f52e2a42c83185b30c8d46f686814078c57fdd
+  content_hash: sha256:7415164c33885676d4b579db0560287762a5c2e0e25001dac0e848af1b6c10b0
 - kind: project-relative
   target: agents
   value: .agents/skills/code-quality-check/agents/openai.yaml
@@ -1822,7 +1822,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:be08cd21e2f4e236110e6b2e5a8443ae989d62a685a06dcb48284d49fcfdc6da
+  content_hash: sha256:f32a4b7f394e73c3d7ed56cd8c525cc679010573d8586776dbb54b1aff1c6491
 - kind: project-relative
   target: agents
   value: .agents/skills/python-quality-check/agents/openai.yaml
@@ -1858,7 +1858,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e52aaf46c28816d6f6262a5421dba8de9f906d2b606987bedcda840d2e687281
+  content_hash: sha256:bfd313b057b0a93518f641bbc1b0f0fa8ada41f06fbb075c8315d00225684784
 - kind: project-relative
   target: agents
   value: .agents/skills/python-quality-check/references/tooling-and-testing.md
@@ -2633,7 +2633,7 @@ local_deployed_file_hashes:
   .agents/skills/changelog-workflow/SKILL.md: sha256:8d9de8e0e3c31c4a2c176a0d14e3f1a45daf3db364ede7dd86983c8c3f571f54
   .agents/skills/changelog-workflow/agents/openai.yaml: sha256:6264e6dbd0433ab63370e15033ecb94da8dd131c4edcb1d3f2b9abdeb4f680f1
   .agents/skills/code-quality-check/README.md: sha256:b2cfd8bf9c3c7bd16cf86718877fa025396d15a380de88045122c4d162682cc2
-  .agents/skills/code-quality-check/SKILL.md: sha256:562defdddf73d23ddffd0beed4f52e2a42c83185b30c8d46f686814078c57fdd
+  .agents/skills/code-quality-check/SKILL.md: sha256:7415164c33885676d4b579db0560287762a5c2e0e25001dac0e848af1b6c10b0
   .agents/skills/code-quality-check/agents/openai.yaml: sha256:69a8a75579e3b47dc69a176417b97441adf81bc54984d3f6bc114e47a68bc9b3
   .agents/skills/code-quality-check/references/avoiding-overengineering.md: sha256:f35ad2036a18151dc9dfef8a334989d2b88439478505cd5b047f0621dd613098
   .agents/skills/commit-message-quality-check/README.md: sha256:c23949080d05f47cce728410ca3190225397aa41ac2015c6f02ee478ec412a24
@@ -2748,11 +2748,11 @@ local_deployed_file_hashes:
   .agents/skills/prose-quality-check/agents/openai.yaml: sha256:b83e0a5d151e6e20df6f7d97f268955c6abfd105d53820f6baad0de8403fc062
   .agents/skills/prose-quality-check/assets/markdownlint-cli2.yaml: sha256:1044e29915fe15e9083f808d1170c84cfc0b848123c0da435cabb9512d39c203
   .agents/skills/python-quality-check/README.md: sha256:20a23003a24a8caf2f03dd5a06bed99c81cf93ab53fe5a196c6a67ab59c53b0e
-  .agents/skills/python-quality-check/SKILL.md: sha256:be08cd21e2f4e236110e6b2e5a8443ae989d62a685a06dcb48284d49fcfdc6da
+  .agents/skills/python-quality-check/SKILL.md: sha256:f32a4b7f394e73c3d7ed56cd8c525cc679010573d8586776dbb54b1aff1c6491
   .agents/skills/python-quality-check/agents/openai.yaml: sha256:f0b4ad3807e177becec02271314fb32c1ec8d5a7682725ddd4a611a5381084d1
   .agents/skills/python-quality-check/assets/github/actions/setup-python-locked/action.yml: sha256:a78b34f3bfdd20cd2624bb093f0a927ea6c2edddc4301a2d60ec8a86e0fa2589
   .agents/skills/python-quality-check/assets/github/actions/setup-python-locked/resolve-python-contract.sh: sha256:71e09fff0baf2630e766c8dd32eef32d0735dbc11b4f25fe335cca10f99548e8
-  .agents/skills/python-quality-check/references/ci-and-distribution.md: sha256:e52aaf46c28816d6f6262a5421dba8de9f906d2b606987bedcda840d2e687281
+  .agents/skills/python-quality-check/references/ci-and-distribution.md: sha256:bfd313b057b0a93518f641bbc1b0f0fa8ada41f06fbb075c8315d00225684784
   .agents/skills/python-quality-check/references/tooling-and-testing.md: sha256:dd55defe261fd16e88e9ef4acf2487ec4c05cca160c153db1a0e6746b3e39b44
   .agents/skills/python-quality-check/scripts/check_project.py: sha256:8175b500198399a2ce8b79b4fc8d1902f791d163a0d6dfd35b5ce56b41c5ccc5
   .agents/skills/python-quality-check/scripts/check_project.py.lock: sha256:76042d39ffdbb675188966b4fc41d312b0ec9374a7aa438d4f5e919adcf04c07
