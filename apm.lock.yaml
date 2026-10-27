@@ -688,7 +688,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:db272bb7467bcb6a6c3d837dec60a34f7081c135fcd40a9e00cf4a84e29ffabe
+  content_hash: sha256:cbe89b115e778b2417abf5fb15d98b2d1403c3ea0c99bf5ce9a0a65bef0cd6d7
 - kind: project-relative
   target: agents
   value: .agents/skills/commit-message-quality-check/agents/openai.yaml
@@ -1003,7 +1003,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:67e2474b9878cc6cb209ae30b19c233f65969abe5b5d543f0c9a16e46f1d40d2
+  content_hash: sha256:cb69640580964636669f5f60c0d97a4f1e6c7b20d3466695ffa35ab2efcca450
 - kind: project-relative
   target: agents
   value: .agents/skills/git-worktree-workflow/agents/openai.yaml
@@ -1165,7 +1165,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:fff81418d111a2fe43bdb0a438600d728fba867c129b5d690cf50d4326b840f0
+  content_hash: sha256:e48d27f4c7f0fa5ec0efe944994fcad8eb2083e586bfbf720dda19bb3941acc1
 - kind: project-relative
   target: agents
   value: .agents/skills/github-workflow/agents/openai.yaml
@@ -1184,6 +1184,15 @@ deployments:
   - .
   active_owner: .
   content_hash: sha256:b98239e7d4cdddd8e267ab155f4e4c38fcc514526d9a32f13fcd5b21a1c07eb2
+- kind: project-relative
+  target: agents
+  value: .agents/skills/github-workflow/references/remote-commit.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:0bd592cc388a3e78279a02ee3ba8b78f3eeda3c5591e315b9f9408657c42c5ec
 - kind: project-relative
   target: agents
   value: .agents/skills/github-workflow/references/repository-settings.md
@@ -2439,6 +2448,7 @@ local_deployed_files:
 - .agents/skills/github-workflow/SKILL.md
 - .agents/skills/github-workflow/agents/openai.yaml
 - .agents/skills/github-workflow/references/fallback-pr-body.md
+- .agents/skills/github-workflow/references/remote-commit.md
 - .agents/skills/github-workflow/references/repository-settings.md
 - .agents/skills/github-workflow/scripts/check_llm_disclosure.py
 - .agents/skills/gitignore-workflow
@@ -2627,7 +2637,7 @@ local_deployed_file_hashes:
   .agents/skills/code-quality-check/agents/openai.yaml: sha256:69a8a75579e3b47dc69a176417b97441adf81bc54984d3f6bc114e47a68bc9b3
   .agents/skills/code-quality-check/references/avoiding-overengineering.md: sha256:f35ad2036a18151dc9dfef8a334989d2b88439478505cd5b047f0621dd613098
   .agents/skills/commit-message-quality-check/README.md: sha256:c23949080d05f47cce728410ca3190225397aa41ac2015c6f02ee478ec412a24
-  .agents/skills/commit-message-quality-check/SKILL.md: sha256:db272bb7467bcb6a6c3d837dec60a34f7081c135fcd40a9e00cf4a84e29ffabe
+  .agents/skills/commit-message-quality-check/SKILL.md: sha256:cbe89b115e778b2417abf5fb15d98b2d1403c3ea0c99bf5ce9a0a65bef0cd6d7
   .agents/skills/commit-message-quality-check/agents/openai.yaml: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
   .agents/skills/docker-quality-check/README.md: sha256:912a73d3de06babc6eed1ecdaf275139ae465797083dc5427affb54d00c57bf0
   .agents/skills/docker-quality-check/SKILL.md: sha256:85b24dafab008013de4edada0ab17defd1bd06ac879b3a0342648620b4e56cce
@@ -2658,7 +2668,7 @@ local_deployed_file_hashes:
   .agents/skills/flet-project-quality-check/scripts/check_project.py.lock: sha256:76042d39ffdbb675188966b4fc41d312b0ec9374a7aa438d4f5e919adcf04c07
   .agents/skills/flet-project-quality-check/scripts/test_check_project.py: sha256:38b7693ba65d32eb46834236472a6e1fe81336c2223c62c646c16860be1fb0a2
   .agents/skills/git-worktree-workflow/README.md: sha256:fa6483b5919a01b84fa0d6ffcbaae20b84ed3807e18029e8807e61b0ee4f9de9
-  .agents/skills/git-worktree-workflow/SKILL.md: sha256:67e2474b9878cc6cb209ae30b19c233f65969abe5b5d543f0c9a16e46f1d40d2
+  .agents/skills/git-worktree-workflow/SKILL.md: sha256:cb69640580964636669f5f60c0d97a4f1e6c7b20d3466695ffa35ab2efcca450
   .agents/skills/git-worktree-workflow/agents/openai.yaml: sha256:3eb9da73e7a041e77d82f0d5c3a8c67e914575cff8651b71d077db30fe3da99a
   .agents/skills/github-actions-quality-check/README.md: sha256:1ea1084b747315d281dfe92259bc1b1218f0ada5bed1cf556f60081e058760a8
   .agents/skills/github-actions-quality-check/SKILL.md: sha256:3cab39c2716bd99d9f101a54e8dc0a0bbc1ace4836700e8ba587c8edbea2e6c5
@@ -2674,9 +2684,10 @@ local_deployed_file_hashes:
   .agents/skills/github-actions-quality-check/references/validation-and-reporting.md: sha256:29f1928158f2329cc3f0695a083a96469f09447de37c7e62c8451eaa58dbd54b
   .agents/skills/github-actions-quality-check/references/version-file-releases.md: sha256:351a695ed8e81e33271a4697030f1905776fa6512b271b5693785e48329123c4
   .agents/skills/github-workflow/README.md: sha256:5d23c667c4b4aedfdad8110690ac0a08cb9f91b91b6e75b8769a12f497324bae
-  .agents/skills/github-workflow/SKILL.md: sha256:fff81418d111a2fe43bdb0a438600d728fba867c129b5d690cf50d4326b840f0
+  .agents/skills/github-workflow/SKILL.md: sha256:e48d27f4c7f0fa5ec0efe944994fcad8eb2083e586bfbf720dda19bb3941acc1
   .agents/skills/github-workflow/agents/openai.yaml: sha256:1f792d6b510760ad131a4b4d077dfc84da1cdee4c30efc8e47d3e92aac939e6c
   .agents/skills/github-workflow/references/fallback-pr-body.md: sha256:b98239e7d4cdddd8e267ab155f4e4c38fcc514526d9a32f13fcd5b21a1c07eb2
+  .agents/skills/github-workflow/references/remote-commit.md: sha256:0bd592cc388a3e78279a02ee3ba8b78f3eeda3c5591e315b9f9408657c42c5ec
   .agents/skills/github-workflow/references/repository-settings.md: sha256:4a7ac9d7281c203d84f4ba7ddad6940218194ed3e365ab1c3ff1d1b1519f87e6
   .agents/skills/github-workflow/scripts/check_llm_disclosure.py: sha256:bc9c5cbd8efa77095eac42e53da714ed8dff86fa3b0e7870fc3e7eca1ca36e20
   .agents/skills/gitignore-workflow/README.md: sha256:0de188ebcdd40ea1aec701410e1c2182049b66bc4ec4d83a3bf55685b4267d47
