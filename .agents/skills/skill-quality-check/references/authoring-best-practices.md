@@ -78,8 +78,13 @@ review checklist.
 - Use `references/` for detailed material that should be loaded only for relevant variants.
 - Use `assets/` for templates, images, fonts, starter files, or other output materials that do not
   need to be read into context.
-- Keep `agents/openai.yaml` aligned with `SKILL.md` when present. Treat it as optional metadata, not
-  a substitute for a clear `description`.
+- The general Skill format treats `agents/openai.yaml` as optional app metadata, not a substitute
+  for a clear `description`. Repository or platform policy can require it: this collection does
+  unless the repository records an explicit exception. Apply the metadata gate in `SKILL.md`
+  rather than using general optionality to waive that requirement.
+- Keep metadata aligned with `SKILL.md` when present. For a rename or retirement, inventory
+  consumers before removal. For APM-managed copies, apply `SKILL.md`'s companion-availability
+  gate and use `apm-workflow`'s packaged local Skill migration procedure.
 
 ## Validation and Scenario Testing
 

@@ -95,13 +95,22 @@ description: >-
      binary only when it is required by a consumer or distribution target, and regenerate it when
      its canonical source or rendering requirement changes.
 8. Check metadata alignment:
-   - Check every changed skill folder for `agents/openai.yaml`. For new skills, create it unless
-     the repository has an explicit reason to omit app metadata for that skill.
-   - Treat a missing `agents/openai.yaml` as a blocking gap, not as an optional follow-up.
+   - Check the target repository and platform's metadata requirements. The general Skill format
+     permits optional `agents/openai.yaml`; this collection requires it unless the repository
+     records an explicit reason to omit app metadata for that skill.
+   - Check every changed skill folder. Under this collection's policy, create `agents/openai.yaml`
+     for new skills and treat a missing file without an explicit exception as a blocking gap,
+     not as an optional follow-up. Apply the target's policy when reviewing another repository.
    - Keep `agents/openai.yaml` aligned with `SKILL.md` trigger wording, scope, and expected output.
    - Include `interface.display_name`, `interface.short_description`, and
      `interface.default_prompt` when creating app metadata.
    - Update or remove metadata that no longer directly supports the skill.
+   - For a rename or retirement, preserve the migration inventory in step 4. For APM-managed
+     copies, use `apm-workflow`'s packaged local Skill migration procedure. Resolve that
+     companion from the available Skill catalog rather than assuming a sibling directory;
+     if unavailable, report the missing procedure and stop the managed migration.
+     General metadata optionality does not authorize leaving consumers, index rows, or
+     deployment records behind.
 9. Validate and iterate:
    - Run the available skill validator, if the project has one.
    - If the validator cannot start because a runtime dependency is unavailable,
