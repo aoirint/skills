@@ -33,7 +33,9 @@ or MCP dependency:
    in tracked YAML.
 5. Run `apm lock` to resolve and download without deploying to agent targets.
    Review `apm.lock.yaml`: each dependency must resolve to the expected commit
-   and carry its content hash. In PowerShell checks, wrap variable-cardinality
+   and carry its content hash. For a new or changed deployment, complete and
+   review the [deployment ledger](cli-selection.md#12-complete-a-new-or-rebuilt-deployment-ledger)
+   before the frozen verification below. In PowerShell checks, wrap variable-cardinality
    query results in `@(...)` before using `.Count`, indexing, or membership
    tests; one result otherwise becomes a scalar while multiple results become
    an array. Assert the expected count and element type. Commit the manifest

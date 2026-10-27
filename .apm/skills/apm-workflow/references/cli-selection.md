@@ -1,5 +1,9 @@
 # APM CLI Selection and Lockfile Migration
 
+- [Inspect before changing](#1-inspect-before-changing)
+- [Preserve deployment ownership](#11-regenerate-a-lockfile-without-losing-deployment-ownership)
+- [Complete the deployment ledger](#12-complete-a-new-or-rebuilt-deployment-ledger)
+
 ## 1. Inspect before changing
 
 1. Locate `apm.yml`, `apm.lock.yaml`, `apm-policy.yml`, existing agent
@@ -30,7 +34,8 @@
    version, capture it for comparison and regenerate it from scratch with the
    selected executable. Do not edit `apm_version` by hand: remove only the
    validated project lockfile, run `apm lock`, review the complete result, and
-   then run the frozen install and audit checks. Treat substantial lock-format
+   then complete the deployment ledger as described below before the frozen
+   install and audit checks. Treat substantial lock-format
    churn separately from a dependency update.
 6. If the lockfile records a newer, not-yet-eligible APM version, do not execute
    that CLI merely to preserve its generator version. Report the mismatch and
@@ -68,9 +73,10 @@ Skill or resource from the new lockfile.
    collision paths to a task-specific temporary backup outside the repository. Preserve
    relative paths and hashes so the old deployment can be restored. Do not use
    `--force` to overwrite a collision or clear the entire agent target.
-4. Remove only the validated project lockfile, regenerate it with the selected CLI, and
-   run the frozen install. A skipped-file or collision warning is a blocker, even when
-   the command exits successfully.
+4. Remove only the validated project lockfile, regenerate it with the selected CLI,
+   and complete the deployment ledger using section 1.2 before the frozen install.
+   A skipped-file or collision warning is a blocker, even when the command exits
+   successfully.
 5. Compare the new package list, requested Skill subsets, deployed paths, and target
    roots with the manifest and the old snapshot. Every removed or added path needs an
    expected dependency or generator explanation; an unexpectedly missing selected
@@ -81,3 +87,36 @@ Skill or resource from the new lockfile.
 7. Delete the temporary backup only after the new lockfile, deployed output, diff, and
    audit all pass. Record any ownership ambiguity or tool collision behavior in the
    handoff.
+
+### 1.2 Complete a new or rebuilt deployment ledger
+
+APM 0.34.0 makes `apm install --frozen` strictly read-only for the lockfile.
+`apm lock` resolves packages without deploying, so a new or rebuilt lockfile
+can lack deployment records. A frozen install then fails **after deploying
+files**; failure does not imply that the target is unchanged. See the
+[0.34.0 release notes](https://github.com/microsoft/apm/releases/tag/v0.34.0).
+
+Use this preparation only for an approved new deployment, source change, or
+lockfile rebuild. Ordinary repeat installs and CI remain frozen.
+
+1. Preserve the prior lockfile and exact verified owned output as in section
+   1.1. For a first deployment, inventory existing target files and ownership
+   before installing; do not overwrite unmanaged or ambiguously owned paths.
+2. Run `apm lock` and review the resolved full SHAs, selected Skills, targets,
+   and expected output changes. Record that snapshot. CLI migration alone does
+   not approve dependency updates; stop on an unapproved resolution change.
+3. Run `apm install` once without `--frozen` to populate the deployment ledger,
+   retaining the reviewed scope and target options. Do not add `--update`,
+   `--refresh`, or bypass flags. This step writes both output and the lockfile.
+4. Compare the complete result with the snapshot, manifest, prior ledger, and
+   approved source changes. Confirm dependency commits and selections did not
+   change, every deployed path has the correct owner and hash, and target or
+   generator differences are explained. A collision, skipped output, unexpected
+   ref, or unexplained ownership/path change requires restoration and a stop.
+5. Run `apm install --frozen`, verify that the lockfile bytes remain unchanged,
+   then run `apm audit --ci` and verify actual target/file hashes. Review the
+   complete diff before committing. Keep the backup until all checks pass.
+6. On any failure, inspect partial output and restore the prior lockfile and
+   exact backed-up files; remove only newly created paths whose ownership is
+   proven by this attempt. If ownership or restoration cannot be established,
+   stop and report the remaining state rather than clearing the target.
