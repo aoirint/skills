@@ -50,7 +50,9 @@ rename.
    whenever the existing ledger still names a retired deployment path, or when
    a normal lock/install cycle cannot prove that removed paths left the ledger.
    Do not patch lockfile hashes or deployment entries by hand. Review that no
-   retired path remains before running `apm install --frozen`.
+   retired path remains. Complete and review the
+   [rebuilt deployment ledger](cli-selection.md#12-complete-a-new-or-rebuilt-deployment-ledger)
+   before running `apm install --frozen`.
 4. Run `apm install --frozen` and `apm audit --ci`. Treat missing expected
    files, orphaned retired files, unintegrated outputs, or a source/deployed
    file-set mismatch as release blockers. If the available generator cannot
