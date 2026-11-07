@@ -699,6 +699,105 @@ deployments:
   content_hash: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
 - kind: project-relative
   target: codex
+  value: .agents/skills/dependency-update-workflow
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/dependency-update-workflow/README.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:ad6f4443fe4ef70e46441715b67660dd32c548ab01ba007b78b77a5cce3c2e85
+- kind: project-relative
+  target: codex
+  value: .agents/skills/dependency-update-workflow/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:84b37570890051fff15e91065b1435363f5279d16f64c3cf825e054712fcbdbd
+- kind: project-relative
+  target: codex
+  value: .agents/skills/dependency-update-workflow/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:53ea8baf1f8b0d337571286b2d147e54abd41e24dd787781ba694dd9fabdca7b
+- kind: project-relative
+  target: codex
+  value: .agents/skills/dependency-update-workflow/references/candidate-evaluation.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:23296f2ed12f76b9f6bf9d26cea78052747ca17a8b91b4973dbd564b22cd24bc
+- kind: project-relative
+  target: codex
+  value: .agents/skills/dependency-update-workflow/references/repository-discovery.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:9a5ca568d72f46410e36cf8b542ff0db2935fbcde4eb8201c64acb70e7e9b5c1
+- kind: project-relative
+  target: codex
+  value: .agents/skills/development-environment-update-workflow
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: null
+- kind: project-relative
+  target: codex
+  value: .agents/skills/development-environment-update-workflow/README.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:70f32971fb6920f345cfaaefc3c28f7886cc588f37ddd40dc42abdda1e51da62
+- kind: project-relative
+  target: codex
+  value: .agents/skills/development-environment-update-workflow/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:79f0ed8a28953b33d52f524e927988434c0fd9da4e0a5ebe208aaa0124cc71c2
+- kind: project-relative
+  target: codex
+  value: .agents/skills/development-environment-update-workflow/agents/openai.yaml
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:82e01ae11a094de4a617550532b4af5605166616a7510f624cec41726c2fbf5c
+- kind: project-relative
+  target: codex
+  value: .agents/skills/development-environment-update-workflow/references/platform-discovery.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:745ba8380f934f42a415ebd2284bd94d736b899c3cbe7aa5de7b141555f26d90
+- kind: project-relative
+  target: codex
   value: .agents/skills/docker-quality-check
   runtime: null
   scope: project
@@ -2082,7 +2181,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:d321689b998388180ac852fdb6374ab3b79bec508a53d00461a9db79fb246d2e
+  content_hash: sha256:77d4bcc70596b8f4d215ab50ca009e6f325b322240bdd7c69348f4373cb1bc3d
 - kind: project-relative
   target: codex
   value: .agents/skills/security-check/SKILL.md
@@ -2091,7 +2190,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:cdc808990ce5eece96a6cb439a389f6611ba8c34ae954789df4ed8936732f63e
+  content_hash: sha256:0b919d18cd67918421bd9d4044968e28c5a795fb632c29e766db98f28ef4d522
 - kind: project-relative
   target: codex
   value: .agents/skills/security-check/agents/openai.yaml
@@ -2100,7 +2199,16 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:b1021ca2df7466813d0a376fc8bdff83603f568b02ef712e236fb2cfeef377c0
+  content_hash: sha256:6dc7863bcac5c5019b10945b3f4a7d0525f5611a12278b872d45954572ba2a13
+- kind: project-relative
+  target: codex
+  value: .agents/skills/security-check/references/advisory-review.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:bd01b017828ae75ca0baf126d20545669175dde84f8dd4d385cb701dbfc33dc9
 - kind: project-relative
   target: codex
   value: .agents/skills/security-check/references/artifact-inspection.md
@@ -2438,6 +2546,17 @@ local_deployed_files:
 - .agents/skills/commit-message-quality-check/README.md
 - .agents/skills/commit-message-quality-check/SKILL.md
 - .agents/skills/commit-message-quality-check/agents/openai.yaml
+- .agents/skills/dependency-update-workflow
+- .agents/skills/dependency-update-workflow/README.md
+- .agents/skills/dependency-update-workflow/SKILL.md
+- .agents/skills/dependency-update-workflow/agents/openai.yaml
+- .agents/skills/dependency-update-workflow/references/candidate-evaluation.md
+- .agents/skills/dependency-update-workflow/references/repository-discovery.md
+- .agents/skills/development-environment-update-workflow
+- .agents/skills/development-environment-update-workflow/README.md
+- .agents/skills/development-environment-update-workflow/SKILL.md
+- .agents/skills/development-environment-update-workflow/agents/openai.yaml
+- .agents/skills/development-environment-update-workflow/references/platform-discovery.md
 - .agents/skills/docker-quality-check
 - .agents/skills/docker-quality-check/README.md
 - .agents/skills/docker-quality-check/SKILL.md
@@ -2590,6 +2709,7 @@ local_deployed_files:
 - .agents/skills/security-check/README.md
 - .agents/skills/security-check/SKILL.md
 - .agents/skills/security-check/agents/openai.yaml
+- .agents/skills/security-check/references/advisory-review.md
 - .agents/skills/security-check/references/artifact-inspection.md
 - .agents/skills/security-check/references/distributed-software-licensing.md
 - .agents/skills/security-check/references/external-code-execution.md
@@ -2688,6 +2808,15 @@ local_deployed_file_hashes:
   .agents/skills/commit-message-quality-check/README.md: sha256:c23949080d05f47cce728410ca3190225397aa41ac2015c6f02ee478ec412a24
   .agents/skills/commit-message-quality-check/SKILL.md: sha256:cbe89b115e778b2417abf5fb15d98b2d1403c3ea0c99bf5ce9a0a65bef0cd6d7
   .agents/skills/commit-message-quality-check/agents/openai.yaml: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
+  .agents/skills/dependency-update-workflow/README.md: sha256:ad6f4443fe4ef70e46441715b67660dd32c548ab01ba007b78b77a5cce3c2e85
+  .agents/skills/dependency-update-workflow/SKILL.md: sha256:84b37570890051fff15e91065b1435363f5279d16f64c3cf825e054712fcbdbd
+  .agents/skills/dependency-update-workflow/agents/openai.yaml: sha256:53ea8baf1f8b0d337571286b2d147e54abd41e24dd787781ba694dd9fabdca7b
+  .agents/skills/dependency-update-workflow/references/candidate-evaluation.md: sha256:23296f2ed12f76b9f6bf9d26cea78052747ca17a8b91b4973dbd564b22cd24bc
+  .agents/skills/dependency-update-workflow/references/repository-discovery.md: sha256:9a5ca568d72f46410e36cf8b542ff0db2935fbcde4eb8201c64acb70e7e9b5c1
+  .agents/skills/development-environment-update-workflow/README.md: sha256:70f32971fb6920f345cfaaefc3c28f7886cc588f37ddd40dc42abdda1e51da62
+  .agents/skills/development-environment-update-workflow/SKILL.md: sha256:79f0ed8a28953b33d52f524e927988434c0fd9da4e0a5ebe208aaa0124cc71c2
+  .agents/skills/development-environment-update-workflow/agents/openai.yaml: sha256:82e01ae11a094de4a617550532b4af5605166616a7510f624cec41726c2fbf5c
+  .agents/skills/development-environment-update-workflow/references/platform-discovery.md: sha256:745ba8380f934f42a415ebd2284bd94d736b899c3cbe7aa5de7b141555f26d90
   .agents/skills/docker-quality-check/README.md: sha256:912a73d3de06babc6eed1ecdaf275139ae465797083dc5427affb54d00c57bf0
   .agents/skills/docker-quality-check/SKILL.md: sha256:85b24dafab008013de4edada0ab17defd1bd06ac879b3a0342648620b4e56cce
   .agents/skills/docker-quality-check/agents/openai.yaml: sha256:56a5f1b83f050b12555bbf85d1fd66c206016b8f939b79370e250b4e661cafd7
@@ -2819,9 +2948,10 @@ local_deployed_file_hashes:
   .agents/skills/rollout-workflow/README.md: sha256:0112ca12803eefba888d18c3f83def9ee5f139fe6cb763893f653e5979b97e97
   .agents/skills/rollout-workflow/SKILL.md: sha256:a87f837b9234cf7629609fa3a76b415cfc15eafea44064976221e9efbdafe643
   .agents/skills/rollout-workflow/agents/openai.yaml: sha256:543a7befd986c51540ef35603fe63830f5032dc02b31f89e7f2179df3b3ca5dc
-  .agents/skills/security-check/README.md: sha256:d321689b998388180ac852fdb6374ab3b79bec508a53d00461a9db79fb246d2e
-  .agents/skills/security-check/SKILL.md: sha256:cdc808990ce5eece96a6cb439a389f6611ba8c34ae954789df4ed8936732f63e
-  .agents/skills/security-check/agents/openai.yaml: sha256:b1021ca2df7466813d0a376fc8bdff83603f568b02ef712e236fb2cfeef377c0
+  .agents/skills/security-check/README.md: sha256:77d4bcc70596b8f4d215ab50ca009e6f325b322240bdd7c69348f4373cb1bc3d
+  .agents/skills/security-check/SKILL.md: sha256:0b919d18cd67918421bd9d4044968e28c5a795fb632c29e766db98f28ef4d522
+  .agents/skills/security-check/agents/openai.yaml: sha256:6dc7863bcac5c5019b10945b3f4a7d0525f5611a12278b872d45954572ba2a13
+  .agents/skills/security-check/references/advisory-review.md: sha256:bd01b017828ae75ca0baf126d20545669175dde84f8dd4d385cb701dbfc33dc9
   .agents/skills/security-check/references/artifact-inspection.md: sha256:9842555f4789e77e6cf3d22b000116497207ecf6fa5587f2b1fe0dc20e7dffda
   .agents/skills/security-check/references/distributed-software-licensing.md: sha256:dce7c9fbfe665eb875388ab732b63b0226a5fd4592b12a62c42b6d1372c0d025
   .agents/skills/security-check/references/external-code-execution.md: sha256:03d666ef02095acc8b6d5e03d1bb8378f8b38ce01c6f006d2f7934fcfb6bfe4b

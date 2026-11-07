@@ -1,0 +1,4 @@
+interface:
+  display_name: "Development Environment Update Workflow"
+  short_description: "Assess and update Windows and Ubuntu developer tools"
+  default_prompt: "Use $development-environment-update-workflow to inventory my Windows, Ubuntu on WSL2, or native Ubuntu development tools, compare retention, updates, and migrations, and plan or apply only authorized changes."

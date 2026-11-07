@@ -35,6 +35,8 @@ apm update --global
 | [changelog-workflow](.apm/skills/changelog-workflow/README.md) | Maintain canonical developer changelogs and release history. |
 | [code-quality-check](.apm/skills/code-quality-check/README.md) | Review implementation quality, verification, and evidence-backed migration or compatibility needs. |
 | [commit-message-quality-check](.apm/skills/commit-message-quality-check/README.md) | Draft and review accurate Conventional Commit messages. |
+| [dependency-update-workflow](.apm/skills/dependency-update-workflow/README.md) | Discover dependencies, compare cooldown-aware candidates, and coordinate scoped updates. |
+| [development-environment-update-workflow](.apm/skills/development-environment-update-workflow/README.md) | Inventory and update developer toolchains on Windows, Ubuntu on WSL2, and native Ubuntu. |
 | [docker-quality-check](.apm/skills/docker-quality-check/README.md) | Review Dockerfiles, Compose configurations, and container runtime changes. |
 | [flet-project-quality-check](.apm/skills/flet-project-quality-check/README.md) | Create and review production-quality Python Flet projects. |
 | [git-worktree-workflow](.apm/skills/git-worktree-workflow/README.md) | Set up and use isolated Git worktrees for repository work. |
