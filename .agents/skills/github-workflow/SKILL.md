@@ -116,10 +116,11 @@ create, update, upload, push, or release operation.
 ### Pull requests
 
 1. Identify the artifact: title, body, review, reply, thread note, or squash
-   merge. For titles, enforce
-   `<type>[optional scope][optional !]: <description>` and use
-   `commit-message-quality-check` for format and wording before creating or
-   updating the PR, including titles reused from templates or earlier attempts.
+   merge. Before creating or updating it, use `prose-quality-check` for its
+   full text, including PR descriptions and wording reused from templates or
+   earlier attempts. For titles, enforce
+   `<type>[optional scope][optional !]: <description>` with
+   `commit-message-quality-check`.
 2. Before diagnosing an automated dependency or update pull request, compare
    its proposed state with the current integration branch's authoritative
    manifests, lock graph, and relevant published artifact. Treat the bot branch

@@ -687,7 +687,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:c154834b23c758f2da400a7f62133fa9bc37eb0af38701b1fe7daf3df14e91b3
+  content_hash: sha256:7b238a28221ed66fbbcdf22533403434f615eaed6a0153f5b94cbb290bb2c1cb
 - kind: project-relative
   target: codex
   value: .agents/skills/commit-message-quality-check/agents/openai.yaml
@@ -1299,7 +1299,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:1d6efc900be37eb3e975baafe0cb73d284783fcebee727da8342ae5870ce6de2
+  content_hash: sha256:27ab6a9e3ce9a330084410978b8b77695bd8c1414cbb392f77b90938c62a097b
 - kind: project-relative
   target: codex
   value: .agents/skills/github-workflow/agents/openai.yaml
@@ -2806,7 +2806,7 @@ local_deployed_file_hashes:
   .agents/skills/code-quality-check/agents/openai.yaml: sha256:69a8a75579e3b47dc69a176417b97441adf81bc54984d3f6bc114e47a68bc9b3
   .agents/skills/code-quality-check/references/avoiding-overengineering.md: sha256:51d42dc39ad47c4f3b908caa0b1fad8835acc516fc5ce6c917733dd410201342
   .agents/skills/commit-message-quality-check/README.md: sha256:c23949080d05f47cce728410ca3190225397aa41ac2015c6f02ee478ec412a24
-  .agents/skills/commit-message-quality-check/SKILL.md: sha256:c154834b23c758f2da400a7f62133fa9bc37eb0af38701b1fe7daf3df14e91b3
+  .agents/skills/commit-message-quality-check/SKILL.md: sha256:7b238a28221ed66fbbcdf22533403434f615eaed6a0153f5b94cbb290bb2c1cb
   .agents/skills/commit-message-quality-check/agents/openai.yaml: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
   .agents/skills/dependency-update-workflow/README.md: sha256:ad6f4443fe4ef70e46441715b67660dd32c548ab01ba007b78b77a5cce3c2e85
   .agents/skills/dependency-update-workflow/SKILL.md: sha256:84b37570890051fff15e91065b1435363f5279d16f64c3cf825e054712fcbdbd
@@ -2862,7 +2862,7 @@ local_deployed_file_hashes:
   .agents/skills/github-actions-quality-check/references/validation-and-reporting.md: sha256:29f1928158f2329cc3f0695a083a96469f09447de37c7e62c8451eaa58dbd54b
   .agents/skills/github-actions-quality-check/references/version-file-releases.md: sha256:351a695ed8e81e33271a4697030f1905776fa6512b271b5693785e48329123c4
   .agents/skills/github-workflow/README.md: sha256:5d23c667c4b4aedfdad8110690ac0a08cb9f91b91b6e75b8769a12f497324bae
-  .agents/skills/github-workflow/SKILL.md: sha256:1d6efc900be37eb3e975baafe0cb73d284783fcebee727da8342ae5870ce6de2
+  .agents/skills/github-workflow/SKILL.md: sha256:27ab6a9e3ce9a330084410978b8b77695bd8c1414cbb392f77b90938c62a097b
   .agents/skills/github-workflow/agents/openai.yaml: sha256:1f792d6b510760ad131a4b4d077dfc84da1cdee4c30efc8e47d3e92aac939e6c
   .agents/skills/github-workflow/references/fallback-pr-body.md: sha256:b98239e7d4cdddd8e267ab155f4e4c38fcc514526d9a32f13fcd5b21a1c07eb2
   .agents/skills/github-workflow/references/remote-commit.md: sha256:df8b01a9457f672f9a463c6c7432b125944fc74dd000a2fa8357ee1ba2183882

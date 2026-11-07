@@ -25,7 +25,9 @@ Reference:
 ## Workflow
 
 1. Read the proposed message and, when available, the staged diff or
-   commit diff it describes.
+   commit diff it describes. Use `prose-quality-check` for the complete subject
+   and body, including wording reused from templates, earlier attempts, or a
+   PR. Format and payload parity do not establish wording quality.
 2. For a GitHub squash-merge message, require the exact canonical PR title and
    number suffix in the subject and verify it is passed to the merge operation.
    Before any squash merge or other remote commit creation, use
@@ -35,11 +37,7 @@ Reference:
 3. Verify the first-line format, blank-line structure, body placement, and
    footer placement.
 4. Check that the type, optional scope, breaking-change marker, and short
-   description match the dominant intent of the change. Use
-   `prose-quality-check` for the wording, including status and process labels.
-   Review the exact subject even when it comes from a template, an earlier
-   attempt, or a PR title; format and payload parity do not establish wording
-   quality.
+   description match the dominant intent of the change.
 5. Check that any body explains useful context, motivation, or impact instead
    of repeating the summary.
 6. Check required footer or trailer metadata, including `BREAKING CHANGE` and
