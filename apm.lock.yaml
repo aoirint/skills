@@ -2172,7 +2172,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:fdd89fb9033263dfbc3c8420e11c722f897c5d094bac1d545705e12604a4fa19
+  content_hash: sha256:69692f2b539dd7cbe6a88b84012aad0ed171a1cb7e606a58e3885a481e7f28f8
 - kind: project-relative
   target: codex
   value: .agents/skills/test-quality-check/SKILL.md
@@ -2181,7 +2181,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:92c658da6f89dd5e99aca4b15354ee86231f22e547765b16b03b5e0d91cad0c5
+  content_hash: sha256:49ba8519f7402410e513dc9e2a67a3610f1430a7955f4c175ad4f24a09b1d9b8
 - kind: project-relative
   target: codex
   value: .agents/skills/test-quality-check/agents/openai.yaml
@@ -2190,7 +2190,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:1b97300ddad1b506c43c47ff8be43eca33e7fd73ee58ad179321a92848aa63f0
+  content_hash: sha256:f95e08705c6d729bdcc9fd15cb6d61acd885fb253962cfc909f5e9022198a37f
 - kind: project-relative
   target: codex
   value: .agents/skills/test-quality-check/references/classification-and-placement.md
@@ -2208,7 +2208,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:040af3a01b78c20670ca37c1e62941b830c4b9a90f64e8853ffc0255db709277
+  content_hash: sha256:f780e5087e3a03167b452eb0a00833c1685f9343cc7da1956b368d9ddaa7f79e
 - kind: project-relative
   target: codex
   value: .agents/skills/unity-game-analyze
@@ -2797,11 +2797,11 @@ local_deployed_file_hashes:
   .agents/skills/skill-quality-check/agents/openai.yaml: sha256:dde624797ed750b9132f45378710cb6ea182a35705551b45d4b862bb6ce85805
   .agents/skills/skill-quality-check/references/audit-checklist.md: sha256:bbba7cd804e409ef314686c5966a914e013f4a603e92958e0a9ab6e259e4473a
   .agents/skills/skill-quality-check/references/authoring-best-practices.md: sha256:965060d76e935331b59cad13880c990fe0f6fd37ae7f077c1ac87c6f88ed0aed
-  .agents/skills/test-quality-check/README.md: sha256:fdd89fb9033263dfbc3c8420e11c722f897c5d094bac1d545705e12604a4fa19
-  .agents/skills/test-quality-check/SKILL.md: sha256:92c658da6f89dd5e99aca4b15354ee86231f22e547765b16b03b5e0d91cad0c5
-  .agents/skills/test-quality-check/agents/openai.yaml: sha256:1b97300ddad1b506c43c47ff8be43eca33e7fd73ee58ad179321a92848aa63f0
+  .agents/skills/test-quality-check/README.md: sha256:69692f2b539dd7cbe6a88b84012aad0ed171a1cb7e606a58e3885a481e7f28f8
+  .agents/skills/test-quality-check/SKILL.md: sha256:49ba8519f7402410e513dc9e2a67a3610f1430a7955f4c175ad4f24a09b1d9b8
+  .agents/skills/test-quality-check/agents/openai.yaml: sha256:f95e08705c6d729bdcc9fd15cb6d61acd885fb253962cfc909f5e9022198a37f
   .agents/skills/test-quality-check/references/classification-and-placement.md: sha256:31f5e95627e183789751b1b1942257c3aa253d5c0e2504c02b5e2391d5dad104
-  .agents/skills/test-quality-check/references/coverage-and-suite-audit.md: sha256:040af3a01b78c20670ca37c1e62941b830c4b9a90f64e8853ffc0255db709277
+  .agents/skills/test-quality-check/references/coverage-and-suite-audit.md: sha256:f780e5087e3a03167b452eb0a00833c1685f9343cc7da1956b368d9ddaa7f79e
   .agents/skills/unity-game-analyze/README.md: sha256:844d7294c5867870315e0a2d521d59654e9b0f4ee14885902ceca84ba7c70ec7
   .agents/skills/unity-game-analyze/SKILL.md: sha256:68481c536fbfbda49b8c6e1a74f55faf4ce48c14006efeb13b37a83509e4e7d9
   .agents/skills/unity-game-analyze/agents/openai.yaml: sha256:d6b6ee37197ee95d8a81bddeabc3ccc6a87b80dababa874ed5ab514e317f3088
