@@ -2,7 +2,7 @@
 # requires-python = ">=3.12,<3.15"
 # dependencies = [
 #   "accelerate>=1.14,<2",
-#   "pillow>=12.3,<13",
+#   "pillow>=13,<14",
 #   "torch>=2.10,<3",
 #   "torchvision>=0.25,<1",
 #   "transformers>=5.14,<6",

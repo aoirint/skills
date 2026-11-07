@@ -47,9 +47,11 @@ description: >-
    repository, also apply `apm-workflow`; the outer Node source-check action
    must run `apm audit --ci` and Markdown lint beside the locked Node checks.
 2. Establish the compatibility envelope before choosing versions:
-   - Identify the Node.js major supported by every deployment/build environment and
-     its current documented compatibility. Choose a supported LTS major; do not treat
-     an arbitrary newer runtime as an upgrade target.
+   - Default to Node.js 26 for a new runtime baseline. Select an exact patch
+     that has completed the seven-day cooldown, and verify support in every
+     deployment/build environment and runtime dependency. Keep another supported
+     LTS major only for a documented compatibility requirement; do not move an
+     existing project without reviewing its migration impact.
    - Keep `engines.node`, the local version file (such as `.node-version`), CI
      `setup-node`, and the hosted builder's configured runtime aligned. Keep
      `@types/node` on the matching runtime major unless the project documents a
@@ -59,12 +61,15 @@ description: >-
      as a compatible family and verify React and styling peer requirements. Treat a
      major bump as a migration: inspect breaking changes and update code/configuration
      rather than accepting a lockfile-only change.
-3. Keep pnpm's supply-chain policy in `pnpm-workspace.yaml`. Start from the bundled
-   template and retain a seven-day gate (`minimumReleaseAge: 10080`), strict handling
-   of missing publication times, `trustPolicy: no-downgrade`, and pnpm 11's default
-   strict resolution and lockfile policy rechecking, plus an explicit `allowBuilds`
-   list. Add a build-script allowlist entry only after
-   reviewing that package's lifecycle behavior. Do not add registry credentials,
+3. Select the newest stable, compatible pnpm release that has completed the
+   seven-day cooldown. Review a major upgrade as a migration and commit the exact
+   selection in `packageManager`. Keep pnpm's supply-chain policy in
+   `pnpm-workspace.yaml`. Start from the bundled template, preserve stricter
+   existing project settings, and retain a seven-day
+   gate (`minimumReleaseAge: 10080`), strict handling of missing publication times,
+   `trustPolicy: no-downgrade`, strict resolution and lockfile policy rechecking,
+   plus an explicit `allowBuilds` list. Add a build-script allowlist entry only
+   after reviewing that package's lifecycle behavior. Do not add registry credentials,
    disable these controls, or use broad exclusions in the committed policy. Finalize
    this policy before resolving the lockfile; do not create a lock under weaker rules
    and enable the gate afterward.
