@@ -36,7 +36,12 @@ silently repairing them through copyediting.
    Stop prose-only revision where ownership or evidence is disputed.
 2. Select information for the reader's task. Retain what supports understanding
    or sound decisions; omit or separate distracting material. Brevity alone is
-   not the goal.
+   not the goal. Apply the same test to references: keep those needed for
+   understanding, verification, practical use, or attribution. Do not add links
+   merely because they were consulted during research. Distinguish illustrative
+   examples from authoritative documentation. Omit references that add no value
+   for the reader, weighing optional references against link rot, content
+   changes, access limits, and maintenance.
 3. Before editing prose intended for later independent use, read
    [durable context](references/durable-context.md) for conversation references,
    dates, versions, and history. This includes documentation, comments, Skills,
@@ -149,9 +154,7 @@ For the rationale and limits of external guidance, consult
    evidence gap with the factual owner instead of assuming either uniform or
    different requirements.
 
-For contextual examples and external cases, including unnecessary "latest"
-qualifiers, see
-[status and process wording](references/status-wording.md).
+For examples, see [status and process wording](references/status-wording.md).
 
 ### Verify in context
 

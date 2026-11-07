@@ -48,39 +48,3 @@ not the presence of a particular word.
   B, and C." Repeat a necessary modifier in each independently read list item.
   Do not rely on readers guessing whether the first item's modifier extends
   to later items. Use different modifiers when different requirements apply.
-
-## Repository example
-
-[CruiserJumpPractice's installation guide](https://github.com/aoirint/CruiserJumpPractice/blob/9019e8bfd5e560bc64f1097fc72153b2b0cf62fa/README.md#L11-L15)
-qualified the .NET 10 SDK with "latest" while neighboring PowerShell and Visual
-Studio requirements did not. Its
-[SDK configuration](https://github.com/aoirint/CruiserJumpPractice/blob/9019e8bfd5e560bc64f1097fc72153b2b0cf62fa/global.json)
-sets a version and roll-forward behavior rather than requiring the newest SDK.
-Removing the prose modifier avoids an unintended difference; the literal
-`latestFeature` setting has an operational meaning and must be preserved.
-
-## External cases
-
-- [obra/superpowers, writing-skills](https://github.com/obra/superpowers/blob/22f0b463e7a5e579904dd6211a520321035526f7/skills/writing-skills/SKILL.md#L347)
-  uses "Skill Creation Checklist (TDD Adapted)." Earlier sections already
-  explain the application of test-driven development and its stages to Skill
-  creation. The parenthetical is a low-impact redundancy candidate in that
-  context; "Skill Creation Checklist" identifies the section without losing
-  a needed distinction. This is not an unsupported approval claim.
-- [ComposioHQ/awesome-claude-skills, instantly-automation](https://github.com/ComposioHQ/awesome-claude-skills/blob/be2a406907dbc61b73e6827ded415c96139d13a2/composio-skills/instantly-automation/SKILL.md#L78-L81)
-  uses "Verified working" for timezone values beside mapped and unsupported
-  values. The distinction helps configuration, but the file does not identify
-  the observation's environment or method. Check the supporting evidence and
-  clarify the relevant scope rather than simply removing the distinction or
-  inventing a test result. This prose inspection did not test the API.
-- [anthropics/skills, build-eval](https://github.com/anthropics/skills/blob/2c5958ecac7cee2b583967a2c4981d0f4a75c579/skills/claude-api/shared/evals/build-eval.md#L56-L64)
-  pairs "Get the inputs approved" with "Do not proceed until the user has
-  looked and said yes." The neighboring instructions establish the approver,
-  subject, and gate. Keep the requirement; the heading need not repeat the user.
-- [openai/skills, Playwright notice](https://github.com/openai/skills/blob/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/playwright/NOTICE.txt#L1-L14)
-  states "Adapted for the Codex skill collection" alongside the source,
-  copyright, license, and changes. This identifies a derivative relationship
-  in a notice, not a quality endorsement. Preserve the attribution and notice.
-
-The pull-request and lockfile examples above are illustrative, not quotations
-from the external sources.
