@@ -35,7 +35,11 @@ Reference:
 3. Verify the first-line format, blank-line structure, body placement, and
    footer placement.
 4. Check that the type, optional scope, breaking-change marker, and short
-   description match the dominant intent of the change.
+   description match the dominant intent of the change. Use
+   `prose-quality-check` for the wording, including status and process labels.
+   Review the exact subject even when it comes from a template, an earlier
+   attempt, or a PR title; format and payload parity do not establish wording
+   quality.
 5. Check that any body explains useful context, motivation, or impact instead
    of repeating the summary.
 6. Check required footer or trailer metadata, including `BREAKING CHANGE` and

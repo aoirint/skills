@@ -118,7 +118,8 @@ create, update, upload, push, or release operation.
 1. Identify the artifact: title, body, review, reply, thread note, or squash
    merge. For titles, enforce
    `<type>[optional scope][optional !]: <description>` and use
-   `commit-message-quality-check` for type and breaking-change notation.
+   `commit-message-quality-check` for format and wording before creating or
+   updating the PR, including titles reused from templates or earlier attempts.
 2. Before diagnosing an automated dependency or update pull request, compare
    its proposed state with the current integration branch's authoritative
    manifests, lock graph, and relevant published artifact. Treat the bot branch
