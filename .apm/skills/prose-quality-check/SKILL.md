@@ -38,8 +38,12 @@ silently repairing them through copyediting.
    or sound decisions; omit or separate distracting material. Brevity alone is
    not the goal. Apply the same test to references: keep those needed for
    understanding, verification, practical use, or attribution. Do not add links
-   merely because they were consulted during research. Distinguish illustrative
-   examples from authoritative documentation. Omit references that add no value
+   merely because they were consulted during research. Be able to explain why
+   the particular source fits that need, such as its authority on the specific
+   claim, direct evidence, or the feature an example illustrates. Include that
+   explanation only when readers need it; do not repeat what context already
+   makes clear. Official status alone does not justify inclusion. Distinguish
+   illustrative examples from authoritative documentation. Omit references that add no value
    for the reader, weighing optional references against link rot, content
    changes, access limits, and maintenance.
 3. Before editing prose intended for later independent use, read
