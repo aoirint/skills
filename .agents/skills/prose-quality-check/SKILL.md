@@ -36,7 +36,16 @@ silently repairing them through copyediting.
    Stop prose-only revision where ownership or evidence is disputed.
 2. Select information for the reader's task. Retain what supports understanding
    or sound decisions; omit or separate distracting material. Brevity alone is
-   not the goal.
+   not the goal. Apply the same test to references: keep those needed for
+   understanding, verification, practical use, or attribution. Do not add links
+   merely because they were consulted during research. Be able to explain why
+   the particular source fits that need, such as its authority on the specific
+   claim, direct evidence, or the feature an example illustrates. Include that
+   explanation only when readers need it; do not repeat what context already
+   makes clear. Official status alone does not justify inclusion. Distinguish
+   illustrative examples from authoritative documentation. Omit references that add no value
+   for the reader, weighing optional references against link rot, content
+   changes, access limits, and maintenance.
 3. Before editing prose intended for later independent use, read
    [durable context](references/durable-context.md) for conversation references,
    dates, versions, and history. This includes documentation, comments, Skills,
@@ -112,6 +121,44 @@ For the rationale and limits of external guidance, consult
    - Retain compatibility or migration context when the document owns the
      history or readers need it to update usage, interpret a release, or avoid
      a concrete transition risk.
+3. Assess status and process wording by the information it adds in context.
+   This applies to body text, headings, names, filenames, and version labels.
+   - Treat "verified," "reviewed," "approved," "adopted," "adapted," and
+     equivalents in other languages as review cues, not banned words or
+     interchangeable states. Omit a label that adds no useful distinction,
+     even when true or already clear from context. Prefer the subject or actual
+     change over a process label; do not replace one empty label with another.
+   - Retain distinctions needed for decisions, safe use, required approvals,
+     attribution, or legal obligations. Describe the supported fact at the
+     needed scope: a lockfile pin or presence on a branch does not by itself
+     establish review or approval. Omit version and branch wording too when
+     it serves no reader need.
+   - When status matters, check evidence for the relevant object and revision.
+     Make its basis clear at the precision readers need, such as who reviewed
+     what against which criteria, or the reference point or release channel
+     that defines "latest." Do not assert a status whose basis cannot be
+     established.
+     Do not turn a proposal, planned check, or pending approval into a completed
+     state, including in a pull request's proposed text. Review of an earlier
+     revision does not automatically cover later changes. State necessary
+     evidence gaps without inventing a result or expanding a prose edit into
+     approval of the work.
+   - When approval is required, make the approver clear unless the reader can
+     already identify them unambiguously from context. If that identity is
+     necessary but unknown, flag the gap rather than guessing or weakening the
+     approval requirement.
+4. Compare modifiers and their scope across parallel statements, including
+   component lists and installation steps. A lone "latest," "verified," or
+   "required" can imply an unintended difference or leave its application to
+   later items unclear. For a shared requirement, state the common scope clearly
+   or repeat the modifier where items need to stand alone. Make actual differences
+   explicit. Omit unnecessary modifiers instead of adding them everywhere for
+   superficial consistency. Preserve real compatibility constraints and literal
+   identifiers, tags, commands, and configuration values. Resolve a consequential
+   evidence gap with the factual owner instead of assuming either uniform or
+   different requirements.
+
+For examples, see [status and process wording](references/status-wording.md).
 
 ### Verify in context
 
@@ -134,5 +181,5 @@ When establishing repository-wide Markdown validation, copy
 comments and the rule baseline. Add a narrow override only for an evidenced
 generated, vendored, submodule, renderer, or document-format requirement, and
 document its reason beside the override. Prefer
-an owning Skill's reviewed derived configuration, such as `hugo-quality-check`,
+an owning Skill's derived configuration, such as `hugo-quality-check`,
 over recreating its exceptions. Use `github-actions-quality-check` for CI wiring.
