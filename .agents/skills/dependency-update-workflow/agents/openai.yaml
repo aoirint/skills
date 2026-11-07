@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dependency Update Workflow"
+  short_description: "Discover and assess cooldown-aware dependency updates"
+  default_prompt: "Use $dependency-update-workflow to inventory this repository's dependencies, compare suitable update candidates, and propose or apply only authorized changes with the relevant security and ecosystem checks."
