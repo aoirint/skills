@@ -47,7 +47,7 @@ apm update --global
 | [local-llm-workflow](.apm/skills/local-llm-workflow/README.md) | Use local LLMs, including multimodal variants, safely and efficiently while preferring direct agent work and simpler tools. |
 | [mise-workflow](.apm/skills/mise-workflow/README.md) | Manage reviewed mise tool pins, lockfiles, and consistent repository tasks. |
 | [node-quality-check](.apm/skills/node-quality-check/README.md) | Review pnpm-managed Node.js source, dependencies, runtime, CI, configuration, and validation changes. |
-| [prose-quality-check](.apm/skills/prose-quality-check/README.md) | Review explanatory prose for readability, self-contained context, and preserved nuance. |
+| [prose-quality-check](.apm/skills/prose-quality-check/README.md) | Review explanatory prose for readable structure, self-contained context, and preserved nuance. |
 | [python-quality-check](.apm/skills/python-quality-check/README.md) | Create and review strict, reproducible uv-managed Python projects. |
 | [release-note-workflow](.apm/skills/release-note-workflow/README.md) | Create, update, and review channel-specific release notes, and assess publication readiness. |
 | [rollout-workflow](.apm/skills/rollout-workflow/README.md) | Roll out a validated canonical change to compatible repositories. |
