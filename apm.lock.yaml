@@ -633,7 +633,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:b2cfd8bf9c3c7bd16cf86718877fa025396d15a380de88045122c4d162682cc2
+  content_hash: sha256:398fd9d399fbe979bae75b23c277e9b13fac6edd7bdbc645821fc60e9ac856ac
 - kind: project-relative
   target: codex
   value: .agents/skills/code-quality-check/SKILL.md
@@ -642,7 +642,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7415164c33885676d4b579db0560287762a5c2e0e25001dac0e848af1b6c10b0
+  content_hash: sha256:1a7897522ac360d9f5607f4fba3141e9745584c9fe3943d11bb7c0a9520659d4
 - kind: project-relative
   target: codex
   value: .agents/skills/code-quality-check/agents/openai.yaml
@@ -660,7 +660,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:f35ad2036a18151dc9dfef8a334989d2b88439478505cd5b047f0621dd613098
+  content_hash: sha256:51d42dc39ad47c4f3b908caa0b1fad8835acc516fc5ce6c917733dd410201342
 - kind: project-relative
   target: codex
   value: .agents/skills/commit-message-quality-check
@@ -813,7 +813,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:25cbfeff60f18fdafd54ae64ae1c62fd70632a07bade9362e156c82987dac30b
+  content_hash: sha256:e1486f65a56133bd07b061d1d7d25988246956a15e4c03bc3b416d2f88a5f1b3
 - kind: project-relative
   target: codex
   value: .agents/skills/domain-architecture-docs-workflow/SKILL.md
@@ -822,7 +822,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7f57b8223059bcb06e444d73437d14cf03ceea117ef2a4a32dec99d73b51de78
+  content_hash: sha256:3c8f3dd2846051b32cc9c671c6227ddb78187dd2da1793b6486d6ef9d7737830
 - kind: project-relative
   target: codex
   value: .agents/skills/domain-architecture-docs-workflow/agents/openai.yaml
@@ -2651,10 +2651,10 @@ local_deployed_file_hashes:
   .agents/skills/changelog-workflow/README.md: sha256:7ef8167d26522d95f62b9f11d752487d62b6bfdae05850315189fbe2a19fed83
   .agents/skills/changelog-workflow/SKILL.md: sha256:8d9de8e0e3c31c4a2c176a0d14e3f1a45daf3db364ede7dd86983c8c3f571f54
   .agents/skills/changelog-workflow/agents/openai.yaml: sha256:6264e6dbd0433ab63370e15033ecb94da8dd131c4edcb1d3f2b9abdeb4f680f1
-  .agents/skills/code-quality-check/README.md: sha256:b2cfd8bf9c3c7bd16cf86718877fa025396d15a380de88045122c4d162682cc2
-  .agents/skills/code-quality-check/SKILL.md: sha256:7415164c33885676d4b579db0560287762a5c2e0e25001dac0e848af1b6c10b0
+  .agents/skills/code-quality-check/README.md: sha256:398fd9d399fbe979bae75b23c277e9b13fac6edd7bdbc645821fc60e9ac856ac
+  .agents/skills/code-quality-check/SKILL.md: sha256:1a7897522ac360d9f5607f4fba3141e9745584c9fe3943d11bb7c0a9520659d4
   .agents/skills/code-quality-check/agents/openai.yaml: sha256:69a8a75579e3b47dc69a176417b97441adf81bc54984d3f6bc114e47a68bc9b3
-  .agents/skills/code-quality-check/references/avoiding-overengineering.md: sha256:f35ad2036a18151dc9dfef8a334989d2b88439478505cd5b047f0621dd613098
+  .agents/skills/code-quality-check/references/avoiding-overengineering.md: sha256:51d42dc39ad47c4f3b908caa0b1fad8835acc516fc5ce6c917733dd410201342
   .agents/skills/commit-message-quality-check/README.md: sha256:c23949080d05f47cce728410ca3190225397aa41ac2015c6f02ee478ec412a24
   .agents/skills/commit-message-quality-check/SKILL.md: sha256:cbe89b115e778b2417abf5fb15d98b2d1403c3ea0c99bf5ce9a0a65bef0cd6d7
   .agents/skills/commit-message-quality-check/agents/openai.yaml: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
@@ -2668,8 +2668,8 @@ local_deployed_file_hashes:
   .agents/skills/docker-quality-check/references/ci-template-contract.md: sha256:e9d1a4f0c2e472dbe18f062a968f79e10daf10a87fa54091edfaead7222749b9
   .agents/skills/docker-quality-check/references/registry-image-deletion.md: sha256:a02688f52be5fccef96a2f25a70451eb8c579a46aa21ce27ee57ebc3a3f71a7e
   .agents/skills/docker-quality-check/references/runtime-isolation-validation.md: sha256:7eaadd59b0db06e156e52013e1beafaef8eb04ea47954a8db6e577a224cd8e02
-  .agents/skills/domain-architecture-docs-workflow/README.md: sha256:25cbfeff60f18fdafd54ae64ae1c62fd70632a07bade9362e156c82987dac30b
-  .agents/skills/domain-architecture-docs-workflow/SKILL.md: sha256:7f57b8223059bcb06e444d73437d14cf03ceea117ef2a4a32dec99d73b51de78
+  .agents/skills/domain-architecture-docs-workflow/README.md: sha256:e1486f65a56133bd07b061d1d7d25988246956a15e4c03bc3b416d2f88a5f1b3
+  .agents/skills/domain-architecture-docs-workflow/SKILL.md: sha256:3c8f3dd2846051b32cc9c671c6227ddb78187dd2da1793b6486d6ef9d7737830
   .agents/skills/domain-architecture-docs-workflow/agents/openai.yaml: sha256:92810bc64095da4048cb1dd60630a03ec4eec9397aa88dcfcb4bd50ccbd14ee9
   .agents/skills/domain-architecture-docs-workflow/references/visual-documentation-assets.md: sha256:967e49ba1593e58753ff48c94394d0edcadfba55574151f91cf7679d6aa7b774
   .agents/skills/flet-project-quality-check/README.md: sha256:5fdc047f0235d83c9bb30a668f96f7a6b54c930bb997fc661dc209312e46e278

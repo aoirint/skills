@@ -33,7 +33,7 @@ apm update --global
 | [bws-workflow](.apm/skills/bws-workflow/README.md) | Use the Bitwarden Secrets Manager CLI safely with OS-backed access-token storage. |
 | [bepinex-mono-mod-quality-check](.apm/skills/bepinex-mono-mod-quality-check/README.md) | Review BepInEx Mono repositories for structure, family alignment, dependencies, CI, package readiness, release, and Thunderstore quality. |
 | [changelog-workflow](.apm/skills/changelog-workflow/README.md) | Maintain canonical developer changelogs and release history. |
-| [code-quality-check](.apm/skills/code-quality-check/README.md) | Review implementation changes for readability, maintainability, and verification. |
+| [code-quality-check](.apm/skills/code-quality-check/README.md) | Review implementation quality, verification, and evidence-backed migration or compatibility needs. |
 | [commit-message-quality-check](.apm/skills/commit-message-quality-check/README.md) | Draft and review accurate Conventional Commit messages. |
 | [docker-quality-check](.apm/skills/docker-quality-check/README.md) | Review Dockerfiles, Compose configurations, and container runtime changes. |
 | [flet-project-quality-check](.apm/skills/flet-project-quality-check/README.md) | Create and review production-quality Python Flet projects. |
@@ -53,7 +53,7 @@ apm update --global
 | [rollout-workflow](.apm/skills/rollout-workflow/README.md) | Roll out a validated canonical change to compatible repositories. |
 | [security-check](.apm/skills/security-check/README.md) | Review repository changes for practical security and supply-chain risks. |
 | [skill-quality-check](.apm/skills/skill-quality-check/README.md) | Review Agent Skills for clear triggers, focused scope, and validation readiness. |
-| [domain-architecture-docs-workflow](.apm/skills/domain-architecture-docs-workflow/README.md) | Design and maintain coherent software documentation systems. |
+| [domain-architecture-docs-workflow](.apm/skills/domain-architecture-docs-workflow/README.md) | Maintain coherent documentation and distinguish lasting guidance from one-time PR context. |
 | [test-quality-check](.apm/skills/test-quality-check/README.md) | Design focused tests, choose lasting regression evidence, and preserve required coverage without redundant cases. |
 | [unity-game-analyze](.apm/skills/unity-game-analyze/README.md) | Trace Unity game behavior through decompiled code and serialized assets. |
 | [wsl-workflow](.apm/skills/wsl-workflow/README.md) | Diagnose and configure reliable WSL environments, including persistent bindfs mounts. |
