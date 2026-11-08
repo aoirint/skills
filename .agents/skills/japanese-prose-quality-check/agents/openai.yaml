@@ -1,0 +1,4 @@
+interface:
+  display_name: "Japanese Prose Quality Check"
+  short_description: "Refine Japanese phrasing while preserving meaning"
+  default_prompt: "Use $japanese-prose-quality-check to revise this Japanese text for natural phrasing, clear grammatical relationships, appropriate register, and consistent notation."

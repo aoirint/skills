@@ -8,6 +8,9 @@ Remove unnecessary time dependencies and make useful time boundaries explicit in
 Omit redundant qualifiers and unintended differences between parallel statements
 while retaining distinctions readers need.
 
+The English [SKILL.md](SKILL.md) is the primary instruction text.
+[SKILL.ja.md](SKILL.ja.md) is its Japanese companion.
+
 ## Install
 
 ```shell

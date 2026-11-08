@@ -33,6 +33,13 @@ When adding or substantially changing a skill:
    materially revised skill, also run scenario-based validation and test any
    changed scripts with a representative invocation.
 
+## Language Editions
+
+English `SKILL.md` is the primary instruction text. Where a `SKILL.ja.md`
+companion exists, keep its meaning aligned when changing the primary text;
+retain identifiers and shared reference links rather than creating a separate
+skill or duplicating supporting resources.
+
 ## APM and Third-Party Content
 
 - This repository publishes APM-managed skills for OpenAI Codex. Keep the

@@ -44,6 +44,7 @@ apm update --global
 | [github-workflow](.apm/skills/github-workflow/README.md) | Manage GitHub repository settings and collaboration artifacts. |
 | [gitignore-workflow](.apm/skills/gitignore-workflow/README.md) | Create and maintain repository `.gitignore` rules. |
 | [hugo-quality-check](.apm/skills/hugo-quality-check/README.md) | Review pnpm-managed Hugo sites, local build assets, and CI. |
+| [japanese-prose-quality-check](.apm/skills/japanese-prose-quality-check/README.md) | Refine Japanese phrasing, grammatical relationships, register, and notation. |
 | [kopia-workflow](.apm/skills/kopia-workflow/README.md) | Design and operate verifiable Kopia backup repositories and replicas. |
 | [lethal-company-analyze](.apm/skills/lethal-company-analyze/README.md) | Investigate version-specific Lethal Company mechanics with reproducible evidence. |
 | [local-llm-workflow](.apm/skills/local-llm-workflow/README.md) | Use local LLMs, including multimodal variants, safely and efficiently while preferring direct agent work and simpler tools. |
