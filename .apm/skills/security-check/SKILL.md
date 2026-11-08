@@ -114,9 +114,9 @@ description: >-
 
 ## Private Resource Disclosure Boundary
 
-- Do not expose identifiers or existence-inference for a private resource in an
-  artifact that is public or could be published later. Treat uncertain destination
-  visibility as public for this check; current restricted access is not a lasting
+- Do not expose identifiers or information that reveals a private resource's
+  existence in an artifact that is public or could be published later. Treat
+  uncertain destination visibility as public for this check; current restricted access is not a lasting
   disclosure control.
 - Apply the boundary to the complete candidate and all attached, embedded, generated,
   and logged derivatives. Access controls on the private source do not make its name,
@@ -130,6 +130,8 @@ description: >-
   handoff channel.
 
 ## Supply-Chain Baseline
+
+### Review scope
 
 - For dependency adoption, updates, or vulnerability assessment, use
   [advisory-review.md](references/advisory-review.md) to identify trustworthy
@@ -157,6 +159,9 @@ description: >-
   lockfile, package manager, container image, generated artifact, or vendored
   bundle. Do not limit the review to direct dependency declarations when the
   resolved graph is available.
+
+### Adoption requirements
+
 - Require a minimum 7-day cooldown before adopting newly released third-party
   packages, downloaded binaries, CI actions, containers, or other external
   executable artifacts unless the user or maintainer explicitly approves an
@@ -170,25 +175,31 @@ description: >-
 - Verify release age and provenance from source-backed evidence such as package
   registry metadata, release pages, tags, changelogs, signed artifacts,
   lockfiles, upstream commit history, or maintained package-manager docs.
-- Apply this execution gate before selecting an installation or execution
-  command. It covers every mechanism that resolves, downloads, builds, loads,
-  or executes third-party code at run time, whether it is a package manager,
-  language runtime, plugin host, editor extension, archive installer, URL, or
-  a future tool not named here:
-  1. Use an existing project dependency only when its immutable resolution and
-     lockfile (including available integrity data) have already been reviewed.
-  2. Otherwise, stop execution and complete the adoption review first: record
-     canonical source and publisher, immutable version/commit or artifact
-     digest, release date and seven-day eligibility, resolved direct and
-     transitive dependencies, and runtime behavior.
-  3. Use only a command whose exact configuration demonstrably enforces the
-     required controls before it resolves or executes code. A differently
-     named runner, installer, mirror, cache, or flag is not an alternative
-     control.
-  4. Treat a maintainer exception as a documented decision about the specific
-     unmet gate only. It never waives provenance review, immutable pinning,
-     reviewer-visible reproducibility, or runtime-behavior review, and it
-     cannot be created by choosing another execution mechanism.
+
+### Execution gate
+
+Apply this gate before selecting an installation or execution command. It covers
+every mechanism that resolves, downloads, builds, loads, or executes third-party
+code at run time, whether it is a package manager, language runtime, plugin host,
+editor extension, archive installer, URL, or a future tool not named here.
+
+1. Use an existing project dependency only when its immutable resolution and
+   lockfile (including available integrity data) have already been reviewed.
+2. Otherwise, stop execution and complete the adoption review first: record
+   canonical source and publisher, immutable version/commit or artifact
+   digest, release date and seven-day eligibility, resolved direct and
+   transitive dependencies, and runtime behavior.
+3. Use only a command whose exact configuration demonstrably enforces the
+   required controls before it resolves or executes code. A differently
+   named runner, installer, mirror, cache, or flag is not an alternative
+   control.
+4. Treat a maintainer exception as a documented decision about the specific
+   unmet gate only. It never waives provenance review, immutable pinning,
+   reviewer-visible reproducibility, or runtime-behavior review, and it
+   cannot be created by choosing another execution mechanism.
+
+### Execution methods
+
 - Treat package runners as remote-code-execution paths until the exact command
   form is verified:
     - Confirm the package-manager version supports the needed cooldown or trust

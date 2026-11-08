@@ -101,9 +101,11 @@ informal list.
 3. Align modules and dependency direction.
    - Read [architecture-and-ui.md](references/architecture-and-ui.md) before changing source layout,
      UI state, event handlers, routing, controls, or async work.
-   - Keep entry/composition code small. Put framework-free domain/application policy behind ports,
-     presentation mapping and controllers in a Flet-free presentation layer, external effects in
-     infrastructure adapters, and only Flet control construction/update code in `ui`.
+   - Keep entry and composition code small. Place responsibilities in the appropriate layer:
+     - Framework-free domain/application policy behind ports.
+     - Presentation mapping and controllers in a Flet-free presentation layer.
+     - External effects in infrastructure adapters.
+     - Flet control construction and updates in `ui`, with no other responsibilities.
    - Use `entrypoints` and `composition` for startup and wiring; do not place a
      generic `app` package beside `application`. Keep `presentation` and `ui`
      distinct only when the former is Flet-free and the latter is the Flet

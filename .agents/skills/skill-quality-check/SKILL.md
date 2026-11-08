@@ -9,6 +9,11 @@ description: >-
 
 # Skill Quality Check
 
+## When to Use
+
+Use for skill authoring, maintenance, or review. Establish the requested scope
+before editing; a review does not itself authorize repairs or publication.
+
 ## Goals
 
 - Keep each skill focused on one reusable job with clear trigger boundaries.
@@ -30,133 +35,162 @@ description: >-
 
 ## Workflow
 
-1. Read the changed skill files, nearby related skills, and
-   [authoring best practices](references/authoring-best-practices.md) when the change affects
-   triggers, structure, resources, domain separation, or scenario validation.
-   For a collection audit or a review informed by historical usage, use the optional
-   [audit checklist](references/audit-checklist.md) to bound evidence and findings.
-2. Check description/body consistency before scenario validation:
-   - Compare the `description` trigger promise with the scope actually covered by `SKILL.md`.
-   - Reconcile any mismatch before treating scenario results as reliable.
-   - State whether adjacent scopes, such as publishing, deployment, or side-effecting operations,
-     are in scope, guidance-only, or require explicit confirmation.
-3. Check frontmatter:
-   - `name` uses lowercase letters, digits, and hyphens.
-   - When the skill has a clear target, put that target before the action or
-     workflow in `name` (for example, `lethal-company-analyze` or
-     `apm-workflow`).
-   - `description` uses the smallest capability-and-trigger statement that
-     reliably selects the skill.
-   - Move workflow details, supported variants, and boundaries that do not
-     change skill selection into the body or omit them.
-   - Trigger words are front-loaded enough to survive shortened skill lists.
-4. Check scope:
-   - One primary job per skill.
-   - No unrelated project policy, domain knowledge, or historical notes in a general-purpose skill.
-   - Split domain knowledge into a dedicated skill or a directly linked reference file when it would
-     otherwise make the skill broad or stale.
-   - Reference `security-check` instead of duplicating partial security or supply-chain
-     policy unless the target skill owns a narrower implementation detail.
-   - For a consolidation or retirement, make an explicit migration inventory before deleting
-     any source Skill. Map every retiring Skill's trigger promise, critical guardrails,
-     `agents/openai.yaml`, scripts, references, assets, README index row, and repository
-     references to its destination or removal rationale. Consolidate only when the resulting
-     Skill has one coherent coordinating job; otherwise retain or split the Skills.
-   - Preserve each supported entry scenario in the destination workflow, even when its detailed
-     instructions move to a directly linked reference. Search canonical sources, deployed copies,
-     documentation, and lock/deployment metadata for retired names; update intentional callers
-     and leave no stale public index row or resource path.
-5. Check structure:
-   - Prefer `When to Use`, `Goals`, and `Workflow` for Agent Skills.
-   - Keep required steps explicit, ordered, and written as imperatives.
-   - Match specificity to risk: flexible guidance for judgment-heavy work, exact commands or scripts
-     for fragile operations.
-   - Use `prose-quality-check` for explanatory prose. Preserve
-     skill-specific nuance such as trigger boundaries, scope, ordering, risk
-     level, and domain separation.
-6. Check progressive disclosure:
-   - Keep `SKILL.md` short enough to scan quickly.
-   - Link every optional reference directly from `SKILL.md`; avoid nested reference chains.
-   - Add a table of contents to reference files longer than 100 lines.
-   - Do not duplicate detailed guidance between `SKILL.md` and references.
-7. Check bundled resources:
-   - Include `scripts/` only for repeatable or fragile automation, and test representative scripts.
-   - Include `assets/` only for files used in outputs.
-   - Remove placeholder or auxiliary files that do not directly support the skill.
-   - Treat a `.template` extension as a semantic contract, not decoration. Keep it
-     only when a directly documented renderer, variable-substitution step, or
-     copy-and-transform contract consumes that file. Otherwise use the destination
-     extension and normalize equivalent assets together after inventorying callers,
-     deployed copies, and lock/deployment metadata.
-   - For a visual or rendered artifact, identify the editable canonical source, each committed
-     derivative, its consumer, and how the derivative is regenerated. Verify that every consumer
-     links to the intended representation.
-   - Keep transient previews and render intermediates out of tracked outputs. Retain a generated
-     binary only when it is required by a consumer or distribution target, and regenerate it when
-     its canonical source or rendering requirement changes.
-8. Check metadata alignment:
-   - Check the target repository and platform's metadata requirements. The general Skill format
-     permits optional `agents/openai.yaml`; this collection requires it unless the repository
-     records an explicit reason to omit app metadata for that skill.
-   - Check every changed skill folder. Under this collection's policy, create `agents/openai.yaml`
-     for new skills and treat a missing file without an explicit exception as a blocking gap,
-     not as an optional follow-up. Apply the target's policy when reviewing another repository.
-   - Keep `agents/openai.yaml` aligned with `SKILL.md` trigger wording, scope, and expected output.
-   - Include `interface.display_name`, `interface.short_description`, and
-     `interface.default_prompt` when creating app metadata.
-   - Update or remove metadata that no longer directly supports the skill.
-   - For a rename or retirement, preserve the migration inventory in step 4. For APM-managed
-     copies, use `apm-workflow`'s packaged local Skill migration procedure. Resolve that
-     companion from the available Skill catalog rather than assuming a sibling directory;
-     if unavailable, report the missing procedure and stop the managed migration.
-     General metadata optionality does not authorize leaving consumers, index rows, or
-     deployment records behind.
-9. Validate and iterate:
-   - Run the available skill validator, if the project has one.
-   - If the validator cannot start because a runtime dependency is unavailable,
-     do not skip it or modify the repository or user environment merely to
-     satisfy the check. Prefer an existing reviewed lockfile-backed environment.
-     Otherwise confirm the exact package that supplies the missing import and
-     run the validator in an isolated one-off uv environment with the seven-day
-     cutoff, for example:
+### Establish the review
 
-     ```shell
-     uv run --no-project --no-config --exclude-newer=P7D \
-       --with pyyaml -- python <validator-path> <skill-path>
-     ```
+Read the changed skill files, nearby related skills, and
+[authoring best practices](references/authoring-best-practices.md) when the change affects
+triggers, structure, resources, domain separation, or scenario validation.
+For a collection audit or a review informed by historical usage, use the optional
+[audit checklist](references/audit-checklist.md) to bound evidence and findings.
 
-     Apply `security-check` to any newly selected package, record the resolved
-     package version and command, and report a blocker only when the dependency
-     cannot pass the provenance, cooldown, or execution review.
-   - Run spelling, formatting, or project checks appropriate to Markdown-only changes.
-   - When the skill produces visual or rendered artifacts, validate them in every declared
-     consumer or renderer. Source syntax, file dimensions, and a local preview alone do not
-     establish compatibility or readability.
-   - For each new or substantially revised skill, prepare two or three realistic validation
-     scenarios before evaluation, including at least one median case and one edge or out-of-scope
-     case.
-   - When a target skill makes evidence-sensitive findings or changes external state, include an
-     evidence-complete scenario and an evidence-incomplete scenario. Require the evaluator to
-     distinguish observed facts, planned changes, post-change verification, approved exceptions,
-     and unavailable evidence; an unavailable source must not become an inferred pass.
-   - Score those scenarios against the supplied artifacts and checklist, not merely the executor's
-     confidence or self-reported completion. For a requested apply operation, require an explicit
-     requested-value record or request payload and a post-change read-back plan; for an audit-only
-     operation, require unavailable values to remain unverified.
-   - For a consolidation, include one scenario for every retired Skill's primary trigger plus a
-     hold-out scenario for the destination trigger. Treat a missing retained guardrail, resource,
-     disclosure, or verification step as a regression even if the new Skill's broad description
-     still selects.
-   - Give each scenario at least one critical requirement and evaluate with a fresh executor.
-   - Record unclear points, discretionary fill-ins, and repeated failure patterns.
-   - Apply one related theme of fixes per iteration.
-   - Stop only after convergence, divergence, or a stated resource cutoff. Treat convergence as two
-     consecutive rounds with no new unclear points and no meaningful accuracy or effort improvement.
-10. Record verification:
+### Check scope consistency
+
+- Compare the `description` trigger promise with the scope actually covered by `SKILL.md`.
+- Reconcile any mismatch before treating scenario results as reliable.
+- State whether adjacent scopes, such as publishing, deployment, or side-effecting operations,
+  are in scope, guidance-only, or require explicit confirmation.
+
+### Check frontmatter
+
+- `name` uses lowercase letters, digits, and hyphens.
+- When the skill has a clear target, put that target before the action or
+  workflow in `name` (for example, `lethal-company-analyze` or
+  `apm-workflow`).
+- `description` uses the smallest capability-and-trigger statement that
+  reliably selects the skill.
+- Move workflow details, supported variants, and boundaries that do not
+  change skill selection into the body or omit them.
+- Trigger words are front-loaded enough to survive shortened skill lists.
+
+### Check responsibilities
+
+- One primary job per skill.
+- No unrelated project policy, domain knowledge, or historical notes in a general-purpose skill.
+- Split domain knowledge into a dedicated skill or a directly linked reference file when it would
+  otherwise make the skill broad or stale.
+- Reference `security-check` instead of duplicating partial security or supply-chain
+  policy unless the target skill owns a narrower implementation detail.
+- For a consolidation or retirement, make an explicit migration inventory before deleting
+  any source Skill. Map every retiring Skill's trigger promise, critical guardrails,
+  `agents/openai.yaml`, scripts, references, assets, README index row, and repository
+  references to its destination or removal rationale. Consolidate only when the resulting
+  Skill has one coherent coordinating job; otherwise retain or split the Skills.
+- Preserve each supported entry scenario in the destination workflow, even when its detailed
+  instructions move to a directly linked reference. Search canonical sources, deployed copies,
+  documentation, and lock/deployment metadata for retired names; update intentional callers
+  and leave no stale public index row or resource path.
+
+### Check structure
+
+- Prefer `When to Use`, `Goals`, and `Workflow` for Agent Skills.
+- Keep required steps explicit, ordered, and written as imperatives.
+- Match specificity to risk: flexible guidance for judgment-heavy work, exact commands or scripts
+  for fragile operations.
+- Use `prose-quality-check` for the instructions as well as explanations.
+  Apply the relevant English or Japanese prose Skill to language-specific
+  phrasing. Preserve trigger boundaries, scope, ordering, risk levels, and
+  domain separation.
+
+### Check progressive disclosure
+
+- Keep `SKILL.md` short enough to scan quickly.
+- Link every optional reference directly from `SKILL.md`; avoid nested reference chains.
+- Add a table of contents to reference files longer than 100 lines.
+- Do not duplicate detailed guidance between `SKILL.md` and references.
+
+### Check resources
+
+- Include `scripts/` only for repeatable or fragile automation, and test representative scripts.
+- Include `assets/` only for files used in outputs.
+- Remove placeholder or auxiliary files that do not directly support the skill.
+- Treat a `.template` extension as a semantic contract, not decoration. Keep it
+  only when a directly documented renderer, variable-substitution step, or
+  copy-and-transform contract consumes that file. Otherwise use the destination
+  extension and normalize equivalent assets together after inventorying callers,
+  deployed copies, and lock/deployment metadata.
+- For a visual or rendered artifact, identify the editable canonical source, each committed
+  derivative, its consumer, and how the derivative is regenerated. Verify that every consumer
+  links to the intended representation.
+- Keep transient previews and render intermediates out of tracked outputs. Retain a generated
+  binary only when it is required by a consumer or distribution target, and regenerate it when
+  its canonical source or rendering requirement changes.
+
+### Check metadata
+
+- Check the target repository and platform's metadata requirements. The general Skill format
+  permits optional `agents/openai.yaml`; this collection requires it unless the repository
+  records an explicit reason to omit app metadata for that skill.
+- Check every changed skill folder. Under this collection's policy, create `agents/openai.yaml`
+  for new skills and treat a missing file without an explicit exception as a blocking gap,
+  not as an optional follow-up. Apply the target's policy when reviewing another repository.
+- Keep `agents/openai.yaml` aligned with `SKILL.md` trigger wording, scope, and expected output.
+- Include `interface.display_name`, `interface.short_description`, and
+  `interface.default_prompt` when creating app metadata.
+- Update or remove metadata that no longer directly supports the skill.
+- For a rename or retirement, preserve the inventory from
+  [Check responsibilities](#check-responsibilities). For APM-managed
+  copies, use `apm-workflow`'s packaged local Skill migration procedure. Resolve that
+  companion from the available Skill catalog rather than assuming a sibling directory;
+  if unavailable, report the missing procedure and stop the managed migration.
+  General metadata optionality does not authorize leaving consumers, index rows, or
+  deployment records behind.
+
+### Validate and iterate
+
+#### Run checks
+
+- Run the available skill validator, if the project has one.
+- If the validator cannot start because a runtime dependency is unavailable,
+  do not skip it or modify the repository or user environment merely to
+  satisfy the check. Prefer an existing reviewed lockfile-backed environment.
+  Otherwise confirm the exact package that supplies the missing import and
+  run the validator in an isolated one-off uv environment with the seven-day
+  cutoff, for example:
+
+  ```shell
+  uv run --no-project --no-config --exclude-newer=P7D \
+    --with pyyaml -- python <validator-path> <skill-path>
+  ```
+
+  Apply `security-check` to any newly selected package, record the resolved
+  package version and command, and report a blocker only when the dependency
+  cannot pass the provenance, cooldown, or execution review.
+- Run spelling, formatting, or project checks appropriate to Markdown-only changes.
+- When the skill produces visual or rendered artifacts, validate them in every declared
+  consumer or renderer. Source syntax, file dimensions, and a local preview alone do not
+  establish compatibility or readability.
+
+#### Define scenarios
+
+- For each new or substantially revised skill, prepare two or three realistic validation
+  scenarios before evaluation, including at least one median case and one edge or out-of-scope
+  case.
+- When a target skill makes evidence-sensitive findings or changes external state, include an
+  evidence-complete scenario and an evidence-incomplete scenario. Require the evaluator to
+  distinguish observed facts, planned changes, post-change verification, approved exceptions,
+  and unavailable evidence; an unavailable source must not become an inferred pass.
+- Score those scenarios against the supplied artifacts and checklist, not merely the executor's
+  confidence or self-reported completion. For a requested apply operation, require an explicit
+  requested-value record or request payload and a post-change read-back plan; for an audit-only
+  operation, require unavailable values to remain unverified.
+- For a consolidation, include one scenario for every retired Skill's primary trigger plus a
+  hold-out scenario for the destination trigger. Treat a missing retained guardrail, resource,
+  disclosure, or verification step as a regression even if the new Skill's broad description
+  still selects.
+
+#### Evaluate
+
+- Give each scenario at least one critical requirement and evaluate with a fresh executor.
+- Record unclear points, discretionary fill-ins, and repeated failure patterns.
+- Apply one related theme of fixes per iteration.
+- Stop only after convergence, divergence, or a stated resource cutoff. Treat convergence as two
+  consecutive rounds with no new unclear points and no meaningful accuracy or effort improvement.
+
+### Record verification
 
 - Note external sources consulted, why they were needed, and how their guidance was applied.
 - Note that each changed skill folder has `agents/openai.yaml`, or explain the repository policy
-     that intentionally omits it.
+  that intentionally omits it.
 - Note whether `security-check` was used for security-sensitive skill content.
 - Note whether docs, changelog, PR notes, or follow-up domain skills are needed.
 

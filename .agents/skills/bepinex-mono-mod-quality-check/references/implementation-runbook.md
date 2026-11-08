@@ -31,8 +31,8 @@ evidence ledger; it does not choose which baseline controls are optional.
    repository. A missing baseline item is a finding. Do not mark it optional
    because a predecessor repository did not use it.
 5. For `plan-only`, produce the same inventory, delta ledger when applicable,
-   and evidence ledger, label every
-   uninspected item `unverified`, and do not claim a check passed.
+   and evidence ledger. Label uninspected artifacts `unverified` and unavailable
+   prerequisite facts `blocked`; do not claim a check passed.
 
 ## 2. Evidence ledger
 
@@ -385,7 +385,8 @@ Use this exact order:
    every remaining target-specific difference and concrete reason.
 3. Evidence ledger, including every `blocked` fact and dependent blocked branch.
 4. Baseline inventory: `present`, `added`, `finding`, or `valid exception` for
-   every artifact in section 3.
+   every inspected artifact in section 3. Use `unverified` for unavailable
+   artifacts; missing audit inputs do not establish missing repository files.
 5. Files changed and synchronization paths verified.
 6. Verification matrix results: `passed`, `failed`, or `skipped` with the exact
    command/reason/risk.

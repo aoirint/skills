@@ -93,7 +93,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:fb363afd421212d2e19d7e7125e0a49224fbfc329f9f493ad175d055fafe06e6
+  content_hash: sha256:de702d4227b7e8b3c97b16a0cfa581e97560d6238f6884d85a7bd4453ae16f19
 - kind: project-relative
   target: codex
   value: .agents/skills/apm-workflow/references/collection-maintenance.md
@@ -426,7 +426,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:9ddfa8cd61174b4347bcbb62eac75f8f88dad9c3e8fdfc8f2e784284f913b55b
+  content_hash: sha256:e0a93024277390606bac7f3daa8a19eaf217dec63be104cbfe9799cc306943e7
 - kind: project-relative
   target: codex
   value: .agents/skills/bepinex-mono-mod-quality-check/references/package-and-release.md
@@ -489,7 +489,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:4f2487a316f35cebb6557eb65f248ebba974da1e55b8f7870c01be53941dd1cc
+  content_hash: sha256:31bc87e69a587fa651444261c75f98e108f8b44eace26780a59a6dff9a310b87
 - kind: project-relative
   target: codex
   value: .agents/skills/bepinex-mono-mod-quality-check/scripts/render_repository_files.ps1
@@ -570,7 +570,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:afeb7abc3d5e151b4aeefd07aa34591d2acbf23e9997d64771b6ad24e02a2e72
+  content_hash: sha256:e09ceae4db7f4e27d43dc78c4227f59515040873fe05442c803ac620ee37b118
 - kind: project-relative
   target: codex
   value: .agents/skills/bws-workflow/references/operations.md
@@ -606,7 +606,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:8d9de8e0e3c31c4a2c176a0d14e3f1a45daf3db364ede7dd86983c8c3f571f54
+  content_hash: sha256:11b7377743b69f8c3f23dbdc08228a350b375c601e4e8bb70625d822a30c8068
 - kind: project-relative
   target: codex
   value: .agents/skills/changelog-workflow/agents/openai.yaml
@@ -687,7 +687,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7b238a28221ed66fbbcdf22533403434f615eaed6a0153f5b94cbb290bb2c1cb
+  content_hash: sha256:adf084ea231bfd5c64e6476ff277bd9c87d35d37dfd74c2a5438a5087e94ad68
 - kind: project-relative
   target: codex
   value: .agents/skills/commit-message-quality-check/agents/openai.yaml
@@ -723,7 +723,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:84b37570890051fff15e91065b1435363f5279d16f64c3cf825e054712fcbdbd
+  content_hash: sha256:f0ccfde954a29b4c4aeb719a1fb624e1937dd0514799d9b60de2787957553f36
 - kind: project-relative
   target: codex
   value: .agents/skills/dependency-update-workflow/agents/openai.yaml
@@ -777,7 +777,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:79f0ed8a28953b33d52f524e927988434c0fd9da4e0a5ebe208aaa0124cc71c2
+  content_hash: sha256:010ef84119b7518b52c7b949c288228df85a43d01cdc638a1d39b9150e9aa4ec
 - kind: project-relative
   target: codex
   value: .agents/skills/development-environment-update-workflow/agents/openai.yaml
@@ -822,7 +822,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:85b24dafab008013de4edada0ab17defd1bd06ac879b3a0342648620b4e56cce
+  content_hash: sha256:50e77fa4e1e39ce14911397e5cc30c7cae6a6c1591be58082cc0bf0490fb38b8
 - kind: project-relative
   target: codex
   value: .agents/skills/docker-quality-check/agents/openai.yaml
@@ -921,7 +921,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:3c8f3dd2846051b32cc9c671c6227ddb78187dd2da1793b6486d6ef9d7737830
+  content_hash: sha256:4ecb54f845c58aa03e0c47fe23f916d4267d4c14cf09bb79d76caa761c1dcadf
 - kind: project-relative
   target: codex
   value: .agents/skills/domain-architecture-docs-workflow/agents/openai.yaml
@@ -1047,7 +1047,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:8035704fdc657041820a6bb78541dd417618e6ad20a4fa0fc50cbf118a549dd8
+  content_hash: sha256:35371318ce39569f3398005baf3a0b69aac8bf1024e9697b65cc2ef336e092a9
 - kind: project-relative
   target: codex
   value: .agents/skills/flet-project-quality-check/agents/openai.yaml
@@ -1452,7 +1452,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:e5f41a561cac0231275d8a5ac4042a70464362f2dee04a2df3ae3d2f5fd9b3ea
+  content_hash: sha256:6b36c61ba77b6b469e3ed52cedc162782816c875a035847de48e4f0ee61ea78f
 - kind: project-relative
   target: codex
   value: .agents/skills/hugo-quality-check/agents/openai.yaml
@@ -1578,7 +1578,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:25620b984f3adf55d23777c86a4069e262096a7861d244a833995bf55e3c322c
+  content_hash: sha256:a50a62c0addee1ec320eb267ce37238adcc051ad7e139bc88aa3db5b5989b079
 - kind: project-relative
   target: codex
   value: .agents/skills/kopia-workflow/agents/openai.yaml
@@ -1641,7 +1641,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:0e027f7df896d7a89b5945b9de00e0a17d514e8f9afa1e2fa6771eef1bfec3bb
+  content_hash: sha256:385dc81a8c1de6ef32bc87c2ac1425919e9f1722f5eff9d1d57ff1904b71d431
 - kind: project-relative
   target: codex
   value: .agents/skills/lethal-company-analyze/agents/openai.yaml
@@ -1722,7 +1722,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:8543fb7e91ea8f4066601a27354533f68832ab8de728df610ebc403a08a9a1df
+  content_hash: sha256:0096d095b81b8f9e0fb48b91dc123cbef0d70085fe8abee722e5cb5b95619688
 - kind: project-relative
   target: codex
   value: .agents/skills/local-llm-workflow/agents/openai.yaml
@@ -1866,7 +1866,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:5572235bf15dd222632ac1ef4f2952f4f34ee247486546534bba89bae386ea02
+  content_hash: sha256:5f6af9495c035fde6a8c609faedb2ca1f3ad046f80fe5f23320d589c0c53c0ee
 - kind: project-relative
   target: codex
   value: .agents/skills/mise-workflow/agents/openai.yaml
@@ -1920,7 +1920,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:f4c3d9a48a45233674792f3c71b08d94364af1a9ee8889196dcb4eb54b804fd7
+  content_hash: sha256:ba21dbf359aaae421f0075b39e9fe5850109d5f23ff52bc328a6ba369c3385b2
 - kind: project-relative
   target: codex
   value: .agents/skills/node-quality-check/agents/openai.yaml
@@ -2253,7 +2253,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:a87f837b9234cf7629609fa3a76b415cfc15eafea44064976221e9efbdafe643
+  content_hash: sha256:6f6863f0f12f401277273fe917c4edd9da59165b65716891c30ad90ca8230cfb
 - kind: project-relative
   target: codex
   value: .agents/skills/rollout-workflow/agents/openai.yaml
@@ -2289,7 +2289,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:0b919d18cd67918421bd9d4044968e28c5a795fb632c29e766db98f28ef4d522
+  content_hash: sha256:a8010fa59ddf9ae60d2eeaa5cc65901fad62bff42ceda88e3b9c708fc3178e5f
 - kind: project-relative
   target: codex
   value: .agents/skills/security-check/agents/openai.yaml
@@ -2361,7 +2361,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:f3dd96818ee486365475bcf349f30a76270a041d3bd71acefd0b43d2f10642ec
+  content_hash: sha256:94c9b18f790568a1004c545acbde958f147b46ffa7f4513624668e850e90ca7b
 - kind: project-relative
   target: codex
   value: .agents/skills/skill-quality-check/agents/openai.yaml
@@ -2550,7 +2550,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:2354b9094096a983c13d060e984bb43c2ae82311438366f441174b57a9ade2f9
+  content_hash: sha256:59daee8006b40df53122bb7ad2b7da8deff4969dcb1e0b0131bd0b2c58325923
 - kind: project-relative
   target: codex
   value: .agents/skills/wsl-workflow/agents/openai.yaml
@@ -2856,7 +2856,7 @@ local_deployed_file_hashes:
   .agents/skills/apm-workflow/references/apm-bootstrap.json: sha256:9112412627ced083e1e687d4b3623217af40cc3f815a2ce294e5e8d5aac1c331
   .agents/skills/apm-workflow/references/bootstrap-refresh.md: sha256:e12c66f02ca6b3b56d5679fe2f28b9c23d4ce060cf7f448204da40d7508c0e32
   .agents/skills/apm-workflow/references/cli-acquisition.md: sha256:9274eeaab5ea5d1c6e9ec015ee36a4dcc2dc3e8f2be8bcad3f5cdac5ebde3dd4
-  .agents/skills/apm-workflow/references/cli-selection.md: sha256:fb363afd421212d2e19d7e7125e0a49224fbfc329f9f493ad175d055fafe06e6
+  .agents/skills/apm-workflow/references/cli-selection.md: sha256:de702d4227b7e8b3c97b16a0cfa581e97560d6238f6884d85a7bd4453ae16f19
   .agents/skills/apm-workflow/references/collection-maintenance.md: sha256:e859dd72ea48ea0cad3108e3ca6ac6a4f6b15bb8af93b0e7f86b40c6a24fcb72
   .agents/skills/apm-workflow/references/completion.md: sha256:83ca37b3a24f5d57b374aa5d4d0ede40c9b7879ddb30ee88b1cb3a4f0dce513e
   .agents/skills/apm-workflow/references/dependency-deployment.md: sha256:e43aa1dbc4b786d016ff38f9af5c92341950104c1a0bd0fe9a8f52c29a2e1b65
@@ -2891,14 +2891,14 @@ local_deployed_file_hashes:
   .agents/skills/bepinex-mono-mod-quality-check/references/build-and-dependencies.md: sha256:1be15f1f89d001d2c54a09f7179ab7b645f72ccb22287808ce688af69c9708c9
   .agents/skills/bepinex-mono-mod-quality-check/references/canonical-templates.md: sha256:e3046c427577e8ecf4aef2350a791296f92afeecf92b355c418937084c6aac3f
   .agents/skills/bepinex-mono-mod-quality-check/references/guest-feature-authorization.md: sha256:a3fb62447f9cffb31b5f7ab767812d2c3a95998ff5154afe3cc357d02022d894
-  .agents/skills/bepinex-mono-mod-quality-check/references/implementation-runbook.md: sha256:9ddfa8cd61174b4347bcbb62eac75f8f88dad9c3e8fdfc8f2e784284f913b55b
+  .agents/skills/bepinex-mono-mod-quality-check/references/implementation-runbook.md: sha256:e0a93024277390606bac7f3daa8a19eaf217dec63be104cbfe9799cc306943e7
   .agents/skills/bepinex-mono-mod-quality-check/references/package-and-release.md: sha256:fb8e7167846326b42d8f545e3458d73f9b663c13fac501ef8f7530b364656009
   .agents/skills/bepinex-mono-mod-quality-check/references/project-and-plugin.md: sha256:10041ca8fd2fdeebf3525bc78502bf1cccf3ae776689826d383683e0cd4ee5b7
   .agents/skills/bepinex-mono-mod-quality-check/references/repository-contract.md: sha256:c91ab86fb9130c0e276a67099faef76d578a72eaf55a7b767642dd2c870efa44
   .agents/skills/bepinex-mono-mod-quality-check/references/repository-derived-baseline.md: sha256:deb53e7b5c7195e04fec49e0d1e362d584cffca0faa66955e32907bfc1438722
   .agents/skills/bepinex-mono-mod-quality-check/references/repository-family-alignment.md: sha256:8d88dfe1267a2aec93ad71d7b1ba4d5148c7d5ef148ee35d3cb90568f8ce6ba7
   .agents/skills/bepinex-mono-mod-quality-check/references/repository-quality-template.md: sha256:f8d0a50c0733b07f580520aaf20c80c654c8f6bf1129f929f2c3467720caa941
-  .agents/skills/bepinex-mono-mod-quality-check/references/verification-and-reporting.md: sha256:4f2487a316f35cebb6557eb65f248ebba974da1e55b8f7870c01be53941dd1cc
+  .agents/skills/bepinex-mono-mod-quality-check/references/verification-and-reporting.md: sha256:31bc87e69a587fa651444261c75f98e108f8b44eace26780a59a6dff9a310b87
   .agents/skills/bepinex-mono-mod-quality-check/scripts/render_repository_files.ps1: sha256:61c5ba3f6cdc0a53d2f293e9e0bf4621f274ae34c216d6c06a27a0b6ca6e6ca0
   .agents/skills/bepinex-mono-mod-quality-check/scripts/render_workflows.ps1: sha256:5b77364c3707d648e4b13f665e8a086af15c8afa077bbf5b7b155470aee6b220
   .agents/skills/bepinex-mono-mod-quality-check/scripts/sync_templates.ps1: sha256:15386224ed6d16041afb6008fc51a1735edc86dc4566aa3f573594392925ab70
@@ -2906,29 +2906,29 @@ local_deployed_file_hashes:
   .agents/skills/bws-workflow/README.md: sha256:d879aa83e9288261149cd9e3d897693f1a8d44d442a408d9d298e1483e0ad3f7
   .agents/skills/bws-workflow/SKILL.md: sha256:b322befebfc5ac74e82350543d638b9ab76db5f28083c85c3d8aaa100efa44f8
   .agents/skills/bws-workflow/agents/openai.yaml: sha256:6d4db5588dd3353d9bcc622302bbf3f6a52ff184781162673932282e41456488
-  .agents/skills/bws-workflow/references/credential-bridges.md: sha256:afeb7abc3d5e151b4aeefd07aa34591d2acbf23e9997d64771b6ad24e02a2e72
+  .agents/skills/bws-workflow/references/credential-bridges.md: sha256:e09ceae4db7f4e27d43dc78c4227f59515040873fe05442c803ac620ee37b118
   .agents/skills/bws-workflow/references/operations.md: sha256:c2200cd0c2f947524d0a3de326d0befc34e01871daf9280367e290c27ad3b198
   .agents/skills/changelog-workflow/README.md: sha256:7ef8167d26522d95f62b9f11d752487d62b6bfdae05850315189fbe2a19fed83
-  .agents/skills/changelog-workflow/SKILL.md: sha256:8d9de8e0e3c31c4a2c176a0d14e3f1a45daf3db364ede7dd86983c8c3f571f54
+  .agents/skills/changelog-workflow/SKILL.md: sha256:11b7377743b69f8c3f23dbdc08228a350b375c601e4e8bb70625d822a30c8068
   .agents/skills/changelog-workflow/agents/openai.yaml: sha256:6264e6dbd0433ab63370e15033ecb94da8dd131c4edcb1d3f2b9abdeb4f680f1
   .agents/skills/code-quality-check/README.md: sha256:398fd9d399fbe979bae75b23c277e9b13fac6edd7bdbc645821fc60e9ac856ac
   .agents/skills/code-quality-check/SKILL.md: sha256:1a7897522ac360d9f5607f4fba3141e9745584c9fe3943d11bb7c0a9520659d4
   .agents/skills/code-quality-check/agents/openai.yaml: sha256:69a8a75579e3b47dc69a176417b97441adf81bc54984d3f6bc114e47a68bc9b3
   .agents/skills/code-quality-check/references/avoiding-overengineering.md: sha256:51d42dc39ad47c4f3b908caa0b1fad8835acc516fc5ce6c917733dd410201342
   .agents/skills/commit-message-quality-check/README.md: sha256:c23949080d05f47cce728410ca3190225397aa41ac2015c6f02ee478ec412a24
-  .agents/skills/commit-message-quality-check/SKILL.md: sha256:7b238a28221ed66fbbcdf22533403434f615eaed6a0153f5b94cbb290bb2c1cb
+  .agents/skills/commit-message-quality-check/SKILL.md: sha256:adf084ea231bfd5c64e6476ff277bd9c87d35d37dfd74c2a5438a5087e94ad68
   .agents/skills/commit-message-quality-check/agents/openai.yaml: sha256:faffd948a0989dcfc87dcd3b0580c4a7003d01ef436e66dab9f280df57de652c
   .agents/skills/dependency-update-workflow/README.md: sha256:ad6f4443fe4ef70e46441715b67660dd32c548ab01ba007b78b77a5cce3c2e85
-  .agents/skills/dependency-update-workflow/SKILL.md: sha256:84b37570890051fff15e91065b1435363f5279d16f64c3cf825e054712fcbdbd
+  .agents/skills/dependency-update-workflow/SKILL.md: sha256:f0ccfde954a29b4c4aeb719a1fb624e1937dd0514799d9b60de2787957553f36
   .agents/skills/dependency-update-workflow/agents/openai.yaml: sha256:53ea8baf1f8b0d337571286b2d147e54abd41e24dd787781ba694dd9fabdca7b
   .agents/skills/dependency-update-workflow/references/candidate-evaluation.md: sha256:23296f2ed12f76b9f6bf9d26cea78052747ca17a8b91b4973dbd564b22cd24bc
   .agents/skills/dependency-update-workflow/references/repository-discovery.md: sha256:9a5ca568d72f46410e36cf8b542ff0db2935fbcde4eb8201c64acb70e7e9b5c1
   .agents/skills/development-environment-update-workflow/README.md: sha256:70f32971fb6920f345cfaaefc3c28f7886cc588f37ddd40dc42abdda1e51da62
-  .agents/skills/development-environment-update-workflow/SKILL.md: sha256:79f0ed8a28953b33d52f524e927988434c0fd9da4e0a5ebe208aaa0124cc71c2
+  .agents/skills/development-environment-update-workflow/SKILL.md: sha256:010ef84119b7518b52c7b949c288228df85a43d01cdc638a1d39b9150e9aa4ec
   .agents/skills/development-environment-update-workflow/agents/openai.yaml: sha256:82e01ae11a094de4a617550532b4af5605166616a7510f624cec41726c2fbf5c
   .agents/skills/development-environment-update-workflow/references/platform-discovery.md: sha256:745ba8380f934f42a415ebd2284bd94d736b899c3cbe7aa5de7b141555f26d90
   .agents/skills/docker-quality-check/README.md: sha256:912a73d3de06babc6eed1ecdaf275139ae465797083dc5427affb54d00c57bf0
-  .agents/skills/docker-quality-check/SKILL.md: sha256:85b24dafab008013de4edada0ab17defd1bd06ac879b3a0342648620b4e56cce
+  .agents/skills/docker-quality-check/SKILL.md: sha256:50e77fa4e1e39ce14911397e5cc30c7cae6a6c1591be58082cc0bf0490fb38b8
   .agents/skills/docker-quality-check/agents/openai.yaml: sha256:56a5f1b83f050b12555bbf85d1fd66c206016b8f939b79370e250b4e661cafd7
   .agents/skills/docker-quality-check/assets/github/actions/check-docker-source/action.yml: sha256:983ef785b2daf4b9f46fcf1416bbf39a12ae7d331f7347ceb33270e614a3eeb5
   .agents/skills/docker-quality-check/assets/github/workflows/main.yml: sha256:d18b2a7f7162779fcba2af1e4fc662a58f4a30856d1934482dc9668931b3e409
@@ -2938,7 +2938,7 @@ local_deployed_file_hashes:
   .agents/skills/docker-quality-check/references/registry-image-deletion.md: sha256:a02688f52be5fccef96a2f25a70451eb8c579a46aa21ce27ee57ebc3a3f71a7e
   .agents/skills/docker-quality-check/references/runtime-isolation-validation.md: sha256:7eaadd59b0db06e156e52013e1beafaef8eb04ea47954a8db6e577a224cd8e02
   .agents/skills/domain-architecture-docs-workflow/README.md: sha256:e1486f65a56133bd07b061d1d7d25988246956a15e4c03bc3b416d2f88a5f1b3
-  .agents/skills/domain-architecture-docs-workflow/SKILL.md: sha256:3c8f3dd2846051b32cc9c671c6227ddb78187dd2da1793b6486d6ef9d7737830
+  .agents/skills/domain-architecture-docs-workflow/SKILL.md: sha256:4ecb54f845c58aa03e0c47fe23f916d4267d4c14cf09bb79d76caa761c1dcadf
   .agents/skills/domain-architecture-docs-workflow/agents/openai.yaml: sha256:92810bc64095da4048cb1dd60630a03ec4eec9397aa88dcfcb4bd50ccbd14ee9
   .agents/skills/domain-architecture-docs-workflow/references/visual-documentation-assets.md: sha256:967e49ba1593e58753ff48c94394d0edcadfba55574151f91cf7679d6aa7b774
   .agents/skills/english-prose-quality-check/README.md: sha256:2e908b0e5929bba8880ef6677f1a0355015c4e6297b01c3db512a09bb59b4de9
@@ -2946,7 +2946,7 @@ local_deployed_file_hashes:
   .agents/skills/english-prose-quality-check/agents/openai.yaml: sha256:7b8e82ae9273120a65040cb42260433fd42b909daf15a4ebbb0e9324a10ca97e
   .agents/skills/english-prose-quality-check/references/writing-guides.md: sha256:4aa15e22be14610b3052bb6c772e6f57fb2013779b6d47a18f966235e903d9cb
   .agents/skills/flet-project-quality-check/README.md: sha256:5fdc047f0235d83c9bb30a668f96f7a6b54c930bb997fc661dc209312e46e278
-  .agents/skills/flet-project-quality-check/SKILL.md: sha256:8035704fdc657041820a6bb78541dd417618e6ad20a4fa0fc50cbf118a549dd8
+  .agents/skills/flet-project-quality-check/SKILL.md: sha256:35371318ce39569f3398005baf3a0b69aac8bf1024e9697b65cc2ef336e092a9
   .agents/skills/flet-project-quality-check/agents/openai.yaml: sha256:6b8a81074e807de9c50c9a510d47a9e658dd4bbda440aa9937c38ba140992e7d
   .agents/skills/flet-project-quality-check/assets/github/actions/check-python-flet-source/action.yml: sha256:f5afc74727c13806b484ee2b5c6b992ae40cd0538d2ef68fa89dd78226940039
   .agents/skills/flet-project-quality-check/assets/github/actions/test-python-flet-source/action.yml: sha256:166d0c6e0024ff19aea9bbb882873f87fa0326bae16737b0b1a72f6eb01df9a4
@@ -2986,7 +2986,7 @@ local_deployed_file_hashes:
   .agents/skills/gitignore-workflow/SKILL.md: sha256:2ef38f42e418c10e0ba7632e3ba37614df97044dfa8847ad1338e6c4c896c089
   .agents/skills/gitignore-workflow/agents/openai.yaml: sha256:f6a9b176003028588ff4c1d9ee4e23c625892d00b65086bf4b6b26a3f896030d
   .agents/skills/hugo-quality-check/README.md: sha256:23f5c71358d96a859ad1329c09aa505fcd2636c63dd0682c839d7676c510c837
-  .agents/skills/hugo-quality-check/SKILL.md: sha256:e5f41a561cac0231275d8a5ac4042a70464362f2dee04a2df3ae3d2f5fd9b3ea
+  .agents/skills/hugo-quality-check/SKILL.md: sha256:6b36c61ba77b6b469e3ed52cedc162782816c875a035847de48e4f0ee61ea78f
   .agents/skills/hugo-quality-check/agents/openai.yaml: sha256:d2657904dab491e06f399aa01b1d23014082bb1cbeaa07a69b74b75b749efd91
   .agents/skills/hugo-quality-check/assets/github/actions/check-hugo-site/action.yml: sha256:a38e44647c5a8a9ae3f7f018a97d021b89928eaf5a0bb77bd2f87610d813644b
   .agents/skills/hugo-quality-check/assets/markdownlint-cli2-content.yaml: sha256:6f08d9d37534c90303aaec67418e2b1764e892d45bf954897b73d099a247293a
@@ -2998,13 +2998,13 @@ local_deployed_file_hashes:
   .agents/skills/japanese-prose-quality-check/agents/openai.yaml: sha256:43a7514828996678f1fd59fb97edd3298e0c00a2ad84ff131488ba02206625b7
   .agents/skills/japanese-prose-quality-check/references/writing-guides.md: sha256:e3cf32de16c24e2d05c30ba36dac2450bdd87685bab1c961b53e971f9336f4bb
   .agents/skills/kopia-workflow/README.md: sha256:4b76a6e43f7d3a1a87c93e66d23b84ed4b4f1fde558ffd1b505e3b7b61d3a55f
-  .agents/skills/kopia-workflow/SKILL.md: sha256:25620b984f3adf55d23777c86a4069e262096a7861d244a833995bf55e3c322c
+  .agents/skills/kopia-workflow/SKILL.md: sha256:a50a62c0addee1ec320eb267ce37238adcc051ad7e139bc88aa3db5b5989b079
   .agents/skills/kopia-workflow/agents/openai.yaml: sha256:6f6a89a65e53ebea97b2731ff0098b4a04cb083522cae6503823cd09075009f2
   .agents/skills/kopia-workflow/references/credential-storage.md: sha256:5c5c7a04ff4fcd1bdc1083aebfef724c654507da461f16c0588ba832d85287ef
   .agents/skills/kopia-workflow/references/repository-lifecycle.md: sha256:7d4195e918d55b6c55b080470d9f73f1bc6ac02de40b3699c1a7912f5ff6c72f
   .agents/skills/kopia-workflow/references/s3-storage.md: sha256:98d4d5151f363f669fd0f348617ecc225d8e888c319d8d2872515e57d8fb8860
   .agents/skills/lethal-company-analyze/README.md: sha256:25274fc0d0155864c4e421d315a1b91d21cc203a4c75e25a740c17f04f9387d6
-  .agents/skills/lethal-company-analyze/SKILL.md: sha256:0e027f7df896d7a89b5945b9de00e0a17d514e8f9afa1e2fa6771eef1bfec3bb
+  .agents/skills/lethal-company-analyze/SKILL.md: sha256:385dc81a8c1de6ef32bc87c2ac1425919e9f1722f5eff9d1d57ff1904b71d431
   .agents/skills/lethal-company-analyze/agents/openai.yaml: sha256:fb80fc51dba972198601c2ec76805752f34a214bbd9a73d4bbdff7e8165ad0bf
   .agents/skills/lethal-company-analyze/references/efficient-full-enumeration.md: sha256:d63989945259eb66eb483fe979d51f795882a9d0c589bc06e59c7f0ce7e84bcb
   .agents/skills/lethal-company-analyze/references/evidence-policy.md: sha256:64af82c994a31ec2a9791342c85c53c44966af2b4ff6c9d8b779259604777b42
@@ -3012,7 +3012,7 @@ local_deployed_file_hashes:
   .agents/skills/lethal-company-analyze/references/reporting-and-review.md: sha256:b4b895fcec9c815489a8bba53b65cee02d3a58c51c8cc0670aa6ad7a41ff0582
   .agents/skills/lethal-company-analyze/references/rng-and-runtime-modeling.md: sha256:16bfd80e576715bf7a0248a095c412faea18cda034bc244189dcb729b7b7638b
   .agents/skills/local-llm-workflow/README.md: sha256:487bbc159417f5371b02ddf69c6b9875f72749144aed7f230d4ae785be0c83ce
-  .agents/skills/local-llm-workflow/SKILL.md: sha256:8543fb7e91ea8f4066601a27354533f68832ab8de728df610ebc403a08a9a1df
+  .agents/skills/local-llm-workflow/SKILL.md: sha256:0096d095b81b8f9e0fb48b91dc123cbef0d70085fe8abee722e5cb5b95619688
   .agents/skills/local-llm-workflow/agents/openai.yaml: sha256:c00234acb35b3fd7255721108b57f22db2db574ca58fd3942bce0ca31b88c579
   .agents/skills/local-llm-workflow/assets/migration-record.json: sha256:0565a7a71b8269186d91b086a12ae452819c83cc88e43dd6f0398dd9f29dbb03
   .agents/skills/local-llm-workflow/assets/offline-runner/Dockerfile: sha256:cd0b0b2c500951d4a98fbd25a43b7c3e2b1530043b3643567e66be75d33f2d25
@@ -3027,12 +3027,12 @@ local_deployed_file_hashes:
   .agents/skills/local-llm-workflow/scripts/run_reference_inference.py.lock: sha256:5dc1fbbf9770153d4c0cd8748869a0157291a839847c6a67b79f7a35a0064d78
   .agents/skills/local-llm-workflow/scripts/test_helpers.py: sha256:184d39fe71eabc66c261294041b2593b62d89e650e625b8e4caaa8eb36be2486
   .agents/skills/mise-workflow/README.md: sha256:e6d011fab3843ac986761ce88a2fb268790c00b29cd10f67712b32b50ee86070
-  .agents/skills/mise-workflow/SKILL.md: sha256:5572235bf15dd222632ac1ef4f2952f4f34ee247486546534bba89bae386ea02
+  .agents/skills/mise-workflow/SKILL.md: sha256:5f6af9495c035fde6a8c609faedb2ca1f3ad046f80fe5f23320d589c0c53c0ee
   .agents/skills/mise-workflow/agents/openai.yaml: sha256:f34cdf7e923b83842d6833bac07e64def1bf30271a3d8c428ae4df6d42012d4f
   .agents/skills/mise-workflow/references/task-conventions.md: sha256:8da7deeb67bcd922a34c9a6b395028bcec07cb68318b6f738b6e95515672d4c9
   .agents/skills/mise-workflow/references/tool-and-lock-management.md: sha256:6e5526ee636a4ec06ae2e0df04f7b9d0997e815742b6bd3cdf2d917546ad7aa0
   .agents/skills/node-quality-check/README.md: sha256:f87def599866d3cf6d4102a1ca80f28dcb827b51be47803c448e041ae9a125da
-  .agents/skills/node-quality-check/SKILL.md: sha256:f4c3d9a48a45233674792f3c71b08d94364af1a9ee8889196dcb4eb54b804fd7
+  .agents/skills/node-quality-check/SKILL.md: sha256:ba21dbf359aaae421f0075b39e9fe5850109d5f23ff52bc328a6ba369c3385b2
   .agents/skills/node-quality-check/agents/openai.yaml: sha256:81c5bd6e1b0fcb3d228bb7cef8c913a28d0849a02001d71ffd2edbc1f120e9e0
   .agents/skills/node-quality-check/assets/github/actions/check-node-source/action.yml: sha256:6a2736858dd950029c0682f164835f3fc81129bce5c4cd8dab5fb7a758e27d39
   .agents/skills/node-quality-check/assets/github/actions/setup-node-locked/action.yml: sha256:ee2b2734d0bee089eb570e416e2c02d9c958601a3065156b160b5ef830ef31b9
@@ -3065,17 +3065,17 @@ local_deployed_file_hashes:
   .agents/skills/release-note-workflow/SKILL.md: sha256:518296cb00d1ef181785ea8abd0150b9704b5cdd05a48fc0390284c548ef421c
   .agents/skills/release-note-workflow/agents/openai.yaml: sha256:30cfe7d4520783cfc8c72f5f81cc3e7a5708a5827e691f0003a665d89558fda0
   .agents/skills/rollout-workflow/README.md: sha256:0112ca12803eefba888d18c3f83def9ee5f139fe6cb763893f653e5979b97e97
-  .agents/skills/rollout-workflow/SKILL.md: sha256:a87f837b9234cf7629609fa3a76b415cfc15eafea44064976221e9efbdafe643
+  .agents/skills/rollout-workflow/SKILL.md: sha256:6f6863f0f12f401277273fe917c4edd9da59165b65716891c30ad90ca8230cfb
   .agents/skills/rollout-workflow/agents/openai.yaml: sha256:543a7befd986c51540ef35603fe63830f5032dc02b31f89e7f2179df3b3ca5dc
   .agents/skills/security-check/README.md: sha256:77d4bcc70596b8f4d215ab50ca009e6f325b322240bdd7c69348f4373cb1bc3d
-  .agents/skills/security-check/SKILL.md: sha256:0b919d18cd67918421bd9d4044968e28c5a795fb632c29e766db98f28ef4d522
+  .agents/skills/security-check/SKILL.md: sha256:a8010fa59ddf9ae60d2eeaa5cc65901fad62bff42ceda88e3b9c708fc3178e5f
   .agents/skills/security-check/agents/openai.yaml: sha256:6dc7863bcac5c5019b10945b3f4a7d0525f5611a12278b872d45954572ba2a13
   .agents/skills/security-check/references/advisory-review.md: sha256:bd01b017828ae75ca0baf126d20545669175dde84f8dd4d385cb701dbfc33dc9
   .agents/skills/security-check/references/artifact-inspection.md: sha256:9842555f4789e77e6cf3d22b000116497207ecf6fa5587f2b1fe0dc20e7dffda
   .agents/skills/security-check/references/distributed-software-licensing.md: sha256:dce7c9fbfe665eb875388ab732b63b0226a5fd4592b12a62c42b6d1372c0d025
   .agents/skills/security-check/references/external-code-execution.md: sha256:03d666ef02095acc8b6d5e03d1bb8378f8b38ce01c6f006d2f7934fcfb6bfe4b
   .agents/skills/skill-quality-check/README.md: sha256:f4ec14bdc1b75a3b13be6e1048ae803910e180e49bbcb1f8347630fc920212c9
-  .agents/skills/skill-quality-check/SKILL.md: sha256:f3dd96818ee486365475bcf349f30a76270a041d3bd71acefd0b43d2f10642ec
+  .agents/skills/skill-quality-check/SKILL.md: sha256:94c9b18f790568a1004c545acbde958f147b46ffa7f4513624668e850e90ca7b
   .agents/skills/skill-quality-check/agents/openai.yaml: sha256:dde624797ed750b9132f45378710cb6ea182a35705551b45d4b862bb6ce85805
   .agents/skills/skill-quality-check/references/audit-checklist.md: sha256:bbba7cd804e409ef314686c5966a914e013f4a603e92958e0a9ab6e259e4473a
   .agents/skills/skill-quality-check/references/authoring-best-practices.md: sha256:965060d76e935331b59cad13880c990fe0f6fd37ae7f077c1ac87c6f88ed0aed
@@ -3093,6 +3093,6 @@ local_deployed_file_hashes:
   .agents/skills/unity-game-analyze/scripts/inventory_build.py: sha256:73be044d98919c6e387ff779a8807beafb8d6bd22fca977e6b03d26debfbd706
   .agents/skills/unity-game-analyze/scripts/inventory_build.py.lock: sha256:76042d39ffdbb675188966b4fc41d312b0ec9374a7aa438d4f5e919adcf04c07
   .agents/skills/wsl-workflow/README.md: sha256:0cd3b816ff56b64c10481a38fb710c45606dc86502f34910ac8d4a6369b8bb85
-  .agents/skills/wsl-workflow/SKILL.md: sha256:2354b9094096a983c13d060e984bb43c2ae82311438366f441174b57a9ade2f9
+  .agents/skills/wsl-workflow/SKILL.md: sha256:59daee8006b40df53122bb7ad2b7da8deff4969dcb1e0b0131bd0b2c58325923
   .agents/skills/wsl-workflow/agents/openai.yaml: sha256:4e0d03a048d813dc699dbeca1303a0f30ad0fe8028f3c493ff75dbb3bd7bbe4f
   .agents/skills/wsl-workflow/references/bindfs-persistence.md: sha256:445dc197316cd89af887d250744d5b58e8f0e6d2b6fbc172c46bba4367a0e270

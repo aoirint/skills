@@ -37,6 +37,7 @@ dependency changes, not host installation or manager migration.
    existing update proposals, and local changes. Distinguish inventory-only,
    proposal-only, and apply requests. Preserve unrelated work and use the
    repository's isolated-worktree procedure for implementation.
+
    For a broad "update dependencies" request, inventory all applicable surfaces,
    not just application libraries. Propose a coherent scope from actual use,
    compatibility, and risk: routine compatible updates to the active project
