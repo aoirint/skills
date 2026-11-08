@@ -2001,7 +2001,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:7db257edd98956317b670363646882e01ed37161f9badc56f0fbd2c7623212f8
+  content_hash: sha256:217836cfff7a630869190a59cdf1a2ddc7ecfd66578fe33c8163d01416c5a0f6
 - kind: project-relative
   target: codex
   value: .agents/skills/prose-quality-check/SKILL.md
@@ -2010,7 +2010,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:533b1cc60cd2211bee81a0729d9860c1e03d8cfa02d6a393a74391593dbae163
+  content_hash: sha256:a53b5a64943229e73f7097419c66ab847bf44d4c98552a519493aef8ac61dc59
 - kind: project-relative
   target: codex
   value: .agents/skills/prose-quality-check/agents/openai.yaml
@@ -3040,8 +3040,8 @@ local_deployed_file_hashes:
   .agents/skills/node-quality-check/assets/pnpm-workspace.yaml: sha256:c2e65b05e43b96b835f138ce1bd7a1cd0d3bb7205d103dc427d837d5d5a0224a
   .agents/skills/node-quality-check/scripts/test_resolve_node_contract.sh: sha256:87b48e1444c2d78ab0f2c02057976879fa61ebc3ec9025fb2aaa6f21154a2748
   .agents/skills/prose-quality-check/README.md: sha256:a799be9d0af50e20a0862b251ddd40fb1e0c34265e16584ac7bd99433bac41e2
-  .agents/skills/prose-quality-check/SKILL.ja.md: sha256:7db257edd98956317b670363646882e01ed37161f9badc56f0fbd2c7623212f8
-  .agents/skills/prose-quality-check/SKILL.md: sha256:533b1cc60cd2211bee81a0729d9860c1e03d8cfa02d6a393a74391593dbae163
+  .agents/skills/prose-quality-check/SKILL.ja.md: sha256:217836cfff7a630869190a59cdf1a2ddc7ecfd66578fe33c8163d01416c5a0f6
+  .agents/skills/prose-quality-check/SKILL.md: sha256:a53b5a64943229e73f7097419c66ab847bf44d4c98552a519493aef8ac61dc59
   .agents/skills/prose-quality-check/agents/openai.yaml: sha256:a0abf6489b64a09c4322c23e453912ecdc88a3dcf1131ee39d2367e8a2d865e0
   .agents/skills/prose-quality-check/assets/markdownlint-cli2.yaml: sha256:1044e29915fe15e9083f808d1170c84cfc0b848123c0da435cabb9512d39c203
   .agents/skills/prose-quality-check/references/durable-context.md: sha256:027cc12a9d479890c4a6a88d223c619b2568370aeb6ff37fabb351af85f1dd28

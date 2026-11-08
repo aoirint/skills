@@ -39,7 +39,8 @@ For language-specific phrasing, also use `english-prose-quality-check` or
    Stop prose-only revision where ownership or evidence is disputed.
 2. Select information for the reader's task. Retain what supports understanding
    or sound decisions; omit or separate distracting material. Brevity alone is
-   not the goal. Apply the same test to references: keep those needed for
+   not the goal.
+3. Apply the same test to references: keep those needed for
    understanding, verification, practical use, or attribution. Do not add links
    merely because they were consulted during research. Be able to explain why
    the particular source fits that need, such as its authority on the specific
@@ -49,7 +50,7 @@ For language-specific phrasing, also use `english-prose-quality-check` or
    illustrative examples from authoritative documentation. Omit references that add no value
    for the reader, weighing optional references against link rot, content
    changes, access limits, and maintenance.
-3. Before editing prose intended for later independent use, read
+4. Before editing prose intended for later independent use, read
    [durable context](references/durable-context.md) for conversation references,
    dates, versions, and history. This includes documentation, comments, Skills,
    and saved handoffs. A wording request does not authorize new publication or
@@ -77,6 +78,10 @@ would obscure its meaning, and avoid fragmented prose or excessive nesting.
      Separate unrelated facts or independently actionable requirements. Related
      elements or supporting details may stay together; shorten or restructure
      an item when its length hides its point, not merely because it has several sentences.
+     Keep a short lead point visible; use a supporting paragraph for explanation
+     or subitems for genuinely subordinate choices or checks. If an item needs
+     several distinct discussions, consider a section rather than a miniature
+     document inside a bullet.
    - **List:** Check item count, comparability, and scanning effort. Remove
      redundancy or group meaningful categories when that helps. Keep a coherent
      list intact when it is easier to use, preserving required items and sequence.
@@ -89,9 +94,19 @@ would obscure its meaning, and avoid fragmented prose or excessive nesting.
      Split topics when readers need to find them separately; do not ban
      punctuation within terms or meaningful enumerations. Add a short qualifier
      only when it distinguishes otherwise similar headings.
-   - Prefer lists for enumerations, allowing inline wording when short and
-     natural or clearer in the local style. Use subheadings, paragraphs,
-     grouped bullets, or tables when they improve navigation or comparison.
+   - Use paragraphs for connected explanations and reasoning, lists for peer
+     items readers need to scan or act on, and headings for substantial topics
+     readers need to locate independently. Do not turn every sentence into a
+     bullet or every bullet into a subsection. Short enumerations can remain
+     inline when natural and clear.
+   - Number steps when sequence matters; use bullets when it does not. Nest
+     only where the child items depend on their parent, not merely to shorten
+     the top-level list. Group a long list by meaningful reader tasks or
+     categories, not arbitrary batches; keep a short coherent list flat.
+   - Put shared context or conditions in a clear lead-in instead of repeating
+     them in every item. Preserve their scope when splitting or moving items;
+     keep item-specific exceptions attached. Use a table when readers need to
+     compare the same attributes across items, not to contain long explanations.
 3. Separate rendering from source wrapping. Prefer sentence-per-line source
    wrapping within an existing paragraph when the format permits it and review
    becomes easier. It is not a paragraph break. Do not disrupt short prose,
