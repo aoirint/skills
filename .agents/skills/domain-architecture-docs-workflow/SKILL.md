@@ -13,8 +13,8 @@ description: >-
 
 # Domain and Architecture Documentation Workflow
 
-Build a documentation system that lets each reader find the applicable truth,
-understand its evidence and scope, and update it when the software changes.
+Build a documentation system that lets each reader find the applicable technical facts,
+understand their evidence and scope, and update it when the software changes.
 
 ## Contents
 

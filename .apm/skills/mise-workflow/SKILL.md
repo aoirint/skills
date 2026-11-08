@@ -87,6 +87,7 @@ child-process exposure boundary.
      not inherit the complete parent environment. Retrieve only required
      secrets, remove bootstrap credentials and identifiers, and re-enter the
      application task with only its declared values.
+
      Verify the exact syntax with the pinned mise version and inspect the final
      application process after every mise/config layer. If the denial cannot be
      demonstrated with a sentinel-variable probe, block the isolation claim.

@@ -23,8 +23,11 @@
    explicitly decided.
 4. Inventory `apm` on `PATH`, project-local copies, and locations reported by
    the current official installation documentation and the platform's command
-   resolver. Record each resolved executable and `--version`; path precedence
-   does not override cooldown eligibility.
+   resolver. Record each resolved path and available installation metadata first.
+   A `--version` probe executes code: run it only after the executable passes
+   the applicable provenance and execution gates in `security-check`. Leave
+   an unreviewed executable's version unverified rather than running it for
+   inventory. Path precedence does not override cooldown eligibility.
 
    Select the manifest version when it is already installed and invoke an
    off-PATH copy by absolute path. Do not modify PATH to satisfy one repository

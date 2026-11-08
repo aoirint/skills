@@ -27,6 +27,7 @@ and distinct from user-facing release notes.
 6. Source compatibility, support, environment, and migration claims. Mark unsourced claims as missing input or draft
    material; distinguish confirmed, best-effort, limited-check, and known-issue evidence. Group paired tools and
    dependencies with the product/version they qualify.
+
    When compatibility appears in multiple artifacts or peer repositories,
    inspect same-role entries before choosing wording. Preserve their hierarchy,
    dates, and reference links, but keep each destination in its established

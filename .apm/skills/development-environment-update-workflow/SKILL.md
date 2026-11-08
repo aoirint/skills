@@ -12,7 +12,9 @@ description: >-
 ## When to Use
 
 Use for developer-computer environment inventories, update proposals, authorized
-updates, and comparisons of existing versus alternative tool management.
+updates, and comparisons between the existing tool-management setup and
+alternatives.
+
 Maintain procedures for Windows 11 25H2 or later, plus Ubuntu 24.04 or later
 in WSL2 guests and native installations. These minima keep the maintained procedures focused;
 for a requested older OS, verify applicability separately rather than treating
@@ -62,6 +64,7 @@ compatibility inputs here; changing them requires an authorized repository scope
       reported version, and any competing installations or project selectors.
     - Representative consuming projects, supported runtime versions, global
       CLI packages, native extensions, and automation that depends on it.
+
    Inspect installed metadata and narrow configuration before invoking unknown
    binaries. A version probe can execute code; verify the execution path under
    `security-check` first. Avoid discovery commands that bootstrap tools,

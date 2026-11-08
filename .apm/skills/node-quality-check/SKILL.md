@@ -106,13 +106,17 @@ description: >-
    the smallest explicit substitution for its documented runtime source and validation
    command. Preserve frozen installation and replace the template's `main` only
    after confirming the repository's default branch.
+
    `node-quality-check` is the sole owner of the shared Node setup action and
    resolver. Other ecosystem Skills compose the installed local action instead
-   of carrying another editable copy. The source-check action accepts
+   of carrying another editable copy.
+
+   The source-check action accepts
    `package-directory` (default `.`); use it when those
    files live below the repository root. It reads `.node-version` and `packageManager`
    from that directory as the runtime and pnpm sources of truth, uses that directory's
    lockfile for caching by default, and removes only its `node_modules` before returning.
+
    Set optional `lockfile-path` only when a workspace shares a different repository-
    relative lockfile. For packages with different Node.js or pnpm versions, use one CI
    job per package and pass each job's `package-directory` and, when needed,

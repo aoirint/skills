@@ -36,7 +36,8 @@ that is already validated there; do not use rollout work to redesign it.
 
 ## Validate and publish
 
-1. Run the primary validation and each peer's applicable validation.
+1. Run the validation checks for the primary repository and the applicable
+   checks for each peer.
 2. Check Markdown links, whitespace, generated metadata, and repository status.
 3. Commit each peer as a focused rollout. Preserve existing history; do not
    amend or combine unrelated work.

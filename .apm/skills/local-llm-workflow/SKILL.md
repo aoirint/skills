@@ -32,7 +32,7 @@ prototyping. It does not prescribe a production architecture.
 
 ## Goals
 
-- Reach an evidence-backed adopt, reject, or investigate decision.
+- Decide whether to adopt, reject, or investigate further, based on evidence.
 - Minimize total workflow cost, including handoff, startup, validation, retries,
   memory, storage, network transfer, local compute, and reintegration.
 - Keep inputs, outputs, authority, failure handling, and acceptance tests
@@ -55,10 +55,11 @@ prototyping. It does not prescribe a production architecture.
 2. **Write the decision and evaluation contract.**
    - Record the use case, rejected simpler alternatives, input and output
      bounds, acceptance metrics and thresholds, uncertainty representation,
-     independent verifier, failure handling, and final decision-maker. Classify
-     retryable transient failures and fix the maximum attempts, backoff, and
-     resource budget before execution; schema, evidence, and semantic failures
-     must abstain or escalate instead of being resampled until they pass.
+     independent verifier, failure handling, and final decision-maker.
+   - Classify retryable transient failures and set the maximum attempts,
+     backoff, and resource budget before execution. If a schema, evidence, or
+     semantic check fails, abstain or escalate instead of resampling until
+     the check passes.
    - Include privacy, licensing, hardware, latency, throughput, memory, storage,
      deployment, and operational constraints that affect adoption.
    - Define one durable model store and download cache outside per-task,

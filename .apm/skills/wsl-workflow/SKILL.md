@@ -17,8 +17,8 @@ description: >-
 
 ## Workflow
 
-1. Establish the disclosure boundary before running any evidence command. If raw output would leave the authorized
-   private environment or enter a public/shared transcript, have the user capture it locally, sanitize it, and
+1. Establish the disclosure boundary before running any command to collect evidence. If raw output would leave the
+   authorized private environment or enter a public/shared transcript, have the user capture it locally, sanitize it, and
    provide only the minimum excerpt. Treat hostnames and system fingerprints as potentially private alongside paths
    and credentials. If a secret is already disclosed, stop further output, never repeat the value, and tell the user
    to revoke or rotate it through the owning service; editing or deleting the transcript is not sufficient
@@ -53,17 +53,8 @@ description: >-
      permissions.
    - Permissions: record `id`, source ownership, target ownership, mount options, and the effective process user. Do
      not assume UID/GID 1000.
-   - Performance: measure the same representative operation on the current filesystem and on the WSL Linux
-     filesystem. Keep tool versions, dependency state, and workload constant; do not diagnose from subjective speed
-     alone. Record the effective `.wslconfig` CPU, memory, and swap limits plus runtime evidence such as `nproc`,
-     `free`, `swapon --show`, and CPU/memory pressure during identical trials. Similar slowness or saturation in
-     both locations is not proof that a VM limit caused it. To attribute the problem to a configured limit, verify
-     the applied runtime ceiling, preserve the exact original `.wslconfig` content and relevant Windows metadata,
-     change only that limit with authorization, and use an authorized Windows-side controller. With confirmation,
-     run `wsl.exe --shutdown`. Wait until `wsl.exe --list --running` reports no distributions before restarting the
-     distribution, then verify the new ceiling and repeat the full DrvFs-versus-Linux-filesystem paired trial as a
-     counterfactual. Restore the original setting and repeat the full shutdown and ceiling verification after the
-     trial unless the user explicitly requests retaining the new limit.
+   - Performance: follow [Performance diagnosis](#performance-diagnosis) for paired
+     filesystem trials and authorized tests of VM resource limits.
 
    Redact credentials, tokens, usernames, private hostnames, and private paths before transmitting collected output
    or placing it in an artifact. Inspect `fstab` entries for inline credentials or credential-file locations before
@@ -98,19 +89,49 @@ results explicitly unverified. Do not present a hypothesis or proposed write as 
 - Use Windows paths through `wslpath` rather than manually translating complex paths.
 - Treat path case, executable bits, ownership, symlinks, and file-watcher behavior as filesystem-boundary concerns.
   Inspect the active filesystem and mount options before changing application settings.
-- When investigating slow builds or unreliable file watching below `/mnt/<drive>`, compare a disposable
-  Linux-filesystem copy of the same revision. Use identical lockfiles, tool versions, workloads, and watcher
-  settings; give each location separate dependencies, cache, and output directories; warm them identically; and run
-  repeated trials. Declare the acceptable timing variance and watcher correctness threshold before testing. If only
-  the Linux copy improves beyond that threshold, keep the project, dependencies, caches, and build output in the
-  Linux filesystem and let Windows tools access it through WSL integration. Use polling watchers only as a measured
-  fallback because they can increase load.
+- For slow builds or unreliable file watching below `/mnt/<drive>`, follow
+  [Performance diagnosis](#performance-diagnosis).
 - Keep generated files, credentials, and private keys on the side whose permission and backup model owns them. Never
   weaken permissions broadly merely to make Windows and Linux tools interoperate.
 - Confirm whether systemd is PID 1 before relying on units. To enable it on supported WSL versions, set
   `[boot] systemd=true` in `/etc/wsl.conf`, restart WSL completely, then verify with `systemctl status`.
 - Do not infer persistence from a successful manual command. Verify the configured startup mechanism after a new WSL
   boot.
+
+## Performance diagnosis
+
+### Compare filesystems
+
+For slow builds or unreliable file watching below `/mnt/<drive>`, compare the
+current tree with a disposable copy of the same revision on the WSL Linux filesystem.
+Keep lockfiles, tool versions, dependency state, workload, and watcher settings
+identical. Give each location separate dependencies, cache, and output directories;
+warm them identically and run repeated trials.
+
+Declare acceptable timing variance and a watcher correctness threshold before
+testing. If only the Linux copy improves beyond that threshold, keep the project,
+dependencies, caches, and build output in the Linux filesystem and let Windows
+tools access it through WSL integration. Use polling watchers only as a measured
+fallback because they can increase load. Do not diagnose from subjective speed alone.
+
+### Test resource limits
+
+Record the effective `.wslconfig` CPU, memory, and swap limits plus runtime evidence
+such as `nproc`, `free`, `swapon --show`, and CPU/memory pressure during identical
+trials. Similar slowness or saturation in both filesystem locations does not prove
+that a VM limit caused it.
+
+To test whether a configured limit caused the problem:
+
+1. Verify the applied runtime ceiling and preserve the exact original `.wslconfig`
+   content and relevant Windows metadata.
+2. Obtain authorization to change only that limit and use an authorized Windows-side
+   controller. With confirmation, run `wsl.exe --shutdown`.
+3. Wait until `wsl.exe --list --running` reports no distributions before restarting
+   the distribution. Verify the new ceiling, then repeat the full
+   DrvFs-versus-Linux-filesystem paired trial as a counterfactual.
+4. Restore the original setting and repeat the full shutdown and ceiling verification
+   after the trial, unless the user explicitly requests retaining the new limit.
 
 ## Persistent bindfs Mounts
 

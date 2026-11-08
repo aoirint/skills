@@ -160,6 +160,7 @@ automatic:
 ```bash
 with_bws_token() (
   set +x
+  unset BWS_ACCESS_TOKEN
   token="$(credential-get bitwarden-secrets-manager work-production)" || exit
   test -n "$token" || exit 1
   export BWS_ACCESS_TOKEN="$token"
@@ -171,16 +172,20 @@ with_bws_token secret list
 ```
 
 Replace `credential-get` with the reviewed local reader. Do not implement it as
-an alias containing a token.
+an alias containing a token. The subshell clears any inherited token before
+lookup; it does not change the caller's environment.
 
 In PowerShell, use a child scope and guaranteed cleanup:
 
 ```powershell
 & {
-    $token = & credential-get "Bitwarden Secrets Manager/work-production"
-    if ([string]::IsNullOrWhiteSpace($token)) { throw "Credential lookup failed." }
-
+    $token = $null
     try {
+        Remove-Item Env:\BWS_ACCESS_TOKEN -ErrorAction SilentlyContinue
+        $token = & credential-get "Bitwarden Secrets Manager/work-production"
+        if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($token)) {
+            throw "Credential lookup failed."
+        }
         $env:BWS_ACCESS_TOKEN = $token
         bws secret list
     }
@@ -190,6 +195,12 @@ In PowerShell, use a child scope and guaranteed cleanup:
     }
 }
 ```
+
+This example assumes `credential-get` is a native executable whose status is
+reported through `$LASTEXITCODE`. For a PowerShell function or cmdlet, use its
+terminating-error contract instead. Keep lookup and validation inside `try` so
+`finally` clears the token even when either fails. Environment variables are
+process-wide: a PowerShell child scope does not isolate them from the caller.
 
 Replace `credential-get` with the reviewed helper path. Keep errors free of
 secret-bearing stdout and captured values.

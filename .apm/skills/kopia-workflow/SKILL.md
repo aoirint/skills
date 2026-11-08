@@ -105,10 +105,11 @@ remote storage, or verification cost an invisible operational dependency.
    - Do not perform large remote real-read verification or restore sampling by
      default. It can consume substantial time, egress, request volume, and local
      space. Run it only after the user explicitly requests it or approves a
-     risk-justified proposal. Before every remote read, including one already
-     requested, state the exact snapshot and subset, expected transfer and
-     duration, local-space use, comparison method, and cleanup. Resolve any
-     undefined or materially changed bound with the user before execution.
+     risk-justified proposal.
+   - Before every remote read, including one already requested, state the exact
+     snapshot and subset, expected transfer and duration, local-space use,
+     comparison method, and cleanup. Resolve any undefined or materially
+     changed bound with the user before execution.
    - For restore-readiness tests, restore a named bounded subset to a separate
      location, compare expected files or hashes, then remove only the verified
      temporary target. Never restore over the source as a test.

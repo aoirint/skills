@@ -55,14 +55,18 @@ description: >-
    [runtime-isolation-validation.md](references/runtime-isolation-validation.md) and
    smoke-test the exact documented container arguments.
 7. Inventory third-party software copied, installed, linked, or otherwise distributed in
-   the final image. Put notices for the primary bundled application and other shipped
-   runtime content at the top of `THIRD_PARTY_NOTICES.md`, before build tools, CI Actions,
-   Agent Skills, or other development-only dependencies. For each primary bundled
-   application, record its source, bundled location, version source, and license. Verify
-   that required upstream license and notice files remain in the final image. Add a
-   README disclosure that names the application, version source, and license and links to
-   both `THIRD_PARTY_NOTICES.md` and upstream license information. Mark unavailable
-   version, license, or final-image evidence as unverified rather than inferring a pass.
+   the final image.
+   - Put notices for the primary bundled application and other shipped runtime content
+     at the top of `THIRD_PARTY_NOTICES.md`, before build tools, CI Actions, Agent Skills,
+     or other development-only dependencies.
+   - For each primary bundled application, record its source, bundled location,
+     version source, and license. Verify that required upstream license and notice
+     files remain in the final image.
+   - Add a README disclosure that names the application, version source, and license
+     and links to both `THIRD_PARTY_NOTICES.md` and upstream license information.
+
+   Mark unavailable version, license, or final-image evidence as unverified rather
+   than inferring a pass.
 8. For newly introduced or updated external images, downloaded executables, or GitHub
    Actions, use `security-check` to assess provenance, version or digest pinning,
    release age, checksums, permissions, and runtime behavior. Pin GitHub Actions to

@@ -31,7 +31,8 @@
 
 ## Report
 
-1. Report the result in this order: scope and evidence consulted; findings grouped by
-   structure/plugin/build/CI/package/runtime; checks passed or skipped; and remaining compatibility or release risks.
-   State every omitted baseline item and its concrete constraint; do not report a quality pass based only on an existing
-   repository convention.
+Use the [completion report](implementation-runbook.md#7-completion-report)
+order. Include the scope and evidence consulted, and group findings by
+structure, plugin, build, CI, package, or runtime within the relevant sections.
+State every omitted baseline item and its concrete constraint; do not report
+a quality pass based only on an existing repository convention.

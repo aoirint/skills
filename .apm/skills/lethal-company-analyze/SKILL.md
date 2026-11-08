@@ -51,12 +51,17 @@ description:
    schemas.
 5. Freeze analysis thresholds, binning, tie rules, sparse-cell fallbacks, folds, metrics, and uncertainty interpretation
    before inspecting production outcomes.
-6. For an item-pool or weighted-spawn comparison, contract separately: (a) the serialized-pool weight share, (b) the
-   effective normal-draw share after every proved deterministic filter, replacement, reroll, or weight adjustment, and
-   (c) each conditional-branch share. For each endpoint, name the eligible entries, code transformation, branch
-   predicate, and whether its branch rate is established. Do not blend conditional branches into a normal-draw result
-   without their target-build rate, and do not present any draw share as an actual per-round spawned-item rate unless
-   attempt count, placement/instantiation outcome, and the observation window are established.
+6. For an item-pool or weighted-spawn comparison, define separate contracts for:
+   - The serialized-pool weight share.
+   - The effective normal-draw share after every proved deterministic filter,
+     replacement, reroll, or weight adjustment.
+   - Each conditional-branch share.
+
+   For each endpoint, name the eligible entries, code transformation, branch
+   predicate, and whether its branch rate is established. Do not blend conditional
+   branches into a normal-draw result without their target-build rate. Do not present
+   any draw share as an actual per-round spawned-item rate unless attempt count,
+   placement/instantiation outcome, and the observation window are established.
 
 ## Compute reproducibly
 
@@ -81,15 +86,22 @@ description:
    atomically; validate reused parts semantically before including them in a new ordered root manifest.
 8. Freeze and mutation-test parsers, schemas, path guards, rare RNG branches, and phase barriers on isolated fixtures
    before starting an expensive complete-domain pass.
-9. When full item-level enumeration is infeasible, apply one frozen domain-separated selection rule consistently to
-   every declared comparison stratum. Share sampled population units across strata only when the comparison design
-   supports matched sampling, and disclose the assumption. Seal a hashed population-frame and sample-membership manifest
-   with canonical frame schema/encoding. Have the isolated verifier reconstruct the frame from frozen semantic/source
-   inputs, derive membership with the exact selection-rule encoding, namespace, tie, and replacement semantics, and read
-   neither production frame nor membership manifest until comparison. Then require frame-hash equality and bidirectional
-   membership set/multiset equality. Verify expected selected-unit and contribution counts per stratum and recompute
-   inclusion probabilities/weights for unequal-probability designs. Never downgrade a runtime-unknown endpoint into a
-   sampled "actual" endpoint.
+9. When full item-level enumeration is infeasible, use the following sampling procedure:
+   - Apply one frozen domain-separated selection rule consistently to every
+     declared comparison stratum. Share sampled population units across strata
+     only when the comparison design supports matched sampling, and disclose
+     the assumption.
+   - Seal a hashed population-frame and sample-membership manifest with canonical
+     frame schema/encoding.
+   - Have the isolated verifier reconstruct the frame from frozen semantic/source
+     inputs and derive membership with the exact selection-rule encoding,
+     namespace, tie, and replacement semantics. It must read neither the production
+     frame nor the membership manifest until comparison.
+   - Then require frame-hash equality and bidirectional membership set/multiset
+     equality. Verify expected selected-unit and contribution counts per stratum
+     and recompute inclusion probabilities/weights for unequal-probability designs.
+
+   Never downgrade a runtime-unknown endpoint into a sampled "actual" endpoint.
 10. Keep independent verification implementation-isolated: import no production computational or canonical-encoding
     modules, and share only frozen semantic/source inputs plus declarative contracts and schemas. Do not consume
     production-derived intermediates, canonical records, contingencies, reducer outputs, or digests until comparison
