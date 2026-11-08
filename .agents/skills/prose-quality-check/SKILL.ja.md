@@ -18,7 +18,8 @@ description: >-
 リポジトリ全体の文書構成、正本の管理、根拠、記述範囲、移行の判断には
 `domain-architecture-docs-workflow`を用い、その後で文章を整える。
 技術的な記述に根拠がなければ指摘し、表現の修正に紛れて内容を補正しない。
-日本語固有の表現や表記には、利用可能なら`japanese-prose-quality-check`も用いる。
+言語固有の表現には、対象の言語に応じて、利用可能なら
+`english-prose-quality-check`または`japanese-prose-quality-check`も用いる。
 
 ## 目的
 

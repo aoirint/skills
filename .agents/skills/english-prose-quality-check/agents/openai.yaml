@@ -1,0 +1,4 @@
+interface:
+  display_name: "English Prose Quality Check"
+  short_description: "Refine English phrasing while preserving meaning"
+  default_prompt: "Use $english-prose-quality-check to revise this English text for natural phrasing, clear grammar, appropriate register, and consistent usage."

@@ -20,8 +20,8 @@ and the task is to improve how the text communicates. Use
 canonical ownership, evidence, coverage, or migration decisions, then return
 here to refine the prose. Flag unsupported technical claims rather than
 silently repairing them through copyediting.
-For Japanese-specific phrasing and notation, also use
-`japanese-prose-quality-check` when available.
+For language-specific phrasing, also use `english-prose-quality-check` or
+`japanese-prose-quality-check` when available and applicable.
 
 ## Goals
 
