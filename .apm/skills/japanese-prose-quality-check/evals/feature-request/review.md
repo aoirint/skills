@@ -22,7 +22,7 @@
   The manual path is an alternative, not another standing caveat in the
   problem statement.
 - The first version of the completion criterion used a checkbox. The
-  published version states the same outcome as ordinary prose.
+  published version states the same outcome as an ordinary bullet, not a checkbox.
 
 ## Published excerpt
 
@@ -33,7 +33,7 @@ the editor packet keeps the earlier title for its comparison.
 ```text
 ## 課題
 
-GitHub Actions でイメージを公開していますが、[Docker Hub の説明文（Overview）](https://hub.docker.com/r/aoirint/ffmpeg) を変更するには、Docker Hub の画面で別途編集する必要があります。
+このリポジトリでは、Docker イメージを GitHub Actions で公開していますが、[Docker Hub の説明文（Overview）](https://hub.docker.com/r/aoirint/ffmpeg) を変更するには、Docker Hub の画面で別途編集する必要があります。
 
 ## 提案
 
@@ -41,9 +41,9 @@ GitHub Actions でイメージを公開していますが、[Docker Hub の説�
 
 ## 代替案
 
-リリース手順に、Docker Hub で説明文を手動更新する作業を追加する。
+1. リリース手順に、Docker Hub で説明文を手動更新する作業を追加する。
 
 ## 完了条件
 
-GitHub に取り込んだ説明文の変更が、Docker Hub の画面を操作しなくても公開 Overview に反映される。
+- GitHub に取り込んだ説明文の変更が、Docker Hub の画面を操作しなくても公開 Overview に反映される。
 ```

@@ -23,4 +23,5 @@ manage it as Markdown in GitHub and have GitHub Actions publish revisions.
 The manual alternative is to add that step to the release procedure. Success
 means the public description reflects an accepted revision without operating
 the Docker Hub UI. The local issue format uses 課題, 提案, 代替案, and 完了条件
-with the completion condition written as a sentence.
+with numbered alternatives and a regular bullet for the completion condition,
+not a checkbox.
