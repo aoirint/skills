@@ -1578,7 +1578,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:acf33093e23d3c3f95f1603aeedab56eef35053ea6a3d43206a7ba6dd539a65e
+  content_hash: sha256:4c84e94c0d456ff79bcd3cb853ad78b5c8b465016333a16fe9c4fb463dd9fa0f
 - kind: project-relative
   target: codex
   value: .agents/skills/japanese-prose-quality-check/evals/investigation-comment/input.md
@@ -3059,7 +3059,7 @@ local_deployed_file_hashes:
   .agents/skills/japanese-prose-quality-check/evals/README.md: sha256:042123af4fca3f07a5f6deecc50649776791facee8a4d3381ce5da90ce41ce2f
   .agents/skills/japanese-prose-quality-check/evals/evals.json: sha256:82eea3448844d18bcb681207b1b991afda48f5ced76924ae071cdaea477b0bad
   .agents/skills/japanese-prose-quality-check/evals/feature-request/input.md: sha256:ab0459493e6621b2e0115c5b5342484064dfc2a4d7e5d574e7a8562c4a6701d4
-  .agents/skills/japanese-prose-quality-check/evals/feature-request/review.md: sha256:acf33093e23d3c3f95f1603aeedab56eef35053ea6a3d43206a7ba6dd539a65e
+  .agents/skills/japanese-prose-quality-check/evals/feature-request/review.md: sha256:4c84e94c0d456ff79bcd3cb853ad78b5c8b465016333a16fe9c4fb463dd9fa0f
   .agents/skills/japanese-prose-quality-check/evals/investigation-comment/input.md: sha256:92d39cea1cbe29dee44e813d225b7fc2ca4021b4ea9a7bc07ea47c7bc1a2218b
   .agents/skills/japanese-prose-quality-check/evals/investigation-comment/review.md: sha256:0e256f18c534f3eec3b69a88a1ad76b5ad9f959ab469d77c6d26e6b16aa60e62
   .agents/skills/japanese-prose-quality-check/references/writing-guides.md: sha256:41af112d12e512cbde9d02e0d4d0af178125ef8016d369c551e0bd50afaa8293

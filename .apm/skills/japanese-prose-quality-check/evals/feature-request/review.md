@@ -27,8 +27,10 @@
 ## Published excerpt
 
 The following is the body of [the public issue](https://github.com/aoirint/ffmpeg-docker/issues/96)
-with the disclosure banner omitted. The issue title has since changed, while
-the editor packet keeps the earlier title for its comparison.
+with the disclosure banner and screenshot omitted. The editor packet keeps
+the earlier title for comparison.
+
+Published title: Docker Hub の Overview 更新を自動化したい
 
 ```text
 ## 課題
