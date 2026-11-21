@@ -5,6 +5,21 @@ Their numerical suggestions are contextual editorial heuristics, not universal
 limits or a basis for Japanese character caps. Apply semantic unity, audience,
 genre, navigation, and preservation of meaning before counts.
 
+## Shared background and findings
+
+[Google's audience guidance](https://developers.google.com/tech-writing/one/audience)
+asks writers to account for readers' existing knowledge and how closely they
+work with the subject. Use this to judge what can be treated as background
+without assuming that readers know what the investigation uncovered.
+
+The [University of Manchester's reporting examples](https://www.phrasebank.manchester.ac.uk/reporting-results/)
+illustrate how to connect an analysis to its result. Use this when the source
+of a finding helps the reader follow it. For example, use “The staging worker
+uses the shared queue” as established context, and “The staging configuration
+shows that failed jobs also return to the shared queue” when that is what the
+inspection uncovered. Do not repeat the inspection in every sentence. These
+examples are not rules for verb endings in another language.
+
 ## Sections
 
 [Microsoft's heading guidance](https://learn.microsoft.com/en-us/style-guide/scannable-content/headings)

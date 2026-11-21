@@ -2118,7 +2118,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:40264bc89a19402ef0b8eaf4401dbd8e8213612c47f600b5d9a79cdf5ec5415d
+  content_hash: sha256:d9c9c6fd26ed92c76050832df8ec76780d831e589fd035152a0e3337d321591f
 - kind: project-relative
   target: codex
   value: .agents/skills/python-quality-check
@@ -3113,7 +3113,7 @@ local_deployed_file_hashes:
   .agents/skills/prose-quality-check/references/durable-context.md: sha256:027cc12a9d479890c4a6a88d223c619b2568370aeb6ff37fabb351af85f1dd28
   .agents/skills/prose-quality-check/references/handoff-notes.md: sha256:15470b6bb5ad5ad5e618392d7ae1a3939c0c4e63b2f630196f3d4b6ca56c39f7
   .agents/skills/prose-quality-check/references/status-wording.md: sha256:6b1778b7da38392f493944751d75b2c1659efc307382874baeb2e3083f06db2c
-  .agents/skills/prose-quality-check/references/writing-guides.md: sha256:40264bc89a19402ef0b8eaf4401dbd8e8213612c47f600b5d9a79cdf5ec5415d
+  .agents/skills/prose-quality-check/references/writing-guides.md: sha256:d9c9c6fd26ed92c76050832df8ec76780d831e589fd035152a0e3337d321591f
   .agents/skills/python-quality-check/README.md: sha256:20a23003a24a8caf2f03dd5a06bed99c81cf93ab53fe5a196c6a67ab59c53b0e
   .agents/skills/python-quality-check/SKILL.md: sha256:f32a4b7f394e73c3d7ed56cd8c525cc679010573d8586776dbb54b1aff1c6491
   .agents/skills/python-quality-check/agents/openai.yaml: sha256:f0b4ad3807e177becec02271314fb32c1ec8d5a7682725ddd4a611a5381084d1
