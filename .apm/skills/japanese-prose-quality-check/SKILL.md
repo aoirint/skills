@@ -49,6 +49,17 @@ speaker's distinctive voice merely for uniformity.
   prenominal clauses, and repeated について／において when they obscure relationships;
   retain them when they express a useful distinction.
 
+- In reporting sentences, match the predicate to who did what. For example,
+  use 「ガイドでは設定手順が紹介されています」 for a guide's example and
+  「テストでは設定を変更しました」 for an action taken in a test.
+  Use 「旧版には記載されていました」 for a past state found in a snapshot,
+  or 「差分では項目が追加されていました」 for an addition found in a diff.
+  Use 「追加されました」 to report the event itself when it is established.
+- Use a connective such as 「が」 to join a report to a limitation or contrast
+  that changes how to read it. Do not join unrelated observations just to
+  avoid a sentence break. Identify speakers consistently by name or role
+  when attribution matters; do not vary the form merely for stylistic variety.
+
 ### Refine phrasing
 
 Prefer familiar verbs and concrete expressions over unnecessary nominalization,

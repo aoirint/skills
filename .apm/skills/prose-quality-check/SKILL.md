@@ -50,6 +50,11 @@ For language-specific phrasing, also use `english-prose-quality-check` or
    illustrative examples from authoritative documentation. Omit references that add no value
    for the reader, weighing optional references against link rot, content
    changes, access limits, and maintenance.
+   Put each source with the passage it supports: inline for a simple claim, or
+   immediately below the passage if links would interrupt the explanation. Use
+   descriptive labels. Link to the exact version, date, or revision when the
+   claim depends on it. Repeat identifiers in the text when needed for a
+   comparison or when the passage must stand on its own.
 4. Before editing prose intended for later independent use, read
    [durable context](references/durable-context.md) for conversation references,
    dates, versions, and history. This includes documentation, comments, Skills,
@@ -86,6 +91,11 @@ would obscure its meaning, and avoid fragmented prose or excessive nesting.
      redundancy or group meaningful categories when that helps. Keep a coherent
      list intact when it is easier to use, preserving required items and sequence.
 2. Choose the structure that helps the reader find and compare information.
+   - Order topics by what readers need to understand or decide, not by the
+     sequence of the investigation. Introduce a technical detail when its
+     purpose is clear. Keep related evidence and its consequence together;
+     retain chronology only when it explains a change or resolves an apparent
+     contradiction.
    - Use familiar section patterns suited to the genre; do not force a report
      template onto every document.
    - Use concise, content-descriptive headings in a written register unless
@@ -130,6 +140,15 @@ For the rationale and limits of external guidance, consult
      not transfer authority between projects. For example, describe the
      [Astral distributions used by uv](https://docs.astral.sh/uv/guides/install-python/)
      as Astral-published Python distributions, not official Python distributions.
+   - When several sources inform a claim, state what each establishes before
+     drawing a conclusion from them. A guide can describe or illustrate a
+     procedure; code shows what a particular implementation does. A test
+     supports a result in the tested environment; a report describes what
+     the reporter observed. Do not turn
+     an observed method into a requirement. A documentation change does not
+     itself establish a behavior change. Keep any inference at the narrowest
+     supported scope and identify the actor or source when that distinction
+     affects how the statement is read.
 2. Remove explanations or caveats that do not help readers act, decide, or
    understand. Prefer the current valid instruction when sufficient; do not
    narrate irrelevant rejected or legacy alternatives.
