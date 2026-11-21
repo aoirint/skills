@@ -46,9 +46,10 @@ stilted. Start from the point of the passage. Let a sentence pick up the
 topic or term the preceding sentence made available, then move the explanation
 forward. Omit a subject when the reader can carry it over; restore it at a
 change of actor or if the attribution matters. Choose a clause, sentence, or
-paragraph break according to the relationship, not a length rule. Use a
-connective when it expresses a real contrast or progression, not to glue
-unrelated observations together.
+paragraph break according to the relationship, not a length rule. Name that
+relationship when the passage feels stilted: does the next sentence answer a
+question, contrast with an observation, or describe an outcome? Choose the
+connective or break that lets the reader follow it without reconstructing it.
 
 Choose words that naturally go together in the intended register. Prefer a
 familiar verb to a translated or bureaucratic nominal phrase when the meaning

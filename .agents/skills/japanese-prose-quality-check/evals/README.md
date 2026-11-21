@@ -3,8 +3,10 @@
 These cases compare how instructions shape a rewrite, not whether an editor
 reproduces one preferred wording.
 
-1. Give a fresh editor one skill version and the case's `input.md` only.
-   Keep the prompt and material the same across versions.
+1. In [evals.json](evals.json), select a case. Give a fresh editor one skill
+   version, the prompt, and the listed input file only. Keep the prompt
+   and material the same across versions. Do not give the editor the
+   manifest, expected output, review notes, or example prose.
 2. Give an independent reader the packet and anonymized drafts. Reverse the order
    for a second reader when possible. Check the facts and constraints before
    comparing the writing. Record any consequential factual change separately.
@@ -19,6 +21,14 @@ template or a scoring key.
 
 - Investigation comment: [input](investigation-comment/input.md), [review](investigation-comment/review.md).
 - Feature request: [input](feature-request/input.md), [review](feature-request/review.md).
+
+Keep evals separate from normal use of the skill. If an editor can inspect
+the skill directory, test from a copy without its evals directory and
+supply the listed input files at the paths used in the prompt. Keep run
+outputs and comparisons outside the skill, in a sibling workspace.
+
+See the [Agent Skills evaluation guide](https://agentskills.io/skill-creation/evaluating-skills)
+for the case manifest and workspace layout.
 
 ## Comparable writing
 

@@ -103,9 +103,10 @@ would obscure its meaning, and avoid fragmented prose or excessive nesting.
    paragraphs; for a local edit, preserve the surrounding structure.
    - Order topics by what readers need to understand or decide, not by the
      sequence of the investigation. Introduce a technical detail when its
-     purpose is clear. Keep related evidence and its consequence together;
-     retain chronology only when it explains a change or resolves an apparent
-     contradiction.
+     purpose is clear. In a research report, give readers enough context to see
+     why the next piece of evidence belongs. Keep evidence and its consequence
+     together; retain chronology when it explains a change or resolves an
+     apparent contradiction.
    - Use an applicable local template or conventions from comparable documents.
      Do not force a report template onto every document.
    - Use concise, content-descriptive headings in a written register unless
