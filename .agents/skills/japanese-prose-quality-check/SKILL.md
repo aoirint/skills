@@ -48,7 +48,6 @@ speaker's distinctive voice merely for uniformity.
 - Use punctuation to reveal the intended groups. Reduce chains of の, long
   prenominal clauses, and repeated について／において when they obscure relationships;
   retain them when they express a useful distinction.
-
 - In reporting sentences, match the predicate to who did what. For example,
   use 「ガイドでは設定手順が紹介されています」 for a guide's example and
   「テストでは設定を変更しました」 for an action taken in a test.

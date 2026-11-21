@@ -1533,7 +1533,7 @@ deployments:
   owners:
   - .
   active_owner: .
-  content_hash: sha256:30ca2c8d4a54592ccd904e2cd0424bafc1692fbbc9b975f6844eb3cc18e2dda7
+  content_hash: sha256:ef5f4d975f969f9718df5b70df2b5276b6e32ed15e4e50f75830ef4d4337c711
 - kind: project-relative
   target: codex
   value: .agents/skills/japanese-prose-quality-check/agents/openai.yaml
@@ -2994,7 +2994,7 @@ local_deployed_file_hashes:
   .agents/skills/hugo-quality-check/references/hugo-build-contract.md: sha256:1ceb29b22d428be697d1be8d05c3ced4a22de96e5258253958d4f7adad3ef11e
   .agents/skills/hugo-quality-check/scripts/render_markdownlint_config.py: sha256:c19dfb6d8fb47ff3e5849778b230c828de7b488c0021a5d2a384ce351ac4e965
   .agents/skills/japanese-prose-quality-check/README.md: sha256:d590b2d775ac8cb9f8c114d56bff4c2d2374bf105619aebd4d7c7a480aa3e4a8
-  .agents/skills/japanese-prose-quality-check/SKILL.md: sha256:30ca2c8d4a54592ccd904e2cd0424bafc1692fbbc9b975f6844eb3cc18e2dda7
+  .agents/skills/japanese-prose-quality-check/SKILL.md: sha256:ef5f4d975f969f9718df5b70df2b5276b6e32ed15e4e50f75830ef4d4337c711
   .agents/skills/japanese-prose-quality-check/agents/openai.yaml: sha256:43a7514828996678f1fd59fb97edd3298e0c00a2ad84ff131488ba02206625b7
   .agents/skills/japanese-prose-quality-check/references/writing-guides.md: sha256:e3cf32de16c24e2d05c30ba36dac2450bdd87685bab1c961b53e971f9336f4bb
   .agents/skills/kopia-workflow/README.md: sha256:4b76a6e43f7d3a1a87c93e66d23b84ed4b4f1fde558ffd1b505e3b7b61d3a55f
