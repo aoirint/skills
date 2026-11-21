@@ -23,6 +23,12 @@ silently repairing them through copyediting.
 For language-specific phrasing, also use `english-prose-quality-check` or
 `japanese-prose-quality-check` when available and applicable.
 
+For genre conventions, use the owning skill when available:
+`github-workflow` for issues and pull requests, `changelog-workflow` for
+changelogs and release notes, and `domain-architecture-docs-workflow` for
+document ownership and runbook placement. Use applicable local templates
+without carrying their forms into other genres.
+
 ## Goals
 
 - Make prose easy to scan without flattening meaning or adding distractions.
@@ -37,6 +43,14 @@ For language-specific phrasing, also use `english-prose-quality-check` or
 1. Identify the audience, purpose, intended claim, factual source, and destination.
    Reuse supplied context; resolve only gaps that could change the edit.
    Stop prose-only revision where ownership or evidence is disputed.
+   Use the audience the user specifies. Otherwise infer the reader's role,
+   task, and familiarity with the subject from the destination, genre,
+   applicable templates, or comparable documents. Do not assume readers
+   share the writer's background. A public follow-up on your own issue may
+   be for project readers, not a note to yourself. If you are still unsure who
+   will read the text or what they already know, and it affects the explanation
+   or structure, ask one focused question. Proceed on a reasonable assumption
+   when the difference is minor.
 2. Select information for the reader's task. Retain what supports understanding
    or sound decisions; omit or separate distracting material. Brevity alone is
    not the goal.
@@ -50,6 +64,13 @@ For language-specific phrasing, also use `english-prose-quality-check` or
    illustrative examples from authoritative documentation. Omit references that add no value
    for the reader, weighing optional references against link rot, content
    changes, access limits, and maintenance.
+   Keep each source near the passage it supports. Link inline when that reads
+   naturally. In a short post on one topic, put a separate link after the text.
+   In a longer post on several topics, put separate links after the relevant
+   paragraph or section so they do not interrupt the explanation. Use
+   descriptive labels. Link to the exact version, date, or revision when the
+   claim depends on it. Repeat identifiers in the text when needed for a
+   comparison or when the passage must stand on its own.
 4. Before editing prose intended for later independent use, read
    [durable context](references/durable-context.md) for conversation references,
    dates, versions, and history. This includes documentation, comments, Skills,
@@ -85,9 +106,29 @@ would obscure its meaning, and avoid fragmented prose or excessive nesting.
    - **List:** Check item count, comparability, and scanning effort. Remove
      redundancy or group meaningful categories when that helps. Keep a coherent
      list intact when it is easier to use, preserving required items and sequence.
-2. Choose the structure that helps the reader find and compare information.
-   - Use familiar section patterns suited to the genre; do not force a report
-     template onto every document.
+2. Shape the document for its genre and the question the reader brings.
+   For a substantial revision, decide what the opening needs to establish,
+   how the topics build on one another, and which headings help readers get
+   their bearings. Work through that sequence before polishing individual
+   paragraphs; for a local edit, preserve the surrounding structure.
+   - Order topics by what readers need to understand or decide, not by the
+     sequence of the investigation. Introduce a technical detail when its
+     purpose is clear. In a research report, give readers enough context to see
+     why the next piece of evidence belongs. Keep evidence and its consequence
+     together; retain chronology when it explains a change or resolves an
+     apparent contradiction.
+   - Distinguish shared background from findings. If readers are unlikely to
+     know a fact uncovered in the investigation, present it as a finding. Name
+     what you checked and what it showed when that helps readers follow the
+     report. Treat shared background as background; do not announce it as a
+     discovery or repeat the same account of what was checked.
+   - Use an applicable local template or conventions from comparable documents.
+     Do not force a report template onto every document.
+   - In a discussion thread, keep related findings in one post when they can
+     be read together rather than sending a reply for each point. Use headings
+     if they help. If the details would overwhelm the thread, use a short
+     summary and link to a separate document, or follow the venue's long-form
+     conventions.
    - Use concise, content-descriptive headings in a written register unless
      the genre or requested style calls for another tone. Prefer one clear
      expression over overlapping topics such as "Background and Purpose."
@@ -130,6 +171,15 @@ For the rationale and limits of external guidance, consult
      not transfer authority between projects. For example, describe the
      [Astral distributions used by uv](https://docs.astral.sh/uv/guides/install-python/)
      as Astral-published Python distributions, not official Python distributions.
+   - When several sources inform a claim, state what each establishes before
+     drawing a conclusion from them. A guide can describe or illustrate a
+     procedure; code shows what a particular implementation does. A test
+     supports a result in the tested environment; a report describes what
+     the reporter observed. Do not turn
+     an observed method into a requirement. A documentation change does not
+     itself establish a behavior change. Keep any inference at the narrowest
+     supported scope and identify the actor or source when that distinction
+     affects how the statement is read.
 2. Remove explanations or caveats that do not help readers act, decide, or
    understand. Prefer the current valid instruction when sufficient; do not
    narrate irrelevant rejected or legacy alternatives.
@@ -181,7 +231,9 @@ For examples, see [status and process wording](references/status-wording.md).
 
 ### Verify in context
 
-1. Re-read the edited passage with review depth proportionate to scope and risk.
+1. Read the edited text straight through first. Check whether the opening,
+   headings, and transitions prepare the reader for what follows. Review at
+   a depth proportionate to scope and risk.
    Compare its destination, claim, and retained wording with the request.
    Confirm each section, paragraph, and list has a clear job and still conveys
    the supported meaning without unnecessary caveats or repeated context.

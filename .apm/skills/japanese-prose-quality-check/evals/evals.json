@@ -1,0 +1,21 @@
+{
+  "skill_name": "japanese-prose-quality-check",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Docker Hub の説明文を自動更新する方法について、evals/investigation-comment/input.md の調査コメントを推敲してください。保守担当者が今使える方法と API の経緯を追えるように、日本語で書き直してください。投稿は不要です。",
+      "expected_output": "保守担当者向けの自然な日本語の調査コメント。利用できる手段から読み進められ、公式ガイドの例、旧仕様からの記載削除、後年の別操作の非推奨を区別する。必要な出典と正確な操作表記を残す。",
+      "files": [
+        "evals/investigation-comment/input.md"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "evals/feature-request/input.md の機能要望を、保守担当者に伝わる日本語の Issue 本文に直してください。タイトルはそのまま、API の調査は別にしてください。",
+      "expected_output": "現状の課題、提案、代替案、確認できる完了条件を、入力のローカル形式に合わせて記した機能要望。技術調査や実装済みという主張を加えない。",
+      "files": [
+        "evals/feature-request/input.md"
+      ]
+    }
+  ]
+}
