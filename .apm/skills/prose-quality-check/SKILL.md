@@ -43,6 +43,14 @@ without carrying their forms into other genres.
 1. Identify the audience, purpose, intended claim, factual source, and destination.
    Reuse supplied context; resolve only gaps that could change the edit.
    Stop prose-only revision where ownership or evidence is disputed.
+   Use the audience the user specifies. Otherwise infer the reader's role,
+   task, and familiarity with the subject from the destination, genre,
+   applicable templates, or comparable documents. Do not assume readers
+   share the writer's background. A public follow-up on your own issue may
+   be for project readers, not a note to yourself. If you are still unsure who
+   will read the text or what they already know, and it affects the explanation
+   or structure, ask one focused question. Proceed on a reasonable assumption
+   when the difference is minor.
 2. Select information for the reader's task. Retain what supports understanding
    or sound decisions; omit or separate distracting material. Brevity alone is
    not the goal.

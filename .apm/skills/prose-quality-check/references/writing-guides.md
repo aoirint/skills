@@ -12,6 +12,11 @@ asks writers to account for readers' existing knowledge and how closely they
 work with the subject. Use this to judge what can be treated as background
 without assuming that readers know what the investigation uncovered.
 
+[Nature Education's audience and purpose guide](https://www.nature.com/scitable/topicpage/audience-and-purpose-13952663/)
+distinguishes immediate recipients from people who will read the document
+later without its original context. Consider those readers when the venue and
+purpose make them likely; do not add an introduction to every public reply.
+
 The [University of Manchester's reporting examples](https://www.phrasebank.manchester.ac.uk/reporting-results/)
 illustrate how to connect an analysis to its result. Use this when the source
 of a finding helps the reader follow it. For example, use “The staging worker
