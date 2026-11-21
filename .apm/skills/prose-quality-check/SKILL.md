@@ -107,6 +107,11 @@ would obscure its meaning, and avoid fragmented prose or excessive nesting.
      why the next piece of evidence belongs. Keep evidence and its consequence
      together; retain chronology when it explains a change or resolves an
      apparent contradiction.
+   - Distinguish shared background from findings. If readers are unlikely to
+     know a fact uncovered in the investigation, present it as a finding. Name
+     what you checked and what it showed when that helps readers follow the
+     report. Treat shared background as background; do not announce it as a
+     discovery or repeat the same account of what was checked.
    - Use an applicable local template or conventions from comparable documents.
      Do not force a report template onto every document.
    - Use concise, content-descriptive headings in a written register unless

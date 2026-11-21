@@ -61,6 +61,10 @@ The notes identify what the wording does, not why every edit was made.
   separately. The PATCH definition disappeared in August 2022, the
   introduction initially stayed, and the introduction changed in November
   2023. The dates belong to different edits, not to service retirement.
+  For the March 2022 commit, the wording moved from 「追加されました」 to
+  「追加されていました」. The point is not the ending itself: it makes an
+  obscure fact read as something found in the investigation, rather than
+  background the reader was expected to know.
 
 ## Published excerpts
 

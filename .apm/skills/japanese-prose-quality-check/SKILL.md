@@ -54,8 +54,12 @@ connective or break that lets the reader follow it without reconstructing it.
 Choose words that naturally go together in the intended register. Prefer a
 familiar verb to a translated or bureaucratic nominal phrase when the meaning
 is the same. In source-based writing, choose a predicate that fits what the
-source does: 「ガイドでは設定手順が紹介されています」 for an example,
-「差分では項目が追加されていました」 for a finding from the diff.
+source does: 「ガイドでは設定手順が紹介されています」 fits a guide that gives
+an example. Also consider what the reader already knows. 「設定項目が追加されました」
+can state shared background; 「差分では設定項目が追加されていました」 presents
+what the writer found in a diff. Neither ending is reserved for a particular
+speaker.
+
 Retain literal product names and commands. Follow the project's conventions
 for spelling, numbers, punctuation, and spacing rather than applying a
 universal width or notation rule.
