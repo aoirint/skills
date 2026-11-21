@@ -23,6 +23,12 @@ silently repairing them through copyediting.
 For language-specific phrasing, also use `english-prose-quality-check` or
 `japanese-prose-quality-check` when available and applicable.
 
+For genre conventions, use the owning skill when available:
+`github-workflow` for issues and pull requests, `changelog-workflow` for
+changelogs and release notes, and `domain-architecture-docs-workflow` for
+document ownership and runbook placement. Use applicable local templates
+without carrying their forms into other genres.
+
 ## Goals
 
 - Make prose easy to scan without flattening meaning or adding distractions.
@@ -90,14 +96,18 @@ would obscure its meaning, and avoid fragmented prose or excessive nesting.
    - **List:** Check item count, comparability, and scanning effort. Remove
      redundancy or group meaningful categories when that helps. Keep a coherent
      list intact when it is easier to use, preserving required items and sequence.
-2. Choose the structure that helps the reader find and compare information.
+2. Shape the document for its genre and the question the reader brings.
+   For a substantial revision, decide what the opening needs to establish,
+   how the topics build on one another, and which headings help readers get
+   their bearings. Work through that sequence before polishing individual
+   paragraphs; for a local edit, preserve the surrounding structure.
    - Order topics by what readers need to understand or decide, not by the
      sequence of the investigation. Introduce a technical detail when its
      purpose is clear. Keep related evidence and its consequence together;
      retain chronology only when it explains a change or resolves an apparent
      contradiction.
-   - Use familiar section patterns suited to the genre; do not force a report
-     template onto every document.
+   - Use an applicable local template or conventions from comparable documents.
+     Do not force a report template onto every document.
    - Use concise, content-descriptive headings in a written register unless
      the genre or requested style calls for another tone. Prefer one clear
      expression over overlapping topics such as "Background and Purpose."
@@ -200,7 +210,9 @@ For examples, see [status and process wording](references/status-wording.md).
 
 ### Verify in context
 
-1. Re-read the edited passage with review depth proportionate to scope and risk.
+1. Read the edited text straight through first. Check whether the opening,
+   headings, and transitions prepare the reader for what follows. Review at
+   a depth proportionate to scope and risk.
    Compare its destination, claim, and retained wording with the request.
    Confirm each section, paragraph, and list has a clear job and still conveys
    the supported meaning without unnecessary caveats or repeated context.
