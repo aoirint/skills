@@ -25,6 +25,24 @@ shows that failed jobs also return to the shared queue” when that is what the
 inspection uncovered. Do not repeat the inspection in every sentence. These
 examples are not rules for verb endings in another language.
 
+## Link placement in discussion posts
+
+[Massachusetts's social media accessibility guide](https://accessibility.mass.gov/training/social#hyperlinks)
+puts separate links at the end of a social post: readers can skip a long link
+without also skipping any text that follows. The
+[University of Dundee's web guide](https://www.dundee.ac.uk/guides/writing-link-text-websites#position-links-where-it-helps-the-reader)
+suggests placing a link at the end of a sentence or below the paragraph it
+relates to. These are examples from different formats, not rules for GitHub
+issues. Use them to place links at a natural stopping point.
+
+[Flarum's community guidelines](https://discuss.flarum.org/d/859-flarum-community-guidelines)
+ask contributors to avoid several posts in a row when one will do.
+[GitHub's pull request review guide](https://docs.github.com/en/pull-requests/how-tos/review-pull-requests/commenting-on-a-pull-request)
+explains that batching inline review feedback avoids multiple notifications.
+That is specific to pull request reviews. In a discussion, group work that
+belongs together; keep separate replies when the venue or conversation calls for
+them. Use `github-workflow` for GitHub-specific editing and posting conventions.
+
 ## Sections
 
 [Microsoft's heading guidance](https://learn.microsoft.com/en-us/style-guide/scannable-content/headings)

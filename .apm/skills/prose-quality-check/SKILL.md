@@ -64,8 +64,10 @@ without carrying their forms into other genres.
    illustrative examples from authoritative documentation. Omit references that add no value
    for the reader, weighing optional references against link rot, content
    changes, access limits, and maintenance.
-   Put each source with the passage it supports: inline for a simple claim, or
-   immediately below the passage if links would interrupt the explanation. Use
+   Keep each source near the passage it supports. Link inline when that reads
+   naturally. In a short post on one topic, put a separate link after the text.
+   In a longer post on several topics, put separate links after the relevant
+   paragraph or section so they do not interrupt the explanation. Use
    descriptive labels. Link to the exact version, date, or revision when the
    claim depends on it. Repeat identifiers in the text when needed for a
    comparison or when the passage must stand on its own.
@@ -122,6 +124,11 @@ would obscure its meaning, and avoid fragmented prose or excessive nesting.
      discovery or repeat the same account of what was checked.
    - Use an applicable local template or conventions from comparable documents.
      Do not force a report template onto every document.
+   - In a discussion thread, keep related findings in one post when they can
+     be read together rather than sending a reply for each point. Use headings
+     if they help. If the details would overwhelm the thread, use a short
+     summary and link to a separate document, or follow the venue's long-form
+     conventions.
    - Use concise, content-descriptive headings in a written register unless
      the genre or requested style calls for another tone. Prefer one clear
      expression over overlapping topics such as "Background and Purpose."
