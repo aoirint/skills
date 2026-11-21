@@ -33,7 +33,7 @@ the editor packet keeps the earlier title for its comparison.
 ```text
 ## 課題
 
-このリポジトリでは、Docker イメージを GitHub Actions で公開していますが、[Docker Hub の説明文（Overview）](https://hub.docker.com/r/aoirint/ffmpeg) を変更するには、Docker Hub の画面で別途編集する必要があります。
+このリポジトリでは、Docker イメージを GitHub Actions で Docker Hub に公開していますが、[Docker Hub の説明文（Overview）](https://hub.docker.com/r/aoirint/ffmpeg) を変更するには、Docker Hub の画面で別途編集する必要があります。
 
 ## 提案
 
